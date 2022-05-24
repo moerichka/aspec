@@ -10,7 +10,7 @@ import { houseCardMap } from "../../helpers/htmlElementMap";
 
 const HouseCardGrid = (props) => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const [windowWidth, setWindowWidth] = useState(1920);
+  const [windowWidth, setWindowWidth] = useState(window.screen.width);
 
   useEffect(() => {
     window.addEventListener("resize", function () {

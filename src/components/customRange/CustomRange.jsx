@@ -1,5 +1,6 @@
 import React from "react";
 import "./customRange.css";
+import PropsTypes from "prop-types"
 import { Range, getTrackBackground } from "react-range";
 
 function CustomRange(propsCustom) {
@@ -14,13 +15,13 @@ function CustomRange(propsCustom) {
     >
       <div className="customRange__info">
         <div className="customRange__from">
-          от
+          {propsCustom.withText ? `от` : ``}
           <span className="customRange__price">
             {propsCustom?.oneThumb ? MIN : values[0]}
           </span>
         </div>
         <div className="customRange__to">
-          до
+        {propsCustom.withText ? `до` : ``}
           <span className="customRange__price">
             {propsCustom?.oneThumb ? MAX : values[1]}
           </span>
@@ -99,6 +100,10 @@ function CustomRange(propsCustom) {
       />
     </div>
   );
+}
+
+CustomRange.defaultProps = {
+  withText: true
 }
 
 export default CustomRange;

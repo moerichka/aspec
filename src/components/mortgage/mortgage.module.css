@@ -1,47 +1,457 @@
-.container{
+.mortgage {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
     max-width: 1772px;
     width: 100%;
     padding: 0 47px;
 }
 
-.innercontainer{
+.innercontainer {
     background-color: var(--light-blue-card-bg);
     width: 100%;
-    min-height: 813px;
+    /* min-height: 813px; */
     border-radius: 5px;
     display: flex;
     justify-content: center;
     padding: 93px 0;
 }
 
-.innerinnercontainer{
+.innerinnercontainer {
     display: flex;
     flex-direction: column;
     gap: 39px;
 }
 
-.contentwrapper{
+.contentwrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 20px;
     width: 100%;
 }
 
-.inputs{
+.inputs {
+    display: flex;
+    flex-direction: column;
     max-width: 625px;
     width: 100%;
+    gap: 31px;
 }
 
-.inputcard{
+.inputcard {
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
-.inputswrapper{
+.inputswrapper {
     display: flex;
     flex-direction: row;
     width: 100%;
-    gap: 20px;
+    gap: 44px;
     justify-content: space-between;
+}
+
+.inputswrapper * {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.inputtext {
+    padding: 19px 0 18px 20px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    max-width: 231px;
+    width: 100%;
+}
+
+.withpercetnage {
+    position: relative;
+    width: 100%;
+    max-width: 231px;
+}
+
+.percentage {
+    padding-right: 48px;
+}
+
+.withpercetnage::after {
+    position: absolute;
+    content: "20%";
+    width: 47px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    color: var(--light-gray-text);
+}
+
+.checkboxes {
+    margin-top: 7px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 16px;
+    column-gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.cbWrapper {
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+    line-height: 15px;
+    color: var(--black-text);
+}
+
+.checkbox {
+    text-align: center;
+    display: none;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+}
+
+.checkboxLabel {
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+}
+
+.checkboxLabel::before {
+    font-family: "icomoon";
+    width: 22px;
+    height: 22px;
+    content: " ";
+    vertical-align: middle;
+    color: var(--green);
+    background-color: var(--white);
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 14px;
+    text-indent: 0px;
+    cursor: pointer;
+    border-image: initial;
+    font-size: 8px;
+    padding-top: 3px;
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    bottom: 1px;
+}
+
+.checkbox:checked+.checkboxLabel::before {
+    content: "\e900";
+}
+
+/* bank */
+
+.banks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    row-gap: 32px;
+    column-gap: 28px;
+}
+
+.bankcard {
+    width: 100%;
+    max-width: 290px;
+    min-height: 100%;
+    height: min-content;
+    background: var(--white);
+    border-radius: 5px;
+    padding: 13px 22px 18px 26px;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    height: 36px;
+    width: 36px;
+}
+
+.title {
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+}
+
+.middle {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.middleelem {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    line-height: 26px;
+    color: var(--dark-gray-text);
+}
+
+.middletitle {}
+
+.middlevalue {}
+
+.bold {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Montserrat-SemiBold;
+    color: var(--black-text);
+}
+
+.bottom {
+    margin-top: 5px;
+    font-size: 13px;
+    line-height: 26px;
+}
+
+@media (max-width: 1425px) {
+    .inputs {
+        max-width: 510px;
+    }
+
+    .inputswrapper {
+        gap: 11px;
+    }
+
+    .inputtext {
+        max-width: 209px;
+    }
+
+    .withpercetnage {
+        max-width: 209px;
+    }
+
+    .checkboxes {
+        justify-content: unset;
+        column-gap: 40px;
+    }
+}
+
+@media (max-width: 1306px) {
+    .innercontainer {
+        padding-top: 54px;
+        padding-bottom: 0;
+    }
+
+    .inputs {
+        padding-bottom: 70px;
+        gap: 20px;
+    }
+
+    .banks {
+        grid-template-columns: 1fr;
+        margin-top: 24px;
+        max-height: 547px;
+        min-width: 278px;
+        gap: 10px;
+        overflow-y: auto;
+        position: relative;
+        margin-right: 40px;
+    }
+
+    .banks::after {
+        position: sticky;
+        content: "";
+        bottom: 0px;
+        margin-top: auto;
+        left: 0px;
+        width: 100%;
+        height: 0px;
+        box-shadow: 1px -1px 40px 36px var(--light-blue-card-bg);
+    }
+}
+
+@media (max-width: 1080px) {
+    .innerinnercontainer {
+        gap: 27px;
+    }
+
+    .banks {
+        margin-right: 0px;
+        min-width: 278px;
+    }
+
+    .inputtext {
+        font-size: 15px;
+    }
+
+    .inputswrapper>* {
+        max-height: 54px;
+    }
+
+    .inputswrapper * {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .withpercetnage::after {
+        padding-top: 6px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .firstcb {
+        order: 1;
+    }
+
+    .secondcb {
+        order: 3;
+    }
+
+    .thirdcb {
+        order: 2;
+    }
+}
+
+@media (max-width: 940px) {
+    .banks {
+        margin-top: 24px;
+        max-height: 617px;
+    }
+
+    .inputswrapper>* {
+        max-height: 53px;
+    }
+
+    .inputswrapper:not(.term) {
+        flex-direction: column;
+    }
+
+    .inputswrapper:not(.term) .inputtext {
+        max-width: 100%;
+    }
+
+    .withpercetnage {
+        max-width: 100%;
+    }
+
+    .inputtext {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .checkboxLabel {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .checkboxes {
+        column-gap: 18px;
+        row-gap: 8px;
+    }
+
+
+    .checkbox {
+        width: 18px;
+        height: 18px;
+    }
+
+    .checkboxLabel::before {
+        width: 18px;
+        height: 18px;
+        padding-top: 2px;
+        margin-right: 8px;
+    }
+
+    .inputswrapper * {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .withpercetnage::after {
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 760px) {
+    .banks {
+        max-height: 632px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .contentwrapper {
+        gap: 30px;
+    }
+
+    .inputs {
+        padding: 0;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .innerinnercontainer {
+        gap: 10px;
+        padding: 0 16px;
+    }
+
+    .contentwrapper {
+        flex-direction: column;
+    }
+
+    .banks {
+        grid-template-columns: 1fr 1fr;
+        max-height: 570px;
+        margin: 0 auto;
+    }
+
+    .banks::after {
+        width: 200%;
+    }
+
+    .inputtitle {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 510px) {
+    .innercontainer {
+        padding-top: 30px;
+    }
+
+    .banks {
+        grid-template-columns: 1fr;
+        max-height: 570px;
+        margin: 0 auto;
+    }
+
+    .contentwrapper button {
+        align-self: center;
+    }
+    .checkboxes{
+        margin: 0;
+    }
 }

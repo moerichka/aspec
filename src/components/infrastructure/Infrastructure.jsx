@@ -17,7 +17,7 @@ import Transportpink from "../../assets/images/transportpink.svg";
 
 function Infrastructure(props) {
   const [data, setData] = useState(props?.project);
-  const [windowWidth, setWindowWidth] = useState(1920);
+  const [windowWidth, setWindowWidth] = useState(window.screen.width);
   const [isLegendActive, setIsLegendActive] = useState(false)
 
   const { nearerObjects } = data;

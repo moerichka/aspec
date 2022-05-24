@@ -6,7 +6,7 @@ import ProjectLayout from "../projectLayout";
 import Button from "../button";
 
 function ProjectLayouts(props) {
-  const [windowWidth, setWindowWidth] = useState(1920);
+  const [windowWidth, setWindowWidth] = useState(window.screen.width);
   
   useEffect(() => {
     window.addEventListener("resize", function () {
