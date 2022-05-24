@@ -1,0 +1,142 @@
+.buildingProgress{
+    padding: 96px 0 127px 0;
+    background-color: var(--bg-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.buildingProgress__control {
+    border: none !important;
+    background-color: var(--white) !important;
+    padding: 18px 0 19px 20px;
+    height: 100% !important;
+}
+
+.buildingProgress__control--is-focused {
+    box-shadow: 0 0 0 1px var(--green) !important;
+}
+
+.buildingProgress__control--menu-is-open {
+    box-shadow: 0 0 0 1px var(--green) !important;
+}
+
+.buildingProgress__menu {
+    font-family: Montserrat-Regular !important;
+    z-index: 4 !important;
+}
+
+.buildingProgress__option--is-selected {
+    background-color: var(--yellow) !important;
+    color: var(--blue) !important;
+}
+
+.buildingProgress__option--is-focused {
+    background-color: var(--green) !important;
+    color: var(--white) !important;
+}
+
+.buildingProgress__indicator-separator {
+    display: none !important;
+}
+
+.buildingProgress__indicators {
+    padding-right: 10px !important;
+
+}
+
+.buildingProgress__indicator>svg {
+    display: none;
+}
+
+.buildingProgress__indicator::after {
+    color: var(--green);
+    font-family: icomoon;
+    content: '\e914';
+    font-size: 16px;
+}
+
+.buildingProgress__dropdownArrow {
+    color: var(--green) !important;
+}
+
+.buildingProgress .swiper{
+    padding-bottom: 60px;
+}
+
+.buildingProgress .swiper-slide{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    min-width: min-content !important;
+    margin: 0 15% !important;
+}
+
+.buildingProgress .swiper-scrollbar {
+    bottom: 0px !important;
+    left: 0;
+    background-color: transparent;
+    height: 10px !important;
+    width: 100%;
+    /* padding: 0 20%; */
+}
+
+.buildingProgress .swiper-scrollbar::after {
+    content: "";
+    height: 2px;
+    top: 3px;
+    left: 0%;
+    position: absolute;
+    width: 100%;
+    background-color: var(--scroll);
+}
+
+.buildingProgress .swiper-scrollbar-drag {
+    background-color: var(--green);
+    z-index: 2;
+    height: 8px !important;
+    cursor: pointer;
+    width: 100px !important;
+}
+
+@media (max-width: 1200px) {
+    .buildingProgress{
+        padding: 56px 0 70px 0;
+    }
+}
+
+@media (max-width: 1140px) {
+    .buildingProgress__control{
+        padding: 15px 0 15px 14px;
+    }
+
+    .buildingProgress .swiper{
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .buildingProgress{
+        padding: 30px 0 49px 0;
+    }
+
+    .buildingProgress__control{
+        padding: 13px 0 13px 16px;
+    }
+
+    .buildingProgress .swiper-scrollbar::after{
+        top: 2px;
+    }
+
+    .buildingProgress .swiper-scrollbar-drag{
+        height: 6px !important;
+        width: 70px !important;
+    }
+
+    .buildingProgress .swiper{
+        padding-bottom: 25px;
+    }
+}

@@ -1,0 +1,297 @@
+.container {
+    padding: 20px 20px 38px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.topwrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topleft {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.notifications {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 15px;
+    font-family: Montserrat-SemiBold;
+}
+
+.notification {
+    padding: 5.5px 8px;
+    border-radius: 5px;
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.yellow {
+    background-color: var(--yellow);
+    color: var(--black-text);
+}
+
+.amount {
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.topright {
+    color: var(--gray-icons);
+    font-size: 23px;
+}
+
+.imgwrapper {
+    position: relative;
+    height: 410px;
+    width: 100%;
+    /* max-height: 380px; */
+    /* height: 100%; */
+    display: flex;
+    justify-content: center
+}
+
+.img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    top: 0;
+    object-fit: contain;
+}
+
+.bullet {
+    width: 50px !important;
+}
+
+.infowrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-size: 24px;
+    line-height: 29px;
+    font-family: Montserrat-SemiBold;
+    padding-bottom: 6px;
+}
+
+.layoutname {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Montserrat-SemiBold;
+    padding-bottom: 9px;
+}
+
+.propertysWrapper {
+    display: flex;
+    flex-direction: row;
+    max-width: 279px;
+    width: 100%;
+    gap: 6px;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.propertywrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.property {
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--black-text-2);
+}
+
+.value {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Montserrat-SemiBold;
+}
+
+.datewrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+}
+
+.datewrapper>span {
+    color: var(--gray-icons);
+    font-size: 14px;
+}
+
+.opendate {
+    font-size: 16px;
+    line-height: 21px;
+}
+
+@media (max-width: 1140px) {
+    .topright{
+        font-size: 23px;
+    }
+    .notifications {
+        gap: 5px;
+    }
+
+    .imgwrapper {
+        height: 340px;
+        padding-bottom: 20px;
+    }
+
+    .notifications {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .amount {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .price {
+        font-size: 16px;
+        line-height: 24px;
+        padding-bottom: 4px;
+    }
+
+    .layoutname {
+        font-size: 14px;
+        line-height: 17px;
+        padding-bottom: 8px;
+    }
+
+    .property {
+        font-size: 15px;
+        line-height: 28px;
+        color: var(--dark-gray-text);
+    }
+
+    .propertysWrapper {
+        padding-bottom: 14px;
+    }
+
+    .value {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .opendate {
+        font-size: 15px;
+        line-height: 20px;
+    }
+}
+
+@media (max-width: 980px) {
+    .imgwrapper {
+        height: 240px;
+    }
+
+    .img {
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 676px) {
+    .container {
+        padding: 10px 10px 21px 10px;
+    }
+
+    .topwrapper{
+        /* align-items: baseline; */
+    }
+
+    .topleft{
+        gap: 4px;
+    }
+
+    .topright{
+        font-size: 18px;
+    }
+
+    .notifications {
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .amount {
+        font-size: 11px;
+        line-height: 14px;
+    }
+
+    .infowrapper{
+        align-items: center;
+        padding: 0 4px;
+    }
+
+    .price {
+        font-size: 14px;
+        line-height: 25px;
+        padding-bottom: 0;
+    }
+
+    .layoutname {
+        font-size: 13px;
+        line-height: 23px;
+        padding-bottom: 6px;
+    }
+
+    .property {
+        font-size: 11px;
+        line-height: 14px;
+    }
+
+    .value {
+        font-size: 10px;
+        line-height: 14px;
+    }
+
+    .opendate {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .propertysWrapper {
+        flex-direction: column;
+        gap: 5px;
+        padding-bottom: 8px;
+    }
+
+    .propertywrapper {
+        gap: 10px;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 470px) {
+    .imgwrapper {
+        height: 200px;
+    }
+
+    .img {
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 410px) {
+    .imgwrapper {
+        height: 190px;
+    }
+
+    .img {
+        padding-bottom: 40px;
+    }
+}

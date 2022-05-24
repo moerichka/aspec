@@ -1,0 +1,53 @@
+.mortgage {
+    margin-top: 86px;
+}
+
+@media (max-width: 1140px) {
+    .mortgage {
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 890px) {
+    .mortgage {
+        margin-top: 50px;
+    }
+}
+
+.projectAbout {
+    overflow: hidden;
+}
+
+.projectLayouts {}
+
+.paymentOptions{
+    margin: 152px 0 165px 0;
+}
+
+@media (max-width: 1140px) {
+    .paymentOptions{
+        margin: 80px 0;
+    }
+}
+
+@media (max-width: 890px) {
+    .paymentOptions{
+        margin: 50px 0 80px 0;
+    }
+}
+
+.questionForm{
+    margin: 169px 0;
+}
+
+@media (max-width: 1140px) {
+    .questionForm{
+        margin: 80px 0 95px 0;
+    }
+}
+
+@media (max-width: 890px) {
+    .questionForm{
+        margin: 50px 0 60px 0;
+    }
+}

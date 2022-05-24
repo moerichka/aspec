@@ -1,0 +1,81 @@
+.main__helloSlider{
+    margin-top: 32px;
+}
+
+@media (max-width: 1174px) {
+    .main__helloSlider{
+        margin-top: 72px;
+    }
+}
+
+@media (max-width: 745px) {
+    .main__helloSlider{
+        margin-top: 125px;
+    }
+}
+
+.main__filterAndTabs{
+    margin-top: 66.5px;
+}
+
+@media (max-width: 1230px) {
+    .main__filterAndTabs{
+        margin-top: 42px;
+    }
+}
+
+@media (max-width: 840px) {
+    .main__filterAndTabs{
+        margin-top: 32px;
+    }
+}
+
+.main__questionForm{
+    margin: 98px 0 111px 0;
+}
+
+@media (max-width: 1140px) {
+    .main__questionForm{
+        margin: 95px 0;
+    }
+}
+
+@media (max-width: 890px) {
+    .main__questionForm{
+        margin: 50px 0 60px 0;
+    }
+}
+
+.main__newsGrid{
+    background-color: var(--bg-gray);
+    padding: 168px 0 187px 0;
+}
+
+@media (max-width: 1024px) {
+    .main__newsGrid{
+        padding: 67px 0 120px 0;
+    }
+}
+
+@media (max-width: 450px) {
+    .main__newsGrid{
+        padding: 29px 0 50px 0;
+    }
+}
+
+
+.main__benefitsGrid{
+    padding: 97.1px 0 92px 0;
+}
+
+@media (max-width: 1024px) {
+    .main__benefitsGrid{
+        padding: 70px 0 89px 0;
+    }
+}
+
+@media (max-width: 450px) {
+    .main__benefitsGrid{
+        padding: 50px 0 74px 0;
+    }
+}

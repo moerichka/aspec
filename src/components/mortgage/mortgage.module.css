@@ -1,0 +1,47 @@
+.container{
+    max-width: 1772px;
+    width: 100%;
+    padding: 0 47px;
+}
+
+.innercontainer{
+    background-color: var(--light-blue-card-bg);
+    width: 100%;
+    min-height: 813px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 93px 0;
+}
+
+.innerinnercontainer{
+    display: flex;
+    flex-direction: column;
+    gap: 39px;
+}
+
+.contentwrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.inputs{
+    max-width: 625px;
+    width: 100%;
+}
+
+.inputcard{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.inputswrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+}

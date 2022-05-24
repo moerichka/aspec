@@ -1,0 +1,344 @@
+.houseCard {
+    max-width: 460px;
+    width: 100%;
+    transition: var(--transition);
+    transition-delay: var(--transition);
+    max-height: 554px;
+}
+
+.houseCard-map {
+    height: 100%;
+    max-width: 364px;
+}
+
+@media (min-width: 1241px) and (max-width: 1450px) {
+    .houseCard {
+        height: 520px;
+    }
+}
+
+@media (min-width: 1450px) {
+    .houseCard {
+        height: 554px;
+    }
+}
+
+@media (min-width: 1241px) {
+
+    .houseCard:hover .houseCard__imageWrapper {
+        max-height: 220px;
+        padding-top: 20%;
+    }
+
+    .houseCard:hover .houseCard__moreInfo {
+        opacity: 100%;
+    }
+
+    .houseCard__moreInfo {}
+}
+
+.houseCard__container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.houseCard__imageWrapper {
+    position: relative;
+    border-radius: 5px;
+    max-height: 317px;
+    padding-top: 70%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.houseCard__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--transition);
+}
+
+.houseCard__imageWrapper-map {
+    border-radius: 0;
+    bottom: 1px;
+    min-height: 230px;
+    z-index: 2;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+}
+
+.houseCard__image-map {
+    object-fit: cover;
+    width: 100%;
+}
+
+.houseCard__imageNotifications {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    max-width: 460px;
+    gap: 6px;
+    font-family: Montserrat-SemiBold;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.houseCard__imageNotification {
+    padding: 5.5px 8px;
+    border-radius: 5px;
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.houseCard__imageNotification-yellow {
+    background-color: var(--yellow);
+    color: var(--black-text);
+}
+
+.houseCard__infoWrapper {
+    max-width: 404px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.houseCard__titleBar {
+    color: var(--black-text);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.houseCard__title {
+    font-size: 24px;
+    line-height: 29px;
+    font-family: Montserrat-SemiBold;
+}
+
+.houseCard__adress {
+    font-family: Neris-Light;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.houseCard__price {
+    color: var(--blue);
+    font-family: Montserrat-Medium;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.houseCard__priceBold {
+    font-family: Montserrat-Bold;
+}
+
+.houseCard__moreInfoWrapper {
+    position: relative;
+    max-width: 404px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.houseCard__moreInfoWrapper-map {
+    position: relative;
+    max-width: 404px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.houseCard__moreInfo {
+    pointer-events: none;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 404px;
+    width: 100%;
+    overflow: auto;
+    border-top: 1px solid var(--gray-line);
+    display: flex;
+    flex-direction: column;
+    gap: 19.5px;
+    transition: var(--transition);
+}
+
+.houseCard__moreInfo-map {
+
+    padding-bottom: 20px;
+    overflow: auto;
+    border-top: 1px solid var(--gray-line);
+    display: flex;
+    flex-direction: column;
+    gap: 19.5px;
+}
+
+.houseCard__flats {
+    padding-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.houseCard__flat {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Neris-Light;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.houseCard__bottomWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--black-text);
+}
+
+.houseCard__flatType {
+    color: var(--green-text);
+}
+
+.houseCard__flatPrice {
+    color: var(--blue);
+}
+
+.houseCard__more {
+    color: var(--green-text);
+}
+
+.houseCard__adressWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+}
+
+.houseCard__openDateWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+}
+
+.houseCard__icon {
+    font-size: 12px;
+    color: var(--gray-icons);
+}
+
+.houseCard__infoWrapper-map {
+    padding: 0 30px;
+}
+
+.houseCard__moreInfoWrapper-map {
+    padding: 0 30px;
+}
+
+@media (min-width: 1241px) and (max-width: 1600px) {
+    .houseCard{
+        height: 500px;
+    }
+
+    .houseCard__imageWrapper {
+        max-height: 290px;
+    }
+
+    .houseCard:hover .houseCard__imageWrapper {
+        max-height: 180px;
+        padding-top: 30%;
+    }
+}
+
+@media (max-width: 1230px) {
+    .houseCard__title {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .houseCard__price {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .houseCard__adress {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .houseCard-map {
+        max-width: 290px;
+    }
+
+    .houseCard__imageWrapper-map {}
+
+    .houseCard__infoWrapper-map {
+        padding: 0 15px;
+        margin-top: -20px;
+    }
+
+    .houseCard__moreInfoWrapper-map {
+        padding: 0 15px;
+    }
+
+    .houseCard__bottomWrapper-map {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .houseCard__moreInfoWrapper {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .houseCard__title {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .houseCard__price {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .houseCard__adress {
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    .houseCard__imageNotification {
+        font-size: 10px;
+        line-height: 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    .houseCard {
+        /* min-width: 350px; */
+        margin: 0 auto;
+    }
+}

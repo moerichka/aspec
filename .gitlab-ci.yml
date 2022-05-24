@@ -1,0 +1,20 @@
+---
+image: ilyasemenov/gitlab-ci-git-push
+
+stages:
+  - deploy
+
+variables:
+  APP_NAME: aspec
+  APP_URL: zooin.site
+
+deploy:
+  image: ilyasemenov/gitlab-ci-git-push
+  stage: deploy
+  environment:
+    name: production
+    url: https://$APP_NAME.dokku.me/
+  only:
+    - dev
+  script:
+    - git-push ssh://dokku@$APP_URL:22/$APP_NAME
