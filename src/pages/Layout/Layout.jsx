@@ -34,7 +34,9 @@ function Layout() {
   return (
     <>
       <Header withLine={true} BGcolor={"gray"}/>
-      <Dashnav wayArray={wayArray}/>
+      <div className={s.dashnav}>
+        <Dashnav wayArray={wayArray}/>
+      </div>
       <div className={s.projectAbout} id="about">
         <ProjectAbout
           title={layout?.about?.title}

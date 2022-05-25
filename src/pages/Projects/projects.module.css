@@ -1,10 +1,5 @@
-/* .dashnav {
+.dashnav{
     margin: 24px 0 46px 0;
-    display: flex;
-    justify-content: center;
-    font-size: 12px;
-    line-height: 15px;
-    color: var(--light-gray-text);
 }
 
 @media (max-width: 1240px) {
@@ -12,7 +7,6 @@
         margin-top: 82px;
     }
 }
-
 @media (max-width: 840px) {
     .dashnav{
         margin-top: 82px;
@@ -22,7 +16,7 @@
     .dashnav{
         margin-top: 122px;
     }
-}  */
+} 
 
 /* .filterAndTabs{
     margin-top: 66.5px;

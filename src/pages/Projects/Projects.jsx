@@ -42,7 +42,9 @@ export default function Main() {
   return (
     <div className="projects">
       <Header BGcolor={"gray"} withLine={true}/>
-      <Dashnav wayArray={wayArray}></Dashnav>
+      <div className={s.dashnav}>
+        <Dashnav wayArray={wayArray}></Dashnav>
+      </div>
       <div className={s.filterAndTabs}>
         <FilterAndTabs
           title={"Все проекты"}

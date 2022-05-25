@@ -1,5 +1,5 @@
 .dashnav {
-    margin: 24px 0 46px 0;
+    /* margin: 24px 0 46px 0; */
     display: flex;
     justify-content: center;
     font-size: 12px;
@@ -11,7 +11,7 @@
     color: var(--light-gray-text);
 }
 
-@media (max-width: 1240px) {
+/* @media (max-width: 1240px) {
     .dashnav{
         margin-top: 82px;
     }
@@ -26,4 +26,4 @@
     .dashnav{
         margin-top: 122px;
     }
-} 
+}  */
