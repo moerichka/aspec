@@ -171,7 +171,7 @@
 .bankcard {
     width: 100%;
     max-width: 290px;
-    min-height: 100%;
+    min-height: min-content;
     height: min-content;
     background: var(--white);
     border-radius: 5px;
@@ -265,9 +265,12 @@
     }
 
     .banks {
-        grid-template-columns: 1fr;
+        /* grid-template-columns: 1fr; */
+        display: flex;
+        flex-direction: column;
         margin-top: 24px;
         max-height: 547px;
+        padding-bottom: 20px;
         min-width: 278px;
         gap: 10px;
         overflow-y: auto;
@@ -275,8 +278,16 @@
         margin-right: 40px;
     }
 
-    .banks::after {
-        position: sticky;
+    .bankcard{
+        height: min-content;
+    }
+
+    .bankswrapper{
+        position: relative;
+    }
+
+    .bankswrapper::after {
+        position: absolute;
         content: "";
         bottom: 0px;
         margin-top: auto;
@@ -333,7 +344,7 @@
 @media (max-width: 940px) {
     .banks {
         margin-top: 24px;
-        max-height: 617px;
+        max-height: 627px;
     }
 
     .inputswrapper>* {
@@ -422,13 +433,15 @@
     }
 
     .banks {
+        display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(auto-fit, minmax(190px, auto));
         max-height: 570px;
         margin: 0 auto;
     }
 
-    .banks::after {
-        width: 200%;
+    .bankcard{
+        height: 100%;
     }
 
     .inputtitle {
@@ -443,7 +456,10 @@
     }
 
     .banks {
-        grid-template-columns: 1fr;
+        /* grid-template-columns: 1fr; */
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         max-height: 570px;
         margin: 0 auto;
     }

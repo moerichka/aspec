@@ -195,32 +195,34 @@ function Mortgage(props) {
                   width={244}
                 />
               </div>
-              <div className={s.banks}>
-                {bankinfo.map((bank) => (
-                  <div className={s.bankcard}>
-                    <div className={s.top}>
-                      <img src={bank.logo} alt="" className={s.logo} />
-                      <h6 className={s.title}>{bank.title}</h6>
-                    </div>
-                    <div className={s.middle}>
-                      <div className={s.middleelem}>
-                        <div className={s.middletitle}>Ставка</div>
-                        <div className={s.middlevalue}>
-                          от <span className={s.bold}>{bank.percentage}%</span>
+              <div className={s.bankswrapper}>
+                <div className={s.banks}>
+                  {bankinfo.map((bank) => (
+                    <div className={s.bankcard}>
+                      <div className={s.top}>
+                        <img src={bank.logo} alt="" className={s.logo} />
+                        <h6 className={s.title}>{bank.title}</h6>
+                      </div>
+                      <div className={s.middle}>
+                        <div className={s.middleelem}>
+                          <div className={s.middletitle}>Ставка</div>
+                          <div className={s.middlevalue}>
+                            от <span className={s.bold}>{bank.percentage}%</span>
+                          </div>
+                        </div>
+                        <div className={s.middleelem}>
+                          <div className={s.middletitle}>Ежемесячный платеж</div>
+                          <div className={s.middlevalue}>
+                            <span className={s.bold}>{bank.payment} ₽</span> / мес
+                          </div>
                         </div>
                       </div>
-                      <div className={s.middleelem}>
-                        <div className={s.middletitle}>Ежемесячный платеж</div>
-                        <div className={s.middlevalue}>
-                          <span className={s.bold}>{bank.payment} ₽</span> / мес
-                        </div>
+                      <div className={s.bottom}>
+                        {bank.bottomContent}
                       </div>
                     </div>
-                    <div className={s.bottom}>
-                      {bank.bottomContent}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
