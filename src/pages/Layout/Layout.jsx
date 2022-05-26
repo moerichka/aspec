@@ -4,11 +4,12 @@ import s from "./layout.module.css";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import Dashnav from "../../components/dashnav";
+import LayoutFull from "../../components/layoutFull";
 import QuestionForm from "../../components/questionForm";
 import ProjectAbout from "../../components/projectAbout";
 import ProjectLayouts from "../../components/projectLayouts";
 import PaymentOptions from "../../components/paymentOptions";
-import BuyOptions from "../../components/buyOptions"
+import BuyOptions from "../../components/buyOptions";
 import Mortgage from "../../components/mortgage";
 
 import { useParams } from "react-router-dom";
@@ -33,9 +34,12 @@ function Layout() {
 
   return (
     <>
-      <Header withLine={true} BGcolor={"gray"}/>
+      <Header withLine={true} BGcolor={"gray"} />
       <div className={s.dashnav}>
-        <Dashnav wayArray={wayArray}/>
+        <Dashnav wayArray={wayArray} />
+      </div>
+      <div className={s.layoutFull}>
+        <LayoutFull project={project} layout={layout}/>
       </div>
       <div className={s.projectAbout} id="about">
         <ProjectAbout

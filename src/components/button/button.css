@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background var(--transition), transform 0.1s;      
+    transition: background var(--transition), transform 0.1s, color var(--transition), border-color var(--transition);      
 }
 
 .button:active{
@@ -42,4 +42,18 @@
 
 .button-blue:hover{
     background-color: var(--blue-hover);
+}
+
+.button-transparent {
+    background-color: transparent;
+    color: var(--blue);
+    border: 1px solid var(--blue);
+}
+
+.button-transparent:hover{
+    /* background-color: var(--blue-hover);
+    border-color: var(--blue-hover); */
+    background-color: var(--green);
+    border-color: var(--green);
+    color: var(--white);
 }

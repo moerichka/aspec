@@ -74,7 +74,7 @@
 
 .header__topBar {
     width: 100%;
-    object-fit: cover;
+    object-fit: fill;
     height: 7px;
 }
 

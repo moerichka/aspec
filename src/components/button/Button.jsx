@@ -8,7 +8,7 @@ export default function Button(props) {
     // width: props.width ? props.width : "200px",
     maxWidth: props.width ? props.width : "200px",
     height: props.height ? props.height : "54px",
-    color: props.color ? props.color : "white"
+    color: props.color ? props.color : ""
   };
 
   return (

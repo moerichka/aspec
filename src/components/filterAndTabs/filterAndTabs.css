@@ -41,6 +41,7 @@
 
 .react-tabs__tab--selected {
     color: var(--blue-text) !important;
+    background-color: transparent !important;
     font-family: Montserrat-Bold;
     padding-bottom: 17.5px;
     transition: var(--transition);
