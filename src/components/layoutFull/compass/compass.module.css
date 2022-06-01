@@ -1,0 +1,136 @@
+.compass {
+    width: 134px;
+    height: 139px;
+    position: relative;
+}
+
+.compassletter {
+    position: absolute;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: Montserrat-Medium;
+    user-select: none;
+}
+
+.compassN {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.compassE {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.compassS {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.compassW {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.compasscircle {
+    position: absolute;
+    border: 1px solid var(--light-gray-text);
+    border-radius: 50%;
+    width: 40%;
+    height: 40%;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.compassvertical {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%) rotate(90deg);
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    width: 75%;
+}
+
+.compasshorizontal {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    width: 75%;
+}
+
+.compassline {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    /* rotate(45deg)*/
+    width: 75%;
+    height: 3px;
+}
+
+.compassline::after {
+    position: absolute;
+    content: "";
+    width: 51%;
+    /* border: 1px solid var(--green); */
+    background-color: var(--green);
+    height: 3px;
+    border-radius: 5px;
+}
+
+@media (max-width: 1150px) {
+    .compass{
+        width: 105px;
+        height: 105px;
+    }
+
+    .compassletter {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .compassvertical{
+        width: 65%;
+    }
+    .compasshorizontal{
+        width: 65%;
+    }
+    .compassline{
+        width: 65%;
+    }
+    .compassline::after{
+        height: 2px;
+    }
+}
+
+@media (max-width: 500px) {
+    .compass{
+        width: 66px;
+        height: 66px;
+    }
+
+    .compassletter {
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .compassvertical{
+        width: 65%;
+    }
+    .compasshorizontal{
+        width: 65%;
+    }
+    .compassline{
+        width: 65%;
+    }
+    .compassline::after{
+        height: 2px;
+    }
+}

@@ -8,9 +8,9 @@ function Dashnav(props) {
       <div className="container">
         {props?.wayArray?.map((elem, index) => {
           return index === 0 ? (
-            <span><span className={elem?.gray ? s.gray : ""}>{elem.title}</span></span>
+            <span key={index}><span className={elem?.gray ? s.gray : ""}>{elem.title}</span></span>
           ) : (
-            <span> / <span className={elem?.gray ? s.gray : ""}>{elem.title}</span></span>
+            <span key={index}> / <span className={elem?.gray ? s.gray : ""}>{elem.title}</span></span>
           );
         })}
       </div>

@@ -89,6 +89,7 @@ function Mortgage(props) {
                     <input
                       type="text"
                       className={s.inputtext}
+                      readOnly={true}
                       value={rangeValuesPrice[0]}
                     />
                     <CustomRange
@@ -110,6 +111,7 @@ function Mortgage(props) {
                       <input
                         type="text"
                         className={`${s.inputtext} ${s.percentage}`}
+                        readOnly={true}
                         value={rangeValuesContribution[0]}
                       />
                     </div>
@@ -131,6 +133,7 @@ function Mortgage(props) {
                     <input
                       type="text"
                       className={s.inputtext}
+                      readOnly={true}
                       value={rangeValuesTerm[0]}
                     />
                     <CustomRange
@@ -197,8 +200,8 @@ function Mortgage(props) {
               </div>
               <div className={s.bankswrapper}>
                 <div className={s.banks}>
-                  {bankinfo.map((bank) => (
-                    <div className={s.bankcard}>
+                  {bankinfo.map((bank, index) => (
+                    <div className={s.bankcard} key={index}>
                       <div className={s.top}>
                         <img src={bank.logo} alt="" className={s.logo} />
                         <h6 className={s.title}>{bank.title}</h6>

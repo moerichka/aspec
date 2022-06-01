@@ -18,6 +18,11 @@
         padding-top: 122px;
     }
 } 
+@media (max-width: 500px) {
+    .dashnav{
+        padding-bottom: 27px;
+    }
+} 
 
 .layoutFull{
     background-color: var(--bg-gray);

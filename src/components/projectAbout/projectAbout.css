@@ -5,6 +5,10 @@
     padding: 135px 0 164px 0;
 }
 
+.projectAbout-white{
+    background-color: var(--white);
+}
+
 .projectAbout .swiper {}
 
 .projectAbout .swiper-slide {

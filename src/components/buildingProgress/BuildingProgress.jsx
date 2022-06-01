@@ -92,14 +92,14 @@ function BuildingProgress(props) {
           </div>
         </div>
       </div>
-      <div className={s.scrollerwrapper}>
+      {/* <div className={s.scrollerwrapper}> */}
         <Swiper
           className=""
           direction={"horizontal"}
           // spaceBetween={30}
           slidesPerView={"auto"}
           freeMode={true}
-          scrollbar={{ draggable: true }}
+          scrollbar={{ dragSize: 100}}
           mousewheel={true}
           modules={[FreeMode, Scrollbar, Mousewheel]}
         >
@@ -127,7 +127,7 @@ function BuildingProgress(props) {
           {/* </div> */}
           </SwiperSlide>
         </Swiper>
-      </div>
+      {/* </div> */}
     </div>
   );
 }

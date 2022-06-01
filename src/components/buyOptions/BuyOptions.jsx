@@ -12,8 +12,8 @@ function BuyOptions(props) {
       <div className={`container ${s.container}`}>
         <h2 className="h2-title">С этой квартирой можно купить</h2>
         <div className={s.grid}>
-          {props?.options?.map((option) => (
-            <Link to="/">
+          {props?.options?.map((option, index) => (
+            <Link to="/" key={index}>
                 <div className={s.option}>
                   <div className={s.title}>{option?.title}</div>
                   <div className={s.darkPannel}></div>

@@ -57,7 +57,7 @@ function ProjectLayout(props) {
               <SwiperSlide key={index}>
                 <Link to={`/project/${projectId}/layout/${props.flat.id}`}>
                   <div className={s.imgwrapper}>
-                    <img src={`${PF}${elem}`} alt="" className={s.img} />
+                    <img src={`${PF}${elem}`} alt="" className={s.img} width="1" height="1"/>
                   </div>
                 </Link>
               </SwiperSlide>

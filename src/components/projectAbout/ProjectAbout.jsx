@@ -14,13 +14,13 @@ function ProjectAbout(props) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   return (
-    <div className="projectAbout">
+    <div className={`projectAbout ${props?.bgWhite ? "projectAbout-white" : ""}`}>
       <div className={`container ${s.container}`}>
         <div className={s.textAndTitleWrapper}>
           <h2 className="h2-title">{props?.title}</h2>
           <div className={s.textWrapper}>
-            {props?.text?.map((paragrapgh) => (
-              <p>{paragrapgh}</p>
+            {props?.text?.map((paragrapgh, index) => (
+              <p key={index}>{paragrapgh}</p>
             ))}
           </div>
         </div>
@@ -42,8 +42,8 @@ function ProjectAbout(props) {
           modules={[EffectCreative, Scrollbar]}
           className={s.swiper}
         >
-          {props?.images.map((image) => (
-            <SwiperSlide>
+          {props?.images.map((image, index) => (
+            <SwiperSlide key={index}>
               <img src={`${PF}${image}`} alt="" className={s.img} />
             </SwiperSlide>
           ))}

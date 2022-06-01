@@ -46,6 +46,7 @@ function Layout() {
           title={layout?.about?.title}
           text={layout?.about?.text}
           images={layout?.about?.images}
+          bgWhite={true}
         />
       </div>
       <div className={s.projectLayouts}>
