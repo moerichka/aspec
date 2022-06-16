@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./header.css";
-import Select from "react-select";
+import s from "./header.module.css";
+import CustomSelector from "../customSelector";
 
 import { createOptions, getUnique } from "../../helpers/arrayFun";
 import { Link } from "react-router-dom";
@@ -37,35 +37,35 @@ export default function Header(props) {
 
   return (
     <header
-      className={`header 
-      ${props.BGcolor === "gray" ? "header-gray" : ""} 
-      ${props.withLine ? "header-line" : ""}`}
+      className={`${s.header} 
+      ${props.BGcolor === "gray" ? s.headerGray : ""} 
+      ${props.withLine ? s.headerLine : ""}`}
       id="header"
     >
       <div
-        className={`header__navMenu ${
-          isBurgerOpen && "header__navMenu-active"
+        className={`${s.navMenu} ${
+          isBurgerOpen && s.navMenuActive
         }`}
       >
-        <div className="header__navMenuContainer">
-          <div className="header__navMenuTop">
+        <div className={s.navMenuContainer}>
+          <div className={s.navMenuTop}>
             <Link to="/">
-              <img className="header__logo" src={logo} alt="" />
+              <img className={s.logo} src={logo} alt="" />
             </Link>
             <span
-              className="header__navMenuCancel icon-cancel"
+              className={`${s.navMenuCancel} icon-cancel`}
               onClick={() => {
                 setIsBurgerOpen((prev) => !prev);
               }}
             ></span>
           </div>
-          <nav className="header__navMenuNav">
-            <ul className="header__navMenuList">
+          <nav className={s.navMenuNav}>
+            <ul className={s.navMenuList}>
               <Link to="/">
                 <li
-                  className={`header__navMenuItem ${
+                  className={`${s.navMenuItem} ${
                     href?.lastIndexOf("/") === href.length - 1
-                      ? "header__link-active"
+                      ? s.linkActive
                       : ""
                   }`}
                 >
@@ -74,98 +74,125 @@ export default function Header(props) {
               </Link>
               <Link to="/projects">
                 <li
-                  className={`header__navMenuItem ${
-                    href?.includes("project") ? "header__link-active" : ""
+                  className={`${s.navMenuItem} ${
+                    href?.includes("project") ? s.linkActive : ""
                   }`}
                 >
                   Проекты
                 </li>
               </Link>
-              <Link to="/">
-                <li className="header__navMenuItem">Подбор недвижимости</li>
+              <Link to="/estateselection">
+                <li
+                  className={`${s.navItem} ${
+                    href?.includes("project") ? s.linkActive : ""
+                  }`}
+                >
+                  Подбор недвижимости
+                </li>
               </Link>
               <Link to="/">
-                <li className="header__navMenuItem">Коммерческая</li>
+                <li className={s.navMenuItem}>Коммерческая</li>
               </Link>
-              <Link to="/">
-                <li className="header__navMenuItem">Способы покупки</li>
+              <Link to="/buy">
+                <li
+                  className={`${s.navItem} ${
+                    href?.includes("buy") ? s.linkActive : ""
+                  }`}
+                >
+                  Способы покупки
+                </li>
               </Link>
             </ul>
           </nav>
-          <div className="header__contacts">
-            <span className="header__tel">+7 (3412) 209-519</span>
-            <span className="header__callback">Перезвоните мне</span>
+          <div className={s.contacts}>
+            <span className={s.tel}>+7 (3412) 209-519</span>
+            <span className={s.callback}>Перезвоните мне</span>
           </div>
         </div>
-        <img className="header__topBar" src={headerBar} alt="" />
+        <img className={s.topBar} src={headerBar} alt="" />
       </div>
-      <div className="header__container">
+      <div className={s.container}>
         <span
-          className="header__burger icon-burger"
+          className={`${s.burger} icon-burger`}
           onClick={() => {
             setIsBurgerOpen((prev) => !prev);
           }}
         ></span>
-        <Link to="/" className="header__logoWrapper">
-          <img className="header__logo" src={logo} alt="" />
+        <Link to="/" className={s.logoWrapper}>
+          <img className={s.logo} src={logo} alt="" />
         </Link>
-        <nav className="header__nav">
-          <ul className="header__navList">
+        <nav className={s.nav}>
+          <ul className={s.navList}>
             <Link to="/">
               <li
-                className={`header__navItem ${
+                className={`${s.navItem} ${
                   href?.lastIndexOf("/") === href.length - 1
-                    ? "header__link-active"
+                    ? s.linkActive
                     : ""
                 }`}
               >
                 Компания
               </li>
             </Link>
-            <Link to="/">
-              <li className="header__navItem">Подбор недвижимости</li>
+            <Link to="/estateselection">
+              <li className={s.navItem}>Подбор недвижимости</li>
             </Link>
             <Link to="/projects">
               <li
-                className={`header__navItem ${
-                  href?.includes("project") ? "header__link-active" : ""
+                className={`${s.navItem} ${
+                  href?.includes("project") ? s.linkActive : ""
                 }`}
               >
                 Проекты
               </li>
             </Link>
-            <Link to="/">
-              <li className="header__navItem">Акции</li>
+            <Link to="/news">
+              <li className={s.navItem}>Акции</li>
             </Link>
-            <Link to="/">
-              <li className="header__navItem">Способы покупки</li>
+            <Link to="/buy">
+              <li
+                className={`${s.navItem} ${
+                  href?.includes("buy") ? s.linkActive : ""
+                }`}
+              >
+                Способы покупки
+              </li>
             </Link>
-            <Link to="/">
-              <li className="header__navItem">Инвесторам</li>
+            <Link to="/toinvestors">
+              <li
+                className={`${s.navItem} ${
+                  href?.includes("toinvestors") ? s.linkActive : ""
+                }`}
+              >
+                Инвесторам
+              </li>
             </Link>
           </ul>
         </nav>
-        <div className="header__city">
-          <Select
-            placeholder="Выберите..."
+        <div className={s.city}>
+          <CustomSelector
             options={citysOptions}
-            classNamePrefix="header"
-            className="header__select"
             defaultValue={chosenCity}
             value={chosenCity}
-            onChange={(selected) => {
-              setChosenCity(selected);
-            }}
+            setChosen={setChosenCity}
+            bgColor={"inherit"}
+            color={"blue"}
+            icon={"icon-dropdown"}
+            indicatorSize={"8px"}
+            outline={false}
+            padding={"0 0 3px 0"}
+            indicatorPadding={"5px 0 0 0"}
+            menuWidth={"min-content"}
           />
         </div>
-        <div className="header__rightPart">
-          <div className="header__contacts">
-            <span className="header__tel">+7 (3412) 209-519</span>
-            <span className="header__callback">Перезвоните мне</span>
+        <div className={s.rightPart}>
+          <div className={s.contacts}>
+            <span className={s.tel}>+7 (3412) 209-519</span>
+            <span className={s.callback}>Перезвоните мне</span>
           </div>
         </div>
         <span
-          className={`header__marker ${
+          className={`${s.marker} ${
             isFavored ? "icon-mark-fill" : "icon-mark"
           }`}
           onClick={() => {

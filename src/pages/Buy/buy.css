@@ -1,0 +1,64 @@
+.buy {
+    overflow: hidden;
+}
+
+.buy .swiper {
+    height: 100%;
+}
+
+.buy .swiper-slide {
+    /* margin-right: -10px !important; */
+    height: inherit !important;
+}
+
+.buy .swiper-wrapper{
+    left: -25%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.buy .swiper-scrollbar {
+    background-color: transparent;
+}
+
+.buy .swiper-scrollbar::after {
+    content: "";
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    position: absolute;
+    width: 100%;
+    background-color: var(--scroll);
+    z-index: -1;
+}
+
+@media (max-width: 670px) {
+    .buy .swiper-wrapper{
+        left: -20%;
+    }
+}
+
+@media (max-width: 570px) {
+    .buy .swiper-wrapper{
+        left: -13%;
+    }
+}
+
+@media (max-width: 450px) {
+    .buy .swiper-wrapper{
+        left: -7%;
+    }
+}
+
+@media (max-width: 380px) {
+    .buy .swiper-wrapper{
+        left: -5%;
+    }
+}
+
+@media (max-width: 350px) {
+    .buy .swiper-wrapper{
+        left: 0%;
+    }
+}

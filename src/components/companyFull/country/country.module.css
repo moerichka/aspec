@@ -1,0 +1,219 @@
+.country {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countrytitlewrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.countrytitle {
+    max-width: 735px;
+}
+
+.countrydesc {
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--gray-text);
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    max-width: 552px;
+}
+
+/* Point */
+
+.mapwrapper {
+    position: relative;
+    margin: 98px 20px 0 20px;
+}
+
+.countryimg {
+    width: 100%;
+    height: 100%;
+}
+
+.countrypoint {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    transition: var(--transition);
+    z-index: 1;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.pointactive {
+    color: var(--green);
+}
+
+.pointactive .pointcircles>* {
+    background-color: var(--green);
+}
+
+.countrypoint1 {
+    top: 49%;
+    left: 25%;
+}
+
+.countrypoint2 {
+    top: 58%;
+    left: 20%;
+}
+
+.countrypoint3 {
+    top: 73%;
+    left: 49%;
+}
+
+.pointcircles {
+    width: 29px;
+    height: 29px;
+    position: relative;
+}
+
+.pointcircle1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 29px;
+    height: 29px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    opacity: 0.1;
+    transition: var(--transition);
+}
+
+.pointcircle2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 21px;
+    height: 21px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    opacity: 0.2;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.pointcircle3 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 13px;
+    height: 13px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.countryregion {
+    position: absolute;
+    width: 16%;
+    height: 85%;
+    left: 44.7%;
+    top: 14.7%;
+    z-index: 0;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.regionactive {
+    opacity: 1;
+}
+
+.countrypoint:hover {
+    color: var(--green);
+}
+
+.countrypoint:hover .pointcircle1, .countrypoint:hover .pointcircle2, .countrypoint:hover .pointcircle3 {
+    background-color: var(--green);
+}
+
+.pointtitle {
+    font-size: 18px;
+    line-height: 24px;
+    font-family: Montserrat-Bold;
+    color: var(--map-label);
+}
+
+.pointactive .pointtitle {
+    color: var(--green);
+}
+
+.countrypoint:hover .pointtitle {
+    color: var(--green);
+}
+
+/* /point */
+
+@media (max-width: 1160px) {
+    .mapwrapper {
+        margin-top: 50px;
+    }
+
+    .countrytitlewrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .countrytitle {
+        max-width: unset;
+        font-size: 22px;
+        line-height: 32px;
+    }
+
+    .countrydesc {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 100%;
+        column-gap: 80px;
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .pointtitle {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 800px) {
+    .countrydesc {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .countrytitlewrapper {
+        gap: 20px;
+    }
+
+    .countrydesc {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .pointtitle {
+        font-size: 14px;
+        line-height: 17px;
+        font-family: Montserrat-Medium;
+    }
+}

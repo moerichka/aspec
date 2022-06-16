@@ -1,0 +1,267 @@
+.history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    margin-top: 85px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.container::after {
+    position: absolute;
+    width: 100%;
+    content: "";
+    top: 79px;
+    left: 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.arrowwrapper {
+    width: min-content;
+    height: 13%;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 4;
+    right: 0;
+}
+
+.arrowwrapperleft {
+    left: 0;
+}
+
+.arrow {
+    font-size: 25px;
+    color: var(--green);
+}
+
+.end {
+    color: var(--gray-icons);
+}
+
+.arrowleft {
+    transform: rotate(180deg);
+}
+
+.swiperwrapper {
+    max-width: 1537px;
+    width: 100%;
+    padding: 0 46px;
+    position: relative;
+}
+
+.swiper {}
+
+.slide {
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    align-items: flex-start;
+}
+
+.slideactive {
+    min-width: 390px;
+}
+
+.toppart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    gap: 12px;
+}
+
+.date {
+    display: flex;
+    align-items: flex-end;
+    font-size: 24px;
+    line-height: 29px;
+    height: 46px;
+    font-family: Montserrat-SemiBold;
+    color: var(--blue);
+    transition: var(--transition);
+}
+
+.slideactive .date {
+    font-size: 38px;
+    line-height: 46px;
+    font-family: Montserrat-Bold;
+    color: var(--green);
+}
+
+.point {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.slideactive .point {
+    background-color: hsla(175, 53%, 46%, 0.1);
+}
+
+.innerpoint {
+    width: 10px;
+    height: 10px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.slideactive .innerpoint {
+    background-color: var(--green);
+}
+
+.slideactive .content {
+    opacity: 1;
+}
+
+.content {
+    transition: var(--transition);
+    opacity: 0;
+    margin-top: 22px;
+    display: flex;
+    flex-direction: column;
+    max-width: 390px;
+    width: 100%;
+}
+
+.contentimg {
+    max-width: 390px;
+    border-radius: 5px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.contenttitle {
+    margin-top: 31px;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: Montserrat-Bold;
+    color: var(--blue);
+}
+
+.contenttext {
+    margin-top: 7px;
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--dark-gray-text);
+}
+
+@media (max-width: 1270px) {
+    .container {
+        margin-top: 64px;
+    }
+
+    .slide {
+        align-items: center;
+    }
+
+    .date {
+        font-size: 20px;
+        line-height: 24px;
+
+    }
+
+    .slideactive .date {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .content {
+        max-width: 288px;
+    }
+
+    .contentimg {
+        max-width: 288px;
+    }
+
+    .contenttitle {
+        margin-top: 20px;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: Montserrat-SemiBold;
+    }
+
+    .contenttext {
+        margin-top: 4px;
+        font-size: 15px;
+        line-height: 26px;
+    }
+}
+
+@media (max-width: 1270px) {
+    .content {
+        display: none;
+    }
+
+    .slideactive .content {
+        display: flex;
+    }
+}
+
+@media (max-width: 660px) {
+    .arrowwrapper{
+        backdrop-filter: blur(1px);
+        border-radius: 50%;
+    }
+
+    .swiperwrapper{
+        padding: 0;
+    }
+
+    .slide {
+        align-items: flex-start;
+    }
+
+    .toppart{
+        margin-left: 40px;
+    }
+
+    .date {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .slideactive .date {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .content {
+        max-width: 333px;
+    }
+
+    .contentimg {
+        max-width: 333px;
+    }
+
+    .contenttext {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+
+@media (max-width: 372px) {
+    
+
+    .content {
+        max-width: 250px;
+    }
+
+    .contentimg {
+        max-width: 250px;
+    }
+}

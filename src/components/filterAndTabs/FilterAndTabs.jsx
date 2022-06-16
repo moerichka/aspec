@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./filterAndTabs.css";
+import s from "./filterAndTabs.module.css";
 import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -22,22 +22,22 @@ function FilterAndTabs(props) {
   return (
     <>
       <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <div className={`filterAndTabs ${props.BGcolor === "gray" ? "filterAndTabs-gray" : ""}`}>
-          <div className="filterAndTabs__container container-light">
-            <h3 className="filterAndTabs__title h2-title">{props.title}</h3>
-            <div className="filterAndTabs__navWrapper">
-              <TabList className="filterAndTabs__nav">
-                <Tab className="filterAndTabs__navElem">{tabs[0]}</Tab>
-                <Tab className="filterAndTabs__navElem">{tabs[1]}</Tab>
-                <Tab className="filterAndTabs__navElem">{tabs[2]}</Tab>
-                <Tab className="filterAndTabs__navElem">{tabs[3]}</Tab>
-                <div className="filterAndTabs__navLine"></div>
+        <div className={`${s.filterAndTabs} ${props.BGcolor === "gray" ? "filterAndTabs-gray" : ""}`}>
+          <div className={`${s.container} container-light`}>
+            <h3 className={`${s.title} h2-title`}>{props.title}</h3>
+            <div className={s.navWrapper}>
+              <TabList className={s.nav}>
+                <Tab className={s.tab} selectedClassName={s.tabselected}>{tabs[0]}</Tab>
+                <Tab className={s.tab} selectedClassName={s.tabselected}>{tabs[1]}</Tab>
+                <Tab className={s.tab} selectedClassName={s.tabselected}>{tabs[2]}</Tab>
+                <Tab className={s.tab} selectedClassName={s.tabselected}>{tabs[3]}</Tab>
+                <div className={s.navLine}></div>
               </TabList>
             </div>
           </div>
         </div>
         <TabPanel>
-          <div className={`filterAndTabs__wrapper ${props.BGcolor === "gray" ? "filterAndTabs-gray" : ""}`}>
+          <div className={`${s.wrapper} ${props.BGcolor === "gray" ? "filterAndTabs-gray" : ""}`}>
             <Filter
               tab={tabs[0]}
               data={dataArray}
@@ -48,7 +48,7 @@ function FilterAndTabs(props) {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="filterAndTabs__wrapper">
+          <div className={s.wrapper}>
             <Filter
               tab={tabs[1]}
               data={dataArray}
@@ -59,7 +59,7 @@ function FilterAndTabs(props) {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="filterAndTabs__wrapper">
+          <div className={s.wrapper}>
             <Filter
               tab={tabs[2]}
               data={dataArray}
@@ -70,7 +70,7 @@ function FilterAndTabs(props) {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="filterAndTabs__wrapper">
+          <div className={s.wrapper}>
             <Filter
               tab={tabs[3]}
               data={dataArray}

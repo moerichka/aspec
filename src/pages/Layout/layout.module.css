@@ -8,11 +8,6 @@
         padding-top: 82px;
     }
 }
-@media (max-width: 840px) {
-    .dashnav{
-        padding-top: 82px;
-    }
-} 
 @media (max-width: 745px) {
     .dashnav{
         padding-top: 122px;

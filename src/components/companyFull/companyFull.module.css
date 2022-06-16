@@ -1,0 +1,86 @@
+.company {
+    overflow: hidden;
+}
+
+.country {
+    padding: 87px 0 138px 0;
+}
+
+@media (max-width: 1200px) {
+    .country {
+        padding: 68px 0 50px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .country {
+        padding: 39px 0 52px 0;
+    }
+}
+
+.awards {
+    padding-bottom: 122px;
+}
+
+@media (max-width: 1200px) {
+    .awards {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 500px) {
+    .awards {
+        padding-bottom: 50px;
+    }
+}
+
+.achievements {
+    padding: 116px 0 94px 0;
+    background-color: var(--bg-gray);
+}
+
+@media (max-width: 1200px) {
+    .achievements {
+        padding: 56px 0 80px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .achievements {
+        padding: 50px 0 50px 0;
+    }
+}
+
+.history {
+    padding: 122px 0 128px 0;
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .history {
+        padding: 80px 0 80px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .history {
+        padding: 50px 0 40px 0;
+    }
+}
+
+.info {
+    padding: 165px 0 106px 0;
+    background-color: var(--bg-gray);
+}
+
+@media (max-width: 1200px) {
+    .info {
+        padding: 80px 0 80px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .info {
+        padding: 50px 0 50px 0;
+    }
+}

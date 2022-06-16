@@ -1,5 +1,5 @@
 import React from "react";
-import "./button.css";
+import s from "./button.module.css";
 
 export default function Button(props) {
   const buttonStyles = {
@@ -8,11 +8,16 @@ export default function Button(props) {
     // width: props.width ? props.width : "200px",
     maxWidth: props.width ? props.width : "200px",
     height: props.height ? props.height : "54px",
-    color: props.color ? props.color : ""
+    color: props.color ? props.color : "",
   };
 
   return (
-    <button style={buttonStyles} className={`button button-${props.bgColor}`} onClick={props.onClick}>
+    <button
+      style={buttonStyles}
+      className={s.button}
+      data-role={props.bgColor}
+      onClick={props.onClick}
+    >
       {props.content}
     </button>
   );

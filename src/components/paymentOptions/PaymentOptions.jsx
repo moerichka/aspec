@@ -15,6 +15,7 @@ function PaymentOptions() {
   const [isBeginning, setIsBeginning] = useState(true)
   
   const slideChangeHandler = (swip) => {
+    console.log('swip: ', swip);
     setIsEnd(swip?.isEnd)
     setIsBeginning(swip?.isBeginning)
   }

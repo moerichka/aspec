@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import "./questionForm.css";
+import s from "./questionForm.module.css";
 import axios from "axios";
 
 import Button from "../button";
@@ -39,56 +39,56 @@ export default function QuestionForm() {
   };
 
   return (
-    <div className="questionForm">
-      <div className="questionForm__container">
-        <div className="questionForm__wrapper">
-          <div className="questionForm__titleWrapper">
-            <h2 className="questionForm__title">Остались вопросы? Ответим</h2>
-            <p className="questionForm__desc">
+    <div className={s.questionForm}>
+      <div className={s.container}>
+        <div className={s.wrapper}>
+          <div className={s.titleWrapper}>
+            <h2 className={s.title}>Остались вопросы? Ответим</h2>
+            <p className={s.desc}>
               Заполните необходимые поля, и наши менеджеры свяжутся с Вами в
               ближайшее время
             </p>
           </div>
-          <form className="questionForm__form" onSubmit={submitHandler}>
-            <div className="questionForm__inputsWrapper">
+          <form className={s.form} onSubmit={submitHandler}>
+            <div className={s.inputsWrapper}>
               <input
                 type="text"
-                className="questionForm__input"
+                className={s.input}
                 placeholder="Ваше имя"
                 ref={personName}
                 required
               />
               <input
                 type="tel"
-                className="questionForm__input"
+                className={s.input}
                 placeholder="Ваш номер телефона"
                 ref={personTel}
                 required
               />
               <Button content="Отправить" bgColor="green" width="184px" />
-              <div className="questionForm__cbWrapper">
+              <div className={s.cbWrapper}>
                 <input
                   type="checkbox"
                   id="acceptcb"
-                  className="questionForm__checkbox"
+                  className={s.checkbox}
                   onChange={() => {
                     setIsChecked((prev) => !prev);
                   }}
                 />
                 <label
                   htmlFor="acceptcb"
-                  className="questionForm__checkboxLabel"
+                  className={s.checkboxLabel}
                 >
                   Согласен на обработку{" "}
-                  <span className="questionForm__agreementLink">
+                  <span className={s.agreementLink}>
                     персональных данных
                   </span>
                 </label>
               </div>
             </div>
           </form>
-          {error && <div className="questionForm__error">{error}</div>}
-          {congrat && <div className="questionForm__congrat">{congrat}</div>}
+          {error && <div className={s.error}>{error}</div>}
+          {congrat && <div className={s.congrat}>{congrat}</div>}
         </div>
       </div>
     </div>

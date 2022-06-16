@@ -1,0 +1,243 @@
+.dashNav {
+    margin-top: 24px;
+}
+
+@media (max-width: 1240px) {
+    .dashNav {
+        padding-top: 46px;
+    }
+}
+
+@media (max-width: 745px) {
+    .dashNav {
+        padding-top: 110px;
+    }
+}
+
+.content {
+    margin: 45px 0 113px 0;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1240px) {
+    .content {
+        margin: 39px 0 80px 0;
+    }
+}
+
+@media (max-width: 745px) {
+    .content {
+        margin: 24px 0 118px 0;
+    }
+}
+
+.container {
+    max-width: 1537px;
+    width: 100%;
+    padding: 0 46px;
+}
+
+.titlewrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.grid {
+    margin-top: 54px;
+    display: grid;
+    grid-template-columns: minmax(auto, 335px) minmax(auto, 213px) minmax(auto, 335px) minmax(250px, 457px);
+    grid-template-rows: minmax(338px, 1fr) minmax(338px, 1fr);
+    gap: 33px;
+}
+
+.swiperwrapper{
+    display: none;
+}
+
+.card {
+    background-color: var(--bg-gray);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+    padding: 30px 33px 88px 50px;
+    transition: var(--transition);
+}
+
+.card:hover {
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    color: var(--blue);
+    font-size: 40px;
+    transition: var(--transition);
+}
+
+.card:hover .icon {
+    color: var(--white);
+    background-color: var(--bg-transparent2);
+}
+
+.smalltitle {
+    font-size: 18px;
+    line-height: 22px;
+    font-family: Montserrat-SemiBold;
+    margin-top: 30px;
+}
+
+.text {
+    color: var(--black-text-2);
+    font-size: 16px;
+    line-height: 24px;
+    transition: var(--transition);
+    margin-top: 16px;
+}
+
+.card:hover .text {
+    color: var(--white);
+}
+
+@media (min-width: 1201px) {
+    .card1 {
+        grid-column: 2 span;
+    }
+
+    .card4 {
+        grid-column: 2 span;
+    }
+
+    .card5 {
+        grid-row: 1/3;
+        grid-column: 4/5;
+    }
+}
+
+@media (max-width: 1470px) {
+    .card {
+        padding: 33px 30px 49px 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .grid {
+        margin-top: 52px;
+        grid-template-columns: minmax(280px, 1fr) 1fr minmax(280px, 1fr);
+        grid-template-rows: repeat(3, minmax(320px, 1fr));
+        gap: 30px;
+    }
+
+    .smalltitle {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .text {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 1200px) {
+    .card1 {
+        grid-column: 2 span;
+    }
+
+    .card4 {
+        grid-column: 2 span;
+    }
+
+    .card5 {
+        grid-column: 3 span;
+    }
+}
+
+@media (max-width: 810px) {
+    .grid {
+        display: none;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .titlewrapper {
+        padding: 0 46px;
+    }
+
+    .swiperwrapper {
+        margin-top: 47px;
+        display: block;
+    }
+
+    .swiper {
+        padding-bottom: 30px;
+    }
+
+    .swiperdrug {
+        background-color: var(--green);
+        border-radius: 3px;
+        height: 6px;
+    }
+
+    .card {
+        padding: 29px 26px 74px 28px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+    }
+
+    .smalltitle {
+        margin-top: 21px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .text {
+        margin-top: 14px;
+        font-size: 15px;
+        line-height: 25px;
+    }
+
+    .card[data-state="true"] {
+        background-color: var(--blue);
+        color: var(--white);
+    }
+
+    .card[data-state="true"] .icon {
+        color: var(--white);
+        background-color: var(--bg-transparent2);
+    }
+
+    .card[data-state="true"] .text {
+        color: var(--white);
+    }
+}
+
+@media (max-width: 710px) {
+    .titlewrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .titlewrapper {
+        padding: 0 20px;
+    }
+}
+

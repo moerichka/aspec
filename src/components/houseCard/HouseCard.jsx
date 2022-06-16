@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import s from "./houseCard.module.css";
 import "./houseCard.css";
 
 import { dateConverterToQuarter } from "../../helpers/dateFun";
@@ -11,57 +12,57 @@ export default function HouseCard(props) {
   };
   
   return (
-    <div className="houseCard">
-      <div className="houseCard__container">
-        <div className="houseCard__imageWrapper">
-          <div className="houseCard__imageNotifications">
+    <div className={s.houseCard}>
+      <div className={s.container}>
+        <div className={s.imageWrapper}>
+          <div className={s.imageNotifications}>
             {props.discount && (
-              <div className="houseCard__imageNotification houseCard__imageNotification-yellow">
+              <div className={`${s.imageNotification} ${s.imageNotificationYellow}`}>
                 Скидка {props.discount}
               </div>
             )}
             {props.newShapes && (
-              <div className="houseCard__imageNotification">Новые корпуса</div>
+              <div className={s.imageNotification}>Новые корпуса</div>
             )}
           </div>
-          <img src={`${PF}${props.image}`} className="houseCard__image" alt="" />
+          <img src={`${PF}${props.image}`} className={s.image} alt="" />
         </div>
-        <div className="houseCard__infoWrapper">
-          <div className="houseCard__titleBar">
-            <h6 className="houseCard__title">{props.name}</h6>
-            <span className="houseCard__price">
+        <div className={s.infoWrapper}>
+          <div className={s.titleBar}>
+            <h6 className={s.title}>{props.name}</h6>
+            <span className={s.price}>
               от{" "}
-              <span className="houseCard__priceBold">
+              <span className={s.priceBold}>
                 {priceConverter(props.price)}
               </span>{" "}
               ₽
             </span>
           </div>
-          <div className="houseCard__adressWrapper">
-            <span className="houseCard__icon icon-location"></span>
-            <span className="houseCard__adress">{props.adress}</span>
+          <div className={s.adressWrapper}>
+            <span className={`${s.icon} icon-location`}></span>
+            <span className={s.adress}>{props.adress}</span>
           </div>
         </div>
-        <div className="houseCard__moreInfoWrapper">
-          <div className="houseCard__moreInfo"> 
-            <ul className="houseCard__flats">
+        <div className={s.moreInfoWrapper}>
+          <div className={s.moreInfo}> 
+            <ul className={s.flats}>
               {props?.flats?.map((flat) => (
-                <li className="houseCard__flat" key={flat.id}>
-                  <span className="houseCard__flatType">{flat.name}</span>
-                  <span className="houseCard__flatPrice">
+                <li className={s.flat} key={flat.id}>
+                  <span className={s.flatType}>{flat.name}</span>
+                  <span className={s.flatPrice}>
                     от {priceConverter(flat.price)} ₽
                   </span>
                 </li>
               ))}
             </ul>
-            <div className="houseCard__bottomWrapper">
-              <div className="houseCard__openDateWrapper">
-                <span className="houseCard__icon icon-home"></span>
-                <span className="houseCard__openDate">
+            <div className={s.bottomWrapper}>
+              <div className={s.openDateWrapper}>
+                <span className={`${s.icon} icon-home`}></span>
+                <span className={s.openDate}>
                   Срок сдачи { dateConverterToQuarter(props.openDate)} г.
                 </span>
               </div>
-              <span className="houseCard__more">Подробнее</span>
+              <span className={s.more}>Подробнее</span>
             </div>
           </div>
         </div>

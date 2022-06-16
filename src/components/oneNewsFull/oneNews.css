@@ -1,0 +1,32 @@
+.oneNews .swiper-scrollbar{
+    height: 10px;
+    background-color: transparent;
+}
+
+.oneNews .swiper-scrollbar::after {
+    content: "";
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0%;
+    position: absolute;
+    width: 100%;
+    background-color: var(--scroll);
+    z-index: -1;
+}
+
+@media (max-width: 1200px) {
+    .oneNews .swiper-scrollbar{
+        height: 5px;
+    }
+}
+
+@media (max-width: 680px) {
+    .oneNews .swiper-scrollbar{
+        height: 4px;
+    }
+
+    .oneNews .swiper-slide{
+        margin: 0 5px !important;
+    }
+}

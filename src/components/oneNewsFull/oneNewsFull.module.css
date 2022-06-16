@@ -1,0 +1,384 @@
+.toppart {
+    display: flex;
+    justify-content: center;
+}
+
+.titlewrapper {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    row-gap: 12px;
+    column-gap: 88px;
+}
+
+.topdate {
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--dark-gray-text);
+}
+
+.toptitle {
+    max-width: 948px;
+    grid-row: 2 / 3;
+}
+
+.titleicon {
+    grid-row: 2 / 3;
+}
+
+.mainpart {
+    padding-top: 58px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textcontainer {
+    max-width: 950px;
+}
+
+.maintitle {
+    font-size: 22px;
+    line-height: 32px;
+    font-family: Montserrat-Bold;
+}
+
+.paragraphwrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 22px 0;
+}
+
+.mainparagraph {
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--dark-gray-text);
+}
+
+.mainol {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style-position: inside;
+    padding: 2px 0;
+}
+
+.mainul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 2px 0;
+}
+
+.mainul .mainelem {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.mainelem {
+    font-size: 16px;
+    line-height: 28px;
+    font-family: Neris-SemiBold;
+}
+
+.whiteblock {
+    position: relative;
+    background-color: var(--white);
+    max-width: 950px;
+    padding: 58px 127px 58px 76px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Montserrat-SemiBold;
+    margin-bottom: 80px;
+    border-radius: 5px;
+}
+
+.whiteblockimg {
+    position: absolute;
+    top: 20%;
+    width: 3px;
+    height: 60%;
+    left: 40px;
+}
+
+
+.main1 {}
+
+.main2 {
+    padding-bottom: 24px;
+}
+
+.main3 {}
+
+.main4 {}
+
+.main5 {
+    padding-bottom: 67px;
+}
+
+.main6 {}
+
+.main7 {}
+
+
+.maintable {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 22px 0 47px 0;
+}
+
+.tabletitle {
+    font-family: Montserrat-SemiBold;
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 16px;
+    line-height: 24px;
+    padding: 17px 24px;
+    border-radius: 5px;
+}
+
+.tablevalue {
+    font-size: 16px;
+    line-height: 28px;
+    padding: 17px 24px;
+    border-radius: 5px;
+    background-color: var(--white);
+}
+
+.mainimgwrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 1438px;
+    max-height: 600px;
+    position: relative;
+    padding-top: 42.5%;
+    margin-top: 56px;
+    margin-bottom: 80px;
+}
+
+.mainimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    max-width: 1438px;
+    max-height: 600px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.swiperwrapper {
+    max-width: 1520px;
+    max-height: 646px;
+    width: 100%;
+    padding: 0 40px;
+    overflow: hidden;
+}
+
+.swiper {
+    padding-bottom: 36px;
+    margin-bottom: 84px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiperslide {
+    position: relative;
+    max-width: 950px;
+    max-height: 600px;
+    padding-top: 60%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.slideimg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 950px;
+    max-height: 600px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.swiperscroll {
+    height: 10px;
+}
+
+.swiperdrug {
+    background-color: var(--green);
+    width: 100px;
+    height: 10px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+@media (max-width: 1200px) {
+    .mainpart{
+        padding-top: 30px;
+    }
+
+    .titlewrapper{
+        row-gap: 20px;
+    }
+
+    .textcontainer{
+        max-width: 765px;
+    }
+    .topdate {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .maintitle {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .mainparagraph {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .mainol {
+        padding: 10px 0;
+    }
+
+    .mainul {
+        padding: 10px 0;
+    }
+
+    .mainelem {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .main1{
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .main5 {
+        padding-bottom: 30px;
+    }
+
+    .whiteblock {
+        font-size: 14px;
+        line-height: 24px;
+        padding: 80px 58px 80px 76px;
+        margin-bottom: 40px;
+    }
+
+    .mainimgwrapper {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .maintable {
+        margin: 22px 0 47px 0;
+    }
+
+    .tabletitle {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 22.5px 24px;
+    }
+
+    .tablevalue {
+        font-size: 15px;
+        line-height: 26px;
+        padding: 22.5px 24px;
+    }
+
+    .swiper{
+        padding: 0 10px 30px 10px;
+        margin-bottom: 40px;
+    }
+
+    .swiperdrug {
+        height: 5px;
+    }
+}
+
+@media (max-width: 680px) {
+    .titlewrapper {
+        row-gap: 2px;
+        column-gap: 0px;
+    }
+
+    .toptitle{
+        grid-row: 1/2;
+    }
+
+    .topdate {
+        font-size: 15px;
+        line-height: 26px;
+        grid-row: 2/3;
+    }
+
+    .maintitle {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .paragraphwrapper {
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .mainelem {}
+
+    .whiteblock {
+        padding: 30px 19px 30px 55px;
+    }
+
+    .whiteblockimg {
+        top: 15%;
+        width: 5px;
+        height: 70%;
+        left: 20px;
+    }
+
+    .mainimgwrapper{
+        padding-top: 60%;
+    }
+
+    .tabletitle {
+        font-size: 12px;
+        line-height: 15px;
+        padding: 19.5px 24px;
+    }
+
+    .tablevalue {
+        font-size: 15px;
+        line-height: 26px;
+        padding: 19.5px 24px;
+    }
+
+    .swiper{
+        padding: 0 0px 30px 20px;
+        margin-bottom: 40px;
+    }
+
+    .swiperwrapper {
+        padding: 0;
+    }
+
+    .swiperdrug {
+        height: 4px;
+    }
+
+    .swiperslide{
+        padding-top: 68%;
+    }
+}

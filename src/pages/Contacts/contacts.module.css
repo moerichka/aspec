@@ -1,0 +1,184 @@
+.dashNav {
+    margin-top: 24px;
+}
+
+@media (max-width: 1240px) {
+    .dashNav {
+        padding-top: 46px;
+    }
+}
+
+@media (max-width: 745px) {
+    .dashNav {
+        padding-top: 110px;
+    }
+}
+
+.content {
+    margin: 46px 0 130px 0;
+}
+
+@media (max-width: 1240px) {
+    .content {
+        margin: 49px 0 97px 0;
+    }
+}
+
+@media (max-width: 745px) {
+    .content {
+        margin: 24px 0 60px 0;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.tabs {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    gap: 9px;
+    margin: 40px 0 69px 0;
+}
+
+.tab {
+    padding: 11px 21px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    color: var(--gray-text);
+    transition: var(--transition);
+    cursor: pointer;
+    user-select: none;
+}
+
+.tab:not(.tabselected):hover {
+    background-color: var(--white);
+}
+
+.tabselected {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.tabselected:hover {
+    background-color: var(--green-hover);
+}
+
+.contact {
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: minmax(auto, 614px) 1fr;
+    grid-template-rows: minmax(auto, max-content);
+    border-radius: 5px;
+}
+
+.info {
+    background-color: var(--blue);
+    padding: 61px 59px 69px 59px;
+    color: var(--white);
+}
+
+.smalltitle {
+    font-size: 22px;
+    line-height: 32px;
+    font-family: Montserrat-Bold;
+}
+
+.infolist {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.elem {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.elemtitle {
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.elemvalue {
+    font-family: Montserrat-SemiBold;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.map {
+    overflow: hidden;
+}
+
+@media (max-width: 1300px) {
+    .contact {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .info {
+        padding: 55px 30px 61px 50px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .tabs {
+        margin: 30px 0 49px 0;
+    }
+
+    .smalltitle {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .elemtitle {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .elemvalue {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .contact {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(230px, auto);
+    }
+}
+
+@media (max-width: 680px) {
+    .tabs {
+        margin: 20px 0 52px 0;
+        gap: 10px;
+    }
+
+    .tab {
+        font-size: 10px;
+        line-height: 24px;
+        padding: 5px 15px;
+    }
+
+    .smalltitle {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .elemtitle {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .elemvalue {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

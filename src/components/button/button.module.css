@@ -1,0 +1,59 @@
+.button {
+    color: var(--white);
+    min-width: 152px;
+    max-width: 200px;
+    width: 100%;
+    min-height: 54px;
+    padding: 22px 0;
+    border-radius: 5px;
+    font-family: Montserrat-Bold;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition), transform 0.1s, color var(--transition), border-color var(--transition);      
+}
+
+.button:active{
+    transform: translateY(5px);
+}
+
+.button[data-role="green"] {
+    background-color: var(--green);
+}
+
+.button[data-role="green"]:hover{
+    background-color: var(--green-hover);
+}
+
+.button[data-role="yellow"] {
+    background-color: var(--yellow);
+    color: var(--blue-text);
+}
+
+.button[data-role="yellow"]:hover{
+    background-color: var(--yellow-hover);
+}
+
+.button[data-role="blue"] {
+    background-color: var(--blue);
+}
+
+.button[data-role="blue"]:hover{
+    background-color: var(--blue-hover);
+}
+
+.button[data-role="transparent"] {
+    background-color: transparent;
+    color: var(--blue);
+    border: 1px solid var(--blue);
+}
+
+.button[data-role="transparent"]:hover{
+    /* background-color: var(--blue-hover);
+    border-color: var(--blue-hover); */
+    background-color: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+}

@@ -1,0 +1,294 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    max-width: 1537px;
+    width: 100%;
+    padding: 0 46px;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 0;
+    }
+}
+
+.blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 134px;
+}
+
+.block {}
+
+.topelement {
+    max-width: 705px;
+    width: 100%;
+    margin-left: 122px;
+    padding: 0 20px;
+}
+
+.toptext {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--gray-text);
+}
+
+.blockreverse .topelement {
+    margin-left: auto;
+    margin-right: 122px;
+}
+
+.bottomwrapper {
+    margin-top: 40px;
+    position: relative;
+}
+
+.middleelement {
+    left: 100%;
+    top: -116px;
+    transform: translateX(-460px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: auto;
+    position: absolute;
+    max-width: 460px;
+    width: 100%;
+    color: var(--white);
+    background-color: var(--blue);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 4;
+}
+
+.middletextwrapper {
+    padding: 38px 44px 43px 44px;
+}
+
+.middletitle {
+    font-size: 22px;
+    line-height: 32px;
+    font-family: Montserrat-Bold;
+}
+
+.middletext {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Neris-SemiBold;
+}
+
+.middleimg {
+    width: 100%;
+    height: 5px;
+}
+
+.blockreverse .middleelement {
+    left: 0;
+    transform: translateX(0);
+}
+
+.bottomelement {
+    position: relative;
+    max-width: 1338px;
+    padding-right: 20px;
+    max-height: 500px;
+    z-index: 0;
+}
+
+.blockreverse .bottomelement {
+    padding-right: 0px;
+    padding-left: 20px;
+}
+
+.bottomimg {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: 0;
+    border-radius: 5px;
+}
+
+.blockreverse .bottomelement {
+    margin-left: auto;
+}
+
+.buttonwrapper {
+    padding-top: 87px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 1405px) {
+    .bottomwrapper {
+        width: 100%;
+        position: relative;
+        margin-top: 40px;
+    }
+
+    .middleelement {
+        top: 50%;
+        left: 100%;
+        transform: translate(-100%, -50%);
+        margin: unset;
+    }
+
+    .blockreverse .middleelement {
+        left: 0;
+        transform: translate(0, -50%);
+    }
+
+    .bottomelement {
+        margin-top: 0;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1150px) {
+    .middleelement {
+        max-width: 399px;
+    }
+
+    .middletextwrapper {
+        padding: 39px 36px 31px 36px;
+    }
+
+    .blocks {
+        gap: 80px;
+    }
+
+    .topelement {
+        max-width: 723px;
+        margin-left: 45px;
+    }
+
+    .blockreverse .topelement {
+        max-width: 768px;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .toptext {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .middletitle {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .middletext {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .bottomelement {
+        max-width: 788px;
+        width: 100%;
+    }
+
+    .bottomimg {
+        height: 400px;
+    }
+}
+
+@media (max-width: 916px) {
+    .topelement {
+        margin-left: 0;
+    }
+
+    .blockreverse .topelement {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .middleelement {
+        top: 80%;
+    }
+
+    .bottomelement {
+        max-width: unset;
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .bottomwrapper {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .middleelement {
+        position: relative;
+        transform: unset;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin-top: -80px;
+        /* max-width: 95%; */
+    }
+
+    .middletextwrapper {
+        padding: 29px 24px 25px 29px;
+    }
+
+    .blockreverse .middleelement {
+        transform: unset;
+    }
+
+    .bottomelement {
+        padding: 0;
+    }
+
+    .blockreverse .bottomelement {
+        padding: 0;
+    }
+
+    .bottomimg {
+        height: unset;
+        min-height: 233px;
+    }
+}
+
+@media (max-width: 500px) {
+    .h2title {
+        font-size: 22px;
+        line-height: 32px;
+    }
+
+    .blocks {
+        gap: 50px;
+    }
+
+    .toptext {
+        margin-top: 14px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .middletitle {}
+
+    .middletext {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .buttonwrapper {
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 440px) {
+    .middleelement {
+        max-width: 90%;
+    }
+}

@@ -23,7 +23,7 @@ export default function Main() {
         <BenefitsGrid />
       </div>
       <div className="main__newsGrid">
-        <NewsGrid />
+        <NewsGrid buttonAll={true} desc={true} maxAmountNews={3}/>
       </div>
       <div className="main__questionForm">
         <QuestionForm />

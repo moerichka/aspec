@@ -1,33 +1,72 @@
 import React from "react";
 import Button from "../button/Button";
-import "./newsGrid.css";
+import s from "./newsGrid.module.css";
+
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 import { newsCards } from "../../dummyData";
 import NewsCard from "../newsCard";
 
-export default function NewsGrid() {
-  const navigate = useNavigate()
+function NewsGrid(props) {
+  const navigate = useNavigate();
   return (
-    <div className="newsGrid">
-      <div className="newsGrid__container container">
-        <div className="newsGrid__titleWrapper titleWrapper">
-          <h2 className="newsGrid__title h2-title">Новости</h2>
-          <h5 className="newsGrid__desc h5-desc">
+    <div className={s.newsGrid}>
+      <div className={`container ${s.container}`}>
+        <div className={`titleWrapper ${s.titleWrapper}`}>
+          <h2 className={`h2-title ${s.title}`}>{props?.title}</h2>
+          {props?.desc && <h5 className={`h5-desc ${s.desc}`}>
             Свежие новости и последние публикации нашей компании
-          </h5>
+          </h5>}
         </div>
-        <Button content="Все новости" width="183px" bgColor="blue" onClick={()=>{navigate(`/news`)}}/>
-        <div className="newsGrid__grid">
+        {props?.buttonAll && (
+          <div className={s.buttonAllWrapper}>
+            <Button
+              content="Все новости"
+              width="183px"
+              bgColor="blue"
+              onClick={() => {
+                navigate(`/news`);
+              }}
+            />
+          </div>
+        )}
+        <div className={s.grid}>
           {newsCards.map((news, index) =>
-            index % 2 === 0 ? (
-              <NewsCard key={news.id} {...news} />
-            ) : (
-              <NewsCard key={news.id} {...news} cover={true} />
-            )
+              index < props?.maxAmountNews && <NewsCard key={news.id} {...news} />
           )}
         </div>
+        {props?.buttonShowMore && (
+          <div className={s.buttonShowMoreWrapper}>
+            <Button
+              content="Показать еще"
+              width="184px"
+              bgColor="blue"
+              onClick={() => {
+                navigate(`/news`);
+              }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
+NewsGrid.propTypes = {
+  title: PropTypes.string,
+  desc: PropTypes.string,
+  buttonShowMore: PropTypes.bool,
+  buttonAll: PropTypes.bool,
+  maxAmountNews: PropTypes.number
+};
+
+NewsGrid.defaultProps = {
+  title: "Новости",
+  desc: null,
+  buttonShowMore: false,
+  buttonAll: true,
+  maxAmountNews: 3
+};
+
+export default NewsGrid
