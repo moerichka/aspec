@@ -19,7 +19,7 @@ function ProjectLayouts(props) {
       <div className={`${s.container} container`}>
         <h2 className="h2-title">{props.title}</h2>
         <div className={s.grid}>
-          {props.project.flats.map((flat, index) => {
+          {props?.project?.flats?.map((flat, index) => {
             return windowWidth < 901 ? (
               index < 4 ?
               <ProjectLayout thisProject={props.project} flat={flat} key={flat.id}/> : ""

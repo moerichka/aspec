@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import s from "./layout.module.css";
+import { useParams, useNavigate } from "react-router-dom";
 
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -12,19 +13,37 @@ import PaymentOptions from "../../components/paymentOptions";
 import BuyOptions from "../../components/buyOptions";
 import Mortgage from "../../components/mortgage";
 
-import { useParams } from "react-router-dom";
-
 import { houseCards } from "../../dummyData.js";
 
 function Layout() {
+  const navigate = useNavigate();
+  const [project, setProject] = useState(null);
+  const [layout, setLayout] = useState(null);
   const { projectId } = useParams();
   const { layoutId } = useParams();
-  const project = houseCards?.filter(
-    (project) => project.id.toString() === projectId
-  )[0];
-  const layout = project?.flats?.filter(
-    (flat) => flat.id.toString() === layoutId
-  )[0];
+
+  useEffect(() => {
+    setProject(
+      houseCards?.filter((project) => project.id.toString() === projectId)[0]
+    );
+  }, [projectId]);
+
+  useEffect(() => {
+    setLayout(
+      project?.flats?.filter((flat) => flat.id.toString() === layoutId)[0]
+    );
+  }, [project, layoutId]);
+
+  useEffect(() => {
+    const thisproject = houseCards?.filter((project) => project?.id?.toString() === projectId)[0]
+
+    if (
+      !thisproject ||
+      !thisproject?.flats?.filter((flat) => flat?.id?.toString() === layoutId)[0]
+    ) {
+      navigate(`/404`);
+    }
+  }, [navigate, project, projectId, layoutId]);
 
   const wayArray = [
     { title: "Главная" },
@@ -39,7 +58,7 @@ function Layout() {
         <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.layoutFull}>
-        <LayoutFull project={project} layout={layout}/>
+        <LayoutFull project={project} layout={layout} />
       </div>
       <div className={s.projectAbout} id="about">
         <ProjectAbout

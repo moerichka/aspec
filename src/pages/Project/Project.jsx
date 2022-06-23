@@ -1,6 +1,6 @@
-import React from "react";
-import "./project.css";
-import { useParams } from "react-router-dom"
+import React, {useEffect, useState} from "react";
+import s from "./project.module.css";
+import { useParams, useNavigate } from "react-router-dom"
 
 import Footer from "../../components/footer";
 import Header from "../../components/header";
@@ -8,6 +8,7 @@ import QuestionForm from "../../components/questionForm";
 import FilterAndTabs from "../../components/filterAndTabs";
 import SliderAndNav from "../../components/sliderAndNav";
 import ProjectAbout from "../../components/projectAbout";
+import Genplan from "../../components/genplan";
 import ProjectBenefits from "../../components/projectBenefits";
 import ProjectLayouts from "../../components/projectLayouts"
 import PaymentOptions from "../../components/paymentOptions";
@@ -17,60 +18,75 @@ import Infrastructure from "../../components/infrastructure/Infrastructure";
 import { houseCards } from "../../dummyData.js";
 
 function Project() {
+  const navigate = useNavigate();
+  const [project, setProject] = useState(null)
   const {projectId} = useParams()
-  const project = houseCards.filter(project => project.id.toString() === projectId)[0];
+
+
+  useEffect(()=>{
+    setProject(houseCards.filter(project => project.id.toString() === projectId)[0]) 
+  },[projectId])
+
+  useEffect(()=>{
+    if(!houseCards.filter(project => project.id.toString() === projectId)[0]){
+      navigate(`/404`);
+    }
+  },[navigate, project, projectId])
 
   const filterArray = [
-    {
-      spaceInput: true,
-      priceInput: true,
-      dateInput: true,
-      flatInput: true,
-      houseInput: true
-    },
-    {
-      priceInput: true,
-      dateInput: true,
-    },
-    {
-      priceInput: true,
-      dateInput: true,
-    },
-    {
-      spaceInput: true,
-      priceInput: true,
-      dateInput: true,
-    },
+    [
+      "spaceInput",
+      "priceInput",
+      "dateInput",
+      "flatInput",
+      "houseInput"
+    ],
+    [
+      "priceInput",
+      "dateInput",
+    ],
+    [
+      "priceInput",
+      "dateInput",
+    ],
+    [
+      "spaceInput",
+      "priceInput",
+      "dateInput",
+    ],
   ];
 
   return (
-    <div className="project">
+    <div className={s.project}>
       <Header />
-      <div className="project__sliderAndNav">
+      <div className={s.sliderAndNav}>
         <SliderAndNav project={project} />
       </div>
-      <div className="project__filterAndTabs">
-        <FilterAndTabs title={"Все проекты"} withGrid={false} filterArray={filterArray}/>
+      <div className={s.filterAndTabs}>
+        <FilterAndTabs title={"Все проекты"} filterArray={filterArray}/>
       </div>
-      <div className="project__projectAbout" id="about">
+      <div className={s.projectAbout} id="about">
         <ProjectAbout text={project?.about?.text} images={project?.about?.images}/>
       </div>
-      <div className="project__infrastructure" id="infrastructure">
+      <div className={s.genplan}>
+        <Genplan project={project} />
+      </div>
+      <div className={s.infrastructure} id="infrastructure">
         <Infrastructure project={project} />
       </div>
-      <div className="project__projectBenefits" id="benefits">
+      <div className={s.projectBenefits} id="benefits">
         <ProjectBenefits />
       </div>
-      <div className="project__projectLayouts" id="layouts">
+      <div className={s.projectLayouts} id="layouts">
         <ProjectLayouts project={project} />
       </div>
-      <div className="project__paymentOptions" id="payment">
+      <div className={s.paymentOptions} id="payment">
         <PaymentOptions />
       </div>
-      <div className="project__buildingProgress" id="progress">
+      <div className={s.buildingProgress} id="progress">
         <BuildingProgress project={project} />
       </div>
-      <div className="project__questionForm">
+      <div className={s.questionForm}>
         <QuestionForm />
       </div>
       <Footer />

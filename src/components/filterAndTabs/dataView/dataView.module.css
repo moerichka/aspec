@@ -1,0 +1,81 @@
+.dataView{
+    background-color: var(--bg-gray);
+}
+
+.tableader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.topcontainer{
+    max-width: 1537px;
+    width: 100%;
+    padding: 0 46px;
+}
+
+.tabs {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-top: 43px;
+}
+
+.tab {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+
+    padding: 11px 21px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    color: var(--gray-text);
+    transition: var(--transition);
+    cursor: pointer;
+    user-select: none;
+}
+
+.tab:not(.tabselected):hover {
+    background-color: var(--white);
+}
+
+.tabselected {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.tabselected:hover {
+    background-color: var(--blue-hover);
+}
+
+.tabPanel{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.panelcontainer{
+    max-width: 1537px;
+    width: 100%;
+    padding: 0 46px;
+}
+
+.containerplanns{
+
+}
+.containerlist{
+    margin-top: 72px;
+    margin-bottom: 70px;
+}
+.containerpannels{
+
+}
+.containercheckmate{
+
+}

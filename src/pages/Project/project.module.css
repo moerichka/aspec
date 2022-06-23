@@ -1,0 +1,118 @@
+.sliderAndNav{
+    margin-top: 32px;
+}
+
+@media (max-width: 1240px) {
+    .sliderAndNav{
+        margin-top: 72px;
+    }
+}
+
+@media (max-width: 745px) {
+    .sliderAndNav{
+        margin-top: 125px;
+    }
+}
+
+.filterAndTabs{
+    margin: 71px 0 40px 0;
+}
+
+@media (max-width: 1240px) {
+    .filterAndTabs{
+        margin: 47px 0 40px 0;
+    }
+}
+
+@media (max-width: 745px) {
+    .filterAndTabs{
+        margin: 30px 0 30px 0;
+    }
+}
+
+.projectAbout{
+    overflow: hidden;
+}
+
+.genplan{
+    margin: 111px 0 0 0;
+}
+
+@media (max-width: 1240px) {
+    .genplan{
+        margin: 80px 0 0 0;
+    }
+}
+
+@media (max-width: 745px) {
+    .genplan{
+        margin: 50px 0 0 0;
+    }
+}
+
+.infrastructure{
+    margin-top: 161px;
+}
+
+@media (max-width: 1140px) {
+    .infrastructure{
+        margin: 80px 0;
+    }
+}
+
+@media (max-width: 890px) {
+    .infrastructure{
+        margin: 50px 0;
+    }
+}
+.projectBenefits{
+    margin: 147px 0 132px 0;
+}
+
+@media (max-width: 1140px) {
+    .projectBenefits{
+        margin: 80px 0;
+    }
+}
+
+@media (max-width: 890px) {
+    .projectBenefits{
+        margin: 50px 0;
+    }
+}
+
+.paymentOptions{
+    margin: 152px 0 165px 0;
+}
+
+@media (max-width: 1140px) {
+    .paymentOptions{
+        margin: 80px 0;
+    }
+}
+
+@media (max-width: 890px) {
+    .paymentOptions{
+        margin: 50px 0 80px 0;
+    }
+}
+
+.buildingProgress{
+
+}
+
+.questionForm{
+    margin: 169px 0;
+}
+
+@media (max-width: 1140px) {
+    .questionForm{
+        margin: 80px 0 95px 0;
+    }
+}
+
+@media (max-width: 890px) {
+    .questionForm{
+        margin: 50px 0 60px 0;
+    }
+}

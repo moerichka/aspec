@@ -290,7 +290,8 @@ export const houseCards = [
         ],
         image: "image27.png",
       },
-      { level: 4,
+      {
+        level: 4,
         flats: [
           {
             id: 131,
@@ -305,8 +306,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 5,
+        image: "image27.png",
+      },
+      {
+        level: 5,
         flats: [
           {
             id: 131,
@@ -321,8 +324,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 6,
+        image: "image27.png",
+      },
+      {
+        level: 6,
         flats: [
           {
             id: 131,
@@ -337,8 +342,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 7,
+        image: "image27.png",
+      },
+      {
+        level: 7,
         flats: [
           {
             id: 131,
@@ -353,8 +360,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 8,
+        image: "image27.png",
+      },
+      {
+        level: 8,
         flats: [
           {
             id: 131,
@@ -369,8 +378,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 9,
+        image: "image27.png",
+      },
+      {
+        level: 9,
         flats: [
           {
             id: 131,
@@ -385,8 +396,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 10,
+        image: "image27.png",
+      },
+      {
+        level: 10,
         flats: [
           {
             id: 131,
@@ -401,8 +414,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 11,
+        image: "image27.png",
+      },
+      {
+        level: 11,
         flats: [
           {
             id: 131,
@@ -417,8 +432,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 12,
+        image: "image27.png",
+      },
+      {
+        level: 12,
         flats: [
           {
             id: 131,
@@ -433,8 +450,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 13,
+        image: "image27.png",
+      },
+      {
+        level: 13,
         flats: [
           {
             id: 131,
@@ -449,8 +468,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 14,
+        image: "image27.png",
+      },
+      {
+        level: 14,
         flats: [
           {
             id: 131,
@@ -465,8 +486,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 15,
+        image: "image27.png",
+      },
+      {
+        level: 15,
         flats: [
           {
             id: 131,
@@ -481,8 +504,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 16,
+        image: "image27.png",
+      },
+      {
+        level: 16,
         flats: [
           {
             id: 131,
@@ -497,8 +522,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 17,
+        image: "image27.png",
+      },
+      {
+        level: 17,
         flats: [
           {
             id: 131,
@@ -513,8 +540,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 18,
+        image: "image27.png",
+      },
+      {
+        level: 18,
         flats: [
           {
             id: 131,
@@ -529,8 +558,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 19,
+        image: "image27.png",
+      },
+      {
+        level: 19,
         flats: [
           {
             id: 131,
@@ -545,8 +576,10 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
-      { level: 20,
+        image: "image27.png",
+      },
+      {
+        level: 20,
         flats: [
           {
             id: 131,
@@ -561,7 +594,8 @@ export const houseCards = [
           5,
           6,
         ],
-        image: "image27.png", },
+        image: "image27.png",
+      },
     ],
     about: {
       text: [
@@ -1004,3 +1038,645 @@ export const houseCards = [
 ];
 
 export const citys = ["Москва", "Челябинск", "Саратов", "Екатеринбург"];
+
+export const genplan = {
+  // projectimg: projectImage,
+  housings: [
+    {
+      number: 3.2,
+      ready: 0.65,
+      // img: sectionImage,
+      flatsAmount: 97,
+      date: "2022-04-11T15:00:00.000+05:00",
+      styles: {
+        width: "202px",
+        height: "32%",
+        top: "51%",
+        left: "77px",
+        clipPath:
+          "polygon(14.85% 9.4%, 40.1% 22.3%, 68.3% 1.8%, 84.65% 9.8%, 79.2% 74.1%, 38.6% 99.1%, 2.5% 79%, 1% 20.55%)",
+      },
+      flats: [
+        {
+          name: "Студия",
+          price: 3500000,
+        },
+        {
+          name: "1-комн.",
+          price: 3500000,
+        },
+        {
+          name: "2-комн.",
+          price: 4500000,
+        },
+        {
+          name: "3-комн.",
+          price: 5500000,
+        },
+        {
+          name: "4-комн.",
+          price: 6500000,
+        },
+      ],
+      sections: [
+        {
+          number: "1",
+          date: "2022-04-11T15:00:00.000+05:00",
+          flatsAmount: 46,
+          styles: {
+            width: "419px",
+            height: "70%",
+            top: "29%",
+            left: "27px",
+            clipPath:
+              "polygon(1.45% 15.7%, 1.45% 9%, 26.75% -0.4%, 78.75% 17.35%, 76.35% 89.6%, 53.7% 99.8%, 3.35% 73.65%, 1.45% 20.8%)",
+          },
+          levels: [
+            {
+              level: 3,
+              section: "1",
+              number: 3,
+              oneRoomAmount: 8,
+              twoRoomAmount: 4,
+              treeRoomAmount: 2,
+              styles: {
+                width: "361px",
+                height: "14%",
+                top: "84%",
+                left: "-237px",
+                clipPath:
+                  "polygon(96.95% 83.65%, 64.55% 69.4%, 42.65% 63.25%, -0.3% 78.55%, 0.3% 36.75%, 42.95% 17.35%, 96.95% 44.9%)",
+              },
+              flats: [
+                {
+                  rooms: 1,
+                  styles: {
+                    width: "28%",
+                    height: "41%",
+                    top: "55%",
+                    left: "22%",
+                    clipPath:
+                      "polygon(59.9% 100.5%, 59.05% 81.75%, 0.45% 82.2%, 1.7% 1.45%, 100% 0.95%, 98.7% 100.5%)",
+                  },
+                },
+              ],
+            },
+            {
+              level: 4,
+              section: "1",
+              number: 4,
+              oneRoomAmount: 8,
+              twoRoomAmount: 4,
+              treeRoomAmount: 2,
+              styles: {
+                width: "361px",
+                height: "14%",
+                top: "72%",
+                left: "-237px",
+                clipPath:
+                  "polygon(96.95% 92.85%, 70.35% 75.5%, 42.65% 58.15%, 0% 80.6%, 0% 38.8%, 42.4% 10.2%, 96.95% 51%)",
+              },
+              flats: [
+                {
+                  rooms: 1,
+                  styles: {
+                    width: "28%",
+                    height: "41%",
+                    top: "55%",
+                    left: "22%",
+                    clipPath:
+                      "polygon(59.9% 100.5%, 59.05% 81.75%, 0.45% 82.2%, 1.7% 1.45%, 100% 0.95%, 98.7% 100.5%)",
+                  },
+                },
+              ],
+            },
+            {
+              level: 6,
+              section: "1",
+              number: 6,
+              oneRoomAmount: 8,
+              twoRoomAmount: 4,
+              treeRoomAmount: 2,
+              styles: {
+                width: "361px",
+                height: "14%",
+                top: "65%",
+                left: "-237px",
+                clipPath:
+                  "polygon(96.95% 78.55%, 96.95% 105.1%, 73.95% 85.7%, 42.65% 61.2%, -0.3% 90.8%, 0% 47.95%, 43.2% 17.35%, 96.95% 62.25%)",
+              },
+              flats: [
+                {
+                  rooms: 1,
+                  styles: {
+                    width: "28%",
+                    height: "41%",
+                    top: "55%",
+                    left: "22%",
+                    clipPath:
+                      "polygon(59.9% 100.5%, 59.05% 81.75%, 0.45% 82.2%, 1.7% 1.45%, 100% 0.95%, 98.7% 100.5%)",
+                  },
+                },
+              ],
+            },
+          ],
+          flats: [
+            {
+              name: "Студия",
+              price: 3500000,
+            },
+            {
+              name: "1-комн.",
+              price: 3500000,
+            },
+            {
+              name: "2-комн.",
+              price: 4500000,
+            },
+            {
+              name: "3-комн.",
+              price: 5500000,
+            },
+            {
+              name: "4-комн.",
+              price: 6500000,
+            },
+          ],
+        },
+        {
+          number: "2",
+          date: "2022-04-11T15:00:00.000+05:00",
+          flatsAmount: 46,
+          styles: {
+            width: "447px",
+            height: "55%",
+            top: "45%",
+            left: "-420px",
+            clipPath:
+              "polygon(2.25% 17.15%, 10.25% 13%, 36.15% 2.1%, 79.25% 30.4%, 83.25% 99.75%, 19.4% 100.5%, 12.05% 100.25%, 6.9% 58.45%, 4.9% 41.8%)",
+          },
+          levels: [
+            {
+              level: 3,
+              section: "2",
+              number: 3,
+              oneRoomAmount: 8,
+              twoRoomAmount: 4,
+              treeRoomAmount: 2,
+              styles: {
+                width: "361px",
+                height: "14%",
+                top: "84%",
+                left: "-237px",
+                clipPath:
+                  "polygon(96.95% 83.65%, 64.55% 69.4%, 42.65% 63.25%, -0.3% 78.55%, 0.3% 36.75%, 42.95% 17.35%, 96.95% 44.9%)",
+              },
+              flats: [
+                {
+                  rooms: 1,
+                  styles: {
+                    width: "28%",
+                    height: "41%",
+                    top: "55%",
+                    left: "22%",
+                    clipPath:
+                      "polygon(59.9% 100.5%, 59.05% 81.75%, 0.45% 82.2%, 1.7% 1.45%, 100% 0.95%, 98.7% 100.5%)",
+                  },
+                },
+              ],
+            },
+            {
+              level: 4,
+              section: "2",
+              number: 4,
+              oneRoomAmount: 8,
+              twoRoomAmount: 4,
+              treeRoomAmount: 2,
+              styles: {
+                width: "361px",
+                height: "14%",
+                top: "72%",
+                left: "-237px",
+                clipPath:
+                  "polygon(96.95% 92.85%, 70.35% 75.5%, 42.65% 58.15%, 0% 80.6%, 0% 38.8%, 42.4% 10.2%, 96.95% 51%)",
+              },
+              flats: [
+                {
+                  rooms: 1,
+                  styles: {
+                    width: "28%",
+                    height: "41%",
+                    top: "55%",
+                    left: "22%",
+                    clipPath:
+                      "polygon(59.9% 100.5%, 59.05% 81.75%, 0.45% 82.2%, 1.7% 1.45%, 100% 0.95%, 98.7% 100.5%)",
+                  },
+                },
+              ],
+            },
+            {
+              level: 6,
+              section: "2",
+              number: 6,
+              oneRoomAmount: 8,
+              twoRoomAmount: 4,
+              treeRoomAmount: 2,
+              styles: {
+                width: "361px",
+                height: "14%",
+                top: "65%",
+                left: "-237px",
+                clipPath:
+                  "polygon(96.95% 78.55%, 96.95% 105.1%, 73.95% 85.7%, 42.65% 61.2%, -0.3% 90.8%, 0% 47.95%, 43.2% 17.35%, 96.95% 62.25%)",
+              },
+              flats: [
+                {
+                  rooms: 1,
+                  styles: {
+                    width: "28%",
+                    height: "41%",
+                    top: "55%",
+                    left: "22%",
+                    clipPath:
+                      "polygon(59.9% 100.5%, 59.05% 81.75%, 0.45% 82.2%, 1.7% 1.45%, 100% 0.95%, 98.7% 100.5%)",
+                  },
+                },
+              ],
+            },
+          ],
+          flats: [
+            {
+              name: "Студия",
+              price: 3500000,
+            },
+            {
+              name: "1-комн.",
+              price: 3500000,
+            },
+            {
+              name: "2-комн.",
+              price: 4500000,
+            },
+            {
+              name: "3-комн.",
+              price: 5500000,
+            },
+            {
+              name: "4-комн.",
+              price: 6500000,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      number: 2.1,
+      ready: 0.45,
+      // img: sectionImage,
+      flatsAmount: 97,
+      date: "2022-04-11T15:00:00.000+05:00",
+      styles: {
+        width: "115px",
+        height: "17%",
+        top: "14%",
+        left: "274px",
+        clipPath:
+          "polygon(25.85% 1.7%, 35.35% 6.7%, 46.55% 4.2%, 64.65% 12.6%, 58.6% 8.4%, 68.1% 17.65%, 60.35% 84.05%, 49.15% 94.1%, 2.6% 79%, 13.8% 9.25%)",
+      },
+      flats: [
+        {
+          name: "Студия",
+          price: 3500000,
+        },
+        {
+          name: "1-комн.",
+          price: 3500000,
+        },
+        {
+          name: "2-комн.",
+          price: 4500000,
+        },
+        {
+          name: "3-комн.",
+          price: 5500000,
+        },
+        {
+          name: "4-комн.",
+          price: 6500000,
+        },
+      ],
+      sections: [
+        {
+          number: "1",
+          date: "2022-04-11T15:00:00.000+05:00",
+          flatsAmount: 46,
+          styles: {
+            width: "28%",
+            height: "54%",
+            top: "46%",
+            left: "38%",
+            clipPath:
+              "polygon(1.25% 15.6%, 1.5% 10.3%, 26.65% -0.55%, 79.75% 22.2%, 77.8% 99.75%, 13.35% 99.75%, 2.2% 93.65%, 1.25% 20.65%)",
+          },
+          levels: [
+            {
+              level: 4,
+              oneRoomAmount: 8,
+              twoRoomAmount: 4,
+              treeRoomAmount: 2,
+            },
+          ],
+          flats: [
+            {
+              name: "Студия",
+              price: 3500000,
+            },
+            {
+              name: "1-комн.",
+              price: 3500000,
+            },
+            {
+              name: "2-комн.",
+              price: 4500000,
+            },
+            {
+              name: "3-комн.",
+              price: 5500000,
+            },
+            {
+              name: "4-комн.",
+              price: 6500000,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      number: 1.2,
+      ready: 0.85,
+      // img: sectionImage,
+      flatsAmount: 97,
+      date: "2022-04-11T15:00:00.000+05:00",
+      styles: {
+        width: "115px",
+        height: "26%",
+        top: "24%",
+        left: "172px",
+        clipPath:
+          "polygon(17.25% 3.85%, 28.45% 0%, 39.65% 2.75%, 46.55% 4.4%, 56.9% 6.6%, 71.55% 11%, 58.6% 80.75%, 40.5% 90.1%, 31.9% 100%, 0% 90.65%, 8.6% 8.25%)",
+      },
+      flats: [
+        {
+          name: "Студия",
+          price: 3500000,
+        },
+        {
+          name: "1-комн.",
+          price: 3500000,
+        },
+        {
+          name: "2-комн.",
+          price: 4500000,
+        },
+        {
+          name: "3-комн.",
+          price: 5500000,
+        },
+        {
+          name: "4-комн.",
+          price: 6500000,
+        },
+      ],
+      sections: [
+        {
+          number: "1",
+          date: "2022-04-11T15:00:00.000+05:00",
+          flatsAmount: 46,
+          styles: {
+            width: "28%",
+            height: "54%",
+            top: "46%",
+            left: "38%",
+            clipPath:
+              "polygon(1.25% 15.6%, 1.5% 10.3%, 26.65% -0.55%, 79.75% 22.2%, 77.8% 99.75%, 13.35% 99.75%, 2.2% 93.65%, 1.25% 20.65%)",
+          },
+          levels: [
+            {
+              level: 4,
+              oneRoomAmount: 8,
+              twoRoomAmount: 4,
+              treeRoomAmount: 2,
+            },
+          ],
+          flats: [
+            {
+              name: "Студия",
+              price: 3500000,
+            },
+            {
+              name: "1-комн.",
+              price: 3500000,
+            },
+            {
+              name: "2-комн.",
+              price: 4500000,
+            },
+            {
+              name: "3-комн.",
+              price: 5500000,
+            },
+            {
+              name: "4-комн.",
+              price: 6500000,
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const favorites = [
+  {
+    id: 1,
+    name: "Студия",
+    flatNumber: 12,
+    project: "Васнецово",
+    projectId: 4,
+    porjectType: "ЖК",
+    rooms: 1,
+    favored: true,
+    finishingIn: true,
+    level: 1,
+    entrance: 5,
+    street: "10 лет Октября",
+    district: "Пчкаловский",
+    discount: "50%",
+    newShapes: true,
+    type: 0,
+    price: 4500000,
+    finishingPrice: 477000,
+    layouts: ["image21.png", "image22.png"],
+    house: "2",
+    space: 21.4,
+    kitchenSpace: 5.7,
+    degree: 120,
+    amount: 2,
+    openDate: "2021-10-03T15:00:00.000+05:00",
+  },
+  {
+    id: 2,
+    name: "1-комн.",
+    flatNumber: 12,
+    project: "Васнецово",
+    projectId: 4,
+    porjectType: "ЖК",
+    rooms: 1,
+    favored: true,
+    finishingIn: true,
+    level: 1,
+    entrance: 5,
+    street: "10 лет Октября",
+    district: "Пчкаловский",
+    discount: "50%",
+    newShapes: true,
+    type: 1,
+    price: 4000000,
+    finishingPrice: 477000,
+    layouts: ["image22.png", "image22.png"],
+    house: "2",
+    space: 16.4,
+    kitchenSpace: 5.7,
+    degree: 140,
+    amount: 3,
+    openDate: "2021-10-03T15:00:00.000+05:00",
+    options: [
+      { title: "Кладовку", image: "image31.jpg" },
+      { title: "Парковку", image: "image30.jpg" },
+    ],
+  },
+  {
+    id: 4,
+    name: "2-комн.",
+    flatNumber: 12,
+    project: "Васнецово",
+    projectId: 4,
+    porjectType: "ЖК",
+    rooms: 1,
+    favored: true,
+    finishingIn: true,
+    level: 1,
+    entrance: 5,
+    street: "10 лет Октября",
+    district: "Пчкаловский",
+    discount: "50%",
+    newShapes: true,
+    type: 2,
+    price: 3000000,
+    finishingPrice: 477000,
+    layouts: ["image23.png", "image22.png"],
+    house: "2",
+    space: 21.4,
+    kitchenSpace: 5.7,
+    degree: 0,
+    amount: 1,
+    openDate: "2021-10-03T15:00:00.000+05:00",
+    options: [
+      { title: "Кладовку", image: "image31.jpg" },
+      { title: "Парковку", image: "image30.jpg" },
+    ],
+  },
+  {
+    id: 5,
+    name: "3-комн.",
+    flatNumber: 12,
+    project: "Васнецово",
+    projectId: 4,
+    porjectType: "ЖК",
+    rooms: 1,
+    favored: true,
+    finishingIn: true,
+    level: 1,
+    entrance: 5,
+    street: "10 лет Октября",
+    district: "Пчкаловский",
+    discount: "50%",
+    newShapes: true,
+    type: 3,
+    price: 3500000,
+    finishingPrice: 477000,
+    layouts: ["image23.png", "image22.png"],
+    house: "2",
+    space: 25.4,
+    kitchenSpace: 5.7,
+    degree: 70,
+    amount: 12,
+    openDate: "2021-10-03T15:00:00.000+05:00",
+    options: [
+      { title: "Кладовку", image: "image31.jpg" },
+      { title: "Парковку", image: "image30.jpg" },
+    ],
+  },
+  {
+    id: 6,
+    name: "4-комн.",
+    flatNumber: 12,
+    project: "Васнецово",
+    projectId: 4,
+    porjectType: "ЖК",
+    rooms: 1,
+    favored: true,
+    finishingIn: true,
+    level: 1,
+    entrance: 5,
+    street: "10 лет Октября",
+    district: "Пчкаловский",
+    discount: "50%",
+    newShapes: true,
+    type: 4,
+    price: 3500000,
+    finishingPrice: 477000,
+    layouts: ["image23.png", "image22.png"],
+    house: "2",
+    space: 36.4,
+    kitchenSpace: 5.7,
+    degree: 40,
+    amount: 12,
+    openDate: "2021-10-03T15:00:00.000+05:00",
+    options: [
+      { title: "Кладовку", image: "image31.jpg" },
+      { title: "Парковку", image: "image30.jpg" },
+    ],
+  },
+  {
+    id: 7,
+    name: "4-комн.",
+    flatNumber: 12,
+    project: "Васнецово",
+    projectId: 4,
+    porjectType: "ЖК",
+    rooms: 1,
+    favored: true,
+    finishingIn: true,
+    level: 1,
+    entrance: 5,
+    street: "10 лет Октября",
+    district: "Пчкаловский",
+    discount: "50%",
+    newShapes: true,
+    type: 4,
+    price: 3500000,
+    finishingPrice: 477000,
+    layouts: ["image23.png", "image22.png"],
+    house: "2",
+    space: 36.4,
+    kitchenSpace: 5.7,
+    degree: 40,
+    amount: 12,
+    openDate: "2021-10-03T15:00:00.000+05:00",
+    options: [
+      { title: "Кладовку", image: "image31.jpg" },
+      { title: "Парковку", image: "image30.jpg" },
+    ],
+  },
+];

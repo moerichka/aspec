@@ -19,8 +19,12 @@ function Mortgage(props) {
   const [isCheckedMother, setIsCheckedMother] = useState(false);
   const [isCheckedMilitary, setIsCheckedMilitary] = useState(false);
 
-  const minPrice = Math.min(...getUnique(props?.project?.flats, "price"));
-  const maxPrice = Math.max(...getUnique(props?.project?.flats, "price"));
+  const minPrice = props?.project?.flats
+    ? Math.min(...getUnique(props?.project?.flats, "price"))
+    : "";
+  const maxPrice = props?.project?.flats
+    ? Math.max(...getUnique(props?.project?.flats, "price"))
+    : "";
   const minTerm = 1;
   const maxTerm = 30;
 
@@ -200,29 +204,31 @@ function Mortgage(props) {
               </div>
               <div className={s.bankswrapper}>
                 <div className={s.banks}>
-                  {bankinfo.map((bank, index) => (
+                  {bankinfo?.map((bank, index) => (
                     <div className={s.bankcard} key={index}>
                       <div className={s.top}>
-                        <img src={bank.logo} alt="" className={s.logo} />
-                        <h6 className={s.title}>{bank.title}</h6>
+                        <img src={bank?.logo} alt="" className={s.logo} />
+                        <h6 className={s.title}>{bank?.title}</h6>
                       </div>
                       <div className={s.middle}>
                         <div className={s.middleelem}>
                           <div className={s.middletitle}>Ставка</div>
                           <div className={s.middlevalue}>
-                            от <span className={s.bold}>{bank.percentage}%</span>
+                            от{" "}
+                            <span className={s.bold}>{bank?.percentage}%</span>
                           </div>
                         </div>
                         <div className={s.middleelem}>
-                          <div className={s.middletitle}>Ежемесячный платеж</div>
+                          <div className={s.middletitle}>
+                            Ежемесячный платеж
+                          </div>
                           <div className={s.middlevalue}>
-                            <span className={s.bold}>{bank.payment} ₽</span> / мес
+                            <span className={s.bold}>{bank?.payment} ₽</span> /
+                            мес
                           </div>
                         </div>
                       </div>
-                      <div className={s.bottom}>
-                        {bank.bottomContent}
-                      </div>
+                      <div className={s.bottom}>{bank?.bottomContent}</div>
                     </div>
                   ))}
                 </div>

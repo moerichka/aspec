@@ -9,48 +9,38 @@ import Footer from "../../components/footer";
 
 export default function Main() {
   const filterArray = [
-    {
-      districtInput: true,
-      spaceInput: true,
-      priceInput: true,
-      dateInput: true,
-      flatInput: true,
-    },
-    {
-      districtInput: true,
-      priceInput: true,
-      dateInput: true,
-    },
-    {
-      districtInput: true,
-      priceInput: true,
-      dateInput: true,
-    },
-    {
-      districtInput: true,
-      spaceInput: true,
-      priceInput: true,
-      dateInput: true,
-    },
+    ["districtInput", "spaceInput", "priceInput", "dateInput", "flatInput"],
+    ["districtInput", "priceInput", "dateInput"],
+    ["districtInput", "priceInput", "dateInput"],
+    ["districtInput", "spaceInput", "priceInput", "dateInput"],
   ];
 
+  const DataRepresentetionArray = [
+    "HouseCardGrid",
+    "HouseCardGrid",
+    "HouseCardGrid",
+    "HouseCardGrid",
+  ];
+
+
   const wayArray = [
-    { title: "Главная" , gray: true},
-    { title: "Все проекты" , gray: true},
+    { title: "Главная", gray: true },
+    { title: "Все проекты", gray: true },
   ];
 
   return (
     <div className="projects">
-      <Header BGcolor={"gray"} withLine={true}/>
+      <Header BGcolor={"gray"} withLine={true} />
       <div className={s.dashnav}>
         <Dashnav wayArray={wayArray}></Dashnav>
       </div>
       <div className={s.filterAndTabs}>
         <FilterAndTabs
           title={"Все проекты"}
-          withGrid={true}
+          dataRepresentetion={DataRepresentetionArray}
           filterArray={filterArray}
           withShowMore={false}
+          inputbgColor={"white"}
         />
       </div>
       <Footer />

@@ -1,0 +1,1 @@
+export {Infocorpus, InfoSection, Infolevel} from "./Smallinfo"

@@ -28,8 +28,8 @@ function BuildingProgress(props) {
   }, [props.project]);
 
   let buildingsArray = data?.buildings;
-  const dateArrayValues = buildingsArray.map((building) => building.datePic);
-  const dateArrayTitles = dateArrayValues.map((elem) =>
+  const dateArrayValues = buildingsArray?.map((building) => building?.datePic);
+  const dateArrayTitles = dateArrayValues?.map((elem) =>
     dateConverterToQuarter(elem)
   );
 
@@ -41,19 +41,19 @@ function BuildingProgress(props) {
     dateArrayValues
   ); // создание опцеий для комбобокса по домам
 
-  houseOptions.push({ value: "all", label: "Все" });
-  dateOptions.push({ value: "all", label: "Все" });
+  houseOptions?.push({ value: "all", label: "Все" });
+  dateOptions?.push({ value: "all", label: "Все" });
 
   dateOptions = sortDates(dateOptions);
 
   chosenHouse &&
     chosenHouse.value !== "all" &&
-    (buildingsArray = buildingsArray.filter(
+    (buildingsArray = buildingsArray?.filter(
       (elem) => elem.number === chosenHouse.value
     ));
   chosenDate &&
     chosenDate.value !== "all" &&
-    (buildingsArray = buildingsArray.filter(
+    (buildingsArray = buildingsArray?.filter(
       (elem) => elem.datePic === chosenDate.value
     ));
 
@@ -105,8 +105,8 @@ function BuildingProgress(props) {
         >
           <SwiperSlide>
             {/* <div className={s.scroller}> */}
-            {buildingsArray.map((elem) => (
-              <div className={s.housewrapper} key={elem.id}>
+            {buildingsArray?.map((elem) => (
+              <div className={s.housewrapper} key={elem?.id}>
                 <div className={s.amountpics}>{elem?.images?.length} фото</div>
                 <div className={s.housedatewrapper}>
                   <div className={s.housedate}>

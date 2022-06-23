@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import s from "./filterAndTabs.module.css";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
-import Filter from "../filter";
+import Filter from "./filter";
 
-import { houseCards } from "../../dummyData";
+// import { houseCards } from "../../dummyData";
+import { Projects, Offices } from "../../data";
 
 function FilterAndTabs(props) {
   const [tabIndex, setTabIndex] = useState(0);
-  const [dataArray, setDataArray] = useState(houseCards);
-  
+  const [ProjectsData, setProjectsData] = useState(Projects);
+  const [OfficesData, setOfficesData] = useState(null)
+
+  useEffect(()=>{
+    setProjectsData(Projects)
+  }, [])
+
+  useEffect(()=>{
+    setOfficesData(Offices)
+  }, [])
+
   const tabs = [
     "Квартиры",
     "Кладовые",
@@ -22,27 +32,44 @@ function FilterAndTabs(props) {
   return (
     <>
       <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <div className={`${s.filterAndTabs} ${props.BGcolor === "gray" ? "filterAndTabs-gray" : ""}`}>
+        <div
+          className={`${s.filterAndTabs} ${
+            props.BGcolor === "gray" ? "filterAndTabs-gray" : ""
+          }`}
+        >
           <div className={`${s.container} container-light`}>
             <h3 className={`${s.title} h2-title`}>{props.title}</h3>
             <div className={s.navWrapper}>
               <TabList className={s.nav}>
-                <Tab className={s.tab} selectedClassName={s.tabselected}>{tabs[0]}</Tab>
-                <Tab className={s.tab} selectedClassName={s.tabselected}>{tabs[1]}</Tab>
-                <Tab className={s.tab} selectedClassName={s.tabselected}>{tabs[2]}</Tab>
-                <Tab className={s.tab} selectedClassName={s.tabselected}>{tabs[3]}</Tab>
+                <Tab className={s.tab} selectedClassName={s.tabselected}>
+                  {tabs[0]}
+                </Tab>
+                <Tab className={s.tab} selectedClassName={s.tabselected}>
+                  {tabs[1]}
+                </Tab>
+                <Tab className={s.tab} selectedClassName={s.tabselected}>
+                  {tabs[2]}
+                </Tab>
+                <Tab className={s.tab} selectedClassName={s.tabselected}>
+                  {tabs[3]}
+                </Tab>
                 <div className={s.navLine}></div>
               </TabList>
             </div>
           </div>
         </div>
         <TabPanel>
-          <div className={`${s.wrapper} ${props.BGcolor === "gray" ? "filterAndTabs-gray" : ""}`}>
+          <div
+            className={`${s.wrapper} ${
+              props.BGcolor === "gray" ? "filterAndTabs-gray" : ""
+            }`}
+          >
             <Filter
               tab={tabs[0]}
-              data={dataArray}
-              {...props.filterArray[0]}
-              withGrid={props.withGrid}
+              data={ProjectsData}
+              filters={props.filterArray[0]}
+              inputbgColor={props.inputbgColor}
+              dataRepresentetion={props?.dataRepresentetion[0]}
               withShowMore={props.withShowMore}
             />
           </div>
@@ -51,9 +78,10 @@ function FilterAndTabs(props) {
           <div className={s.wrapper}>
             <Filter
               tab={tabs[1]}
-              data={dataArray}
-              {...props.filterArray[1]}
-              withGrid={props.withGrid}
+              data={ProjectsData}
+              filters={props.filterArray[1]}
+              inputbgColor={props.inputbgColor}
+              dataRepresentetion={props?.dataRepresentetion[1]}
               withShowMore={props.withShowMore}
             />
           </div>
@@ -62,9 +90,10 @@ function FilterAndTabs(props) {
           <div className={s.wrapper}>
             <Filter
               tab={tabs[2]}
-              data={dataArray}
-              {...props.filterArray[2]}
-              withGrid={props.withGrid}
+              data={ProjectsData}
+              filters={props.filterArray[2]}
+              inputbgColor={props.inputbgColor}
+              dataRepresentetion={props?.dataRepresentetion[2]}
               withShowMore={props.withShowMore}
             />
           </div>
@@ -73,9 +102,11 @@ function FilterAndTabs(props) {
           <div className={s.wrapper}>
             <Filter
               tab={tabs[3]}
-              data={dataArray}
-              {...props.filterArray[3]}
-              withGrid={props.withGrid}
+              data={OfficesData}
+              easyFilter={true}
+              filters={props.filterArray[3]}
+              inputbgColor={props.inputbgColor}
+              dataRepresentetion={props?.dataRepresentetion[3]}
               withShowMore={props.withShowMore}
             />
           </div>
@@ -88,40 +119,25 @@ function FilterAndTabs(props) {
 FilterAndTabs.propTypes = {
   title: PropTypes.string,
   withGrid: PropTypes.bool,
+  inputbgColor: PropTypes.string,
   withShowMore: PropTypes.bool,
   BGcolor: PropTypes.string,
   filterArray: PropTypes.array,
-}
+  dataRepresentetion: PropTypes.array,
+};
 
 FilterAndTabs.defaultProps = {
   title: "Подбор недвижимости",
-  withGrid: true,
   BGcolor: "white",
+  inputbgColor: "gray",
   withShowMore: true,
+  dataRepresentetion: ["","","",""],
   filterArray: [
-    {
-      districtInput: true,
-      priceInput: true,
-      dateInput: true,
-      flatInput: true,
-    },
-    {
-      districtInput: true,
-      priceInput: true,
-      dateInput: true,
-    },
-    {
-      districtInput: true,
-      priceInput: true,
-      dateInput: true,
-    },
-    {
-      districtInput: true,
-      spaceInput: true,
-      priceInput: true,
-      dateInput: true,
-    },
-  ]
-}
+    ["districtInput", "priceInput", "dateInput", "flatInput"],
+    ["districtInput", "priceInput", "dateInput"],
+    ["districtInput", "priceInput", "dateInput"],
+    ["districtInput", "spaceInput", "priceInput", "dateInput"],
+  ],
+};
 
-export default FilterAndTabs
+export default FilterAndTabs;

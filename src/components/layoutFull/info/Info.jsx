@@ -13,11 +13,13 @@ function Info(props) {
     <div className={s.info}>
       <div className={s.topwrapper}>
         <h2 className={s.title}>
-          {props.layout?.name} {props.layout?.space} м²
+          {props?.layout?.name} {props?.layout?.space} м²
         </h2>
-        <div className={s.iconmark}><span className="icon-mark"></span></div>
+        <div className={s.iconmark}>
+          <span className="icon-mark"></span>
+        </div>
       </div>
-      <div className={s.projectname}>Проект {props.project.name}</div>
+      <div className={s.projectname}>Проект {props?.project?.name}</div>
       <div className={s.grid}>
         <span className={s.elemtitle}>Срок сдачи</span>
         <span className={s.elemvalue}>
@@ -77,9 +79,11 @@ function Info(props) {
         </div>
       </div>
       <div className={s.price}>
-        {finishingOn
-          ? separator(props?.layout?.price + props?.layout?.finishingPrice)
-          : separator(props?.layout?.price)}
+        {props?.layout?.price
+          ? finishingOn
+            ? separator(props?.layout?.price + props?.layout?.finishingPrice)
+            : separator(props?.layout?.price)
+          : ""}
         ₽
       </div>
       <div className={s.buttons}>

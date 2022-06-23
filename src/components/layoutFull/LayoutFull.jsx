@@ -16,34 +16,34 @@ function LayoutFull(props) {
   const [tabIndex, setTabIndex] = useState(0);
 
   const [selectedLevel, setSelectedLevel] = useState(1);
-  const [levelsWithFlat, setLevelsWithFlat] = useState([]);
-  const [levelFlats, setLevelFlats] = useState([]);
-  const [thisBuilding, setThisBuilding] = useState({});
+  const [levelsWithFlat, setLevelsWithFlat] = useState(null);
+  const [levelFlats, setLevelFlats] = useState(null);
+  const [thisBuilding, setThisBuilding] = useState(null);
 
   const [infoVisible, setInfoVisible] = useState(false);
   const tabs = ["Квартиры", "Кладовые", "Парковочные места"];
   const tabsMiddle = ["Планировка", "На этаже", "Генплан"];
 
   useEffect(() => {
-    setLevelsWithFlat(
-      props.project?.levels.filter((level) =>
-        level.flats?.filter((elem) => elem?.flat === props.layout?.id)
+    props?.project?.levels && setLevelsWithFlat(
+      props?.project?.levels.filter((level) =>
+        level?.flats?.filter((elem) => elem?.flat === props?.layout?.id)
       )
     );
-  }, [props.project, props.layout]);
+  }, [props?.project, props?.layout]);
 
   useEffect(() => {
-    setLevelFlats(
+    levelsWithFlat && setLevelFlats(
       levelsWithFlat[selectedLevel - 1]?.flats?.filter(
-        (level) => level?.flat === props.layout?.id
+        (level) => level?.flat === props?.layout?.id
       )
     );
-  }, [levelsWithFlat, selectedLevel, props.layout]);
+  }, [levelsWithFlat, selectedLevel, props?.layout]);
 
   useEffect(() => {
-    setThisBuilding(
+    props?.project?.buildings && setThisBuilding(
       props?.project?.buildings?.filter(
-        (building) => building.number === props?.layout?.house
+        (building) => building?.number === props?.layout?.house
       )[0]
     );
   }, [props?.project, props?.layout]);
@@ -102,7 +102,7 @@ function LayoutFull(props) {
                     <div className={`${s.layoutimgwrapper} ${s.layoutlayout}`}>
                       <img
                         className={s.layoutimg}
-                        src={`${PF}${props.layout?.layouts[0]}`}
+                        src={`${PF}${props?.layout?.layouts[0]}`}
                         alt=""
                       />
                     </div>

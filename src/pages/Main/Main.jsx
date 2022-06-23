@@ -10,6 +10,13 @@ import QuestionForm from "../../components/questionForm";
 import Footer from "../../components/footer";
 
 export default function Main() {
+  const DataRepresentetionArray = [
+    "HouseCardGrid",
+    "HouseCardGrid",
+    "HouseCardGrid",
+    "HouseCardGrid",
+  ];
+  
   return (
     <>
       <Header />
@@ -17,7 +24,7 @@ export default function Main() {
         <HelloSlider />
       </div>
       <div className="main__filterAndTabs">
-        <FilterAndTabs title={"Наши проекты"} withGrid={true}  />
+        <FilterAndTabs title={"Наши проекты"} dataRepresentetion={DataRepresentetionArray}  />
       </div>
       <div className="main__benefitsGrid">
         <BenefitsGrid />

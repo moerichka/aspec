@@ -55,7 +55,7 @@ function NewsGrid(props) {
 
 NewsGrid.propTypes = {
   title: PropTypes.string,
-  desc: PropTypes.string,
+  desc: PropTypes.bool,
   buttonShowMore: PropTypes.bool,
   buttonAll: PropTypes.bool,
   maxAmountNews: PropTypes.number

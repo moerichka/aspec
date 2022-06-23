@@ -3,7 +3,7 @@ import s from "./header.module.css";
 import CustomSelector from "../customSelector";
 
 import { createOptions, getUnique } from "../../helpers/arrayFun";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import headerBar from "../../assets/images/Elem1.png";
 import logo from "../../assets/images/logo.svg";
@@ -11,6 +11,7 @@ import logo from "../../assets/images/logo.svg";
 import { citys } from "../../dummyData";
 
 export default function Header(props) {
+  const navigate = useNavigate()
   const [isFavored, setIsFavored] = useState(false);
   const [linkChangeCounter, setLinkChangeCounter] = useState(0);
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
@@ -196,7 +197,8 @@ export default function Header(props) {
             isFavored ? "icon-mark-fill" : "icon-mark"
           }`}
           onClick={() => {
-            setIsFavored((prev) => !prev);
+            // setIsFavored((prev) => !prev);
+            navigate("/favorites")
           }}
         ></span>
       </div>

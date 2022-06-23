@@ -18,9 +18,7 @@ import Transportpink from "../../assets/images/transportpink.svg";
 function Infrastructure(props) {
   const [data, setData] = useState(props?.project);
   const [windowWidth, setWindowWidth] = useState(window.screen.width);
-  const [isLegendActive, setIsLegendActive] = useState(false)
-
-  const { nearerObjects } = data;
+  const [isLegendActive, setIsLegendActive] = useState(false);
 
   useEffect(() => {
     window.addEventListener("resize", function () {
@@ -64,7 +62,7 @@ function Infrastructure(props) {
       <div className={s.mapwrapper}>
         <YMaps>
           <Map
-            defaultState={{ center: data?.location, zoom: 18 }}
+            defaultState={{ center: data?.location ? data?.location : [55.75, 37.57], zoom: 18 }}
             width="100vw"
             height={mapHeight}
             instanceRef={(ref) => {
@@ -72,15 +70,17 @@ function Infrastructure(props) {
             }}
             controls={[]}
           >
-            <Placemark
-              modules={["geoObject.addon.balloon"]}
-              defaultGeometry={data?.location}
-              options={{
-                iconLayout: "default#image",
-                iconImageHref: House,
-              }}
-            />
-            {nearerObjects?.map((obj) => (
+            {data?.location && (
+              <Placemark
+                modules={["geoObject.addon.balloon"]}
+                defaultGeometry={data?.location}
+                options={{
+                  iconLayout: "default#image",
+                  iconImageHref: House,
+                }}
+              />
+            )}
+            {data?.nearerObjects?.map((obj) => (
               <Placemark
                 key={obj?.id}
                 modules={["geoObject.addon.balloon"]}
@@ -97,10 +97,17 @@ function Infrastructure(props) {
             ))}
           </Map>
         </YMaps>
-        <div className={`${s.legend} ${isLegendActive && windowWidth < 1000 ? s.active : ""}`}>
+        <div
+          className={`${s.legend} ${
+            isLegendActive && windowWidth < 1000 ? s.active : ""
+          }`}
+        >
           <div className={s.legendtop}>
             <div className={s.legendtitle}>Инфраструктура</div>
-            <span className="icon-cancel" onClick={()=> setIsLegendActive(false)}></span>
+            <span
+              className="icon-cancel"
+              onClick={() => setIsLegendActive(false)}
+            ></span>
           </div>
           <div className={s.element}>
             <div className={s.left}>
@@ -165,7 +172,12 @@ function Infrastructure(props) {
             <div className={s.amount}>2</div>
           </div>
         </div>
-        <div className={s.legendtoggler} onClick={()=> setIsLegendActive(true)}><span className="icon-burger"></span>Выбрать категорию</div>
+        <div
+          className={s.legendtoggler}
+          onClick={() => setIsLegendActive(true)}
+        >
+          <span className="icon-burger"></span>Выбрать категорию
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,164 @@
+.dashnav {
+    padding-top: 24px;
+}
+
+@media (max-width: 1240px) {
+    .dashnav {
+        padding-top: 82px;
+    }
+}
+
+@media (max-width: 745px) {
+    .dashnav {
+        padding-top: 122px;
+    }
+}
+
+.content {
+    padding: 54px 0 153px 0;
+}
+
+@media (max-width: 1240px) {
+    .content {
+        padding: 61px 0 96px 0;
+    }
+}
+
+@media (max-width: 745px) {
+    .content {
+        padding: 27px 0 46px 0;
+    }
+}
+
+.tableader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.tabs {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.tab {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+
+    padding: 11px 21px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    color: var(--gray-text);
+    transition: var(--transition);
+    cursor: pointer;
+    user-select: none;
+}
+
+.tab:not(.tabselected):hover {
+    background-color: var(--white);
+}
+
+.tabselected {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.tabselected:hover {
+    background-color: var(--green-hover);
+}
+
+.tabpanel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favoritesgrid {
+    width: 100%;
+    padding-top: 54px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 30px;
+}
+
+.comparecontainer {
+    /* max-width: 1537px; */
+    width: 100%;
+    /* overflow-x: hidden; */
+    overflow-x: auto;
+}
+
+.favoritesline {
+    padding: 0 246px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.favoritesline>div {
+    min-width: 460px;
+}
+
+.comparecontainer::-webkit-scrollbar {
+    display: none;
+}
+
+.fakecontainer{
+    margin: 60px 0 43px 0;
+    height: 10px;
+    max-width: 1537px;
+    width: 100%;
+    padding: 0 46px;
+    overflow-x: auto;
+}
+.fakecontent{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 0 246px 0 0;
+}
+
+.last{
+    min-width: 240px !important;
+}
+
+.fakecontainer::-webkit-scrollbar {
+    display: block;
+    overflow-x: auto;
+    height: 10px;
+}
+
+.fakecontainer::-webkit-scrollbar-track {
+    background-color: var(--border);
+    border: 4.5px solid transparent;
+    background-clip: content-box;
+}
+
+.fakecontainer::-webkit-scrollbar-thumb:horizontal {
+    background-color: var(--green);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.fakecontent>div {
+    min-width: 460px;
+    height: 2px;
+}
+
+
+@media (max-width: 900px) {
+    .favoritesgrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 11px;
+    }
+}

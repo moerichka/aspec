@@ -2,8 +2,8 @@ import { DateTime } from "luxon";
 
 export const getUnique = (array, property) => {
   return array
-    .map((elem) => (property ? elem[property] : elem))
-    .filter((elem, index, arr) => arr.indexOf(elem) === index);
+    ?.map((elem) => (property ? elem[property] : elem))
+    ?.filter((elem, index, arr) => arr?.indexOf(elem) === index);
 };
 
 export const createOptions = (
@@ -13,14 +13,14 @@ export const createOptions = (
   valueArray = false
 ) => {
   const unique = isUnique ? array : getUnique(array, property);
-  return unique.map((elem, index) => ({
+  return unique?.map((elem, index) => ({
     value: valueArray ? valueArray[index] : elem,
     label: elem,
   }));
 };
 
 export const sortDates = (array) => {
-  return array.sort((a, b) => {
+  return array?.sort((a, b) => {
     if (
       DateTime.fromISO(a.value).toMillis() <
       DateTime.fromISO(b.value).toMillis()

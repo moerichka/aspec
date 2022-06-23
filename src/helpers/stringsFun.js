@@ -17,3 +17,17 @@ export const separator = (num) => {
   const sep = " ";
   return str.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + sep);
 };
+
+export const percentageConverter = (string) => {
+  string = string.toString().trim()
+
+  const indexPercentage = string.indexOf("%")
+  return string.slice(0, indexPercentage) / 100
+}
+
+export const pxConverter = (string) => {
+  string = string.toString().trim()
+
+  const indexPercentage = string.indexOf("px")
+  return string.slice(0, indexPercentage)
+}

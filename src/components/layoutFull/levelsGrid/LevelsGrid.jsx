@@ -11,7 +11,7 @@ function LevelsGrid(props) {
   const [chosenLevel, setChosenLevel] = useState(1);
 
   useEffect(() => {
-    setOptions(
+    props?.levels && setOptions(
       props?.levels?.map((level, index) => ({
         value: level?.level,
         label: (

@@ -1,0 +1,21 @@
+.dashnav {
+    margin: 24px 0 46px 0;
+}
+
+@media (max-width: 1240px) {
+    .dashnav {
+        margin-top: 82px;
+    }
+}
+
+@media (max-width: 840px) {
+    .dashnav {
+        margin-top: 82px;
+    }
+}
+
+@media (max-width: 745px) {
+    .dashnav {
+        margin-top: 122px;
+    }
+}

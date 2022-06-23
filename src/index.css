@@ -95,15 +95,18 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     --light-gray-text: hsla(0, 0%, 66%, 1);
     --darker-gray-text: hsla(0, 0%, 51%, 1);
     --gray-icons: hsla(0, 0%, 74%, 1);
+    --gray-progressbar: hsla(0, 0%, 91%, 1);
     --dark-gray-text: hsla(0, 0%, 31%, 1);
     --gray-border: hsla(0, 0%, 88%, 0.95);
     --gray-text: hsla(0, 0%, 39%, 1);
     --black-text: hsla(0, 0%, 0%, 1);
     --black-text-2: hsla(240, 5%, 16%, 1);
     --white: hsla(0, 0%, 100%, 1);
+    --white-09: hsla(0, 0%, 100%, 0.9);
     --bg-gray: hsla(0, 0%, 98%, 1);
     --bg-transparent: hsla(0, 0%, 100%, 0.95);
     --bg-transparent2: hsla(0, 0%, 100%, 0.1);
+    --bg-transparent3: hsla(0, 0%, 0%, 0.05);
     --bg-arrow-end: hsla(0, 0%, 88%, 1);
     --border: hsla(0, 0%, 0%, 0.08);
     --gray-line: hsla(0, 0%, 89%, 1);

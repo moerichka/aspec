@@ -22,9 +22,9 @@ function SliderAndNav(props) {
       <div className="sliderAndNav__topBar">
           <Slider slides={slidesArray} maxHeight={"25vw"} minHeight={"400px"} />
           <p className="sliderAndNav__desc">
-            главная/ проекты/ {props.project.type} {props.project.name}
+            главная/ проекты/ {props?.project?.type} {props?.project?.name}
           </p>
-          <h2 className="sliderAndNav__title">{props.project.name}</h2>
+          <h2 className="sliderAndNav__title">{props?.project?.name}</h2>
       </div>
       <div className="sliderAndNav__navBar">
           <div className="sliderAndNav__container container">

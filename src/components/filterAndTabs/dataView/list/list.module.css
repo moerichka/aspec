@@ -1,0 +1,57 @@
+
+.tabletitle {
+    text-align: left;
+    padding: 14px 13px 14px 14px;
+    background-color: var(--blue);
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    border-radius: 5px;
+    min-width: 112px;
+    color: var(--white);
+    font-weight: 500;
+}
+
+.tabletitlelong {
+    min-width: 302px;
+}
+
+.tablelinetitle {
+    text-align: left;
+    padding: 14px 24px 14px 24px;
+    background-color: var(--white);
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: 5px;
+    color: var(--black-text-2);
+    font-weight: unset;
+}
+
+.tablevalue {
+    text-align: left;
+    padding: 14px 13px 14px 14px;
+    background-color: var(--white);
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: 5px;
+    min-width: 112px;
+    color: var(--black-text-2);
+    font-weight: unset;
+}
+
+.list::-webkit-scrollbar {
+    display: block;
+    overflow-x: auto;
+    height: 6px;
+}
+
+.list::-webkit-scrollbar-track {
+    background-color: var(--border);
+    border: 2.5px solid transparent;
+    background-clip: content-box;
+}
+
+.list::-webkit-scrollbar-thumb:horizontal {
+    background-color: var(--green);
+    border-radius: 3px;
+}

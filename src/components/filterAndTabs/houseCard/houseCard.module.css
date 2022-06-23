@@ -1,0 +1,278 @@
+.houseCard {
+    max-width: 460px;
+    width: 100%;
+    transition: var(--transition);
+    transition-delay: var(--transition);
+    max-height: 554px;
+}
+
+@media (min-width: 1241px) and (max-width: 1450px) {
+    .houseCard {
+        height: 520px;
+    }
+}
+
+@media (min-width: 1450px) {
+    .houseCard {
+        height: 554px;
+    }
+}
+
+@media (min-width: 1241px) {
+
+    .houseCard:hover .imageWrapper {
+        max-height: 220px;
+        padding-top: 20%;
+    }
+
+    .houseCard:hover .moreInfo {
+        opacity: 100%;
+    }
+
+    .moreInfo {}
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.imageWrapper {
+    position: relative;
+    border-radius: 5px;
+    max-height: 317px;
+    padding-top: 70%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--transition);
+}
+
+.imageNotifications {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    max-width: 460px;
+    gap: 6px;
+    font-family: Montserrat-SemiBold;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.imageNotification {
+    padding: 5.5px 8px;
+    border-radius: 5px;
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.imageNotificationYellow {
+    background-color: var(--yellow);
+    color: var(--black-text);
+}
+
+.infoWrapper {
+    max-width: 404px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.titleBar {
+    color: var(--black-text);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 24px;
+    line-height: 29px;
+    font-family: Montserrat-SemiBold;
+}
+
+.adress {
+    font-family: Neris-Light;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.price {
+    color: var(--blue);
+    font-family: Montserrat-Medium;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.priceBold {
+    font-family: Montserrat-Bold;
+}
+
+.moreInfoWrapper {
+    position: relative;
+    max-width: 404px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.moreInfo {
+    pointer-events: none;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 404px;
+    width: 100%;
+    overflow: auto;
+    border-top: 1px solid var(--gray-line);
+    display: flex;
+    flex-direction: column;
+    gap: 19.5px;
+    transition: var(--transition);
+}
+
+.flats {
+    padding-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.flat {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Neris-Light;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.bottomWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--black-text);
+}
+
+.flatType {
+    color: var(--green-text);
+}
+
+.flatPrice {
+    color: var(--blue);
+}
+
+.more {
+    color: var(--green-text);
+}
+
+.adressWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+}
+
+.openDateWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+}
+
+.icon {
+    font-size: 12px;
+    color: var(--gray-icons);
+}
+
+@media (min-width: 1241px) and (max-width: 1600px) {
+    .houseCard{
+        height: 500px;
+    }
+
+    .imageWrapper {
+        max-height: 290px;
+    }
+
+    .houseCard:hover .imageWrapper {
+        max-height: 180px;
+        padding-top: 30%;
+    }
+}
+
+@media (max-width: 1230px) {
+    .title {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .price {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .adress {
+        font-size: 16px;
+        line-height: 21px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .moreInfoWrapper {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .title {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .price {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .adress {
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    .imageNotification {
+        font-size: 10px;
+        line-height: 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    .houseCard {
+        /* min-width: 350px; */
+        margin: 0 auto;
+    }
+}

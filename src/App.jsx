@@ -10,11 +10,13 @@ import Layout from "./pages/Layout";
 import News from "./pages/News";
 import Buy from "./pages/Buy";
 import OneNews from "./pages/OneNews"
+import OneNewsText from "./pages/OneNewsText"
 import Contacts from "./pages/Contacts"
 import ToInvestors from "./pages/ToInvestors"
 import EstateSelection from "./pages/EstateSelection"
 import Company from "./pages/Company"
-import NoMatch from "./pages/NoMatch"
+import {NoMatchPage, NoMatch404, NoMatch405, NoMatch406} from "./pages/NoMatch"
+import Favorites from "./pages/Favorites"
 
 export default function App() {
   return (
@@ -32,8 +34,13 @@ export default function App() {
           <Route path="/toinvestors" element={<ToInvestors />} />
           <Route path="/estateselection" element={<EstateSelection />} />
           <Route path="/company" element={<Company />} />
+          <Route path="/news/:newsId/text" element={<OneNewsText />} />
+          <Route path="/favorites" element={<Favorites />} />
 
-          <Route path="*" element={<NoMatch />} />
+          <Route path="*" element={<NoMatchPage />} />
+          <Route path="/404" element={<NoMatch404 />} />
+          <Route path="/405" element={<NoMatch405 />} />
+          <Route path="/406" element={<NoMatch406 />} />
         </Routes>
       </ScrollToTop>
     </Router>

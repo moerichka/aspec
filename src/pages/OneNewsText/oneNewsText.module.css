@@ -1,0 +1,173 @@
+.dashNav {
+    margin-top: 36px;
+    padding-top: 24px;
+    background-color: var(--bg-gray);
+}
+
+@media (max-width: 1240px) {
+    .dashNav {
+        padding-top: 82px;
+    }
+}
+
+@media (max-width: 745px) {
+    .dashNav {
+        padding-top: 122px;
+    }
+}
+
+.oneNewsFull {
+    background-color: var(--bg-gray);
+    padding: 94px 0 145px 0;
+}
+
+@media (max-width: 1024px) {
+    .oneNewsFull {
+        padding: 49px 0 55px 0;
+    }
+}
+
+@media (max-width: 650px) {
+    .oneNewsFull {
+        padding: 24px 0 42px 0;
+    }
+}
+
+.mainpart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textcontainer {
+    max-width: 950px;
+}
+
+.maincontent {
+    padding-top: 9px;
+}
+
+.mainsection {
+    margin-top: 38px;
+}
+
+.maintitle {
+    font-size: 22px;
+    line-height: 32px;
+    font-family: Montserrat-Bold;
+}
+
+.paragraphwrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 22px 0;
+}
+
+.mainparagraph {
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--dark-gray-text);
+}
+
+.mainparagraph[data-justpar="true"] {
+    padding: 22px 0 2px 0;
+}
+
+.mainol {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style-position: inside;
+    padding: 2px 0;
+}
+
+.mainul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 2px 0;
+}
+
+.mainul .mainelem {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.mainelem {
+    font-size: 16px;
+    line-height: 28px;
+    font-family: Neris-SemiBold;
+}
+
+
+@media (max-width: 1200px) {
+    .maincontent {
+        padding-top: 0;
+        margin-top: -10px;
+    }
+
+    .textcontainer {
+        max-width: 765px;
+    }
+
+    .maintitle {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .paragraphwrapper {
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .paragraphwrapper[data-padding="more"] {
+        gap: 22px;
+        padding: 22px 0;
+    }
+
+    .mainparagraph {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .mainparagraph[data-justpar="true"] {
+        padding: 30px 0 2px 0;
+    }
+
+    .mainol {
+        padding: 10px 0;
+    }
+
+    .mainul {
+        padding: 10px 0;
+    }
+
+    .mainelem {
+        font-size: 15px;
+        line-height: 26px;
+    }
+}
+
+@media (max-width: 680px) {
+    .maincontent {
+        margin-top: -18px;
+    }
+
+    .maintitle {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .paragraphwrapper {
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .h2title {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+
+}

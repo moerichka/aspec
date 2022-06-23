@@ -1,0 +1,366 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popupTopWrapper {
+    display: none;
+    padding: 15px 0;
+}
+
+.popupTitleWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popupState {
+    font-size: 12px;
+    line-height: 15px;
+    font-family: Montserrat-Regular;
+    color: var(--light-gray-text);
+}
+
+.popupTitle {
+    font-size: 20px;
+    line-height: 30px;
+    font-family: Montserrat-SemiBold;
+    color: var(--blue);
+}
+
+.popupClose {
+    font-size: 12px;
+    line-height: 15px;
+    font-family: Montserrat-Medium;
+    color: var(--light-gray-text);
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.popupCloseIcon {
+    color: var(--green);
+}
+
+.inputContainer {
+    /* display: grid;
+    grid-template-columns: minmax(auto, 417px) minmax(auto, 350px) minmax(auto, 271px) minmax(auto, 282px);
+    align-items: end; */
+
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+
+    column-gap: 30px;
+    row-gap: 52.2px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 52.2px;
+    width: 100%;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inputLabel {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--black-text-2);
+}
+
+.inputDistrict {
+    width: 100%;
+    max-width: 417px;
+}
+
+.inputProject {
+    width: 100%;
+    max-width: 350px;
+}
+
+.inputSpace {
+    width: 100%;
+    max-width: 350px;
+}
+
+.inputPrice {
+    width: 100%;
+    max-width: 350px;
+}
+
+.inputDate {
+    width: 100%;
+    max-width: 271px;
+}
+
+.inputHouse {
+    width: 100%;
+    max-width: 200px;
+}
+
+.inputRooms {
+    width: 100%;
+    max-width: 282px;
+}
+
+.flatTypeWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 282px;
+    height: 100%;
+    max-height: 61px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flatType {
+    font-family: Montserrat-Medium;
+    font-size: 18px;
+    line-height: 24px;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: var(--transition);
+    color: var(--black-text);
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.flatType:hover {
+    background-color: var(--bg-gray);
+    color: var(--black-text);
+}
+
+.flatTypeActive {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.flatTypeActive:hover {
+    background-color: var(--blue-hover);
+    color: var(--white);
+}
+
+.butWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding-right: 3px;
+}
+
+.cancelBut {
+    color: var(--light-gray-text);
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 13px;
+    cursor: pointer;
+}
+
+.butWrapperMobile {
+    display: none;
+}
+
+.cancelIcon {
+    color: var(--green-text);
+    font-size: 12px;
+}
+
+.buttonWrapper {
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px;
+    display: none;
+}
+
+.button {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    max-width: 335px;
+    min-height: 50px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid var(--gray-border);
+    color: var(--black-text);
+    font-family: Montserrat-Medium;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media (max-width: 1230px) {
+    .inputContainer {
+        row-gap: 29px;
+    }
+
+    .butWrapper>.button {
+        max-width: 169px;
+    }
+
+    .flatTypeWrapper {
+        max-width: 250px;
+    }
+
+    .flatType {
+        width: 54px;
+        height: 54px;
+        font-size: 15px;
+    }
+
+    .select {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .inputContainer .customRange__from, .inputContainer .customRange__to, .inputContainer .customRange__price {
+        font-size: 15px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 1140px) {
+    .inputDistrict {
+        max-width: 410px;
+    }
+
+    .inputProject {
+        max-width: 289px;
+    }
+
+    .inputSpace {
+        max-width: 290px;
+    }
+
+    .inputPrice {
+        max-width: 290px;
+    }
+
+    .inputDate {
+        max-width: 288px;
+    }
+
+    .inputHouse {
+        max-width: 200px;
+    }
+
+    .inputRooms {
+        max-width: 230px;
+    }
+}
+
+@media (max-width: 840px) {
+    .inputContainer {
+    }
+}
+
+@media (max-width: 810px) {
+    .button {
+        display: flex;
+    }
+
+    .buttonWrapper {
+        display: flex;
+    }
+
+    .butWrapper {
+        display: none;
+    }
+
+    .butWrapperMobile {
+        background-color: var(--bg-transparent);
+        backdrop-filter: blur(2px);
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        padding: 17px 20px 20px 20px;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 23px;
+    }
+
+    .cancelButMobile {
+        font-size: 14px;
+        line-height: 17px;
+        color: var(--darker-gray-text);
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .inputContainer {
+        display: none;
+        position: fixed;
+        padding: 106px 40px 151px 40px;
+        max-height: 100vh;
+        height: 100%;
+        /* min-height: 100vh; */
+        /* min-height: 1000px; */
+        overflow-y: auto;
+        top: 0;
+        left: 0;
+        z-index: 15;
+        background-color: var(--white);
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 14px;
+    }
+
+    .inputs{
+        justify-content: center;
+    }
+
+    .inputWrapper {
+        max-width: 450px;
+        width: 100%;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .inputContainerShown {
+        display: grid;
+    }
+
+    .butWrapper {
+        grid-area: auto;
+    }
+
+    .popupTopWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 27px;
+        max-width: 450px;
+        width: 100%;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 745px) {
+    .inputContainer {
+        padding: 166px 20px 151px 20px;
+    }
+}

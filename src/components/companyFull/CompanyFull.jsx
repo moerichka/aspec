@@ -13,21 +13,21 @@ function CompanyFull() {
   return (
     <div className={s.company}>
       <HelloElement />
-      {/* <div className={s.country}>
+      <div className={s.country}>
         <Country />
-      </div> */}
+      </div>
       <div className={s.awards}>
         <Awards />
       </div>
-      {/* <div className={s.achievements}>
+      <div className={s.achievements}>
         <Achievements />
-      </div> */}
+      </div>
       <div className={s.history}>
         <History />
       </div>
-      {/* <div className={s.info}>
+      <div className={s.info}>
         <Info />
-      </div> */}
+      </div>
     </div>
   );
 }
