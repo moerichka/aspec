@@ -4,16 +4,6 @@
     z-index: 0;
 }
 
-.polygonwrapper[data-centred="true"]{
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.polygonwrapper:hover {
-    z-index: 1;
-    transition: var(--transition);
-}
-
 .polygon {
     width: 100%;
     height: 100%;
@@ -25,9 +15,11 @@
     z-index: -1;
 }
 
-.polygon:hover {
-    background-color: hsla(222, 64%, 27%, 0.4);
+.polygonwrapper[data-centred="true"] {
+    left: 50%;
+    transform: translateX(-50%);
 }
+
 
 .infowrapper {
     position: absolute;
@@ -42,10 +34,6 @@
     transform: translateY(-50%);
 }
 
-.polygonwrapper:hover .infowrapper {
-    opacity: 1;
-    left: 105%;
-}
 
 .infowrapper[data-top="toLow"] {
     top: 90%;
@@ -74,21 +62,72 @@
     transform: translateY(-100%);
 }
 
-.polygonwrapper:hover .infowrapper[data-left="toRight"] {
-    left: 0;
-    transform: translateX(-110%) translateY(-50%);
+@media (min-width: 1031px) {
+
+    .polygonwrapper:hover {
+        z-index: 1;
+        transition: var(--transition);
+    }
+
+    .polygon:hover {
+        background-color: hsla(222, 64%, 27%, 0.4);
+    }
+
+    .polygonwrapper:hover .infowrapper {
+        opacity: 1;
+        left: 105%;
+    }
+
+    .polygonwrapper:hover .infowrapper[data-left="toRight"] {
+        left: 0;
+        transform: translateX(-110%) translateY(-50%);
+    }
+
+    .polygonwrapper:hover .infowrapper[data-top="toHigh"][data-left="toRight"] {
+        top: 10%;
+        left: 0;
+        transform: translateX(-110%) translateY(0%);
+    }
+
+    .polygonwrapper:hover .infowrapper[data-top="toLow"][data-left="toRight"] {
+        top: 90%;
+        left: 0;
+        transform: translateX(-110%) translateY(-100%);
+    }
 }
 
-.polygonwrapper:hover .infowrapper[data-top="toHigh"][data-left="toRight"] {
-    top: 10%;
-    left: 0;
-    transform: translateX(-110%) translateY(0%);
-}
+@media (min-width: 769px) and (max-width: 1030px) {
+    .polygonwrapper:hover {
+        z-index: 1;
+        transition: var(--transition);
+    }
 
-.polygonwrapper:hover .infowrapper[data-top="toLow"][data-left="toRight"] {
-    top: 90%;
-    left: 0;
-    transform: translateX(-110%) translateY(-100%);
+    .polygon:hover {
+        background-color: hsla(222, 64%, 27%, 0.4);
+    }
+
+    .polygonwrapper:hover .infowrapper {
+        opacity: 1;
+        left: 10%;
+        transform: translateX(60%) translateY(-100%);
+    }
+
+    .polygonwrapper:hover .infowrapper[data-left="toRight"] {
+        left: 10%;
+        transform: translateX(-60%) translateY(-50%);
+    }
+
+    .polygonwrapper:hover .infowrapper[data-top="toHigh"][data-left="toRight"] {
+        top: 10%;
+        left: 10%;
+        transform: translateX(-60%) translateY(0%);
+    }
+
+    .polygonwrapper:hover .infowrapper[data-top="toLow"][data-left="toRight"] {
+        top: 90%;
+        left: 10%;
+        transform: translateX(-60%) translateY(-100%);
+    }
 }
 
 .number {
@@ -121,14 +160,18 @@
     left: 50%;
 }
 
-.polygonwrapper:hover .number {
-    background-color: var(--blue);
-    color: var(--white);
-}
+@media (min-width: 769px) {
 
-.polygonwrapper:hover .flatnumber {
-    background-color: var(--green);
-    color: var(--white);
+    .polygonwrapper:hover .number {
+        background-color: var(--blue);
+        color: var(--white);
+    }
+
+    .polygonwrapper:hover .flatnumber {
+        background-color: var(--green);
+        color: var(--white);
+    }
+
 }
 
 @media (max-width: 950px) {
@@ -137,4 +180,62 @@
         line-height: 18px;
         padding: 0px 6px;
     }
+}
+
+@media (max-width: 1030px) {
+    .infowrapper {
+        top: 10%;
+    }
+
+    .infowrapper:hover {
+        top: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .polygonwrapper[data-current="true"] {
+        z-index: 1;
+    }
+
+    .polygonwrapper[data-current="true"] .polygon {
+        background-color: hsla(222, 64%, 27%, 0.4);
+    }
+
+    .infowrappervisible {
+        opacity: 1;
+        left: 105%;
+    }
+
+    .polygonwrapper[data-current="true"] .infowrapper {
+        pointer-events: all;
+    }
+
+    .infowrappervisible .infowrapper[data-left="toRight"] {
+        left: 0;
+        transform: translateX(-110%) translateY(-50%);
+    }
+
+    .infowrappervisible .infowrapper[data-top="toHigh"][data-left="toRight"] {
+        top: 10%;
+        left: 0;
+        transform: translateX(-110%) translateY(0%);
+    }
+
+    .infowrappervisible .infowrapper[data-top="toLow"][data-left="toRight"] {
+        top: 90%;
+        left: 0;
+        transform: translateX(-110%) translateY(-100%);
+    }
+
+
+    .polygonwrapper[data-current="true"] .number {
+        background-color: var(--blue);
+        color: var(--white);
+    }
+
+    .polygonwrapper[data-current="true"] .flatnumber {
+        background-color: var(--green);
+        color: var(--white);
+    }
+
 }

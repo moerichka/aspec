@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import s from "./innerTabs.module.css";
 
 import Poligons from "../poligons";
@@ -11,13 +11,25 @@ import projectImage from "../../../assets/images/image24.jpg";
 import sectionImage from "../../../assets/images/image23.jpg";
 import buildingImage from "../../../assets/images/image22.jpg";
 import layoutImage from "../../../assets/images/layout1.png";
+import Popup from "../popup/Popup";
 
 function InnerTabs(props) {
   const [tabIndex, setTabIndex] = useState(0);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [chosenHousing, setChosenHousing] = useState(null);
   const [chosenSection, setChosenSection] = useState(null);
   const [chosenLevel, setChosenLevel] = useState(null);
   const [chosenFlat, setChosenFlat] = useState(null);
+
+  const [isInfoVisible, setIsInfoVisible] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isPopupOpen ? "hidden" : "unset";
+  }, [isPopupOpen]);
+
+  useEffect(() => {
+    setIsInfoVisible(false);
+  }, [tabIndex]);
 
   const godown = (polygon, state) => {
     if (state === "housing") {
@@ -32,12 +44,14 @@ function InnerTabs(props) {
     } else if (state === "flat") {
       setChosenFlat(polygon);
       setTabIndex(4);
+      setIsPopupOpen(true);
     }
   };
 
-  const goback = ()=>{
-    setTabIndex(3)
-  }
+  const goback = () => {
+    setTabIndex(3);
+    setIsPopupOpen(false);
+  };
 
   const levels = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -79,15 +93,13 @@ function InnerTabs(props) {
             className={s.tab}
             data-invisible="true"
             selectedClassName={s.tabselected}
-          >
-          </Tab>
+          ></Tab>
           <Tab
             // className={`${s.tab} ${tabIndex >= 4 ? s.tabvisible : ""}`}
             className={s.tab}
             data-invisible="true"
             selectedClassName={s.tabselected}
-          >
-          </Tab>
+          ></Tab>
         </TabList>
         <TabPanel className={`${s.tabPanel} ${s.tabpanel1}`}>
           <div className={s.imgwrapper}>
@@ -95,12 +107,17 @@ function InnerTabs(props) {
               src={projectImage}
               alt=""
               className={`${s.img} ${s.projectImage}`}
+              onClick={() => {
+                setIsInfoVisible(false);
+              }}
             />
             <Poligons
               poligons={genplan?.housings}
-              onClick={(polygon) => godown(polygon, "housing")}
               infocorpus={true}
+              onClick={(polygon) => godown(polygon, "housing")}
               centred={true}
+              isInfoVisible={isInfoVisible}
+              setIsInfoVisible={setIsInfoVisible}
             />
           </div>
         </TabPanel>
@@ -110,12 +127,17 @@ function InnerTabs(props) {
               src={sectionImage}
               alt=""
               className={`${s.img} ${s.sectionImage}`}
+              onClick={() => {
+                setIsInfoVisible(false);
+              }}
             />
             <Poligons
               poligons={chosenHousing?.sections}
               onClick={(polygon) => godown(polygon, "section")}
               infosection={true}
               centred={true}
+              isInfoVisible={isInfoVisible}
+              setIsInfoVisible={setIsInfoVisible}
             />
           </div>
         </TabPanel>
@@ -125,12 +147,17 @@ function InnerTabs(props) {
               src={buildingImage}
               alt=""
               className={`${s.img} ${s.buildingImage}`}
+              onClick={() => {
+                setIsInfoVisible(false);
+              }}
             />
             <Poligons
               poligons={chosenSection?.levels}
               onClick={(polygon) => godown(polygon, "level")}
               infolevel={true}
               centred={true}
+              isInfoVisible={isInfoVisible}
+              setIsInfoVisible={setIsInfoVisible}
             />
           </div>
         </TabPanel>
@@ -176,11 +203,7 @@ function InnerTabs(props) {
           </div>
         </TabPanel>
         <TabPanel className={s.tabPanel}>
-          <div className={s.popup}>
-            <div className={s.popupclose} onClick={goback}>
-              <span className="icon-cancel"></span>
-            </div>
-          </div>
+          <Popup goback={goback} />
         </TabPanel>
       </Tabs>
     </div>

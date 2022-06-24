@@ -10,7 +10,7 @@
     z-index: 7;
 }
 
-.infolevel{
+.infolevel {
     padding: 32px 38px 32px 41px;
 }
 
@@ -24,6 +24,7 @@
     font-size: 14px;
     line-height: 24px;
     margin-top: 5px;
+    color: var(--gray-text);
 }
 
 .roomsavailable {
@@ -117,4 +118,73 @@
     font-size: 14px;
     line-height: 24px;
     color: var(--light-gray-text);
+}
+
+@media (max-width: 900px) {
+    .smallinfo {
+        padding: 17px 24px 21px 24px;
+    }
+
+    .infolevel {
+        padding: 13px 20px 22px 19px;
+    }
+
+    .title {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .settlement {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .ready{
+        margin-top: 8px;
+    }
+
+    .progressbar{
+        margin-top: 7px;
+    }
+
+    .flats{
+        margin-top: 8px;
+    }
+
+    .roomsavailable {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .ready {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .flattitle {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .flatprice {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+/* level */
+    .flatsamount{
+        margin-top: 6px;
+    }
+
+    .flatnumber {
+        font-size: 12px;
+        line-height: 24px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .quantity {
+        font-size: 13px;
+        line-height: 23px;
+    }
 }
