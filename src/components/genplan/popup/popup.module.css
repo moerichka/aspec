@@ -20,6 +20,7 @@
     cursor: pointer;
     color: var(--gray-icons);
     font-size: 27px;
+    z-index: 5;
 }
 
 .content {

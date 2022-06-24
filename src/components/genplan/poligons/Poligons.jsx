@@ -8,6 +8,8 @@ import { percentageConverter, pxConverter } from "../../../helpers/stringsFun";
 function Poligons(props) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isTablet, setIsTablet] = useState(window.innerWidth <= 768);
+  const [isInfoVisible, setIsInfoVisible] = useState(false);
+  console.log("isInfoVisible: ", isInfoVisible);
 
   useEffect(() => {
     window.addEventListener("resize", function () {
@@ -46,9 +48,9 @@ function Poligons(props) {
 
   const clickHandler = (polygon, index) => {
     if (isTablet) {
-      props?.isInfoVisible === index
+      isInfoVisible === index || props?.oneClick
         ? props?.onClick(polygon)
-        : props?.setIsInfoVisible(index);
+        : setIsInfoVisible(index);
     } else {
       props?.onClick(polygon);
     }
@@ -56,76 +58,103 @@ function Poligons(props) {
 
   return (
     <>
-      {props?.poligons?.map((polygon, index) => {
-        let { width, height, top, left, clipPath } = polygon?.styles;
+      <div
+        className={s.holeground}
+        onClick={() => {
+          isInfoVisible !== false && setIsInfoVisible(false);
+        }}
+      >
+        {props?.poligons?.map((polygon, index) => {
+          let { width, height, top, left, clipPath } = polygon?.styles;
 
-        if (props?.centred) {
-          const widthNumber = pxConverter(width);
-          const leftNumber = pxConverter(left);
+          if (props?.centred) {
+            const widthNumber = pxConverter(width);
+            const leftNumber = pxConverter(left);
 
-          if (windowWidth <= 1030 && windowWidth > 750) {
-            width = `${widthNumber * 0.715}px`;
-            left = `${leftNumber * 0.715}px`;
-          } else if (windowWidth <= 750 && windowWidth > 450) {
-            width = `${widthNumber * 0.485}px`;
-            left = `${leftNumber * 0.485}px`;
-          } else if (windowWidth <= 450) {
-            width = `${widthNumber * 0.3}px`;
-            left = `${leftNumber * 0.3}px`;
+            if (windowWidth <= 1030 && windowWidth > 750) {
+              width = `${widthNumber * 0.715}px`;
+              left = `${leftNumber * 0.715}px`;
+            } else if (windowWidth <= 750 && windowWidth > 450) {
+              width = `${widthNumber * 0.485}px`;
+              left = `${leftNumber * 0.485}px`;
+            } else if (windowWidth <= 450) {
+              width = `${widthNumber * 0.3}px`;
+              left = `${leftNumber * 0.3}px`;
+            }
           }
-        }
 
-        return (
-          <div
-            className={s.polygonwrapper}
-            data-current={props?.isInfoVisible === index}
-            data-centred={props?.centred}
-            style={{
-              width,
-              height,
-              top,
-              left: props?.centred ? `calc(50% + ${left})` : left,
-            }}
-            onClick={() => {
-              clickHandler(polygon, index);
-            }}
-            key={polygon?.number}
-          >
+          return (
+            <>
+              <div
+                className={s.polygonwrapper}
+                data-current={isInfoVisible === index}
+                data-centred={props?.centred}
+                style={{
+                  width,
+                  height,
+                  top,
+                  left: props?.centred ? `calc(50% + ${left})` : left,
+                }}
+                onClick={() => {
+                  clickHandler(polygon, index);
+                }}
+                key={polygon?.number}
+              >
+                <div
+                  className={s.polygon}
+                  style={{ clipPath }}
+                  onClick={() => clickHandler(polygon, index)}
+                />
+                {props?.infocorpus && (
+                  <div
+                    className={s.number}
+                    onClick={() => clickHandler(polygon, index)}
+                  >
+                    {polygon?.number}
+                  </div>
+                )}
+                {props?.infosection && (
+                  <div
+                    className={s.number}
+                    onClick={() => clickHandler(polygon, index)}
+                  >
+                    {polygon?.number} секция
+                  </div>
+                )}
+                {props?.flatlevel && (
+                  <div
+                    className={`${s.number} ${s.flatnumber}`}
+                    onClick={() => clickHandler(polygon, index)}
+                  >
+                    {polygon?.rooms}К
+                  </div>
+                )}
+                <div
+                  className={`${s.infowrapper} ${
+                    isInfoVisible === index ? s.infowrappervisible : ""
+                  }`}
+                  data-top={checkTop(top, height)}
+                  data-left={checkLeft(left, width)}
+                  onClick={() => {
+                    isTablet && clickHandler(polygon, index);
+                  }}
+                >
+                  {props?.infocorpus && <Infocorpus data={polygon} />}
+                  {props?.infosection && <InfoSection data={polygon} />}
+                  {props?.infolevel && <Infolevel data={polygon} />}
+                </div>
+              </div>
+            </>
+          );
+        })}
+      </div>
+      <div className={s.holegroundoutside}>
+        {props?.poligons?.map((polygon, index) => {
+          return (
             <div
-              className={s.polygon}
-              style={{ clipPath }}
-              onClick={() => clickHandler(polygon, index)}
-            />
-            {props?.infocorpus && (
-              <div
-                className={s.number}
-                onClick={() => clickHandler(polygon, index)}
-              >
-                {polygon?.number}
-              </div>
-            )}
-            {props?.infosection && (
-              <div
-                className={s.number}
-                onClick={() => clickHandler(polygon, index)}
-              >
-                {polygon?.number} секция
-              </div>
-            )}
-            {props?.flatlevel && (
-              <div
-                className={`${s.number} ${s.flatnumber}`}
-                onClick={() => clickHandler(polygon, index)}
-              >
-                {polygon?.rooms}К
-              </div>
-            )}
-            <div
-              className={`${s.infowrapper} ${
-                props?.isInfoVisible === index ? s.infowrappervisible : ""
+              className={`${s.outsideinfo} ${
+                isInfoVisible === index ? s.outsideinfovisible : ""
               }`}
-              data-top={checkTop(top, height)}
-              data-left={checkLeft(left, width)}
               onClick={() => {
                 isTablet && clickHandler(polygon, index);
               }}
@@ -134,9 +163,9 @@ function Poligons(props) {
               {props?.infosection && <InfoSection data={polygon} />}
               {props?.infolevel && <Infolevel data={polygon} />}
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 }

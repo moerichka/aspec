@@ -21,15 +21,14 @@ function InnerTabs(props) {
   const [chosenLevel, setChosenLevel] = useState(null);
   const [chosenFlat, setChosenFlat] = useState(null);
 
-  const [isInfoVisible, setIsInfoVisible] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = isPopupOpen ? "hidden" : "unset";
   }, [isPopupOpen]);
 
-  useEffect(() => {
-    setIsInfoVisible(false);
-  }, [tabIndex]);
+  // useEffect(() => {
+  //   setIsInfoVisible(false);
+  // }, [tabIndex]);
 
   const godown = (polygon, state) => {
     if (state === "housing") {
@@ -107,17 +106,12 @@ function InnerTabs(props) {
               src={projectImage}
               alt=""
               className={`${s.img} ${s.projectImage}`}
-              onClick={() => {
-                setIsInfoVisible(false);
-              }}
             />
             <Poligons
               poligons={genplan?.housings}
               infocorpus={true}
               onClick={(polygon) => godown(polygon, "housing")}
               centred={true}
-              isInfoVisible={isInfoVisible}
-              setIsInfoVisible={setIsInfoVisible}
             />
           </div>
         </TabPanel>
@@ -127,17 +121,12 @@ function InnerTabs(props) {
               src={sectionImage}
               alt=""
               className={`${s.img} ${s.sectionImage}`}
-              onClick={() => {
-                setIsInfoVisible(false);
-              }}
             />
             <Poligons
               poligons={chosenHousing?.sections}
               onClick={(polygon) => godown(polygon, "section")}
               infosection={true}
               centred={true}
-              isInfoVisible={isInfoVisible}
-              setIsInfoVisible={setIsInfoVisible}
             />
           </div>
         </TabPanel>
@@ -147,17 +136,12 @@ function InnerTabs(props) {
               src={buildingImage}
               alt=""
               className={`${s.img} ${s.buildingImage}`}
-              onClick={() => {
-                setIsInfoVisible(false);
-              }}
             />
             <Poligons
               poligons={chosenSection?.levels}
               onClick={(polygon) => godown(polygon, "level")}
               infolevel={true}
               centred={true}
-              isInfoVisible={isInfoVisible}
-              setIsInfoVisible={setIsInfoVisible}
             />
           </div>
         </TabPanel>
@@ -196,6 +180,7 @@ function InnerTabs(props) {
                   poligons={chosenLevel?.flats}
                   onClick={(polygon) => godown(polygon, "flat")}
                   flatlevel={true}
+                  oneClick={true}
                 />
               </div>
               <span className={s.roomsamount}>1 квартира в продаже</span>

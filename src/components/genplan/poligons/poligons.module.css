@@ -1,7 +1,25 @@
+.holeground{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.holegroundoutside{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
 .polygonwrapper {
     position: absolute;
     pointer-events: none;
-    z-index: 0;
+    z-index: 2;
 }
 
 .polygon {
@@ -12,7 +30,7 @@
     cursor: pointer;
     background-color: hsla(175, 53%, 46%, 0.4);
     pointer-events: all;
-    z-index: -1;
+    z-index: 1;
 }
 
 .polygonwrapper[data-centred="true"] {
@@ -160,7 +178,14 @@
     left: 50%;
 }
 
+.outsideinfo {
+    position: absolute;
+}
+
 @media (min-width: 769px) {
+    .outsideinfo {
+        display: none;
+    }
 
     .polygonwrapper:hover .number {
         background-color: var(--blue);
@@ -193,6 +218,28 @@
 }
 
 @media (max-width: 768px) {
+    .outsideinfo {
+        position: absolute;
+        display: block;
+        opacity: 0;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: var(--transition);
+        pointer-events: none;
+        border-radius: 5px;
+    }
+
+    .outsideinfovisible{
+        opacity: 1;
+        pointer-events: all;
+        z-index: 5;
+    }
+
+    .infowrapper{
+        display: none;
+    }
+
     .polygonwrapper[data-current="true"] {
         z-index: 1;
     }
@@ -238,4 +285,10 @@
         color: var(--white);
     }
 
+}
+
+@media (max-width:450px) {
+    .outsideinfo{
+        border: 1px solid var(--green);
+    }
 }
