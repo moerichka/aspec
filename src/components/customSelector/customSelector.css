@@ -1,0 +1,21 @@
+/* .custom__menu{
+    opacity: 0 !important;
+    transition: var(--transition);
+}
+
+.custom__control--is-focused + .custom__menu{
+    opacity: 1 !important;
+}
+
+@keyframes disappearing {
+    0%{
+        opacity: 1;
+    }
+    99%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+} */

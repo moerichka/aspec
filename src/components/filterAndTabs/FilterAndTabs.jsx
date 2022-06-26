@@ -42,16 +42,16 @@ function FilterAndTabs(props) {
             <div className={s.navWrapper}>
               <TabList className={s.nav}>
                 <Tab className={s.tab} selectedClassName={s.tabselected}>
-                  {tabs[0]}
+                  <span className={s.tabtitle}>{tabs[0]}</span>
                 </Tab>
                 <Tab className={s.tab} selectedClassName={s.tabselected}>
-                  {tabs[1]}
+                  <span className={s.tabtitle}>{tabs[1]}</span>
                 </Tab>
                 <Tab className={s.tab} selectedClassName={s.tabselected}>
-                  {tabs[2]}
+                  <span className={s.tabtitle}>{tabs[2]}</span>
                 </Tab>
                 <Tab className={s.tab} selectedClassName={s.tabselected}>
-                  {tabs[3]}
+                  <span className={s.tabtitle}>{tabs[3]}</span>
                 </Tab>
                 <div className={s.navLine}></div>
               </TabList>

@@ -167,6 +167,7 @@
     }
 
     .flatprice {
+        color: var(--blue);
         font-size: 13px;
         line-height: 18px;
     }

@@ -1,0 +1,469 @@
+.container {
+    /* padding: 20px 20px 38px 16px; */
+    padding: 20px 0 38px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 481px;
+    /* max-width: 30vw; */
+    width: 30vw;
+}
+
+.topwrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px 0 56px;
+}
+
+.topleft {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.notifications {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 15px;
+    font-family: Montserrat-SemiBold;
+    height: 26px;
+    overflow: auto;
+}
+
+.notification {
+    padding: 5.5px 8px;
+    border-radius: 5px;
+    background-color: var(--blue);
+    color: var(--white);
+    max-height: 26px;
+}
+
+.yellow {
+    background-color: var(--yellow);
+    color: var(--black-text);
+}
+
+.amount {
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.topright {
+    color: var(--gray-icons);
+    font-size: 23px;
+}
+
+.topright[data-favorite="true"] {
+    color: var(--green);
+}
+
+.swiperwrapper {
+    overflow: auto;
+    padding: 0 40px 0 56px;
+}
+
+.imgwrapper {
+    /* max-height: 380px; */
+    /* height: 100%; */
+    /* height: 410px; */
+    position: relative;
+    padding-top: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+.img {
+    position: absolute;
+    top: 0;
+    max-width: 80%;
+    width: auto;
+    max-height: 90%;
+    height: auto;
+    object-fit: scale-down;
+    padding-bottom: 10px;
+}
+
+.bullet {
+    width: 50px !important;
+}
+
+.infowrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-size: 24px;
+    line-height: 29px;
+    font-family: Montserrat-SemiBold;
+    padding-bottom: 6px;
+}
+
+.layoutname {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Montserrat-SemiBold;
+    padding-bottom: 9px;
+}
+
+
+@media (max-width: 1140px) {
+    .topright {
+        font-size: 23px;
+    }
+
+    .notifications {
+        gap: 5px;
+    }
+
+    .imgwrapper {
+        /* height: 340px; */
+        /* padding-bottom: 20px; */
+    }
+
+    .notifications {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .amount {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .price {
+        font-size: 16px;
+        line-height: 24px;
+        padding-bottom: 4px;
+    }
+
+    .layoutname {
+        font-size: 14px;
+        line-height: 17px;
+        padding-bottom: 8px;
+    }
+
+}
+
+@media (max-width: 676px) {
+
+    .topleft {
+        gap: 4px;
+    }
+
+    .topright {
+        font-size: 18px;
+    }
+
+    .notifications {
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+}
+
+/* COMPARE */
+
+.titlewrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 0 40px 0 56px;
+}
+
+.title {
+    font-size: 24px;
+    line-height: 29px;
+    font-family: Montserrat-SemiBold;
+}
+
+.smallprice {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Montserrat-Bold;
+    color: var(--blue);
+}
+
+.compareList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 34px 0;
+}
+
+.compareElemnt {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.compareTitle {
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--dark-gray-text);
+    padding: 0 40px 0 56px;
+}
+
+.compareValue {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Montserrat-SemiBold;
+    padding: 0 40px 0 56px;
+}
+
+.compareLine {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% + 76px);
+    height: 1px;
+    background-color: var(--border);
+}
+
+.button {
+    padding: 0 40px 0 56px;
+}
+
+@media (max-width: 1607px) {
+    .container {
+        /* max-width: 480px; */
+        width: 33vw;
+    }
+}
+
+@media (max-width: 1300px) {
+    .smallprice {
+        font-family: Montserrat-Medium;
+    }
+
+    .smallpricebold {
+        font-family: Montserrat-Bold;
+    }
+}
+
+
+@media (max-width: 1246px) {
+    .title {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .smallprice {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .compareTitle {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .compareValue {
+        font-size: 14px;
+        line-height: 17px;
+        font-family: Montserrat-Medium;
+    }
+
+    .compareList {
+        gap: 11px;
+        margin-bottom: 28px;
+    }
+
+    .compareElemnt {
+        padding-bottom: 14px;
+        gap: 4px;
+    }
+}
+
+@media (max-width: 1016px) {
+    .titlewrapper {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+
+    .topwrapper {
+        padding: 0 35px;
+    }
+
+    .swiperwrapper {
+        padding: 0 35px;
+    }
+
+    .titlewrapper {
+        padding: 0 35px;
+    }
+
+    .compareValue {
+        padding: 0 35px;
+    }
+
+    .compareTitle {
+        padding: 0 35px;
+    }
+
+    .button {
+        padding: 0 35px;
+    }
+}
+
+@media (max-width: 850px) {
+    .container {
+        width: 45vw;
+    }
+}
+
+@media (max-width: 590px) {
+    .topwrapper {
+        flex-direction: row-reverse;
+    }
+
+    .notifications {
+        height: 19px;
+        transform: rotate(180deg);
+    }
+
+    .notification {
+        padding: 3.5px 6px;
+        font-size: 10px;
+        line-height: 12px;
+        transform: rotate(180deg);
+    }
+
+    .topwrapper {
+        padding: 0 20px;
+    }
+
+    .swiperwrapper {
+        padding: 0 20px;
+    }
+
+    .titlewrapper {
+        padding: 0 20px;
+    }
+
+    .compareValue {
+        padding: 0 20px;
+    }
+
+    .compareTitle {
+        padding: 0 20px;
+    }
+
+    .button {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 50vw;
+    }
+
+    .titlewrapper {
+        align-items: center;
+    }
+}
+
+@media (max-width: 440px) {
+    .title {
+        font-size: 14px;
+        line-height: 24px;
+        font-family: Montserrat-Medium;
+    }
+
+    .smallprice {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .compareTitle {
+        font-size: 13px;
+        line-height: 26px;
+    }
+
+    .compareList {
+        gap: 9px;
+        margin-bottom: 21px;
+    }
+
+    .compareElemnt {
+        padding-bottom: 17px;
+        gap: 4px;
+    }
+    .button{
+        max-width: 155px;
+        width: 100%;
+    }
+    .button > button{
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .topwrapper {
+        padding: 0 10 0 20px;
+    }
+
+    .swiperwrapper {
+        padding: 0 10 0 20px;
+    }
+
+    .titlewrapper {
+        padding: 0 10 0 20px;
+    }
+
+    .compareValue {
+        padding: 0 10 0 20px;
+    }
+
+    .compareTitle {
+        padding: 0 10 0 20px;
+    }
+
+    .button {
+        padding: 0 10 0 20px;
+    }
+}
+@media (max-width: 370px) {
+    .container {
+        width: 90vw;
+    }
+
+    .topwrapper {
+        padding: 0 20px;
+    }
+
+    .swiperwrapper {
+        padding: 0 20px;
+    }
+
+    .titlewrapper {
+        padding: 0 20px;
+    }
+
+    .compareValue {
+        padding: 0 20px;
+    }
+
+    .compareTitle {
+        padding: 0 20px;
+    }
+
+    .button {
+        padding: 0 20px;
+    }
+}
+
+/* /COMPARE */

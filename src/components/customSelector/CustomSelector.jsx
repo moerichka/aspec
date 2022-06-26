@@ -1,8 +1,36 @@
-import React from "react";
+import React, {Fragment} from "react";
 import s from "./customSelector.module.css";
+import "./customSelector.css";
 import PropTypes from "prop-types";
 
-import Select, { components, DropdownIndicatorProps } from "react-select";
+import Select, { components, DropdownIndicatorProps, MenuProps  } from "react-select";
+
+// function getLength(
+//   options
+// ){
+//   return options.reduce((acc, curr) => {
+//     if ('options' in curr) return acc + getLength(curr.options);
+//     return acc + 1;
+//   }, 0);
+// }
+
+
+// const Menu = (props
+// ) => {
+//   const optionsLength = getLength(props.options);
+//   return (
+//     <Fragment>
+//       <div className={s.menu}>
+//         Custom Menu with {optionsLength} options
+//       </div>
+//       <components.Menu
+//         {...props}
+//       >
+//         {props.children}
+//       </components.Menu>
+//     </Fragment>
+//   );
+// };
 
 function CustomSelector(props) {
   const customStyles = {
@@ -31,6 +59,9 @@ function CustomSelector(props) {
           : "hsla(175, 53%, 46%, 1)",
         fontSize: props?.indicatorSize,
         padding: props?.indicatorPadding,
+        marginRight: "auto",
+        position: "relative",
+        right: props?.isHeader ? "10px" : ""
       };
     },
     menu: (provided, isFocused) => {
@@ -39,6 +70,7 @@ function CustomSelector(props) {
         zIndex: "5",
         maxWidth: props?.maxWidth,
         width: props?.menuWidth ? props?.menuWidth : provided.width,
+        transition: "0.3sec",
       };
     },
     option: (provided, isFocused) => {
@@ -55,7 +87,7 @@ function CustomSelector(props) {
         color: isFocused.isFocused && !props.onlytel
         ? "white"
         : isFocused.isSelected && !props.onlytel
-        ? "white"
+        ? "hsla(222, 64%, 27%, 1)"
         : isFocused.isSelected
         ? "black"
         : "black",
@@ -92,14 +124,16 @@ function CustomSelector(props) {
 
   return (
     <Select
+      // components={{ DropdownIndicator, IndicatorSeparator, Menu }}
       components={{ DropdownIndicator, IndicatorSeparator }}
       styles={customStyles}
       placeholder="Выберите..."
       options={props?.options}
       classNamePrefix="custom"
-      className={s.select}
+      className="selecter"
       defaultValue={props?.value}
       value={props?.value}
+      isSearchable={props?.isSearchable}
       onChange={(selected) => {
         props?.setChosen(selected);
       }}
@@ -119,6 +153,7 @@ CustomSelector.propTypes = {
   optionFontFamily: PropTypes.string,
   lineHeight: PropTypes.string,
   onlytel: PropTypes.bool,  // телефонный размер экрана
+  isSearchable: PropTypes.bool,  
   optionPadding: PropTypes.string,
   outline: PropTypes.bool,
   padding: PropTypes.string,
@@ -140,6 +175,7 @@ CustomSelector.defaultProps = {
   optionFontFamily: "Neris-Light",
   optionPadding: "8px 12px",
   onlytel: false,
+  isSearchable: true,
   outline: true,
   padding: "10px 0 10px 15px",
   indicatorSize: "22px",

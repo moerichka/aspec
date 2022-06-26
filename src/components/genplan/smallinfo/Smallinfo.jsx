@@ -2,6 +2,7 @@ import React from "react";
 import s from "./smallinfo.module.css";
 
 import { dateConverterToDMY } from "../../../helpers/dateFun";
+import { priceConverterToMln } from "../../../helpers/stringsFun";
 
 function Infocorpus(props) {
   return (
@@ -28,7 +29,7 @@ function Infocorpus(props) {
             ) : (
               <span className={s.flattitle}>{flat?.name} квартиры</span>
             )}
-            <span className={s.flatprice}>{flat?.price}</span>
+            <span className={s.flatprice}>{priceConverterToMln(flat?.price)}</span>
           </div>
         ))}
       </div>
@@ -53,7 +54,7 @@ function InfoSection(props) {
             ) : (
               <span className={s.flattitle}>{flat?.name} квартиры</span>
             )}
-            <span className={s.flatprice}>{flat?.price}</span>
+            <span className={s.flatprice}>{priceConverterToMln(flat?.price)}</span>
           </div>
         ))}
       </div>

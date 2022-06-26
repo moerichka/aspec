@@ -91,6 +91,20 @@
     font-family: Neris-Light;
     font-size: 16px;
     line-height: 24px;
+    transition: var(--transition);
+}
+
+.infoLink:hover{
+    color: var(--green-hover);
+    text-decoration: none;
+}
+
+.email > span{
+    transition: var(--transition);
+}
+
+.email:hover > span{
+    color: var(--green);
 }
 
 .middle {
@@ -220,6 +234,16 @@
     gap: 8px;
     max-height: 10px;
     color: var(--gray-text);
+}
+
+.cult{
+    position: relative;
+    top: 2px;
+    transition: var(--transition);
+}
+
+.cult:hover{
+    color: var(--yellow);
 }
 
 @media (max-width: 1370px) {

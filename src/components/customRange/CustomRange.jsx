@@ -3,6 +3,8 @@ import "./customRange.css";
 import PropsTypes from "prop-types"
 import { Range, getTrackBackground } from "react-range";
 
+import { separator } from "../../helpers/stringsFun"
+
 function CustomRange(propsCustom) {
   const { STEP, MIN, MAX, rangeValues: values } = propsCustom;
   // const [myValues, setMyValues] = React.useState()
@@ -17,13 +19,13 @@ function CustomRange(propsCustom) {
         <div className="customRange__from">
           {propsCustom.withText ? `от` : ``}
           <span className="customRange__price">
-            {propsCustom?.oneThumb ? MIN : values[0]}
+            {separator(propsCustom?.oneThumb ? MIN : values[0])}
           </span>
         </div>
         <div className="customRange__to">
         {propsCustom.withText ? `до` : ``}
           <span className="customRange__price">
-            {propsCustom?.oneThumb ? MAX : values[1]}
+            {separator(propsCustom?.oneThumb ? MAX : values[1])}
           </span>
         </div>
       </div>

@@ -9,7 +9,6 @@ function Poligons(props) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isTablet, setIsTablet] = useState(window.innerWidth <= 768);
   const [isInfoVisible, setIsInfoVisible] = useState(false);
-  console.log("isInfoVisible: ", isInfoVisible);
 
   useEffect(() => {
     window.addEventListener("resize", function () {

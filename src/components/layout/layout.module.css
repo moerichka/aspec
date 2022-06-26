@@ -28,6 +28,8 @@
     font-size: 12px;
     line-height: 15px;
     font-family: Montserrat-SemiBold;
+    height: 26px;
+    overflow: auto;
 }
 
 .notification {
@@ -56,7 +58,7 @@
     color: var(--green);
 }
 
-.swiperwrapper{
+.swiperwrapper {
     overflow: auto;
 }
 
@@ -112,7 +114,6 @@
     width: 100%;
     gap: 6px;
     justify-content: space-between;
-    padding-bottom: 15px;
 }
 
 .propertywrapper {
@@ -133,11 +134,27 @@
     font-family: Montserrat-SemiBold;
 }
 
+.finishingin {
+    margin-top: 19px;
+    font-size: 12px;
+    line-height: 15px;
+    font-family: Montserrat-Regular;
+    padding: 5.5px 8px;
+    background-color: var(--bg-gray);
+    border-radius: 5px;
+    max-width: max-content;
+}
+
 .datewrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 11px;
+    margin-top: 15px;
+}
+
+.datewrapper[data-favoredstyle="true"]{
+    margin-top: 10px;
 }
 
 .datewrapper>span {
@@ -148,6 +165,11 @@
 .opendate {
     font-size: 16px;
     line-height: 21px;
+}
+
+.greendate {
+    color: var(--green);
+    font-family: Neris-SemiBold;
 }
 
 @media (max-width: 1140px) {
@@ -243,6 +265,11 @@
         line-height: 12px;
     }
 
+    .finishingin{
+        font-size: 10px;
+        line-height: 12px;
+    }
+
     .amount {
         font-size: 11px;
         line-height: 14px;
@@ -323,64 +350,9 @@
     }
 }
 
-/* COMPARE */
+@media (max-width: 590px) {
 
-.titlewrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+    .notifications {
+        height: 23px;
+    }
 }
-
-.title {
-    font-size: 24px;
-    line-height: 29px;
-    font-family: Montserrat-SemiBold;
-}
-
-.smallprice {
-    font-size: 16px;
-    line-height: 20px;
-    font-family: Montserrat-Bold;
-    color: var(--blue);
-}
-
-.compareList {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin: 34px 0;
-}
-
-.compareElemnt {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 12px 0;
-    position: relative;
-}
-
-.compareTitle {
-    font-size: 16px;
-    line-height: 28px;
-    color: var(--dark-gray-text);
-}
-
-.compareValue {
-    font-size: 16px;
-    line-height: 24px;
-    font-family: Montserrat-SemiBold;
-}
-
-.compareLine {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: calc(100% + 76px);
-    height: 1px;
-    background-color: var(--border);
-}
-
-/* /COMPARE */

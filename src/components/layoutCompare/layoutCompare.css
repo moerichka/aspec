@@ -1,0 +1,16 @@
+.layoutCompare {
+    background-color: var(--white);
+    border-radius: 5px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.layoutCompare .swiper-pagination-bullet {
+    width: 50px !important;
+    height: 4px !important;
+    border-radius: 3px !important;
+}
+
+.layoutCompare .swiper-pagination-bullet-active{
+    background-color: var(--blue) !important;
+}

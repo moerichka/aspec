@@ -28,7 +28,7 @@ export default function HelloSlider() {
           <div className="helloSlider__titleWrapper">
             <h2 className="helloSlider__title">Долгожданный плюс</h2>
             <p className="helloSlider__desc">
-              Старт продаж дома № 3, жилого комплекса “Плюс один”
+              Старт продаж дома № 3, жилого комплекса «Плюс один»
             </p>
           </div>
           <Button

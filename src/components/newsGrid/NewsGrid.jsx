@@ -13,12 +13,12 @@ function NewsGrid(props) {
   return (
     <div className={s.newsGrid}>
       <div className={`container ${s.container}`}>
-        <div className={`titleWrapper ${s.titleWrapper}`}>
+        {props?.titlewrapper && <div className={`titleWrapper ${s.titleWrapper}`}>
           <h2 className={`h2-title ${s.title}`}>{props?.title}</h2>
           {props?.desc && <h5 className={`h5-desc ${s.desc}`}>
             Свежие новости и последние публикации нашей компании
           </h5>}
-        </div>
+        </div>}
         {props?.buttonAll && (
           <div className={s.buttonAllWrapper}>
             <Button
@@ -26,7 +26,7 @@ function NewsGrid(props) {
               width="183px"
               bgColor="blue"
               onClick={() => {
-                navigate(`/news`);
+                navigate(`/newsandstocks/news`);
               }}
             />
           </div>
@@ -43,7 +43,7 @@ function NewsGrid(props) {
               width="184px"
               bgColor="blue"
               onClick={() => {
-                navigate(`/news`);
+                navigate(`/newsandstocks/news`);
               }}
             />
           </div>

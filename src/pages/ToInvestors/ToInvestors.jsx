@@ -21,7 +21,7 @@ function ToInvestors() {
           <div className={s.titlewrapper}>
             <h2 className={s.hellotitle}>Инвесторам</h2>
             <h5 className={s.hellodesc}>
-              Старт продаж дома № 3, жилого комплекса “Плюс один”
+              Старт продаж дома № 3, жилого комплекса «Плюс один»
             </h5>
           </div>
         </div>
@@ -37,10 +37,10 @@ function ToInvestors() {
           <div className={s.topcontainer}>
             <TabList className={s.tabs}>
               <Tab className={s.tab} selectedClassName={s.tabselected}>
-                Основные показатели
+                <span className={s.tabtitle}>Основные показатели</span>
               </Tab>
               <Tab className={s.tab} selectedClassName={s.tabselected}>
-                Раскрытие информации
+                <span className={s.tabtitle}>Раскрытие информации</span>
               </Tab>
             </TabList>
           </div>

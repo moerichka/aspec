@@ -182,12 +182,32 @@
     user-select: none;
 }
 
+.tabtitle{
+    transition: var(--transition);
+    display: block;
+}
+
+.tab:hover .tabtitle{
+    transform: translateY(-5px);   
+}
+
+.tab:hover{
+    color: var(--green);
+    border-color: var(--green);
+}
+
 .tabselected {
     color: var(--blue-text);
     background-color: transparent;
     font-family: Montserrat-Bold;
     border-bottom-color: var(--blue);
     border-radius: 2px;
+    transition: var(--transition);
+}
+
+.tabselected:hover{
+    color: var(--blue-hover);
+    border-color: var(--blue-hover);
 }
 
 .innertablist {

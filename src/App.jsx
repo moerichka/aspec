@@ -27,7 +27,8 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/project/:projectId" element={<Project />} />
           <Route path="/project/:projectId/layout/:layoutId" element={<Layout />} />
-          <Route path="/news" element={<News />} />
+          <Route path="/newsandstocks/news" element={<News tabIndex={1}/>} />
+          <Route path="/newsandstocks/stocks" element={<News tabIndex={0}/>} />
           <Route path="/news/:newsId" element={<OneNews />} />
           <Route path="/buy" element={<Buy />} />
           <Route path="/contacts" element={<Contacts />} />

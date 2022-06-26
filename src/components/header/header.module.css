@@ -73,14 +73,14 @@
 }
 
 .topBar {
-    width: 100%;
+    width: 100vw;
     object-fit: fill;
     height: 7px;
 }
 
 .container {
     display: grid;
-    grid-template-columns: 196px minmax(auto, 1fr) minmax(auto, 180px) min-content 39px;
+    grid-template-columns: 196px minmax(auto, 1fr) minmax(auto, 180px) min-content 50px;
     align-items: center;
     justify-items: center;
 
@@ -147,6 +147,9 @@
 }
 
 .callback {
+    position: relative;
+    top: 2px;
+    right: 2px;
     color: var(--green-text);
     font-family: Montserrat-SemiBold;
     font-size: 12px;
@@ -159,6 +162,10 @@
     color: var(--gray-icons);
     justify-self: end;
     cursor: pointer;
+}
+
+.marker[data-active="true"]{
+    color: var(--green);
 }
 
 .linkActive {

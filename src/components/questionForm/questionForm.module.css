@@ -11,6 +11,7 @@
 }
 
 .wrapper {
+    position: relative;
     background-color: var(--blue);
     width: 100%;
     border-radius: 5px;
@@ -133,6 +134,14 @@
     font-size: 14px;
     line-height: 24px;
     font-family: Montserrat-Medium;
+    position: absolute;
+    opacity: 0;
+    transition: var(--transition);
+    bottom: 45px;
+}
+
+.error[data-visible="true"]{
+    opacity: 1;
 }
 
 .congrat{
@@ -140,6 +149,14 @@
     font-size: 14px;
     line-height: 24px;
     font-family: Montserrat-Medium;
+    position: absolute;
+    opacity: 0;
+    transition: var(--transition);
+    bottom: 35px;
+}
+
+.congrat[data-visible="true"]{
+    opacity: 1;
 }
 
 @media (max-width: 1140px) {

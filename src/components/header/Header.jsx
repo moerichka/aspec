@@ -11,7 +11,7 @@ import logo from "../../assets/images/logo.svg";
 import { citys } from "../../dummyData";
 
 export default function Header(props) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [isFavored, setIsFavored] = useState(false);
   const [linkChangeCounter, setLinkChangeCounter] = useState(0);
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
@@ -31,11 +31,6 @@ export default function Header(props) {
     setHref(window.location.href);
   }, []);
 
-  // const linkClickHandler = (url) => {
-  //   setActiveLink("#projects")
-  //   setLinkChangeCounter(prev => prev + 1)
-  // }
-
   return (
     <header
       className={`${s.header} 
@@ -43,11 +38,7 @@ export default function Header(props) {
       ${props.withLine ? s.headerLine : ""}`}
       id="header"
     >
-      <div
-        className={`${s.navMenu} ${
-          isBurgerOpen && s.navMenuActive
-        }`}
-      >
+      <div className={`${s.navMenu} ${isBurgerOpen && s.navMenuActive}`}>
         <div className={s.navMenuContainer}>
           <div className={s.navMenuTop}>
             <Link to="/">
@@ -76,7 +67,7 @@ export default function Header(props) {
               <Link to="/projects">
                 <li
                   className={`${s.navMenuItem} ${
-                    href?.includes("project") ? s.linkActive : ""
+                    href?.includes("/project/") ? s.linkActive : ""
                   }`}
                 >
                   Проекты
@@ -85,7 +76,7 @@ export default function Header(props) {
               <Link to="/estateselection">
                 <li
                   className={`${s.navItem} ${
-                    href?.includes("project") ? s.linkActive : ""
+                    href?.includes("/estateselection/") ? s.linkActive : ""
                   }`}
                 >
                   Подбор недвижимости
@@ -97,7 +88,7 @@ export default function Header(props) {
               <Link to="/buy">
                 <li
                   className={`${s.navItem} ${
-                    href?.includes("buy") ? s.linkActive : ""
+                    href?.includes("/buy") ? s.linkActive : ""
                   }`}
                 >
                   Способы покупки
@@ -127,33 +118,43 @@ export default function Header(props) {
             <Link to="/">
               <li
                 className={`${s.navItem} ${
-                  href?.lastIndexOf("/") === href.length - 1
-                    ? s.linkActive
-                    : ""
+                  href?.lastIndexOf("/") === href.length - 1 ? s.linkActive : ""
                 }`}
               >
                 Компания
               </li>
             </Link>
             <Link to="/estateselection">
-              <li className={s.navItem}>Подбор недвижимости</li>
+              <li
+                className={`${s.navItem} ${
+                  href?.includes("/estateselection") ? s.linkActive : ""
+                }`}
+              >
+                Подбор недвижимости
+              </li>
             </Link>
             <Link to="/projects">
               <li
                 className={`${s.navItem} ${
-                  href?.includes("project") ? s.linkActive : ""
+                  href?.includes("/projects") ? s.linkActive : ""
                 }`}
               >
                 Проекты
               </li>
             </Link>
-            <Link to="/news">
-              <li className={s.navItem}>Акции</li>
+            <Link to="/newsandstocks/stocks">
+              <li
+                className={`${s.navItem} ${
+                  href?.includes("stocks") ? s.linkActive : ""
+                }`}
+              >
+                Акции
+              </li>
             </Link>
             <Link to="/buy">
               <li
                 className={`${s.navItem} ${
-                  href?.includes("buy") ? s.linkActive : ""
+                  href?.includes("/buy") ? s.linkActive : ""
                 }`}
               >
                 Способы покупки
@@ -162,7 +163,7 @@ export default function Header(props) {
             <Link to="/toinvestors">
               <li
                 className={`${s.navItem} ${
-                  href?.includes("toinvestors") ? s.linkActive : ""
+                  href?.includes("/toinvestors") ? s.linkActive : ""
                 }`}
               >
                 Инвесторам
@@ -176,8 +177,10 @@ export default function Header(props) {
             defaultValue={chosenCity}
             value={chosenCity}
             setChosen={setChosenCity}
+            isSearchable={false}
             bgColor={"inherit"}
             color={"blue"}
+            isHeader={true}
             icon={"icon-dropdown"}
             indicatorSize={"8px"}
             outline={false}
@@ -192,15 +195,22 @@ export default function Header(props) {
             <span className={s.callback}>Перезвоните мне</span>
           </div>
         </div>
-        <span
-          className={`${s.marker} ${
-            isFavored ? "icon-mark-fill" : "icon-mark"
-          }`}
-          onClick={() => {
-            // setIsFavored((prev) => !prev);
-            navigate("/favorites")
-          }}
-        ></span>
+        {href?.includes("/favorites") ? (
+          <span
+            className={`${s.marker} icon-mark-fill`}
+            data-active="true"
+            onClick={() => {
+              navigate("/favorites");
+            }}
+          ></span>
+        ) : (
+          <span
+            className={`${s.marker} icon-mark`}
+            onClick={() => {
+              navigate("/favorites");
+            }}
+          ></span>
+        )}
       </div>
     </header>
   );

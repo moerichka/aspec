@@ -1,0 +1,85 @@
+ .favorites{
+    overflow: hidden;
+ }
+ 
+ .favorites__swiperwrapper{
+    width: 100%;
+    max-width: 1537px;
+    padding: 0 46px;
+ }
+ 
+ .favorites__swiperwrapper > .swiper2{
+    width: 100%;
+    overflow: visible;
+    padding-top: 50px;
+}
+
+.favorites__swiperwrapper  > .swiper2 > .swiper-wrapper{
+    /* min-width: 100% !important; */
+}
+
+.favorites__swiperwrapper  > .swiper2 > .swiper-wrapper > .swiper-slide{
+    display: flex;
+    flex-direction: row;
+    /* align-items: center;
+    justify-content: center; */
+    gap: 0px;
+    /* max-width: 30vw !important; */
+    /* width: 100% !important; */
+    /* min-width: min-content !important; */
+    /* max-width: 30% !important; */
+    /* margin: 0 15% !important; */
+}
+
+.favorites__swiperwrapper  > .swiper2 > .swiper-scrollbar {
+    top: -10px !important;
+    left: 0;
+    background-color: transparent;
+    height: 10px !important;
+    width: 100%;
+    /* padding: 0 20%; */
+}
+
+.favorites__swiperwrapper  > .swiper2 > .swiper-scrollbar::after {
+    content: "";
+    height: 2px;
+    top: 3px;
+    left: 0%;
+    position: absolute;
+    width: 100%;
+    background-color: var(--scroll);
+}
+
+.favorites__swiperwrapper  > .swiper2 > .swiper-scrollbar > .swiper-scrollbar-drag {
+    background-color: var(--green);
+    z-index: 2;
+    height: 8px !important;
+    cursor: pointer;
+    /* width: 100px !important; */
+} 
+
+/*  */
+/*  */
+
+@media (max-width: 1140px) {
+    .favorites__swiperwrapper > .swiper2{
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 680px) {
+
+    .favorites__swiperwrapper > .swiper2{
+        padding-top: 28px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .favorites__swiperwrapper{
+        width: 100%;
+        max-width: 1537px;
+        padding: 0 20px;
+     }
+     
+}

@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import s from "./favorites.module.css";
+import "./favorites.css";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/scrollbar";
+import "swiper/css/free-mode";
+import { FreeMode, Scrollbar, Mousewheel } from "swiper";
 
 import Header from "../../components/header";
 import Dashnav from "../../components/dashnav";
@@ -8,24 +15,28 @@ import Button from "../../components/button";
 
 import { Tabs, Tab, TabPanel, TabList } from "react-tabs";
 import Layout from "../../components/layout";
+import LayoutCompare from "../../components/layoutCompare";
 
 import { favorites } from "../../dummyData";
 
-function Favorites() {
-  const [scrollLeft, setScrollLeft] = useState(0)
+function Favorites(props) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [scrollLeft, setScrollLeft] = useState(0);
   const [tabIndex, setTabIndex] = useState(0);
   const wayArray = [{ title: "Главная" }, { title: "Избранное" }];
 
-  const fakecontainer = useRef(null);
-  const comparecontainer = useRef(null);
+  useEffect(() => {
+    window.addEventListener("resize", function () {
+      setWindowWidth(window.innerWidth);
+    });
+  }, []);
 
   const scrollHandler = (e, ref) => {
     ref.current.scrollLeft = e?.target?.scrollLeft;
   };
 
-
   return (
-    <div className={s.favorites}>
+    <div className={`${s.favorites} favorites`}>
       <Header withLine={true} />
       <div className={s.dashnav}>
         <Dashnav wayArray={wayArray} />
@@ -50,39 +61,34 @@ function Favorites() {
             <div className="container">
               <div className={s.favoritesgrid}>
                 {favorites?.map((favorite) => (
-                  <Layout room={favorite} key={favorite?.id}></Layout>
+                  <Layout
+                    room={favorite}
+                    favoritestyle={true}
+                    key={favorite?.id}
+                  ></Layout>
                 ))}
               </div>
             </div>
           </TabPanel>
           <TabPanel className={s.tabpanel}>
-            <div
-              className={s.fakecontainer}
-              onScroll={(e) => {
-                window?.innerWidth > 1150 && scrollHandler(e, comparecontainer);
-              }}
-              ref={fakecontainer}
-            >
-              <div className={s.fakecontent}>
-                {favorites?.map((favorite, index) => (
-                  <div key={index}></div>
-                ))}
-                <div className={s.last}></div>
-              </div>
-            </div>
-            <div
-              className={s.comparecontainer}
-              onScroll={(e) => {
-                window?.innerWidth < 1150 && scrollHandler(e, fakecontainer);
-              }}
-              ref={comparecontainer}
-            >
-              <div className={s.favoritesline}>
-                {favorites?.map((favorite) => (
-                  <Layout room={favorite} compare={true} key={favorite?.id}></Layout>
-                ))}
-                <div className={s.last}></div>
-              </div>
+            <div className={`${s.swiperwrapper} favorites__swiperwrapper`}>
+              <Swiper
+                className="swiper2"
+                direction={"horizontal"}
+                grabCursor={true}
+                slidesPerView={windowWidth > 850 ? 3 : windowWidth > 370 ? 2 : 1}
+                freeMode={true}
+                scrollbar={{ draggable: "true" }}
+                modules={[FreeMode, Scrollbar]}
+              >
+                  {favorites?.map((favorite) => (
+                <SwiperSlide>
+                    <div className={s.slide}>
+                      <LayoutCompare room={favorite} key={favorite?.id} />
+                    </div>
+                </SwiperSlide>
+                  ))}
+              </Swiper>
             </div>
           </TabPanel>
         </Tabs>
