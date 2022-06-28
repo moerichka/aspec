@@ -24,6 +24,7 @@
     grid-row-start: 1;
     grid-column: 3/4;
     justify-self: end;
+    width: 183px;
 }
 
 .buttonShowMoreWrapper{

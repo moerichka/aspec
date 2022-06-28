@@ -41,17 +41,10 @@ export default function Footer() {
               </span>
             </div>
             <div className={s.infoWrapper}>
-              <Link to='#'
-                onClick={(e) => {
-                window.location.href = "mailto:domstroy@aspec.ru";
-                e.preventDefault();
-            }}
-              >
-                <div className={`${s.infoTitle} ${s.email}`}>
+                <div className={s.infoTitle}>
                   <span className={`${s.infoIcon} icon-mail`} />
                   <span>Электронная почта </span>
                 </div>
-              </Link>
               <div className={s.infoDesc}>domstroy@aspec.ru</div>
             </div>
           </div>
@@ -135,7 +128,7 @@ export default function Footer() {
               </a>
             </p>
             <div className={s.rightsInfoWrapper}>
-              <span className={s.rightsItem}>© 2021. Все права защищены</span>
+              <span className={s.rightsItem}>© 2022. Все права защищены</span>
               <div className={s.rightsItem}>
                 Сделано в{" "}
                 <a href="https://www.cultbrand.ru/" target="__blank">

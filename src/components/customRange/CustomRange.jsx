@@ -1,5 +1,5 @@
 import React from "react";
-import "./customRange.css";
+import s from "./customRange.module.css";
 import PropsTypes from "prop-types"
 import { Range, getTrackBackground } from "react-range";
 
@@ -11,20 +11,20 @@ function CustomRange(propsCustom) {
 
   return (
     <div
-      className={`customRange__wrapper ${
+      className={`${s.wrapper} ${
         propsCustom.isWhite ? "customRange-white" : ""
-      }`}
+      }`} data-color={propsCustom?.bgColor}
     >
-      <div className="customRange__info">
-        <div className="customRange__from">
+      <div className={s.info}>
+        <div className={s.from}>
           {propsCustom.withText ? `от` : ``}
-          <span className="customRange__price">
+          <span className={s.price}>
             {separator(propsCustom?.oneThumb ? MIN : values[0])}
           </span>
         </div>
-        <div className="customRange__to">
+        <div className={s.to}>
         {propsCustom.withText ? `до` : ``}
-          <span className="customRange__price">
+          <span className={s.price}>
             {separator(propsCustom?.oneThumb ? MAX : values[1])}
           </span>
         </div>
@@ -37,10 +37,7 @@ function CustomRange(propsCustom) {
         // onChange={values => propsCustom.onChange(values)}
         onChange={(values) => propsCustom.onChange(values)}
         renderTrack={({ props, children }) => (
-          // eslint-disable-next-line jsx-a11y/no-static-element-interactions
           <div
-            // onMouseDown={props.onMouseDown}
-            // onTouchStart={props.onTouchStart}
             style={{
               ...props.style,
               height: "1px",

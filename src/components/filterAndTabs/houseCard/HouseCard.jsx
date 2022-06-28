@@ -72,7 +72,7 @@ export default function HouseCard(props) {
               {props?.flats &&
                 props?.flats?.map((flat) => (
                   <li className={s.flat} key={flat.id}>
-                    <span className={s.flatType}>{flat.name}</span>
+                    <span className={s.flatType}>{flat.name} квартиры</span>
                     <span className={s.flatPrice}>
                       от {priceConverter(flat.price)} ₽
                     </span>

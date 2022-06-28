@@ -1,3 +1,7 @@
+.noMatch{
+    overflow: hidden;
+}
+
 .dashnav {
     padding-top: 24px;
 }

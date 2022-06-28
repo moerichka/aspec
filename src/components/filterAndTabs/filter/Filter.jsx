@@ -281,6 +281,7 @@ const Filter = (props) => {
                         STEP={1}
                         rangeValues={rangeValuesSpace}
                         onChange={setRangeValuesSpace}
+                        bgColor={props?.inputbgColor}
                       />
                     </div>
                   )}
@@ -296,6 +297,7 @@ const Filter = (props) => {
                         STEP={10000}
                         rangeValues={rangeValuesPrice}
                         onChange={setRangeValuesPrice}
+                        bgColor={props?.inputbgColor}
                       />
                     </div>
                   )}

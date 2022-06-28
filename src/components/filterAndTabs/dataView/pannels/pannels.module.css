@@ -223,7 +223,7 @@
     font-family: Montserrat-Regular;
 }
 
-@media (min-width: 786px) {
+@media (min-width: 768px) {
     .levelnumber:hover {
         color: var(--green);
     }
@@ -361,20 +361,20 @@
         font-size: 14px;
         line-height: 24px;
     }
+}
 
-    .flatwrapper[data-currnet="true"]{
-        border-color: var(--green);
-    }
+.flatwrapper[data-currnet="true"]{
+    border-color: var(--green);
+}
 
-    .flatinfo[data-currnet="true"]{
-        display: flex;
-        flex-direction: column;
-    }
+.flatinfo[data-currnet="true"]{
+    display: flex;
+    flex-direction: column;
+}
 
-    .flatwrapper[data-status="booked"][data-currnet="true"] {
-        border-color: var(--yellow);
-    }
-    .flatwrapper[data-status="sold"][data-currnet="true"] {
-        border-color: var(--blue-transparent);
-    }
+.flatwrapper[data-status="booked"][data-currnet="true"] {
+    border-color: var(--yellow);
+}
+.flatwrapper[data-status="sold"][data-currnet="true"] {
+    border-color: var(--blue-transparent);
 }

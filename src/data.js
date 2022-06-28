@@ -1070,6 +1070,7 @@ export const Projects = [
     name: "Forest",
     adress: "Ижевск, ул. Союзная",
     type: "ЖК",
+    minPrice: 4500000,
     about: {
       text: [
         `Расположение комплекса вблизи хвойного леса настраивает на гармонию с природой. 5 домов с огороженной территорией предполагают приватную атмосферу, где новоселам будет комфортно жить вне городской суеты.`,
@@ -1147,12 +1148,36 @@ export const Projects = [
     buildings: [ buildings[0], buildings[1], buildings[2], buildings[2] ],
     discount: "10%",
     newShapes: true,
+    flats: [
+      {
+        id: 2,
+        name: "1-комн.",
+        type: 1,
+        price: 4000000,
+        amount: 3,
+      },
+      {
+        id: 4,
+        name: "2-комн.",
+        type: 2,
+        price: 3000000,
+        amount: 1,
+      },
+      {
+        id: 5,
+        name: "3-комн.",
+        type: 3,
+        price: 3500000,
+        amount: 12,
+      },
+    ],
   },
   {
     id: 2,
     name: "Forest",
     adress: "Ижевск, ул. Союзная",
     type: "ЖК",
+    minPrice: 4000000,
     about: {
       text: [
         `Расположение комплекса вблизи хвойного леса настраивает на гармонию с природой. 5 домов с огороженной территорией предполагают приватную атмосферу, где новоселам будет комфортно жить вне городской суеты.`,
@@ -1230,12 +1255,22 @@ export const Projects = [
     buildings: [ buildings[0], buildings[1], buildings[2] ],
     discount: "50%",
     newShapes: true,
+    flats: [
+      {
+        id: 2,
+        name: "1-комн.",
+        type: 1,
+        price: 4000000,
+        amount: 3,
+      },
+    ],
   },
   {
     id: 3,
     name: "Плюс один",
     adress: "Ижевск, ул. Союзная",
     type: "ЖК",
+    minPrice: 3000000,
     about: {
       text: [
         `Расположение комплекса вблизи хвойного леса настраивает на гармонию с природой. 5 домов с огороженной территорией предполагают приватную атмосферу, где новоселам будет комфортно жить вне городской суеты.`,
@@ -1312,12 +1347,29 @@ export const Projects = [
     genlayout: "svg1.svg",
     buildings: [ buildings[0], buildings[1], buildings[2] ],
     newShapes: true,
+    flats: [
+      {
+        id: 1,
+        name: "Студия",
+        type: 0,
+        price: 4500000,
+        amount: 2,
+      },
+      {
+        id: 2,
+        name: "1-комн.",
+        type: 1,
+        price: 4000000,
+        amount: 3,
+      },
+    ],
   },
   {
     id: 4,
     name: "Васнецово",
     adress: "Ижевск, ул. Танкограда",
     type: "ЖК",
+    minPrice: 4200000,
     about: {
       text: [
         `Расположение комплекса вблизи хвойного леса настраивает на гармонию с природой. 5 домов с огороженной территорией предполагают приватную атмосферу, где новоселам будет комфортно жить вне городской суеты.`,
@@ -1395,12 +1447,50 @@ export const Projects = [
     buildings: [ buildings[0], buildings[1], buildings[2] ],
     discount: "10%",
     newShapes: true,
+    flats: [
+      {
+        id: 1,
+        name: "Студия",
+        type: 0,
+        price: 4500000,
+        amount: 2,
+      },
+      {
+        id: 2,
+        name: "1-комн.",
+        type: 1,
+        price: 4000000,
+        amount: 3,
+      },
+      {
+        id: 4,
+        name: "2-комн.",
+        type: 2,
+        price: 3000000,
+        amount: 1,
+      },
+      {
+        id: 5,
+        name: "3-комн.",
+        type: 3,
+        price: 3500000,
+        amount: 12,
+      },
+      {
+        id: 6,
+        name: "4-комн.",
+        type: 3,
+        price: 4500000,
+        amount: 12,
+      },
+    ],
   },
   {
     id: 5,
     name: "ARTNOVA",
     adress: "Ижевск, ул. Великая",
     type: "ЖК",
+    minPrice: 6500000,
     about: {
       text: [
         `Расположение комплекса вблизи хвойного леса настраивает на гармонию с природой. 5 домов с огороженной территорией предполагают приватную атмосферу, где новоселам будет комфортно жить вне городской суеты.`,
@@ -1477,12 +1567,36 @@ export const Projects = [
     genlayout: "svg1.svg",
     buildings: [ buildings[0], buildings[1], buildings[2] ],
     newShapes: true,
+    flats: [
+      {
+        id: 2,
+        name: "1-комн.",
+        type: 1,
+        price: 4000000,
+        amount: 3,
+      },
+      {
+        id: 4,
+        name: "2-комн.",
+        type: 2,
+        price: 3000000,
+        amount: 1,
+      },
+      {
+        id: 5,
+        name: "3-комн.",
+        type: 3,
+        price: 3500000,
+        amount: 12,
+      },
+    ],
   },
   {
     id: 6,
     name: "Плюс один",
     adress: "Ижевск, ул. Великая",
     type: "ЖК",
+    minPrice: 3500000,
     about: {
       text: [
         `Расположение комплекса вблизи хвойного леса настраивает на гармонию с природой. 5 домов с огороженной территорией предполагают приватную атмосферу, где новоселам будет комфортно жить вне городской суеты.`,
@@ -1559,6 +1673,29 @@ export const Projects = [
     genlayout: "svg1.svg",
     buildings: [ buildings[0], buildings[1], buildings[2] ],
     newShapes: true,
+    flats: [
+      {
+        id: 2,
+        name: "1-комн.",
+        type: 1,
+        price: 4000000,
+        amount: 3,
+      },
+      {
+        id: 4,
+        name: "2-комн.",
+        type: 2,
+        price: 3000000,
+        amount: 1,
+      },
+      {
+        id: 5,
+        name: "3-комн.",
+        type: 3,
+        price: 3500000,
+        amount: 12,
+      },
+    ],
   },
 ];
 

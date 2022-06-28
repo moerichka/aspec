@@ -35,7 +35,7 @@ function EstateSelection() {
   ];
 
   return (
-    <div className={s.EstateSelection}>
+    <div className={s.estateSelection}>
       <Header />
       <div className={s.dashnav}>
         <Dashnav wayArray={wayArray}></Dashnav>

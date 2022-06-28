@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import s from "./pannels.module.css";
 import "./pannels.css";
 
@@ -12,6 +12,19 @@ import { FreeMode, Scrollbar } from "swiper";
 
 function Pannels(props) {
   const [chosenFlat, setChosenFlat] = useState(null)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isTablet, setIsTablet] = useState(window.innerWidth <= 768);
+  console.log("anime");
+
+  useEffect(() => {
+    window.addEventListener("resize", function () {
+      setWindowWidth(window.innerWidth);
+    });
+  }, []);
+
+  useEffect(() => {
+    window.innerWidth <= 768 ? setIsTablet(true) : setIsTablet(false);
+  }, [windowWidth]);
   console.log('chosenFlat: ', chosenFlat);
 
   const clickHandler = (e, index)=>{
@@ -35,7 +48,8 @@ function Pannels(props) {
         modules={[FreeMode, Scrollbar]}
         >
           <SwiperSlide>
-            <div className={s.biggrid} onClick={()=>{chosenFlat && setChosenFlat(null)}}>
+            {/* onClick={()=>{isTablet && chosenFlat && setChosenFlat(null)}} */}
+            <div className={s.biggrid} > 
               {props?.data?.map((project, projectIndex) => (
                 <div className={s.projectline}>
                   {project?.buildings?.map((building, buildingIndex) => (
@@ -55,7 +69,7 @@ function Pannels(props) {
                                 const thisindex = ((projectIndex + 1) * 1000) + ((buildingIndex + 1)* 100) + ((levelIndex + 1)*10) + (flatIndex + 1)
 
                                 return (
-                                <div className={s.flatwrapper} data-status={flat?.status} onClick={(e)=>{clickHandler(e, thisindex)}} data-currnet={thisindex === chosenFlat}>
+                                <div className={s.flatwrapper} data-status={flat?.status} onClick={(e)=>{isTablet && clickHandler(e, thisindex)}} data-currnet={thisindex === chosenFlat}>
                                   <div className={s.flat}>
                                     {flat?.type === "larder" ? "Кл" : flat?.rooms}
                                   </div>
@@ -63,12 +77,12 @@ function Pannels(props) {
                                     <div className={s.topinfo}>
                                       <div className={s.flatrooms}>{flat?.rooms}</div>
                                       <div className={s.flattype}>{flat?.type === "larder" ? "Кладовая" : "Квартира"}</div>
-                                      <div className={s.flatnumber}>№{flat?.flatNumber}</div>
+                                      {flat?.type !== "larder" && <div className={s.flatnumber}>№{flat?.flatNumber}</div>}
                                     </div>
                                     <div className={s.flatprice}>{separator(flat?.price)} ₽</div>
                                     <div className={s.bottominfo}>
                                       <div className={s.flatspace}>{flat?.space} м²</div>
-                                      <div className={s.flatmeterprice}>{flat?.meterprice} ₽ / м²</div>
+                                      {flat?.type !== "larder" && <div className={s.flatmeterprice}>{flat?.meterprice} ₽ / м²</div>}
                                     </div>
                                   </div>
                                 </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./projects.module.css";
-import "./projects.css";
 
 import Header from "../../components/header";
 import Dashnav from "../../components/dashnav";
@@ -29,7 +28,7 @@ export default function Main() {
   ];
 
   return (
-    <div className="projects">
+    <div className={s.projects}>
       <Header BGcolor={"gray"} withLine={true} />
       <div className={s.dashnav}>
         <Dashnav wayArray={wayArray}></Dashnav>

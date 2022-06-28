@@ -14,7 +14,7 @@ function News(props) {
   const wayArray = [{ title: "Главная" }, { title: "Акции и новости" }];
 
   return (
-    <div>
+    <div className={s.news}>
       <Header withLine={true} />
       <div className={s.dashnav}>
         <Dashnav wayArray={wayArray} />

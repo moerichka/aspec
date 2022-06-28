@@ -24,7 +24,7 @@ export const houseCardMap = (elem)=>{
           <span class="houseCard__price">
             от
             <span class="houseCard__priceBold">
-             ${elem.price/1000000 } млн 
+             ${elem.minPrice/1000000 } млн 
             </span>
             ₽
           </span>
@@ -39,7 +39,7 @@ export const houseCardMap = (elem)=>{
           <ul class="houseCard__flats">
             ${elem?.flats?.map((flat) => (
               `<li class="houseCard__flat" >
-                <span class="houseCard__flatType">${flat.name}</span>
+                <span class="houseCard__flatType">${flat.name} ${flat.name !== "Студия" ? "квартиры" : ""}</span>
                 <span class="houseCard__flatPrice">от ${flat.price/1000000 } млн ₽</span>
               </li>`
             )).join('')}

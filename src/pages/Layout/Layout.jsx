@@ -52,7 +52,7 @@ function Layout() {
   ];
 
   return (
-    <>
+    <div className={s.layout}>
       <Header withLine={true} BGcolor={"gray"} />
       <div className={s.dashnav}>
         <Dashnav wayArray={wayArray} />
@@ -82,7 +82,7 @@ function Layout() {
         <QuestionForm />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

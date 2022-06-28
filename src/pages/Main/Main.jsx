@@ -1,5 +1,5 @@
 import React from "react";
-import "./main.css";
+import s from "./main.module.css";
 
 import Header from "../../components/header";
 import HelloSlider from "../../components/helloSlider";
@@ -18,24 +18,24 @@ export default function Main() {
   ];
   
   return (
-    <>
+    <div className={s.main}>
       <Header />
-      <div className="main__helloSlider">
+      <div className={s.helloSlider}>
         <HelloSlider />
       </div>
-      <div className="main__filterAndTabs">
+      <div className={s.filterAndTabs}>
         <FilterAndTabs title={"Наши проекты"} dataRepresentetion={DataRepresentetionArray}  />
       </div>
-      <div className="main__benefitsGrid">
+      <div className={s.benefitsGrid}>
         <BenefitsGrid />
       </div>
-      <div className="main__newsGrid">
-        <NewsGrid buttonAll={true} desc={true} maxAmountNews={3}/>
+      <div className={s.newsGrid}>
+        <NewsGrid buttonAll={true} desc={true} maxAmountNews={3} titlewrapper={true}/>
       </div>
-      <div className="main__questionForm">
+      <div className={s.questionForm}>
         <QuestionForm />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
