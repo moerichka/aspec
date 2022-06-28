@@ -1,0 +1,264 @@
+.checkmate {
+    margin-top: 85px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    max-width: 1537px;
+    width: 100%;
+    padding: 0 46px;
+}
+
+.biggrid {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    padding-left: 20px;
+    padding-bottom: 85px;
+}
+
+.projectline {
+    display: flex;
+    flex-direction: row;
+    gap: 85px;
+}
+
+.buildingblock {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.buildingnumber {
+    width: 28px;
+    height: 28px;
+    background-color: var(--white);
+    color: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 53px;
+    user-select: none;
+}
+
+.buildingcenter {
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
+}
+
+.levelcolumn {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2px;
+    background-color: var(--white);
+    border-radius: 5px;
+}
+
+.levelnumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: Montserrat-Medium;
+    width: 36px;
+    height: 99px;
+    user-select: none;
+    transition: var(--transition);
+}
+
+.levelrow {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
+
+.flatcolumn {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2px;
+}
+
+.flatinfo {
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 12px 15px 9px 15px;
+    width: 195px;
+    overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.topinfo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.flatrooms {
+    width: 24px;
+    height: 24px;
+    color: var(--white);
+    background-color: var(--green);
+    border-radius: 50%;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: Montserrat-Medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flatinfo[data-status="booked"] .flatrooms {
+    background-color: var(--yellow);
+}
+
+.flatinfo[data-status="sold"] .flatrooms {
+    background-color: var(--blue);
+}
+
+.flatinfo[data-status="sold"] {
+    opacity: 0.3;
+}
+
+.flattype {
+    font-size: 13px;
+    line-height: 16px;
+    font-family: Montserrat-Regular;
+    padding: 0 33px 0 12px;
+}
+
+.flatnumber {
+    font-size: 13px;
+    line-height: 16px;
+    font-family: Montserrat-Regular;
+}
+
+.flatprice {
+    padding-top: 6px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-SemiBold;
+    color: var(--green);
+}
+
+.flatinfo[data-status="booked"] .flatprice {
+    color: var(--light-gray-text);
+}
+
+.flatinfo[data-status="sold"] .flatprice {
+    color: var(--light-gray-text);
+}
+
+.bottominfo {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.flatspace {
+    font-size: 13px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+}
+
+.flatmeterprice {
+    padding-left: 12px;
+    font-size: 13px;
+    line-height: 24px;
+    font-family: Montserrat-Regular;
+}
+
+.flatinfo[data-status="sold"] .flatmeterprice, .flatinfo[data-status="booked"] .flatmeterprice {
+    display: none;
+}
+
+@media (min-width: 780px) {
+    .levelnumber:hover {
+        color: var(--green);
+    }
+
+    .flatinfo:hover {
+        background-color: var(--light-blue-card-bg);
+    }
+}
+
+@media (max-width: 1200px) {
+    .checkmate {
+        margin-top: 52px;
+    }
+}
+
+@media (max-width: 700px) {
+    .checkmate {
+        margin-top: 27px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .buildingcenter {
+        gap: 6px;
+    }
+
+    .levelnumber {
+        height: 76px;
+        font-size: 12px;
+        line-height: 15px;
+        width: 28px;
+    }
+
+    .flatinfo {
+        width: 146px;
+        height: 76px;
+        padding: 10px 9px;
+    }
+
+    .flatrooms {
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+        line-height: 11px;
+    }
+
+    .flattype {
+        font-size: 11px;
+        line-height: 13px;
+        padding: 0 10px 0 6px;
+    }
+
+    .flatnumber {
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+    .flatprice {
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+    .flatspace {
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+    .flatmeterprice {
+        padding-left: 10px;
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+    .biggrid {
+        padding-bottom: 30px;
+        gap: 40px;
+    }
+}

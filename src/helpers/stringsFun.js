@@ -49,6 +49,7 @@ export const priceConverterToMln = (price) => {
 };
 
 export const telChecker = (tel) => {
-  const regExp = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/
+  // const regExp = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/
+  const regExp = /(\+7|8)[\s(]*\d{3}[)\s]*\d{3}[\s-]?\d{2}[\s-]?\d{2}/
   return regExp.test(tel)
 };

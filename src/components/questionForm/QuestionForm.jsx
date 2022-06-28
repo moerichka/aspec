@@ -76,7 +76,7 @@ export default function QuestionForm() {
               />
               <InputMask
                 type="tel"
-                mask="+7\(999) 999 99 99" maskChar=" "
+                mask="+7\ (999) 999 99 99" maskChar=" "
                 className={s.input}
                 placeholder="Ваш номер телефона"
                 value={personTel}

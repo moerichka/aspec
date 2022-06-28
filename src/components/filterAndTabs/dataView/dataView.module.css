@@ -1,17 +1,22 @@
-.dataView{
+.dataView {
     background-color: var(--bg-gray);
 }
 
-.tableader{
+.tableader {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.topcontainer{
+.topcontainer {
+    margin-top: 43px;
     max-width: 1537px;
     width: 100%;
     padding: 0 46px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .tabs {
@@ -19,7 +24,9 @@
     display: flex;
     flex-direction: row;
     gap: 12px;
-    margin-top: 43px;
+    overflow-x: auto;
+    max-width: 100%;
+    width: max-content;
 }
 
 .tab {
@@ -38,6 +45,7 @@
     transition: var(--transition);
     cursor: pointer;
     user-select: none;
+    white-space: nowrap;
 }
 
 .tab:not(.tabselected):hover {
@@ -53,29 +61,130 @@
     background-color: var(--blue-hover);
 }
 
-.tabPanel{
+.tabPanel {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.panelcontainer{
-    max-width: 1537px;
+.panelcontainer {
+    /* max-width: 1537px; */
     width: 100%;
-    padding: 0 46px;
+    /* padding: 0 46px; */
 }
 
-.containerplanns{
+.containerplanns {}
 
+.containerlist {
 }
-.containerlist{
-    margin-top: 72px;
-    margin-bottom: 70px;
-}
-.containerpannels{
 
-}
-.containercheckmate{
+.containerpannels {}
 
+.containercheckmate {}
+
+.sorter {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.sorterTitle {
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+}
+
+.sorterValues {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.sorterValue {
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    color: var(--gray-text);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.sorterValue:hover{
+    color: var(--green);
+}
+.sorterValue:hover .sorterIcon{
+    color: var(--green-hover);
+}
+
+.sorterIcon {
+    display: block;
+    color: var(--green);
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+.sorterIcon[data-on="true"] {
+    transform: rotateX(180deg);
+}
+
+@media (max-width: 1020px) {
+    .topcontainer{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+}
+
+@media (max-width: 870px) {
+    .topcontainer {
+        padding: 0 ;
+    }
+
+    .sorter{
+        padding: 0 20px;
+    }
+
+    .tabs{
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .sorterTitle {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .sorterValue {
+        font-size: 12px;
+        line-height: 24px;
+    }
+}
+@media (max-width: 1180px) {
+    .tab {
+        font-size: 12px;
+        line-height: 24px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .tabs{
+        gap: 10px;
+    }
+
+    .tab {
+        font-size: 11px;
+        line-height: 24px;
+        padding: 6px 14px;
+    }
+    .containercheckmate{
+        margin-top: 32px;
+    }
 }

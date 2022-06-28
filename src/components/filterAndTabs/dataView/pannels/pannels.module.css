@@ -1,0 +1,380 @@
+.pannels {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    max-width: 1537px;
+    width: 100%;
+    padding: 0 46px;
+}
+
+.biggrid {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    padding-left: 20px;
+    padding-bottom: 100px;
+}
+
+.projectline {
+    display: flex;
+    flex-direction: row;
+    gap: 140px;
+}
+
+.buildingblock {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.buildingnumber {
+    width: 28px;
+    height: 28px;
+    background-color: var(--white);
+    color: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 53px;
+    user-select: none;
+}
+
+.buildingcenter {
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
+}
+
+.levelcolumn {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2px;
+    background-color: var(--white);
+    border-radius: 5px;
+}
+
+.levelnumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: Montserrat-Medium;
+    width: 36px;
+    height: 36px;
+    user-select: none;
+    transition: var(--transition);
+}
+
+.levelrow {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+
+.flatcolumn {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2px;
+}
+
+.flatwrapper {
+    width: 36px;
+    height: 36px;
+    padding: 2px;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.flat {
+    background-color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--white);
+    font-size: 14px;
+    line-height: 17px;
+    font-family: Montserrat-Medium;
+    border-radius: 2px;
+    user-select: none;
+}
+
+.flatwrapper[data-status="booked"] {
+    padding: 5px;
+}
+
+.flatwrapper[data-status="booked"]::after {
+    position: absolute;
+    content: "";
+    backdrop-filter: blur(1px);
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.flatwrapper[data-status="booked"] .flat {
+    background-color: var(--yellow);
+}
+
+.flatwrapper[data-status="sold"] .flat {
+    opacity: 0.3;
+}
+
+.flatinfo {
+    position: absolute;
+    top: 140%;
+    left: 50%;
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 12px 15px 9px 15px;
+
+    display: none;
+}
+
+.topinfo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.flatrooms {
+    width: 24px;
+    height: 24px;
+    color: var(--white);
+    background-color: var(--green);
+    border-radius: 50%;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: Montserrat-Medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flatinfo[data-status="booked"] .flatrooms {
+    background-color: var(--yellow);
+}
+
+.flatinfo[data-status="sold"] .flatrooms {
+    background-color: var(--blue-transparent);
+}
+
+.flattype {
+    font-size: 13px;
+    line-height: 16px;
+    font-family: Montserrat-Regular;
+    padding: 0 33px 0 12px;
+}
+
+.flatnumber {
+    font-size: 13px;
+    line-height: 16px;
+    font-family: Montserrat-Regular;
+}
+
+.flatprice {
+    padding-top: 6px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-SemiBold;
+    color: var(--green);
+    white-space: nowrap;
+}
+
+.flatinfo[data-status="booked"] .flatprice {
+    color: var(--yellow);
+}
+
+.flatinfo[data-status="sold"] .flatprice {
+    color: var(--blue-transparent);
+}
+
+
+.bottominfo {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.flatspace {
+    font-size: 13px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    white-space: nowrap;
+}
+
+.flatmeterprice {
+    padding-left: 12px;
+    font-size: 13px;
+    line-height: 24px;
+    font-family: Montserrat-Regular;
+}
+
+@media (min-width: 786px) {
+    .levelnumber:hover {
+        color: var(--green);
+    }
+
+    .flatwrapper:hover {
+        border-color: var(--green);
+    }
+
+    .flatwrapper[data-status="booked"]:hover {
+        border-color: var(--yellow);
+    }
+
+    .flatwrapper:hover .flatinfo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flatinfo:hover {
+        background-color: var(--light-blue-card-bg);
+    }
+
+    .flatwrapper[data-status="sold"]:hover {
+        border-color: var(--blue-transparent);
+    }
+}
+
+@media (max-width: 1200px) {
+    .pannels {
+        margin-top: 49px;
+    }
+
+    .projectline {
+        gap: 20px;
+    }
+
+    .fakebuilding{
+        width: 150px;
+    }
+}
+
+@media (max-width: 700px) {
+    .pannels {
+        margin-top: 24px;
+    }
+
+    .biggrid {
+        padding-bottom: 26px;
+        gap: 40px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .buildingblock{
+        gap: 8px;
+    }
+
+    .buildingnumber {
+        margin-left: 38px;
+        width: 24px;
+        height: 24px;
+        background-color: transparent;
+        color: var(--green);
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .buildingcenter {
+        gap: 6px;
+    }
+
+    .levelcolumn {
+        gap: 0;
+    }
+
+    .levelnumber {
+        height: 32px;
+        width: 28px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .flatcolumn {
+        gap: 0px;
+    }
+
+    .flatwrapper {
+        width: 32px;
+        height: 32px;
+    }
+
+    .flat {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .flatinfo {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 20px 25px 14px 20px;
+        min-width: 211px;
+    }
+
+    .flatrooms {
+        height: 26px;
+        width: 26px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .flattype {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 0 12px 0 10px;
+    }
+
+    .flatnumber {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .flatprice {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .flatspace {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .flatmeterprice {
+        padding-left: 16px;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .flatwrapper[data-currnet="true"]{
+        border-color: var(--green);
+    }
+
+    .flatinfo[data-currnet="true"]{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flatwrapper[data-status="booked"][data-currnet="true"] {
+        border-color: var(--yellow);
+    }
+    .flatwrapper[data-status="sold"][data-currnet="true"] {
+        border-color: var(--blue-transparent);
+    }
+}

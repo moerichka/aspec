@@ -10,6 +10,8 @@ import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
 
 function DataView(props) {
   const [tabIndex, setTabIndex] = useState(0);
+  const [isPriceSort, setIsPriceSort] = useState(false)
+  const [isSpaceSort, setIsSpaceSort] = useState(false)
 
   return (
     <div className={s.dataView}>
@@ -33,6 +35,19 @@ function DataView(props) {
               <span className="icon-checkmate"></span> Шахматка +
             </Tab>
           </TabList>
+          {tabIndex === 0 && (
+            <div className={s.sorter}>
+              <div className={s.sorterTitle}>Сортировка:</div>
+              <div className={s.sorterValues}>
+                <span className={s.sorterValue} onClick={()=>setIsPriceSort(prev=>!prev)}>
+                  Цена <span className={`icon-dropdown ${s.sorterIcon}`} data-on={isPriceSort}/>
+                </span>
+                <span className={s.sorterValue} onClick={()=>setIsSpaceSort(prev=>!prev)}>
+                  Площадь <span className={`icon-dropdown ${s.sorterIcon}`} data-on={isSpaceSort}/>
+                </span>
+              </div>
+            </div>
+          )}
         </div>
         <TabPanel className={s.tabPanel}>
           <div className={`${s.panelcontainer} ${s.containerplanns}`}>

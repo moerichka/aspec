@@ -121,7 +121,7 @@
     content: "\e900";
 }
 
-.checkboxLabel{
+.checkboxLabel {
     cursor: pointer;
 }
 
@@ -129,7 +129,7 @@
     text-decoration-line: underline;
 }
 
-.error{
+.error {
     color: var(--yellow);
     font-size: 14px;
     line-height: 24px;
@@ -140,11 +140,11 @@
     bottom: 45px;
 }
 
-.error[data-visible="true"]{
+.error[data-visible="true"] {
     opacity: 1;
 }
 
-.congrat{
+.congrat {
     color: var(--green);
     font-size: 14px;
     line-height: 24px;
@@ -155,7 +155,7 @@
     bottom: 35px;
 }
 
-.congrat[data-visible="true"]{
+.congrat[data-visible="true"] {
     opacity: 1;
 }
 
@@ -205,5 +205,23 @@
     .input {
         font-size: 13px;
         line-height: 24px;
+    }
+
+    .error {
+        position: static;
+        display: none;
+    }
+
+    .error[data-visible="true"] {
+        display: block;
+    }
+
+    .congrat {
+        position: static;
+        display: none;
+    }
+
+    .congrat[data-visible="true"] {
+        display: block;
     }
 }
