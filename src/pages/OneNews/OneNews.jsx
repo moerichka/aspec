@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import s from "./oneNews.module.css";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -28,8 +29,8 @@ function OneNews() {
   });
 
   const wayArray = [
-    { title: "Главная" },
-    { title: "Акции и новости" },
+    { title: <Link to="/" className="dashnav__link">Главная</Link> },
+    { title: <Link to="/newsandstocks/news" className="dashnav__link">Акции и новости</Link> },
     { title: `${oneNews?.title}` },
   ];
 

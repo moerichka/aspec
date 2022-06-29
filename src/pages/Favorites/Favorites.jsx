@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import s from "./favorites.module.css";
 import "./favorites.css";
+import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -23,7 +24,7 @@ function Favorites(props) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [tabIndex, setTabIndex] = useState(0);
-  const wayArray = [{ title: "Главная" }, { title: "Избранное" }];
+  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "Избранное" }];
 
   useEffect(() => {
     window.addEventListener("resize", function () {
@@ -38,7 +39,7 @@ function Favorites(props) {
   return (
     <div className={`${s.favorites} favorites`}>
       <Header withLine={true} />
-      <div className={s.dashnav}>
+      <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.content}>

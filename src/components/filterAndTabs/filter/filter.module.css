@@ -129,8 +129,8 @@
     font-family: Montserrat-Medium;
     font-size: 18px;
     line-height: 24px;
-    height: 60px;
-    width: 60px;
+    height: 58px;
+    width: 58px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,25 +138,35 @@
     cursor: pointer;
     border-radius: 50%;
     transition: var(--transition);
-    color: var(--black-text);
+    /* color: var(--black-text); */
+    background-color: var(--blue);
+    color: var(--white);
+    border: 2px solid var(--blue);
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none;
 }
 
 .flatType:hover {
-    background-color: var(--bg-gray);
-    color: var(--black-text);
+    /* background-color: var(--bg-gray);
+    color: var(--black-text); */
+    background-color: var(--blue-hover);
+    border-color: var(--blue-hover);
+    color: var(--white);
 }
 
 .flatTypeActive {
-    background-color: var(--blue);
-    color: var(--white);
+    /* background-color: var(--blue);
+    color: var(--white); */
+    background-color: var(--white);
+    color: var(--black-text);
 }
 
 .flatTypeActive:hover {
-    background-color: var(--blue-hover);
-    color: var(--white);
+    /* background-color: var(--blue-hover);
+    color: var(--white); */
+    background-color: var(--bg-gray);
+    color: var(--black-text);
 }
 
 .butWrapper {
@@ -174,6 +184,9 @@
     align-items: baseline;
     gap: 13px;
     cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 }
 
 .butWrapperMobile {
@@ -271,8 +284,7 @@
 }
 
 @media (max-width: 840px) {
-    .inputContainer {
-    }
+    .inputContainer {}
 }
 
 @media (max-width: 810px) {
@@ -330,7 +342,7 @@
         gap: 14px;
     }
 
-    .inputs{
+    .inputs {
         justify-content: center;
     }
 

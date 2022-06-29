@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import s from "./buy.module.css";
 import "./buy.css"
+import { Link } from "react-router-dom";
 
 import Header from "../../components/header";
 import DashNav from "../../components/dashnav";
@@ -14,7 +15,7 @@ import { Scrollbar } from "swiper";
 
 function Buy(props) {
   const [swiper, setSwiper] = useState(null);
-  const wayArray = [{ title: "Главная" }, { title: "Способы покупки" }];
+  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "Способы покупки" }];
 
   const [windowWidth, setWindowWidth] = useState(window.screen.width);
 

@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./noMatch.module.css";
+import { Link } from "react-router-dom";
 
 import Header from "../../components/header";
 import Dashnav from "../../components/dashnav";
@@ -35,12 +36,12 @@ function NoMatchPage() {
   );
 }
 function NoMatch404() {
-  const wayArray = [{ title: "Главная" }, { title: "404" }];
+  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "404" }];
 
   return (
     <div className={s.noMatch}>
       <Header withLine={true} />
-      <div className={s.dashnav}>
+      <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.content}>
@@ -82,12 +83,12 @@ function NoMatch404() {
   );
 }
 function NoMatch405() {
-  const wayArray = [{ title: "Главная" }, { title: "405" }];
+  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "405" }];
 
   return (
     <div className={s.noMatch}>
       <Header withLine={true} />
-      <div className={s.dashnav}>
+      <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.content}>
@@ -116,12 +117,12 @@ function NoMatch405() {
   );
 }
 function NoMatch406() {
-  const wayArray = [{ title: "Главная" }, { title: "406" }];
+  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "406" }];
 
   return (
     <div className={s.noMatch}>
       <Header withLine={true} />
-      <div className={s.dashnav}>
+      <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.content}>

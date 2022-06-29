@@ -11,7 +11,7 @@
     height: 600px;
     width: 100vw;
     color: var(--white);
-    margin-top: 30px;
+    margin-top: 98px;
 }
 
 @media (max-width: 1240px) {
@@ -22,7 +22,7 @@
 
 @media (max-width: 745px) {
     .helloelement {
-        margin-top: 140px;
+        margin-top: 139px;
     }
 }
 
@@ -55,6 +55,7 @@
     line-height: 15px;
     z-index: 2;
     font-family: Montserrat-Regular;
+    user-select: none;
 }
 
 .titlewrapper {

@@ -2,22 +2,26 @@
     overflow: hidden;
 }
 
-.dashNav{
-    margin-top: 36px;
+.dashNav {
+    margin-top: 98px;
     padding-top: 24px;
     background-color: var(--bg-gray);
 }
 
 @media (max-width: 1240px) {
-    .dashNav{
-        padding-top: 82px;
+    .dashNav {
+        margin-top: 80px;
+        padding-top: 22px;
     }
 }
+
 @media (max-width: 745px) {
-    .dashNav{
-        padding-top: 122px;
+    .dashNav {
+        margin-top: 139px;
+        padding-top: 27px;
     }
-} 
+}
+
 
 .oneNewsFull{
     background-color: var(--bg-gray);

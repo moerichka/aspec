@@ -1,3 +1,19 @@
 .company{
     overflow: hidden;
 }
+
+.companyFull {
+    margin-top: 98px;
+}
+
+@media (max-width: 1240px) {
+    .companyFull {
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 745px) {
+    .companyFull {
+        margin-top: 139px;
+    }
+}

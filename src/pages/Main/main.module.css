@@ -3,18 +3,18 @@
 }
 
 .helloSlider{
-    margin-top: 32px;
+    margin-top: 98px;
 }
 
 @media (max-width: 1174px) {
     .helloSlider{
-        margin-top: 72px;
+        margin-top: 80px;
     }
 }
 
 @media (max-width: 745px) {
     .helloSlider{
-        margin-top: 125px;
+        margin-top: 139px;
     }
 }
 

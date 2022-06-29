@@ -6,20 +6,22 @@
     margin: 24px 0 46px 0;
 }
 
-@media (max-width: 1240px) {
-    .dashnav {
-        margin-top: 82px;
-    }
+.dashNav {
+    margin-top: 98px;
+    margin-bottom: 46px;
+    padding-top: 24px;
 }
 
-@media (max-width: 840px) {
-    .dashnav {
-        margin-top: 82px;
+@media (max-width: 1240px) {
+    .dashNav {
+        margin-top: 80px;
+        padding-top: 22px;
     }
 }
 
 @media (max-width: 745px) {
-    .dashnav {
-        margin-top: 122px;
+    .dashNav {
+        margin-top: 139px;
+        padding-top: 27px;
     }
 }

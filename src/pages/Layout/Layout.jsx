@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import s from "./layout.module.css";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -46,15 +46,15 @@ function Layout() {
   }, [navigate, project, projectId, layoutId]);
 
   const wayArray = [
-    { title: "Главная" },
-    { title: "Все проекты" },
+    { title: <Link to="/" className="dashnav__link">Главная</Link> },
+    { title: <Link to="/projects" className="dashnav__link">Все проекты</Link> },
     { title: `${layout?.name} ${layout?.space} м²`, gray: true },
   ];
 
   return (
     <div className={s.layout}>
       <Header withLine={true} BGcolor={"gray"} />
-      <div className={s.dashnav}>
+      <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.layoutFull}>

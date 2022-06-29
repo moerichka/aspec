@@ -2,19 +2,25 @@
     overflow: hidden;
 }
 
-.dashnav {
-    padding: 24px 0 46px 0;
+.dashNav {
+    margin-top: 98px;
+    padding-top: 24px;
+    padding-bottom: 46px;
 }
 
 @media (max-width: 1240px) {
-    .dashnav {
-        padding: 72px 0 49px 0;
+    .dashNav {
+        margin-top: 80px;
+        padding-top: 22px;
+        padding-bottom: 49px;
     }
 }
 
 @media (max-width: 745px) {
-    .dashnav {
-        padding: 132px 0 24px 0;
+    .dashNav {
+        margin-top: 139px;
+        padding-top: 27px;
+        padding-bottom: 24px;
     }
 }
 

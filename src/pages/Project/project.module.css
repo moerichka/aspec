@@ -1,122 +1,121 @@
-.project{
+.project {
     overflow: hidden;
 }
 
-.sliderAndNav{
-    margin-top: 32px;
+.sliderAndNav {
+    margin-top: 98px;
 }
 
 @media (max-width: 1240px) {
-    .sliderAndNav{
-        margin-top: 72px;
+    .sliderAndNav {
+        margin-top: 80px;
     }
 }
 
 @media (max-width: 745px) {
-    .sliderAndNav{
-        margin-top: 125px;
+    .sliderAndNav {
+        margin-top: 139px;
     }
 }
 
-.filterAndTabs{
+.filterAndTabs {
     margin: 71px 0 40px 0;
 }
 
 @media (max-width: 1240px) {
-    .filterAndTabs{
+    .filterAndTabs {
         margin: 47px 0 40px 0;
     }
 }
 
 @media (max-width: 745px) {
-    .filterAndTabs{
+    .filterAndTabs {
         margin: 30px 0 30px 0;
     }
 }
 
-.projectAbout{
+.projectAbout {
     overflow: hidden;
 }
 
-.genplan{
+.genplan {
     margin: 111px 0 0 0;
 }
 
 @media (max-width: 1240px) {
-    .genplan{
+    .genplan {
         margin: 80px 0 0 0;
     }
 }
 
 @media (max-width: 745px) {
-    .genplan{
+    .genplan {
         margin: 50px 0 0 0;
     }
 }
 
-.infrastructure{
+.infrastructure {
     margin-top: 161px;
 }
 
 @media (max-width: 1140px) {
-    .infrastructure{
+    .infrastructure {
         margin: 80px 0;
     }
 }
 
 @media (max-width: 890px) {
-    .infrastructure{
+    .infrastructure {
         margin: 50px 0;
     }
 }
-.projectBenefits{
+
+.projectBenefits {
     margin: 147px 0 132px 0;
 }
 
 @media (max-width: 1140px) {
-    .projectBenefits{
+    .projectBenefits {
         margin: 80px 0;
     }
 }
 
 @media (max-width: 890px) {
-    .projectBenefits{
+    .projectBenefits {
         margin: 50px 0;
     }
 }
 
-.paymentOptions{
+.paymentOptions {
     margin: 152px 0 165px 0;
 }
 
 @media (max-width: 1140px) {
-    .paymentOptions{
+    .paymentOptions {
         margin: 80px 0;
     }
 }
 
 @media (max-width: 890px) {
-    .paymentOptions{
+    .paymentOptions {
         margin: 50px 0 80px 0;
     }
 }
 
-.buildingProgress{
+.buildingProgress {}
 
-}
-
-.questionForm{
+.questionForm {
     margin: 169px 0;
 }
 
 @media (max-width: 1140px) {
-    .questionForm{
+    .questionForm {
         margin: 80px 0 95px 0;
     }
 }
 
 @media (max-width: 890px) {
-    .questionForm{
+    .questionForm {
         margin: 50px 0 60px 0;
     }
 }

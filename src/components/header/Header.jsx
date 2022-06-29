@@ -12,7 +12,6 @@ import { citys } from "../../dummyData";
 
 export default function Header(props) {
   const navigate = useNavigate();
-  const [isFavored, setIsFavored] = useState(false);
   const [linkChangeCounter, setLinkChangeCounter] = useState(0);
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [chosenCity, setChosenCity] = useState({
@@ -35,7 +34,7 @@ export default function Header(props) {
     <header
       className={`${s.header} 
       ${props.BGcolor === "gray" ? s.headerGray : ""} 
-      ${props.withLine ? s.headerLine : ""}`}
+      ${props.withLine ? s.headerLine : s.headerShadow}`}
       id="header"
     >
       <div className={`${s.navMenu} ${isBurgerOpen && s.navMenuActive}`}>

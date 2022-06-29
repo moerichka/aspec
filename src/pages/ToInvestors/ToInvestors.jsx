@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import s from "./toInvestors.module.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { Link } from "react-router-dom";
 
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -17,7 +18,7 @@ function ToInvestors() {
       <Header />
       <div className={s.helloelement}>
         <div className="container">
-          <div className={s.dashnav}>Главная / инвесторам</div>
+          <div className={s.dashnav}><Link to="/" className="dashnav__link">Главная</Link> / Инвесторам</div>
           <div className={s.titlewrapper}>
             <h2 className={s.hellotitle}>Инвесторам</h2>
             <h5 className={s.hellodesc}>

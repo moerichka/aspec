@@ -22,7 +22,7 @@ const Filter = (props) => {
   const [isFilterShown, setIsFilterShown] = useState(false);
   const [isFilterActive, setIsFilterActive] = useState(false);
   const [filterCounter, setFilterCounter] = useState(0);
-  const [chosenFlat, setChosenFlat] = useState([0, 1, 2, 3]);
+  const [chosenFlat, setChosenFlat] = useState([]);
   const [chosenDistrict, setChosenDistrict] = useState(null);
   const [chosenProject, setChosenProject] = useState(null);
   const [chosenDate, setChosenDate] = useState(null);
@@ -184,7 +184,7 @@ const Filter = (props) => {
 
   const filterToggler = (isOn) => {
     if (!isOn) {
-      setChosenFlat([0, 1, 2, 3]);
+      setChosenFlat([]);
       setChosenDistrict(null);
       setChosenProject(null);
       setChosenDate(null);

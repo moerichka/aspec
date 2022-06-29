@@ -3,6 +3,7 @@ import s from "./contacts.module.css";
 import { YMaps, Map, Placemark, Button } from "react-yandex-maps";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { Link } from "react-router-dom";
 
 import Header from "../../components/header/Header";
 import DashNav from "../../components/dashnav";
@@ -15,7 +16,7 @@ function Contacts() {
 
   const tabs = ["Офис 1", "Офис 2", "Офис 3", "Офис 4"];
 
-  const wayArray = [{ title: "Главная" }, { title: "Контакты" }];
+  const wayArray = [{ title:  <Link to="/" className="dashnav__link">Главная</Link>  }, { title: "Контакты" }];
 
   let mapHeight = "100%";
 

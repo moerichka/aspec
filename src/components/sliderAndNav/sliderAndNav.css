@@ -1,81 +1,13 @@
 .sliderAndNav {}
 
-.sliderAndNav__topBar {
-    position: relative;
-}
-
-.sliderAndNav__title {
-    color: var(--white);
-    z-index: 4;
-    left: 13%;
-    top: 40%;
-    position: absolute;
-    font-size: 64px;
-    line-height: 78px;
-    font-family: Montserrat-Bold;
-}
-
-.sliderAndNav__desc {
-    color: var(--white);
-    z-index: 4;
-    left: 13%;
-    top: 24px;
-    position: absolute;
-    font-size: 12px;
-    line-height: 15px;
-    font-family: Montserrat-Regular;
-}
-
 .sliderAndNav .swiper-pagination {
     left: 13% !important;
-}
-
-.sliderAndNav__nav {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-}
-
-.sliderAndNav__navBar {
-    display: flex;
-    justify-content: center;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-    overflow-x: auto;
-}
-
-.sliderAndNav__navItem {
-    padding: 28px 20px 28px 0;
-    white-space: nowrap;
-    font-family: Montserrat-Regular;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.sliderAndNav__nav a:hover {
-    color: var(--green);
-    transition: var(--transition);
 }
 
 @media (max-width: 1450px) {
     .sliderAndNav .slider__swiper, .sliderAndNav .slider, .sliderAndNav .swiper-slide, .sliderAndNav .swiper-slide-active {
         max-height: 420px !important;
         min-height: unset;
-    }
-
-    .sliderAndNav__topBar {
-        max-height: 420px;
-    }
-
-    .sliderAndNav__title {
-        font-size: 38px;
-        line-height: 46px;
-        left: 5%;
-    }
-
-    .sliderAndNav__desc {
-        font-size: 16px;
-        line-height: 28px;
-        left: 5%;
     }
 
     .sliderAndNav .swiper-pagination {
@@ -88,20 +20,6 @@
         max-height: 300px !important;
         min-height: unset !important;
     }
-
-    .sliderAndNav__topBar {
-        max-height: 300px;
-    }
-
-    .sliderAndNav__nav{
-        gap: 18px;
-    }
-
-    .sliderAndNav__navItem {
-        font-size: 14px;
-        line-height: 24px;
-        padding: 18px 20px 18px 0;
-    }
 }
 
 @media (max-width: 860px) {
@@ -110,44 +28,13 @@
         min-height: unset !important;
     }
 
-    .sliderAndNav__topBar {
-        max-height: 250px;
-    }
 }
 
-@media (max-width: 740px) {
-
-    .sliderAndNav__title {
-        top: 45%;
-        font-size: 22px;
-        line-height: 32px;
-    }
-
-    .sliderAndNav__desc {
-        max-width: 260px;
-        font-size: 12px;
-        line-height: 15px;
-    }
-
-    .sliderAndNav__nav{
-        gap: 16px;
-    }
-
-    .sliderAndNav__navItem {
-        font-size: 12px;
-        line-height: 24px;
-        padding: 11px 20px 11px 0;
-    }
-}
 
 @media (max-width: 500px) {
 
     .sliderAndNav .slider__swiper, .sliderAndNav .slider, .sliderAndNav .swiper-slide, .sliderAndNav .swiper-slide-active {
         max-height: 200px !important;
         min-height: unset;
-    }
-
-    .sliderAndNav__topBar {
-        max-height: 200px;
     }
 }

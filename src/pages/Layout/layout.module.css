@@ -7,16 +7,26 @@
     background-color: var(--bg-gray);
 }
 
+.dashNav {
+    margin-top: 98px;
+    padding-top: 24px;
+    padding-bottom: 36px;
+    background-color: var(--bg-gray);
+}
+
 @media (max-width: 1240px) {
-    .dashnav{
-        padding-top: 82px;
+    .dashNav {
+        margin-top: 80px;
+        padding-top: 22px;
     }
 }
+
 @media (max-width: 745px) {
-    .dashnav{
-        padding-top: 122px;
+    .dashNav {
+        margin-top: 139px;
+        padding-top: 27px;
     }
-} 
+}
 @media (max-width: 500px) {
     .dashnav{
         padding-bottom: 27px;

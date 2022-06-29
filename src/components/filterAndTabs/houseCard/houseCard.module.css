@@ -147,6 +147,7 @@
     left: 0;
     max-width: 404px;
     width: 100%;
+    max-height: 406px;
     overflow: auto;
     border-top: 1px solid var(--gray-line);
     display: flex;
@@ -190,7 +191,16 @@
 }
 
 .more {
-    color: var(--green-text);
+    transition: var(--transition);
+    color: var(--green);
+    pointer-events: all;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.more:hover {
+    transform: translateY(-2px);
+    color: var(--green-hover);
 }
 
 .adressWrapper {

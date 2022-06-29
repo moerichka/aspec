@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./projects.module.css";
+import { Link } from "react-router-dom";
 
 import Header from "../../components/header";
 import Dashnav from "../../components/dashnav";
@@ -23,14 +24,14 @@ export default function Main() {
 
 
   const wayArray = [
-    { title: "Главная", gray: true },
+    { title: <Link to="/" className="dashnav__link">Главная</Link>, gray: true },
     { title: "Все проекты", gray: true },
   ];
 
   return (
     <div className={s.projects}>
       <Header BGcolor={"gray"} withLine={true} />
-      <div className={s.dashnav}>
+      <div className={s.dashNav}>
         <Dashnav wayArray={wayArray}></Dashnav>
       </div>
       <div className={s.filterAndTabs}>

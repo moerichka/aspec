@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import s from "./news.module.css";
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom";
 
 import { Tabs, Tab, TabPanel, TabList } from "react-tabs";
 
@@ -11,12 +12,12 @@ import Footer from "../../components/footer";
 
 function News(props) {
   const [tabIndex, setTabIndex] = useState(props?.tabIndex);
-  const wayArray = [{ title: "Главная" }, { title: "Акции и новости" }];
+  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "Акции и новости" }];
 
   return (
     <div className={s.news}>
       <Header withLine={true} />
-      <div className={s.dashnav}>
+      <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.Newsgrid}>

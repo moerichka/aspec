@@ -161,6 +161,14 @@ img {
     cursor: pointer;
 }
 
+.dashnav__link{
+    transition: var(--transition);
+}
+
+.dashnav__link:hover{
+    color: var(--green-hover);
+}
+
 .h2-title {
     font-size: 38px;
     line-height: 46px;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import s from "./history.module.css";
 import "./history.css";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import {Autoplay} from "swiper"
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -123,6 +124,12 @@ function History() {
             className={s.swiper}
             onSwiper={(swip) => setSwiper(swip)}
             onSlideChange={(swip) => slideChangeHandler(swip)}
+            modules={[Autoplay]}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: true,
+              pauseOnMouseEnter: true
+            }}
             // modules={windowWidth < 756 ? [Scrollbar] : []}
           >
             {dataArray?.map((elem, index) => (

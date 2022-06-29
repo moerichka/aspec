@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./estateSelection.module.css";
+import { Link } from "react-router-dom";
 
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
@@ -8,7 +9,7 @@ import FilterAndTabs from "../../components/filterAndTabs";
 
 function EstateSelection() {
   const wayArray = [
-    { title: "Главная", gray: true },
+    { title: <Link to="/" className="dashnav__link">Главная</Link>, gray: true },
     { title: "Подбор недвижимости", gray: true },
   ];
 
@@ -37,7 +38,7 @@ function EstateSelection() {
   return (
     <div className={s.estateSelection}>
       <Header />
-      <div className={s.dashnav}>
+      <div className={s.dashNav}>
         <Dashnav wayArray={wayArray}></Dashnav>
       </div>
       <div className={s.filterAndTabs}>

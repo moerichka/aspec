@@ -7,20 +7,7 @@
     height: 600px;
     width: 100vw;
     color: var(--white);
-    margin-top: 30px;
     overflow: hidden;
-}
-
-@media (max-width: 1240px) {
-    .helloelement {
-        margin-top: 80px;
-    }
-}
-
-@media (max-width: 745px) {
-    .helloelement {
-        margin-top: 140px;
-    }
 }
 
 .container {
@@ -42,6 +29,7 @@
     line-height: 15px;
     z-index: 2;
     font-family: Montserrat-Regular;
+    user-select: none;
 }
 
 .helloback {

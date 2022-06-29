@@ -3,25 +3,25 @@
     overflow: hidden;
 }
 
-.dashnav{
-    margin: 24px 0 46px 0;
+.dashNav {
+    margin-top: 98px;
+    padding-top: 24px;
+    padding-bottom: 46px;
 }
 
 @media (max-width: 1240px) {
-    .dashnav{
-        margin-top: 82px;
+    .dashNav {
+        margin-top: 80px;
+        padding-top: 22px;
     }
 }
-@media (max-width: 840px) {
-    .dashnav{
-        margin-top: 82px;
-    }
-} 
+
 @media (max-width: 745px) {
-    .dashnav{
-        margin-top: 122px;
+    .dashNav {
+        margin-top: 139px;
+        padding-top: 27px;
     }
-} 
+}
 
 /* .filterAndTabs{
     margin-top: 66.5px;
