@@ -12,7 +12,8 @@
 
 @media (max-width: 745px) {
     .dashNav {
-        margin-top: 139px;
+        /* margin-top: 139px; */
+        margin-top: 64px;
         padding-top: 27px;
     }
 }

@@ -1,6 +1,4 @@
 .header {
-    /* position: fixed; */
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +18,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.headerShadow{
+.headerShadow {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
 }
 
@@ -37,18 +35,19 @@
     background-color: var(--white);
     top: 0;
     left: 0;
-    margin-top: -514px;
+    transform: translateY(calc(-100% + 7px));
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: var(--transition);
     z-index: 20;
     max-height: 100vh;
+    width: 100%;
     overflow-y: auto;
 }
 
-.navMenuActive {
-    margin-top: 0;
+.navMenu[data-isOpen="true"] {
+    transform: translateY(0);
 }
 
 .navMenuTop {
@@ -67,7 +66,27 @@
     padding: 23px 20px 57px 21px;
     display: flex;
     flex-direction: column;
-    gap: 78px;
+}
+
+.navMenuCityFavorit {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 40px;
+    display: none;
+    margin-top: 39px;
+}
+
+.navContacts {
+    width: 100%;
+    padding: 0 40px;
+    margin-top: 78px;
+}
+
+.button {
+    width: 100%;
+    margin-top: 20px;
 }
 
 .navMenuList {
@@ -78,7 +97,9 @@
     font-size: 16px;
     line-height: 24px;
     padding-left: 40px;
+    margin-top: 78px;
 }
+
 
 .topBar {
     width: 100vw;
@@ -139,6 +160,7 @@
 }
 
 .city {
+    padding-left: 10%;
     justify-self: start;
     max-width: 100px;
     width: 100%;
@@ -172,7 +194,7 @@
     cursor: pointer;
 }
 
-.marker[data-active="true"]{
+.marker[data-active="true"] {
     color: var(--green);
 }
 
@@ -187,16 +209,18 @@
 
     .city {
         justify-self: center;
+        padding-left: 0;
     }
 }
 
 @media (max-width: 1240px) {
-    .header{
+    .header {
         height: 73px;
     }
 
     .navMenu {
         position: fixed;
+        transform: translateY(calc(-100% + 5px));
     }
 
     .container {
@@ -205,13 +229,13 @@
         left: 0;
         width: 100%;
         background-color: var(--white);
-        grid-template-columns: 63px 196px minmax(auto, 1fr) minmax(auto, 166px) min-content 39px;
+        grid-template-columns: 63px 196px minmax(auto, 1fr) minmax(auto, 156px) min-content 39px;
         padding: 22px 47px 20px 47px;
         z-index: 19;
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
     }
 
-    .headerGray .container{
+    .headerGray .container {
         background-color: var(--bg-gray);
     }
 
@@ -233,22 +257,34 @@
 }
 
 @media (max-width: 745px) {
+    .header {
+        height: 64px;
+    }
+
     .container {
         grid-template-columns: 1fr 1fr min-content;
-        grid-template-rows: 1fr 1fr;
-        padding: 20px 21px 17px 21px;
+        padding: 20px 21px 14px 21px;
         /* row-gap: 26px; */
     }
 
+    .container .contacts, .container .marker, .container .city, .nav {
+        display: none;
+    }
+
+    .navMenuList {
+        margin-top: 30px;
+    }
+
+    .navMenuCityFavorit {
+        display: flex;
+        align-items: center;
+    }
+
     .navMenu {
-        margin-top: -514px;
+        transform: translateY(calc(-100% + 5px));
     }
 
-    .navMenuActive {
-        margin-top: 0;
-    }
-
-    .container::after {
+    /* .container::after {
         position: absolute;
         top: 50%;
         left: 0;
@@ -256,49 +292,43 @@
         width: 100%;
         background-color: hsla(0, 0%, 0%, 0.08);
         content: "";
-    }
+    } */
 
     .burger {
-        margin-bottom: 13px;
         transform: rotateY(0deg);
         grid-column-start: 3;
         justify-self: end;
     }
 
     .logoWrapper {
-        margin-bottom: 13px;
         justify-self: start;
         grid-row-start: 1;
         grid-column: 2 span;
     }
 
-    .rightPart {
-        margin-top: 13px;
-        justify-self: start;
-        grid-row-start: 2;
-        grid-column-start: 1;
+    .navMenuList {
+        margin-top: 39px;
     }
 
-    .city {
-        margin-top: 13px;
-        justify-self: center;
-        grid-row-start: 2;
-        grid-column-start: 2;
-    }
-
-    .marker {
-        margin-top: 13px;
-        position: relative;
-        left: 2px;
-        justify-self: end;
-        grid-row-start: 2;
-        grid-column-start: 3;
+    .navContacts {
+        margin-top: 39px;
     }
 }
 
 @media (max-width: 350px) {
     .navMenuList {
         padding-left: 10px;
+        margin-top: 25px;
+    }
+
+    .navMenuCityFavorit {
+        padding: 10px;
+        margin-top: 25px;
+    }
+
+    .navContacts {
+        padding: 10px;
+        margin-top: 25px;
     }
 
     .contacts {

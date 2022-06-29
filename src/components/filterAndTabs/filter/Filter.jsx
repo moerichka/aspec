@@ -15,6 +15,7 @@ import DataView from "../dataView";
 import { createOptions, getUnique, sortDates } from "../../../helpers/arrayFun";
 import { dateConverterToQuarter } from "../../../helpers/dateFun";
 import { flats, larders, parkings } from "../../../data";
+import { Link } from "react-router-dom";
 
 const Filter = (props) => {
   const [filtredData, setFiltredData] = useState(props.data);
@@ -101,6 +102,7 @@ const Filter = (props) => {
           elem?.minPrice >= rangeValuesPrice[0] &&
           elem?.minPrice <= rangeValuesPrice[1]
       ));
+      // console.log('PRICE: ', filteredArray);
     // SPACE
     rangeValuesSpace &&
       props?.easyFilter &&
@@ -111,19 +113,20 @@ const Filter = (props) => {
       ));
     // /easyFilter
     // PRICE
-    rangeValuesPrice &&
-      !props?.easyFilter &&
-      (filteredArray = filteredArray?.filter((project) =>
-        project?.buildings?.filter((building) =>
-          building?.levels?.filter((level) =>
-            level?.flats?.filter(
-              (flat) =>
-                flat?.price >= rangeValuesPrice[0] &&
-                flat?.price <= rangeValuesPrice[1]
-            )
-          )
-        )
-      ));
+    // rangeValuesPrice &&
+    //   !props?.easyFilter &&
+    //   (filteredArray = filteredArray?.filter((project) =>
+    //     project?.buildings?.filter((building) =>
+    //       building?.levels?.filter((level) =>
+    //         level?.flats?.filter(
+    //           (flat) =>
+    //             flat?.price >= rangeValuesPrice[0] &&
+    //             flat?.price <= rangeValuesPrice[1]
+    //         )
+    //       )
+    //     )
+    //   ));
+      // console.log('SPACE: ', filteredArray);
     // SPACE
     // rangeValuesSpace &&
     //   !props?.easyFilter &&
@@ -137,6 +140,7 @@ const Filter = (props) => {
       (filteredArray = filteredArray?.filter(
         (elem) => elem.district === chosenDistrict.value
       ));
+      // console.log('DISTRICT: ', filteredArray);
     // HOUSE
     chosenHouse &&
       (filteredArray = filteredArray?.filter((elem) =>
@@ -144,31 +148,35 @@ const Filter = (props) => {
           (house) => house?.number === chosenDistrict.value
         )
       ));
+      // console.log('HOUSE: ', filteredArray);
     // PROJECT
     chosenProject &&
       (filteredArray = filteredArray?.filter(
         (elem) => elem.name === chosenProject.value
       ));
+      // console.log('PROJECT: ', filteredArray);
     // DATE
     chosenDate &&
       (filteredArray = filteredArray?.filter(
         (elem) => elem.openDate === chosenDate.value
       ));
+      // console.log('DATE: ', filteredArray);
     // ROOMS
-    // chosenFlat &&
-    //   props?.filters?.includes("flatInput") &&
-    //   (filteredArray = filteredArray?.filter((elem) => {
-    //     let result = [];
-    //     chosenFlat.forEach((number) =>
-    //       elem.flats.forEach((flat) => {
-    //         number === 3
-    //           ? result.push(flat?.type >= number ? true : false)
-    //           : result.push(flat?.type === number ? true : false);
-    //       })
-    //     );
-    //     return result.includes(true);
-    //   }));
+    chosenFlat &&
+      props?.filters?.includes("flatInput") &&
+      (filteredArray = filteredArray?.filter((elem) => {
+        let result = [];
+        chosenFlat.forEach((number) =>
+          elem.flats.forEach((flat) => {
+            number === 3
+              ? result.push(flat?.type >= number ? true : false)
+              : result.push(flat?.type === number ? true : false);
+          })
+        );
+        return result.includes(true);
+      }));
   }
+  // console.log('ROOMS: ', filteredArray);
 
   const buildedStatusToggler = (number) => {
     setBuildedStatus((prev) => (prev === number ? 0 : number));
@@ -214,7 +222,7 @@ const Filter = (props) => {
             }`}
           >
             <div className={s.popupTopWrapper}>
-              <div className={s.popupState}>Главная/ {props.tab}</div>
+              <div className={s.popupState}><Link to="/" classname="dashnav__link">Главная</Link> / {props.tab}</div>
               <div className={s.popupTitleWrapper}>
                 <h6 className={s.popupTitle}>Фильтры</h6>
                 <div

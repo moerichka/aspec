@@ -101,8 +101,18 @@ function CustomSelector(props) {
       return {
         ...provided,
         color: "inherit",
+        margin: "0",
+        padding: "5px 0",
+        fontFamily: "Montserrat-Medium",
+        fontSize: props?.isHeader ? "14px" : "",
       }
     },
+    valueContainer: (provided)=>{
+      return{
+        ...provided,
+        padding: props?.isHeader ? "2px 0" : "2px 8px"
+      }
+    }
     // menu: (provided) => ({
     //   ...provided,
     //   ":-webkit-scrollbar": {
@@ -130,7 +140,7 @@ function CustomSelector(props) {
       placeholder="Выберите..."
       options={props?.options}
       classNamePrefix="custom"
-      className="selecter"
+      className={props?.isHeader ? s.headerselecter : s.selecter}
       defaultValue={props?.value}
       value={props?.value}
       isSearchable={props?.isSearchable}
@@ -154,6 +164,7 @@ CustomSelector.propTypes = {
   lineHeight: PropTypes.string,
   onlytel: PropTypes.bool,  // телефонный размер экрана
   isSearchable: PropTypes.bool,  
+  isHeader: PropTypes.bool,  
   optionPadding: PropTypes.string,
   outline: PropTypes.bool,
   padding: PropTypes.string,
@@ -176,6 +187,7 @@ CustomSelector.defaultProps = {
   optionPadding: "8px 12px",
   onlytel: false,
   isSearchable: true,
+  isHeader: false,
   outline: true,
   padding: "10px 0 10px 15px",
   indicatorSize: "22px",

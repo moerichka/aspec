@@ -15,7 +15,6 @@ export default function QuestionForm() {
 
   const [personName, setPersonName] = useState("");
   const [personTel, setPersonTel] = useState("");
-  console.log('personTel: ', personTel);
 
   useEffect(() => {
     const hideCongrat = async () => {
@@ -76,9 +75,10 @@ export default function QuestionForm() {
               />
               <InputMask
                 type="tel"
-                mask="+7\ (999) 999 99 99" maskChar=" "
+                mask="+7\ (\999) 999-99-99"
                 className={s.input}
                 placeholder="Ваш номер телефона"
+                maskPlaceholder="_"
                 value={personTel}
                 onChange={(e) => {
                   e.preventDefault();

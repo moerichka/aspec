@@ -67,6 +67,7 @@ function FilterAndTabs(props) {
             <Filter
               tab={tabs[0]}
               data={ProjectsData}
+              easyFilter={true}
               filters={props.filterArray[0]}
               inputbgColor={props.inputbgColor}
               dataRepresentetion={props?.dataRepresentetion[0]}
@@ -79,6 +80,7 @@ function FilterAndTabs(props) {
             <Filter
               tab={tabs[1]}
               data={ProjectsData}
+              easyFilter={true}
               filters={props.filterArray[1]}
               inputbgColor={props.inputbgColor}
               dataRepresentetion={props?.dataRepresentetion[1]}
@@ -91,6 +93,7 @@ function FilterAndTabs(props) {
             <Filter
               tab={tabs[2]}
               data={ProjectsData}
+              easyFilter={true}
               filters={props.filterArray[2]}
               inputbgColor={props.inputbgColor}
               dataRepresentetion={props?.dataRepresentetion[2]}

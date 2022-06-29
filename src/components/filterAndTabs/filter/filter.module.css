@@ -6,7 +6,7 @@
 
 .popupTopWrapper {
     display: none;
-    padding: 15px 0;
+    padding: 0 0 15px 0;
 }
 
 .popupTitleWrapper {
@@ -20,6 +20,7 @@
     font-size: 12px;
     line-height: 15px;
     font-family: Montserrat-Regular;
+    padding-top: 27px;
     color: var(--light-gray-text);
 }
 
@@ -373,6 +374,6 @@
 
 @media (max-width: 745px) {
     .inputContainer {
-        padding: 166px 20px 151px 20px;
+        padding: 64px 20px 151px 20px;
     }
 }

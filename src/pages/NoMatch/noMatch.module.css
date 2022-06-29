@@ -18,7 +18,7 @@
 
 @media (max-width: 745px) {
     .dashNav {
-        margin-top: 139px;
+        margin-top: 64px;
         padding-top: 27px;
         padding-bottom: 24px;
     }
@@ -268,7 +268,7 @@
 
 @media (max-width: 745px) {
     .errorcontent {
-        margin-top: 139px;
+        margin-top: 64px;
         padding: 59px 0 119px 0;
     }
 

@@ -5,6 +5,7 @@ import CustomSelector from "../customSelector";
 import { createOptions, getUnique } from "../../helpers/arrayFun";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
+import Button from "../button";
 import headerBar from "../../assets/images/Elem1.png";
 import logo from "../../assets/images/logo.svg";
 
@@ -37,7 +38,7 @@ export default function Header(props) {
       ${props.withLine ? s.headerLine : s.headerShadow}`}
       id="header"
     >
-      <div className={`${s.navMenu} ${isBurgerOpen && s.navMenuActive}`}>
+      <div className={s.navMenu} data-isOpen={isBurgerOpen}>
         <div className={s.navMenuContainer}>
           <div className={s.navMenuTop}>
             <Link to="/">
@@ -51,13 +52,47 @@ export default function Header(props) {
             ></span>
           </div>
           <nav className={s.navMenuNav}>
+            <div className={s.navMenuCityFavorit}>
+              <div className={s.city}>
+                <CustomSelector
+                  options={citysOptions}
+                  defaultValue={chosenCity}
+                  value={chosenCity}
+                  setChosen={setChosenCity}
+                  isSearchable={false}
+                  bgColor={"inherit"}
+                  color={"blue"}
+                  isHeader={true}
+                  icon={"icon-dropdown"}
+                  indicatorSize={"8px"}
+                  outline={false}
+                  padding={"0 0 0 0"}
+                  indicatorPadding={"5px 0 3.5px 14px"}
+                  menuWidth={"min-content"}
+                />
+              </div>
+              {href?.includes("/favorites") ? (
+                <span
+                  className={`${s.marker} icon-mark-fill`}
+                  data-active="true"
+                  onClick={() => {
+                    navigate("/favorites");
+                  }}
+                ></span>
+              ) : (
+                <span
+                  className={`${s.marker} icon-mark`}
+                  onClick={() => {
+                    navigate("/favorites");
+                  }}
+                ></span>
+              )}
+            </div>
             <ul className={s.navMenuList}>
-              <Link to="/">
+              <Link to="/company">
                 <li
                   className={`${s.navMenuItem} ${
-                    href?.lastIndexOf("/") === href.length - 1
-                      ? s.linkActive
-                      : ""
+                    href?.includes("/company") ? s.linkActive : ""
                   }`}
                 >
                   Компания
@@ -66,7 +101,7 @@ export default function Header(props) {
               <Link to="/projects">
                 <li
                   className={`${s.navMenuItem} ${
-                    href?.includes("/project/") ? s.linkActive : ""
+                    href?.includes("/project") ? s.linkActive : ""
                   }`}
                 >
                   Проекты
@@ -75,7 +110,7 @@ export default function Header(props) {
               <Link to="/estateselection">
                 <li
                   className={`${s.navItem} ${
-                    href?.includes("/estateselection/") ? s.linkActive : ""
+                    href?.includes("/estateselection") ? s.linkActive : ""
                   }`}
                 >
                   Подбор недвижимости
@@ -95,9 +130,11 @@ export default function Header(props) {
               </Link>
             </ul>
           </nav>
-          <div className={s.contacts}>
+          <div className={s.navContacts}>
             <span className={s.tel}>+7 (3412) 209-519</span>
-            <span className={s.callback}>Перезвоните мне</span>
+            <div className={s.button}>
+              <Button content="Перезвоните мне" bgColor="green" width="188px" />
+            </div>
           </div>
         </div>
         <img className={s.topBar} src={headerBar} alt="" />
@@ -114,10 +151,10 @@ export default function Header(props) {
         </Link>
         <nav className={s.nav}>
           <ul className={s.navList}>
-            <Link to="/">
+            <Link to="/company">
               <li
                 className={`${s.navItem} ${
-                  href?.lastIndexOf("/") === href.length - 1 ? s.linkActive : ""
+                  href?.includes("/company") ? s.linkActive : ""
                 }`}
               >
                 Компания
@@ -183,8 +220,8 @@ export default function Header(props) {
             icon={"icon-dropdown"}
             indicatorSize={"8px"}
             outline={false}
-            padding={"0 0 3px 0"}
-            indicatorPadding={"5px 0 0 0"}
+            padding={"0 0 0 0"}
+            indicatorPadding={"5px 0 3.5px 14px"}
             menuWidth={"min-content"}
           />
         </div>
