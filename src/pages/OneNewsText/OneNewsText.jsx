@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
+import Scroller from "../../components/scroller";
 import Footer from "../../components/footer";
 import DashNav from "../../components/dashnav";
 import { NoMatch404 } from "../NoMatch";
@@ -37,6 +38,7 @@ function OneNews() {
   return (
     <div className={s.oneNews}>
       <Header />
+      <Scroller />
       <div className={s.dashNav}>
         <DashNav wayArray={wayArray} />
       </div>

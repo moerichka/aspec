@@ -45,7 +45,9 @@ function NewsGrid(props) {
         <div className={s.grid}>
           {newsArray?.map(
             (news, index) =>
-              index < maxAmountNews && <NewsCard key={news.id} {...news} />
+              index < maxAmountNews && <div className={s.newscard}>
+                <NewsCard key={news.id} {...news} />
+              </div>
           )}
         </div>
         {props?.buttonShowMore && (

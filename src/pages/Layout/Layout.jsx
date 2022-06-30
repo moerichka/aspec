@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
+import Scroller from "../../components/scroller";
 import Footer from "../../components/footer";
 import Dashnav from "../../components/dashnav";
 import LayoutFull from "../../components/layoutFull";
@@ -58,6 +59,7 @@ function Layout(props) {
   return (
     <div className={s.layout}>
       <Header withLine={true} BGcolor={"gray"} />
+      <Scroller />
       <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>

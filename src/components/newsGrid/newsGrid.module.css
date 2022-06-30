@@ -20,14 +20,14 @@
     gap: 30.5px
 }
 
-.buttonAllWrapper{
+.buttonAllWrapper {
     grid-row-start: 1;
     grid-column: 3/4;
     justify-self: end;
     width: 183px;
 }
 
-.buttonShowMoreWrapper{
+.buttonShowMoreWrapper {
     grid-row-start: 3;
     grid-column: 2/3;
     justify-self: center;
@@ -36,8 +36,22 @@
     justify-content: center;
 }
 
-.titleWrapper{
+.titleWrapper {
     grid-column: 2 span;
+}
+
+.newscard {
+    animation: displaying var(--transition2) forwards;
+}
+
+@keyframes displaying {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @media (max-width: 876px) {
@@ -53,7 +67,7 @@
         margin-top: 10px;
     }
 
-    .buttonShowMoreWrapper{
+    .buttonShowMoreWrapper {
         grid-column: 2/3;
     }
 
@@ -64,7 +78,4 @@
     }
 }
 
-@media (max-width: 600px) {
-
-    
-}
+@media (max-width: 600px) {}

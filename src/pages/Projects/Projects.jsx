@@ -5,6 +5,7 @@ import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
 import Dashnav from "../../components/dashnav";
+import Scroller from "../../components/scroller";
 import FilterAndTabs from "../../components/filterAndTabs";
 import Footer from "../../components/footer";
 import { NoMatch404 } from "../NoMatch";
@@ -33,6 +34,7 @@ function Projects() {
   return (
     <div className={s.projects}>
       <Header BGcolor={"gray"} withLine={true} />
+      <Scroller />
       <div className={s.dashNav}>
         <Dashnav wayArray={wayArray}></Dashnav>
       </div>

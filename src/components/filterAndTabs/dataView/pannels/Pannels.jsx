@@ -50,8 +50,8 @@ function Pannels(props) {
           <SwiperSlide>
             {/* onClick={()=>{isTablet && chosenFlat && setChosenFlat(null)}} */}
             <div className={s.biggrid} > 
-              {props?.data?.map((project, projectIndex) => (
-                <div className={s.projectline}>
+              {props?.data?.map((project, projectIndex) =>  (
+                projectIndex < 3 && <div className={s.projectline}>
                   {project?.buildings?.map((building, buildingIndex) => (
                     <>
                     <div className={s.buildingblock} key={buildingIndex}>

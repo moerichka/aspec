@@ -7,6 +7,7 @@ import {withErrorBoundary} from "react-error-boundary"
 import { Tabs, Tab, TabPanel, TabList } from "react-tabs";
 
 import Header from "../../components/header";
+import Scroller from "../../components/scroller";
 import Dashnav from "../../components/dashnav";
 import NewsGrid from "../../components/newsGrid";
 import Footer from "../../components/footer";
@@ -19,6 +20,7 @@ function News(props) {
   return (
     <div className={s.news}>
       <Header withLine={true} />
+      <Scroller />
       <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>

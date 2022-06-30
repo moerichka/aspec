@@ -127,6 +127,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
     /* Транизишены */
     --transition: 0.3s;
+    --transition2: 1s;
 
     /* Размеры шрифта */
     --dt-text-card-small-fz: 14px;

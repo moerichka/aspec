@@ -46,11 +46,12 @@
     font-family: Montserrat-Regular;
     font-size: 16px;
     line-height: 24px;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-.nav a:hover {
+.navItem:hover {
     color: var(--green);
-    transition: var(--transition);
 }
 
 @media (max-width: 1450px) {

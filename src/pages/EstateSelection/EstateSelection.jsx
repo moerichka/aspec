@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header/Header";
+import Scroller from "../../components/scroller";
 import Footer from "../../components/footer/Footer";
 import Dashnav from "../../components/dashnav";
 import FilterAndTabs from "../../components/filterAndTabs";
@@ -40,6 +41,7 @@ function EstateSelection() {
   return (
     <div className={s.estateSelection}>
       <Header />
+      <Scroller />
       <div className={s.dashNav}>
         <Dashnav wayArray={wayArray}></Dashnav>
       </div>

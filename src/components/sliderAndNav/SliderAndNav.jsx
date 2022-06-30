@@ -18,6 +18,8 @@ function SliderAndNav(props) {
     { image: sliderPicture3, darkPannel: true },
   ];
 
+  console.log(props?.refs);
+
   return (
     <div className="sliderAndNav">
       <div className={s.topBar}>
@@ -37,27 +39,69 @@ function SliderAndNav(props) {
       <div className={s.navBar}>
         <div className={`${s.container} container`}>
           <ul className={s.nav}>
-            <a href="#about">
+            <div
+              onClick={() => {
+                props?.refs?.about?.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
               <li className={s.navItem}>О проекте</li>
-            </a>
-            <a href="#genplan">
+            </div>
+            <div
+              onClick={() => {
+                props?.refs?.genplan?.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
               <li className={s.navItem}>Генплан</li>
-            </a>
-            <a href="#infrastructure">
+            </div>
+            <div
+              onClick={() => {
+                props?.refs?.infrastructure?.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
               <li className={s.navItem}>Инфраструктура</li>
-            </a>
-            <a href="#benefits">
+            </div>
+            <div
+              onClick={() => {
+                props?.refs?.benefits?.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
               <li className={s.navItem}>Преимущества</li>
-            </a>
-            <a href="#layouts">
+            </div>
+            <div
+              onClick={() => {
+                props?.refs?.layouts?.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
               <li className={s.navItem}>Планировки</li>
-            </a>
-            <a href="#payment">
+            </div>
+            <div
+              onClick={() => {
+                props?.refs?.payment?.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
               <li className={s.navItem}>Способы покупки</li>
-            </a>
-            <a href="#progress">
+            </div>
+            <div
+              onClick={() => {
+                props?.refs?.progress?.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
               <li className={s.navItem}>Ход строительства</li>
-            </a>
+            </div>
           </ul>
         </div>
       </div>

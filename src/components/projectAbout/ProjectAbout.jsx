@@ -28,7 +28,6 @@ function ProjectAbout(props) {
           spaceBetween={10}
           grabCursor={true}
           effect={"creative"}
-          loop={true}
           allowTouchMove={true}
           creativeEffect={{
             prev: {

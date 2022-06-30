@@ -1,0 +1,23 @@
+.scroller{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    color: var(--white);
+    background-color: var(--blue);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 5%;
+    bottom: 5%;
+    z-index: 15;
+    border-radius: 50%;
+    transform: rotateX(180deg);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.scroller:hover{
+    background-color: var(--green);
+    transform: rotateX(180deg) translateY(5px);
+}

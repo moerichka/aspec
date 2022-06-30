@@ -29,8 +29,8 @@ function Checkmate(props) {
         >
           <SwiperSlide>
             <div className={s.biggrid}>
-              {props?.data?.map((project) => (
-                <div className={s.projectline}>
+              {props?.data?.map((project, projectIndex) => (
+                projectIndex < 3 && <div className={s.projectline}>
                   {project?.buildings?.map((building, buildingIndex) => (
                     <div className={s.buildingblock} key={buildingIndex}>
                       <div className={s.buildingcenter}>

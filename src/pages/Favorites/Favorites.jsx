@@ -11,6 +11,7 @@ import "swiper/css/free-mode";
 import { FreeMode, Scrollbar, Mousewheel } from "swiper";
 
 import Header from "../../components/header";
+import Scroller from "../../components/scroller";
 import Dashnav from "../../components/dashnav";
 import Footer from "../../components/footer";
 import Button from "../../components/button";
@@ -41,6 +42,7 @@ function Favorites(props) {
   return (
     <div className={`${s.favorites} favorites`}>
       <Header withLine={true} />
+      <Scroller />
       <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>

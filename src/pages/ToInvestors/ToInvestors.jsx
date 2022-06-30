@@ -7,6 +7,7 @@ import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import Scroller from "../../components/scroller"
 import CustomSelector from "../../components/customSelector";
 
 import { NoMatch404 } from "../NoMatch";
@@ -19,6 +20,7 @@ function ToInvestors() {
   return (
     <div className={s.toInvestors}>
       <Header />
+      <Scroller />
       <div className={s.helloelement}>
         <div className="container">
           <div className={s.dashnav}><Link to="/" className="dashnav__link">Главная</Link> / Инвесторам</div>

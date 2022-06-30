@@ -11,6 +11,7 @@ import QuestionForm from "../../components/questionForm";
 import Footer from "../../components/footer";
 
 import { NoMatch404 } from "../NoMatch";
+import Scroller from "../../components/scroller";
 
 function Main() {
   const DataRepresentetionArray = [
@@ -23,6 +24,7 @@ function Main() {
   return (
     <div className={s.main}>
       <Header />
+      <Scroller />
       <div className={s.helloSlider}>
         <HelloSlider />
       </div>
