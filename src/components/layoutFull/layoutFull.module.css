@@ -230,6 +230,7 @@
 }
 
 .layoutimg {
+    margin: 0 auto;
     max-width: 70%;
     max-height: 600px;
     min-width: 330px;
@@ -237,23 +238,44 @@
     top: 0;
 }
 
+.layoutlayout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 417px;
+}
+
 .levellayout {
     width: 80%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
     /* padding: 16px 90px 0 63px ; */
     padding-top: 16px;
+    min-height: 417px;
 }
 
 .genplanlayout {
     width: 100%;
     height: 100%;
-    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 417px;
 }
 
 @media (max-width: 1150px) {
     .levellayout {
-        padding-top: 30%;
+        min-height: 330px;
+    }
+    .layoutlayout {
+        min-height: 330px;
+        max-height: 350px;
+    }
+    .genplanlayout {
+        min-height: 330px;
     }
 
     .layoutimg {
@@ -278,6 +300,32 @@
     }
 }
 
+@media (max-width: 850px) {
+    .levellayout {
+        min-height: 280px;
+    }
+    .layoutlayout {
+        min-height: 280px;
+        max-height: 350px;
+    }
+    .genplanlayout {
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 450px) {
+    .levellayout {
+        min-height: 258px;
+    }
+    .layoutlayout {
+        min-height: 258px;
+        max-height: 300px;
+        padding-bottom: 20px;
+    }
+    .genplanlayout {
+        min-height: 258px;
+    }
+}
 @media (max-width: 380px) {
     .layout {
         min-width: 258px;

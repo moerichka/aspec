@@ -119,7 +119,7 @@ function LayoutFull(props) {
                         polygons={[
                           props?.project?.levels[selectedLevel]?.flats[0],
                         ]}
-                        styleVarient={"levels"}
+                        styleVarient={"levels1"}
                       />
                     </div>
                   </TabPanel>

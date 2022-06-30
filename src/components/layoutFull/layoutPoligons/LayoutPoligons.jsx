@@ -7,15 +7,7 @@ function LayoutPoligons(props) {
 
   return (
     <div
-      className={`${s.layoutwrapper} ${
-        props?.styleVarient === "levels"
-          ? s.levels
-          : props?.styleVarient === "genplan"
-          ? s.genplan
-          : props?.styleVarient === "parking"
-          ? s.parking
-          : ""
-      }`}
+      className={s.layoutwrapper} data-style={props?.styleVarient}
     >
       <img className={s.img} src={`${PF}${props?.layout}`} alt="" />
 
@@ -33,6 +25,7 @@ function LayoutPoligons(props) {
             return (
               <div
                 className={s.polygonwrapper}
+                data-style={props?.styleVarient}
                 style={{ width, height, top, left }}
                 onClick={() => {
                   props?.clickHandler(polygon);
@@ -41,6 +34,7 @@ function LayoutPoligons(props) {
               >
                 <div
                   className={s.polygon}
+                  data-style={props?.styleVarient}
                   style={{ clipPath }}
                   onClick={props?.layoutClickHandler}
                 />

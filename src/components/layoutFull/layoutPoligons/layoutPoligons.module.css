@@ -36,24 +36,38 @@
     cursor: pointer;
 }
 
-.levels .polygon {
-    background-color: hsla(222, 64%, 27%, 0.3);
-}
-
-.levels .polygonwrapper:hover .polygon {
+.polygon[data-style="levels"] {
     background-color: hsla(175, 53%, 46%, 0.4);
 }
 
-.genplan .polygonwrapper:hover .polygon {
+.polygon[data-style="levels1"] {
+    cursor: default;
+    background-color: hsla(222, 64%, 27%, 0.4);
+}
+
+.polygonwrapper[data-style="levels1"]:hover .polygon{
+    cursor: default;
+    background-color: hsla(222, 64%, 37%, 0.4);
+}
+
+.polygonwrapper:hover .polygon[data-style="levels"] {
+    background-color: hsla(175, 53%, 56%, 0.4);
+}
+
+.polygon[data-style="genplan"] {
+    cursor: default;
+}
+
+.polygonwrapper:hover .polygon[data-style="genplan"] {
     background-color: var(--blue-hover);
 }
 
-.parking .polygon {
+.polygon[data-style="parking"] {
     background-color: hsla(175, 53%, 46%, 0.4);
 }
 
-.parking .polygonwrapper:hover .polygon {
-    background-color: hsla(175, 53%, 66%, 0.4);
+.polygonwrapper:hover .polygon[data-style="parking"] {
+    background-color: hsla(175, 53%, 56%, 0.4);
 }
 
 .number {
@@ -75,8 +89,25 @@
     cursor: pointer;
 }
 
-.polygon:hover .number {
+.polygonwrapper:hover .number {
     background-color: var(--blue);
+}
+
+.polygonwrapper[data-style="levels"] .number {
+    background-color: var(--blue);
+}
+
+.polygonwrapper[data-style="levels1"] .number {
+
+    cursor: default;
+}
+
+.polygonwrapper[data-style="levels"]:hover .number {
+    background-color: var(--blue-hover);
+}
+
+.polygonwrapper[data-style="genplan"] .number {
+    cursor: default;
 }
 
 @media (max-width: 950px) {
