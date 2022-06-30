@@ -34,3 +34,14 @@
     font-size: 14px;
     line-height: 24px;
 }
+
+@media (max-width: 1200px) {
+    .infrastructure{
+        gap: 41px;
+    }
+}
+@media (max-width: 600px) {
+    .infrastructure{
+        gap: 30px;
+    }
+}

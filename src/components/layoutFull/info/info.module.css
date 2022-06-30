@@ -33,6 +33,18 @@
     height: 23px;
     font-size: 23px;
     color: var(--gray-icons);
+    transition: var(--transition);
+}
+
+.iconmark:hover{
+    color: var(--green);
+}
+
+.iconmark[data-favorite="true"]{
+    color: var(--green);
+}
+.iconmark[data-favorite="true"]:hover{
+    color: var(--green-hover);
 }
 
 .grid {

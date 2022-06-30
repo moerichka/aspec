@@ -1,38 +1,33 @@
-import React, {Fragment} from "react";
+import React, { Fragment, useState } from "react";
 import s from "./customSelector.module.css";
 import "./customSelector.css";
 import PropTypes from "prop-types";
 
-import Select, { components, DropdownIndicatorProps, MenuProps  } from "react-select";
+import Select, {
+  components,
+  DropdownIndicatorProps,
+  MenuProps,
+} from "react-select";
 
-// function getLength(
-//   options
-// ){
-//   return options.reduce((acc, curr) => {
-//     if ('options' in curr) return acc + getLength(curr.options);
-//     return acc + 1;
-//   }, 0);
-// }
+function getLength(options) {
+  return options.reduce((acc, curr) => {
+    if ("options" in curr) return acc + getLength(curr.options);
+    return acc + 1;
+  }, 0);
+}
 
-
-// const Menu = (props
-// ) => {
-//   const optionsLength = getLength(props.options);
-//   return (
-//     <Fragment>
-//       <div className={s.menu}>
-//         Custom Menu with {optionsLength} options
-//       </div>
-//       <components.Menu
-//         {...props}
-//       >
-//         {props.children}
-//       </components.Menu>
-//     </Fragment>
-//   );
-// };
+const Menu = (props) => {
+  // const optionsLength = getLength(props.options);
+  return (
+    <Fragment>
+      {/* <div className={s.menu}>Custom Menu with {optionsLength} options</div> */}
+      <components.Menu {...props} className={s.menucomponent}>{props.children}</components.Menu>
+    </Fragment>
+  );
+};
 
 function CustomSelector(props) {
+  const [menuIsOpen, setMenuIsOpen] = useState(false)
   const customStyles = {
     control: (provided, isFocused, isSelected) => {
       return {
@@ -40,7 +35,11 @@ function CustomSelector(props) {
         border: "none",
         maxWidth: props?.maxWidth,
         backgroundColor:
-          props?.bgColor === "white" ? "white" : props?.bgColor === "gray" ? "hsla(0, 0%, 98%, 1)" : "inherit",
+          props?.bgColor === "white"
+            ? "white"
+            : props?.bgColor === "gray"
+            ? "hsla(0, 0%, 98%, 1)"
+            : "inherit",
         padding: props?.padding,
         height: "100%",
         boxShadow:
@@ -49,7 +48,7 @@ function CustomSelector(props) {
         fontSize: props?.fontSize,
         fontFamily: props?.fontFamily,
         lineHeight: props?.lineHeight,
-        cursor: "pointer"
+        cursor: "pointer",
       };
     },
     dropdownIndicator: (provided, isFocused) => {
@@ -62,7 +61,7 @@ function CustomSelector(props) {
         padding: props?.indicatorPadding,
         marginRight: "auto",
         position: "relative",
-        right: props?.isHeader ? "10px" : ""
+        right: props?.isHeader ? "10px" : "",
       };
     },
     menu: (provided, isFocused) => {
@@ -85,21 +84,22 @@ function CustomSelector(props) {
             : isFocused.isSelected
             ? "hsla(175, 53%, 46%, 0.4)"
             : "",
-        color: isFocused.isFocused && !props.onlytel
-        ? "white"
-        : isFocused.isSelected && !props.onlytel
-        ? "hsla(222, 64%, 27%, 1)"
-        : isFocused.isSelected
-        ? "black"
-        : "black",
+        color:
+          isFocused.isFocused && !props.onlytel
+            ? "white"
+            : isFocused.isSelected && !props.onlytel
+            ? "hsla(222, 64%, 27%, 1)"
+            : isFocused.isSelected
+            ? "black"
+            : "black",
         fontSize: props?.fontSize,
         fontFamily: props?.optionFontFamily,
         lineHeight: props?.lineHeight,
         padding: props?.optionPadding,
-        cursor: "pointer"
+        cursor: "pointer",
       };
     },
-    singleValue:(provided, isFocused) => {
+    singleValue: (provided, isFocused) => {
       return {
         ...provided,
         color: "inherit",
@@ -107,14 +107,14 @@ function CustomSelector(props) {
         padding: "5px 0",
         fontFamily: "Montserrat-Medium",
         fontSize: props?.isHeader ? "14px" : "",
-      }
+      };
     },
-    valueContainer: (provided)=>{
-      return{
+    valueContainer: (provided) => {
+      return {
         ...provided,
-        padding: props?.isHeader ? "2px 0" : "2px 8px"
-      }
-    }
+        padding: props?.isHeader ? "2px 0" : "2px 8px",
+      };
+    },
     // menu: (provided) => ({
     //   ...provided,
     //   ":-webkit-scrollbar": {
@@ -126,7 +126,7 @@ function CustomSelector(props) {
 
   const DropdownIndicator = (propsInd) => (
     <components.DropdownIndicator {...propsInd}>
-        <span className={props.icon} />
+      <span className={props.icon} />
     </components.DropdownIndicator>
   );
 
@@ -134,21 +134,28 @@ function CustomSelector(props) {
     return <></>;
   };
 
+  const toggleOpen = () => {
+     setMenuIsOpen(prev => !prev);
+  };
+
   return (
     <Select
-      // components={{ DropdownIndicator, IndicatorSeparator, Menu }}
-      components={{ DropdownIndicator, IndicatorSeparator }}
+      components={{ DropdownIndicator, IndicatorSeparator, Menu }}
+      // components={{ DropdownIndicator, IndicatorSeparator }}
       styles={customStyles}
       placeholder={props?.placeholder}
       options={props?.options}
       classNamePrefix="custom"
+      // menuIsOpen={menuIsOpen}
       className={props?.isHeader ? s.headerselecter : s.selecter}
       defaultValue={props?.value}
       value={props?.value}
       isSearchable={props?.isSearchable}
       onChange={(selected) => {
+        // toggleOpen()
         props?.setChosen(selected);
       }}
+      onSelect
     />
   );
 }
@@ -165,9 +172,9 @@ CustomSelector.propTypes = {
   optionFontFamily: PropTypes.string,
   placeholder: PropTypes.string,
   lineHeight: PropTypes.string,
-  onlytel: PropTypes.bool,  // телефонный размер экрана
-  isSearchable: PropTypes.bool,  
-  isHeader: PropTypes.bool,  
+  onlytel: PropTypes.bool, // телефонный размер экрана
+  isSearchable: PropTypes.bool,
+  isHeader: PropTypes.bool,
   optionPadding: PropTypes.string,
   outline: PropTypes.bool,
   padding: PropTypes.string,

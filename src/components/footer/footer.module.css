@@ -312,6 +312,23 @@
         font-size: 15px;
         line-height: 26px;
     }
+
+    .rightsItem{
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 1026px) {
+    .rightsWrapper{
+        flex-direction: column;
+    }
+    .rightsInfoWrapper{
+        margin-top: 33px;
+        padding-right: 80px;
+        max-width: unset;
+        justify-content: space-between;
+        width: 100%;
+    }
 }
 
 @media (max-width: 650px) {
@@ -372,13 +389,14 @@
     }
 
     .rightsInfoWrapper {
+        margin-top: 23px;
         flex-direction: column;
         gap: 8.5px;
     }
 
     .downBar {
         padding-top: 27px;
-        padding-bottom: 18px;
+        padding-bottom: 20px;
     }
 
     .rightsText {

@@ -7,6 +7,7 @@ import { dateConverterToQuarter } from "../../../helpers/dateFun";
 import { separator } from "../../../helpers/stringsFun";
 
 function Info(props) {
+  const [isFavored, setIsFavored] = useState(false);
   const [finishingOn, setFinishingOn] = useState(false);
 
   return (
@@ -15,9 +16,22 @@ function Info(props) {
         <h2 className={s.title}>
           {props?.layout?.name} {props?.layout?.space} м²
         </h2>
-        <div className={s.iconmark}>
-          <span className="icon-mark"></span>
-        </div>
+        {isFavored ? (
+          <div
+            className={s.iconmark}
+            data-favorite="true"
+            onClick={() => setIsFavored((prev) => !prev)}
+          >
+            <span className="icon-mark-fill"></span>
+          </div>
+        ) : (
+          <div
+            className={s.iconmark}
+            onClick={() => setIsFavored((prev) => !prev)}
+          >
+            <span className="icon-mark"></span>
+          </div>
+        )}
       </div>
       <div className={s.projectname}>Проект {props?.project?.name}</div>
       <div className={s.grid}>
@@ -99,7 +113,12 @@ function Info(props) {
           </div>
         </Link>
         <div className={s.pdf}>
-          <Link to={`/project/${props?.project?.id}/layout/${props?.layout?.id}/pdf`} target="_blank">Скачать PDF</Link>
+          <Link
+            to={`/project/${props?.project?.id}/layout/${props?.layout?.id}/pdf`}
+            target="_blank"
+          >
+            Скачать PDF
+          </Link>
         </div>
       </div>
     </div>

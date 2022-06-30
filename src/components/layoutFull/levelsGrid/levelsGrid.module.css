@@ -7,6 +7,10 @@
     overflow: auto;
 }
 
+.levelsgrid::-webkit-scrollbar{
+    display: none;
+}
+
 .level {
     display: flex;
     align-items: center;
