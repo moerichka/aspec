@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import "./houseCardGrid.css";
 import "react-tabs/style/react-tabs.css";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Button from "../../button";
 import HouseCard from "../houseCard";
 import { houseCardMap } from "../../../helpers/htmlElementMap";
 
 const HouseCardGrid = (props) => {
+  const navigate = useNavigate()
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const [baloonOpen, setBaloonOpen] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.screen.width);
 
   useEffect(() => {
@@ -17,6 +19,15 @@ const HouseCardGrid = (props) => {
       setWindowWidth(window.innerWidth);
     });
   }, []);
+
+  useEffect(() => {
+    const moreMap = document.querySelector(".houseCard__more");
+    moreMap?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const projectId = e?.target?.getAttribute("data-projectId")
+      navigate(`/project/${projectId}`)
+    });
+  }, [baloonOpen]);
 
   let mapHeight = "760px";
   windowWidth < 1440 && (mapHeight = "600px");
@@ -117,6 +128,9 @@ const HouseCardGrid = (props) => {
                   modules={["geoObject.addon.balloon"]}
                   key={elem.id}
                   defaultGeometry={elem.location}
+                  onClick={() => {
+                    setBaloonOpen((prev) => prev + 1);
+                  }}
                   properties={{
                     balloonContentBody: houseCardMap(elem),
                   }}

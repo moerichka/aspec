@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import s from "./oneNews.module.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import DashNav from "../../components/dashnav";
 import OneNewsFull from "../../components/oneNewsFull";
 import NewsGrid from "../../components/newsGrid";
+import { NoMatch404 } from "../NoMatch";
 
 import { useParams } from "react-router-dom";
 
@@ -22,11 +24,11 @@ function OneNews() {
     setOneNews(newsCards?.filter((elem) => elem?.id?.toString() === newsId)[0]);
   }, [newsId]);
 
-  useEffect(() => {
-    if (!newsCards?.filter((elem) => elem?.id?.toString() === newsId)[0]) {
-      navigate("/404");
-    }
-  });
+  // useEffect(() => {
+  //   if (!newsCards?.filter((elem) => elem?.id?.toString() === newsId)[0]) {
+  //     navigate("/404");
+  //   }
+  // });
 
   const wayArray = [
     { title: <Link to="/" className="dashnav__link">Главная</Link> },
@@ -51,4 +53,10 @@ function OneNews() {
   );
 }
 
-export default OneNews;
+export default withErrorBoundary(OneNews, {
+  fallbackRender: ()=><NoMatch404/>,
+  onError(error, info){
+    console.log(error);
+    console.log(info);
+  }
+});

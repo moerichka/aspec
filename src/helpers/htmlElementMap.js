@@ -51,13 +51,13 @@ export const houseCardMap = (elem)=>{
                 Срок сдачи ${ dateConverterToQuarter(elem.openDate)} г.
               </span>
             </div>
-            <a href="/project/${elem.id}" ><span class="houseCard__more">Подробнее</span></a>
+            <div><span class="houseCard__more" data-projectId="${elem.id}">Подробнее</span></div>
           </div>
         </div>
       </div>
     </div>
   </div>`
-}
+} //href="/project/${elem.id}" 
 
 export const legendMap = (elem) => `
   <div class="infrastructure__mapBallon">

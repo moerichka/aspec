@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import s from "./layout.module.css";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -13,9 +14,11 @@ import PaymentOptions from "../../components/paymentOptions";
 import BuyOptions from "../../components/buyOptions";
 import Mortgage from "../../components/mortgage";
 
+import { NoMatch404 } from "../NoMatch";
+
 import { houseCards } from "../../dummyData.js";
 
-function Layout() {
+function Layout(props) {
   const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const [layout, setLayout] = useState(null);
@@ -34,20 +37,21 @@ function Layout() {
     );
   }, [project, layoutId]);
 
-  useEffect(() => {
-    const thisproject = houseCards?.filter((project) => project?.id?.toString() === projectId)[0]
-
-    if (
-      !thisproject ||
-      !thisproject?.flats?.filter((flat) => flat?.id?.toString() === layoutId)[0]
-    ) {
-      navigate(`/404`);
-    }
-  }, [navigate, project, projectId, layoutId]);
-
   const wayArray = [
-    { title: <Link to="/" className="dashnav__link">Главная</Link> },
-    { title: <Link to="/projects" className="dashnav__link">Все проекты</Link> },
+    {
+      title: (
+        <Link to="/" className="dashnav__link">
+          Главная
+        </Link>
+      ),
+    },
+    {
+      title: (
+        <Link to="/projects" className="dashnav__link">
+          Все проекты
+        </Link>
+      ),
+    },
     { title: `${layout?.name} ${layout?.space} м²`, gray: true },
   ];
 
@@ -58,7 +62,7 @@ function Layout() {
         <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.layoutFull}>
-        <LayoutFull project={project} layout={layout} />
+        <LayoutFull project={project} layout={layout} tabIndex={props?.tabIndex}/>
       </div>
       <div className={s.projectAbout} id="about">
         <ProjectAbout
@@ -77,7 +81,7 @@ function Layout() {
       <div className={s.paymentOptions}>
         <PaymentOptions />
       </div>
-      <BuyOptions options={layout?.options} />
+      <BuyOptions options={layout?.options} projectId={projectId}  layoutId={layoutId}/>
       <div className={s.questionForm}>
         <QuestionForm />
       </div>
@@ -86,4 +90,10 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default withErrorBoundary(Layout, {
+  fallbackRender: ()=><NoMatch404/>,
+  onError(error, info){
+    console.log(error);
+    console.log(info);
+  }
+});

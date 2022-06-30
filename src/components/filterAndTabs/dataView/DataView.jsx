@@ -23,7 +23,7 @@ function DataView(props) {
         <div className={s.topcontainer}>
           <TabList className={s.tabs}>
             <Tab className={s.tab} selectedClassName={s.tabselected}>
-              <span className="icon-plan"></span> Плаинровки
+              <span className="icon-plan"></span> Планировки
             </Tab>
             <Tab className={s.tab} selectedClassName={s.tabselected}>
               <span className="icon-list"></span> Список

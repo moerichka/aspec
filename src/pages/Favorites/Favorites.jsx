@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import s from "./favorites.module.css";
 import "./favorites.css";
 import { Link } from "react-router-dom";
+import {withErrorBoundary} from "react-error-boundary"
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -13,6 +14,7 @@ import Header from "../../components/header";
 import Dashnav from "../../components/dashnav";
 import Footer from "../../components/footer";
 import Button from "../../components/button";
+import { NoMatch404 } from "../NoMatch";
 
 import { Tabs, Tab, TabPanel, TabList } from "react-tabs";
 import Layout from "../../components/layout";
@@ -99,4 +101,10 @@ function Favorites(props) {
   );
 }
 
-export default Favorites;
+export default withErrorBoundary(Favorites, {
+  fallbackRender: ()=><NoMatch404/>,
+  onError(error, info){
+    console.log(error);
+    console.log(info);
+  }
+});

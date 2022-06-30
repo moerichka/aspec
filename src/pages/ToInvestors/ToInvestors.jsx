@@ -3,10 +3,13 @@ import s from "./toInvestors.module.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { Link } from "react-router-dom";
+import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import CustomSelector from "../../components/customSelector";
+
+import { NoMatch404 } from "../NoMatch";
 
 import backPicture from "../../assets/images/image28.jpg";
 
@@ -325,11 +328,11 @@ function ToInvestors() {
                         <span className={s.filtertitle}>
                           Категория документов
                         </span>
-                        <CustomSelector bgColor={"white"}></CustomSelector>
+                        <CustomSelector placeholder={"Любые"} bgColor={"white"}></CustomSelector>
                       </div>
                       <div className={`${s.filterwrapper} ${s.filterwrapper2}`}>
                         <span className={s.filtertitle}>Год документа</span>
-                        <CustomSelector bgColor={"white"}></CustomSelector>
+                        <CustomSelector placeholder={"Любые"} bgColor={"white"}></CustomSelector>
                       </div>
                     </div>
                     <div className={s.bottomdocuments}>
@@ -449,11 +452,11 @@ function ToInvestors() {
                         <span className={s.filtertitle}>
                           Категория документов
                         </span>
-                        <CustomSelector bgColor={"white"}></CustomSelector>
+                        <CustomSelector placeholder={"Любые"} bgColor={"white"}></CustomSelector>
                       </div>
                       <div className={`${s.filterwrapper} ${s.filterwrapper2}`}>
                         <span className={s.filtertitle}>Год документа</span>
-                        <CustomSelector bgColor={"white"}></CustomSelector>
+                        <CustomSelector placeholder={"Любые"} bgColor={"white"}></CustomSelector>
                       </div>
                     </div>
                     <div className={s.bottomdocuments}>
@@ -574,4 +577,10 @@ function ToInvestors() {
   );
 }
 
-export default ToInvestors;
+export default withErrorBoundary(ToInvestors, {
+  fallbackRender: ()=><NoMatch404/>,
+  onError(error, info){
+    console.log(error);
+    console.log(info);
+  }
+});

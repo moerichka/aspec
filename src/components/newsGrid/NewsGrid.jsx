@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../button/Button";
 import s from "./newsGrid.module.css";
 
@@ -9,16 +9,27 @@ import { newsCards } from "../../dummyData";
 import NewsCard from "../newsCard";
 
 function NewsGrid(props) {
+  const [newsArray, setNewsArray] = useState(null);
+  const [maxAmountNews, setMaxAmountNews] = useState(3);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setNewsArray(newsCards);
+  }, [props]);
+
   return (
     <div className={s.newsGrid}>
       <div className={`container ${s.container}`}>
-        {props?.titlewrapper && <div className={`titleWrapper ${s.titleWrapper}`}>
-          <h2 className={`h2-title ${s.title}`}>{props?.title}</h2>
-          {props?.desc && <h5 className={`h5-desc ${s.desc}`}>
-            Свежие новости и последние публикации нашей компании
-          </h5>}
-        </div>}
+        {props?.titlewrapper && (
+          <div className={`titleWrapper ${s.titleWrapper}`}>
+            <h2 className={`h2-title ${s.title}`}>{props?.title}</h2>
+            {props?.desc && (
+              <h5 className={`h5-desc ${s.desc}`}>
+                Свежие новости и последние публикации нашей компании
+              </h5>
+            )}
+          </div>
+        )}
         {props?.buttonAll && (
           <div className={s.buttonAllWrapper}>
             <Button
@@ -32,8 +43,9 @@ function NewsGrid(props) {
           </div>
         )}
         <div className={s.grid}>
-          {newsCards.map((news, index) =>
-              index < props?.maxAmountNews && <NewsCard key={news.id} {...news} />
+          {newsArray?.map(
+            (news, index) =>
+              index < maxAmountNews && <NewsCard key={news.id} {...news} />
           )}
         </div>
         {props?.buttonShowMore && (
@@ -42,9 +54,7 @@ function NewsGrid(props) {
               content="Показать еще"
               width="184px"
               bgColor="blue"
-              onClick={() => {
-                navigate(`/newsandstocks/news`);
-              }}
+              onClick={() => {setMaxAmountNews(prev => prev+3)}}
             />
           </div>
         )}
@@ -58,7 +68,7 @@ NewsGrid.propTypes = {
   desc: PropTypes.bool,
   buttonShowMore: PropTypes.bool,
   buttonAll: PropTypes.bool,
-  maxAmountNews: PropTypes.number
+  maxAmountNews: PropTypes.number,
 };
 
 NewsGrid.defaultProps = {
@@ -66,7 +76,7 @@ NewsGrid.defaultProps = {
   desc: null,
   buttonShowMore: false,
   buttonAll: true,
-  maxAmountNews: 3
+  maxAmountNews: 3,
 };
 
-export default NewsGrid
+export default NewsGrid;

@@ -4,10 +4,12 @@ import { YMaps, Map, Placemark, Button } from "react-yandex-maps";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { Link } from "react-router-dom";
+import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header/Header";
 import DashNav from "../../components/dashnav";
 import Footer from "../../components/footer/Footer";
+import { NoMatch404 } from "../NoMatch";
 
 import loc from "../../assets/images/contactloc.svg"
 
@@ -108,4 +110,10 @@ function Contacts() {
   );
 }
 
-export default Contacts;
+export default withErrorBoundary(Contacts, {
+  fallbackRender: ()=><NoMatch404/>,
+  onError(error, info){
+    console.log(error);
+    console.log(info);
+  }
+});

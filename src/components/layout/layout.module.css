@@ -52,10 +52,20 @@
 .topright {
     color: var(--gray-icons);
     font-size: 23px;
+    transition: var(--transition);
+    cursor: pointer;
 }
 
 .topright[data-favorite="true"] {
     color: var(--green);
+}
+
+.topright:hover{
+    color: var(--green);
+}
+
+.topright[data-favorite="true"]:hover {
+    color: var(--green-hover);
 }
 
 .swiperwrapper {

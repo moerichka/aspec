@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./info.module.css";
+import { useNavigate } from "react-router-dom";
 
 import image1 from "../../../assets/images/image35.jpg";
 import image2 from "../../../assets/images/image37.jpg";
@@ -10,6 +11,8 @@ import image5 from "../../../assets/images/Elem1.png";
 import Button from "../../button";
 
 function Info() {
+  const navigate = useNavigate()
+
   return (
     <div className={s.info}>
       <div className={s.container}>
@@ -152,7 +155,7 @@ function Info() {
           </div>
         </div>
         <div className={s.buttonwrapper}>
-          <Button content="Перейти к проектам" width="260px" bgColor="green" />
+          <Button onClick={()=>navigate("/estateselection")} content="Перейти к проектам" width="260px" bgColor="green" />
         </div>
       </div>
     </div>

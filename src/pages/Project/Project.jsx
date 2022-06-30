@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import s from "./project.module.css";
 import { useParams, useNavigate } from "react-router-dom"
+import {withErrorBoundary} from "react-error-boundary"
 
 import Footer from "../../components/footer";
 import Header from "../../components/header";
@@ -14,6 +15,7 @@ import ProjectLayouts from "../../components/projectLayouts"
 import PaymentOptions from "../../components/paymentOptions";
 import BuildingProgress from "../../components/buildingProgress";
 import Infrastructure from "../../components/infrastructure/Infrastructure";
+import { NoMatch404 } from "../NoMatch";
 
 import { houseCards } from "../../dummyData.js";
 
@@ -27,11 +29,11 @@ function Project() {
     setProject(houseCards.filter(project => project.id.toString() === projectId)[0]) 
   },[projectId])
 
-  useEffect(()=>{
-    if(!houseCards.filter(project => project.id.toString() === projectId)[0]){
-      navigate(`/404`);
-    }
-  },[navigate, project, projectId])
+  // useEffect(()=>{
+  //   if(!houseCards.filter(project => project.id.toString() === projectId)[0]){
+  //     navigate(`/404`);
+  //   }
+  // },[navigate, project, projectId])
 
   const filterArray = [
     [
@@ -94,4 +96,10 @@ function Project() {
   );
 }
 
-export default Project;
+export default withErrorBoundary(Project, {
+  fallbackRender: ()=><NoMatch404/>,
+  onError(error, info){
+    console.log(error);
+    console.log(info);
+  }
+});

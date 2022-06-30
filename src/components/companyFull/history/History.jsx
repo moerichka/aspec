@@ -122,6 +122,9 @@ function History() {
             spaceBetween={5}
             centeredSlides={true}
             className={s.swiper}
+            grabCursor={true}
+            allowTouchMove={true}
+            slideToClickedSlide={true}
             onSwiper={(swip) => setSwiper(swip)}
             onSlideChange={(swip) => slideChangeHandler(swip)}
             modules={[Autoplay]}

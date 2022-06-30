@@ -1,0 +1,22 @@
+.layoutPdf {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-gray);
+}
+
+.date {
+    display: block;
+    margin-top: 96px;
+    margin-bottom: 83px;
+    font-size: 22px;
+    line-height: 28px;
+    color: var(--gray-pdf);
+}
+
+.pdfWrapper{
+    padding-bottom: 174px;
+}

@@ -10,7 +10,11 @@ import "swiper/css/scrollbar";
 import "swiper/css/free-mode";
 import { FreeMode, Scrollbar } from "swiper";
 
+import {useNavigate} from "react-router-dom"
+
 function Checkmate(props) {
+  const navigate = useNavigate()
+
   return (
     <div className={`${s.checkmate} checkmate`}>
       <div className={s.container}>
@@ -39,7 +43,7 @@ function Checkmate(props) {
                           {building?.levels?.map((level) => (
                             <div className={s.levelrow}>
                               {level?.flats?.map((flat) => (
-                                <div className={s.flatinfo} data-status={flat?.status}>
+                                <div className={s.flatinfo} data-status={flat?.status} onClick={()=>navigate(`/project/${project?.id}/layout/${flat?.id}`)}>
                                   <div className={s.topinfo}>
                                     <div className={s.flatrooms}>{flat?.rooms}</div>
                                     <div className={s.flattype}>{flat?.type === "larder" ? "Кладовая" : "Квартира"}</div>

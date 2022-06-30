@@ -2,9 +2,10 @@ import React from "react";
 import s from "./buyOptions.module.css";
 import PropsTypes from "prop-types";
 
-import {Link} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 
 function BuyOptions(props) {
+  const navigate = useNavigate();
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   return (
@@ -13,12 +14,17 @@ function BuyOptions(props) {
         <h2 className="h2-title">С этой квартирой можно купить</h2>
         <div className={s.grid}>
           {props?.options?.map((option, index) => (
-            <Link to="/" key={index}>
-                <div className={s.option}>
-                  <div className={s.title}>{option?.title}</div>
-                  <div className={s.darkPannel}></div>
-                  <img src={`${PF}${option?.image}`} alt="" className={s.image} />
-                </div>
+            <Link
+              to={`/project/${props?.projectId}/layout/${props?.layoutId}/${
+                option?.title === "Кладовку" ? "larder" : "parking"
+              }`}
+              key={index}
+            >
+              <div className={s.option}>
+                <div className={s.title}>{option?.title}</div>
+                <div className={s.darkPannel}></div>
+                <img src={`${PF}${option?.image}`} alt="" className={s.image} />
+              </div>
             </Link>
           ))}
         </div>

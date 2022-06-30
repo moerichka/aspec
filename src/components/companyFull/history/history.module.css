@@ -77,6 +77,12 @@
     align-items: center;
     user-select: none;
     gap: 12px;
+    cursor: pointer;
+}
+
+.toppart:hover .date{
+    color: var(--green);
+    transform: translateY(-3px);
 }
 
 .date {
@@ -95,6 +101,11 @@
     line-height: 46px;
     font-family: Montserrat-Bold;
     color: var(--green);
+}
+
+.slideactive:hover .date {
+    color: var(--green-hover);
+    transform: translateY(-3px);
 }
 
 .point {
@@ -117,6 +128,10 @@
     background-color: var(--blue);
     border-radius: 50%;
     transition: var(--transition);
+}
+
+.toppart:hover .innerpoint{
+    background-color: var(--green);
 }
 
 .slideactive .innerpoint {

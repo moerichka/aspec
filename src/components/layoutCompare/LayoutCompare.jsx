@@ -20,6 +20,7 @@ import {
 import { priceConverterToMln, separator } from "../../helpers/stringsFun";
 
 function LayoutCompare(props) {
+  const [isFavored, setIsFavored] = useState(props?.room?.favored)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -52,12 +53,12 @@ function LayoutCompare(props) {
               )}
             </div>
           </div>
-          {props?.room?.favored ? (
-            <div className={s.topright} data-favorite="true">
+          {isFavored ? (
+            <div className={s.topright} data-favorite="true" onClick={()=>setIsFavored(prev=>!prev)}>
               <span className="icon-mark-fill"></span>
             </div>
           ) : (
-            <div className={s.topright}>
+            <div className={s.topright} onClick={()=>setIsFavored(prev=>!prev)}>
               <span className="icon-mark"></span>
             </div>
           )}

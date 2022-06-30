@@ -222,7 +222,7 @@ const Filter = (props) => {
             }`}
           >
             <div className={s.popupTopWrapper}>
-              <div className={s.popupState}><Link to="/" classname="dashnav__link">Главная</Link> / {props.tab}</div>
+              <div className={s.popupState}><Link to="/" className="dashnav__link">Главная</Link> / {props.tab}</div>
               <div className={s.popupTitleWrapper}>
                 <h6 className={s.popupTitle}>Фильтры</h6>
                 <div
@@ -254,6 +254,7 @@ const Filter = (props) => {
                         padding={"13px 0 13px 19px"}
                         optionPadding={"11px 12px"}
                         optionFontFamily={"Montserrat-Regular"}
+                        placeholder={"Все"}
                       />
                     </div>
                   )}
@@ -274,6 +275,7 @@ const Filter = (props) => {
                         padding={"13px 0 13px 19px"}
                         optionPadding={"11px 12px"}
                         optionFontFamily={"Montserrat-Regular"}
+                        placeholder={"Все"}
                       />
                     </div>
                   )}
@@ -346,6 +348,7 @@ const Filter = (props) => {
                         padding={"13px 0 13px 19px"}
                         optionPadding={"11px 12px"}
                         optionFontFamily={"Montserrat-Regular"}
+                        placeholder={"Все"}
                       />
                     </div>
                   )}

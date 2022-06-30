@@ -15,7 +15,6 @@ function PaymentOptions() {
   const [isBeginning, setIsBeginning] = useState(true)
   
   const slideChangeHandler = (swip) => {
-    console.log('swip: ', swip);
     setIsEnd(swip?.isEnd)
     setIsBeginning(swip?.isBeginning)
   }
@@ -53,6 +52,8 @@ function PaymentOptions() {
             spaceBetween={5}
             centeredSlides={true}
             className="mySwiper"
+            grabCursor={true}
+            allowTouchMove={true}
             onSwiper={(swip) => setSwiper(swip)}
             onSlideChange={(swip)=> slideChangeHandler(swip)}
             // scrollbar={windowWidth < 756 ? {draggable: true} : false}

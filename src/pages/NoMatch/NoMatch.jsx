@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./noMatch.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Header from "../../components/header";
 import Dashnav from "../../components/dashnav";
@@ -13,6 +13,7 @@ import error405 from "../../assets/images/405error.png";
 import error406 from "../../assets/images/406error.png";
 
 function NoMatchPage() {
+  const navigate = useNavigate();
   return (
     <div className={s.noMatch}>
       <Header withLine={true} />
@@ -24,6 +25,7 @@ function NoMatchPage() {
           </div>
           <div className={s.buttonnopage}>
             <Button
+              onClick={() => navigate("/estateselection")}
               content={"Показать 4850 предложений"}
               bgColor="green"
               width={"266px"}
@@ -36,7 +38,17 @@ function NoMatchPage() {
   );
 }
 function NoMatch404() {
-  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "404" }];
+  const navigate = useNavigate();
+  const wayArray = [
+    {
+      title: (
+        <Link to="/" className="dashnav__link">
+          Главная
+        </Link>
+      ),
+    },
+    { title: "404" },
+  ];
 
   return (
     <div className={s.noMatch}>
@@ -54,6 +66,7 @@ function NoMatch404() {
             </p>
             <div className={s.button}>
               <Button
+                onClick={() => navigate("/estateselection")}
                 content={"Показать 4850 предложений"}
                 bgColor="green"
                 width={"266px"}
@@ -69,6 +82,7 @@ function NoMatch404() {
               <h2 className={s.errortitle}>Cтраница не найдена</h2>
               <div className={s.button}>
                 <Button
+                  onClick={() => navigate("/estateselection")}
                   content={"Показать 4850 предложений"}
                   bgColor="green"
                   width={"266px"}
@@ -83,7 +97,17 @@ function NoMatch404() {
   );
 }
 function NoMatch405() {
-  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "405" }];
+  const navigate = useNavigate();
+  const wayArray = [
+    {
+      title: (
+        <Link to="/" className="dashnav__link">
+          Главная
+        </Link>
+      ),
+    },
+    { title: "405" },
+  ];
 
   return (
     <div className={s.noMatch}>
@@ -104,6 +128,7 @@ function NoMatch405() {
             </p>
             <div className={s.button}>
               <Button
+                onClick={() => navigate("/estateselection")}
                 content={"Показать 4850 предложений"}
                 bgColor="green"
                 width={"266px"}
@@ -117,7 +142,17 @@ function NoMatch405() {
   );
 }
 function NoMatch406() {
-  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "406" }];
+  const navigate = useNavigate();
+  const wayArray = [
+    {
+      title: (
+        <Link to="/" className="dashnav__link">
+          Главная
+        </Link>
+      ),
+    },
+    { title: "406" },
+  ];
 
   return (
     <div className={s.noMatch}>
@@ -138,6 +173,7 @@ function NoMatch406() {
             </p>
             <div className={s.button}>
               <Button
+                onClick={() => navigate("/estateselection")}
                 content={"Показать 4850 предложений"}
                 bgColor="green"
                 width={"266px"}

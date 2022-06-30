@@ -1,13 +1,15 @@
 import React from "react";
 import s from "./projects.module.css";
 import { Link } from "react-router-dom";
+import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
 import Dashnav from "../../components/dashnav";
 import FilterAndTabs from "../../components/filterAndTabs";
 import Footer from "../../components/footer";
+import { NoMatch404 } from "../NoMatch";
 
-export default function Main() {
+function Projects() {
   const filterArray = [
     ["districtInput", "spaceInput", "priceInput", "dateInput", "flatInput"],
     ["districtInput", "priceInput", "dateInput"],
@@ -47,3 +49,11 @@ export default function Main() {
     </div>
   );
 }
+
+export default withErrorBoundary(Projects, {
+  fallbackRender: ()=><NoMatch404/>,
+  onError(error, info){
+    console.log(error);
+    console.log(info);
+  }
+});

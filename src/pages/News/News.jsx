@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import s from "./news.module.css";
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom";
+import {withErrorBoundary} from "react-error-boundary"
 
 import { Tabs, Tab, TabPanel, TabList } from "react-tabs";
 
@@ -9,6 +10,7 @@ import Header from "../../components/header";
 import Dashnav from "../../components/dashnav";
 import NewsGrid from "../../components/newsGrid";
 import Footer from "../../components/footer";
+import { NoMatch404 } from "../NoMatch";
 
 function News(props) {
   const [tabIndex, setTabIndex] = useState(props?.tabIndex);
@@ -42,7 +44,7 @@ function News(props) {
           <TabPanel className={s.tabpanel}>
             <NewsGrid
               buttonShowMore={true}
-              maxAmountNews={3}
+              // maxAmountNews={3}
               buttonAll={false}
               titlewrapper={false}
             />
@@ -50,7 +52,7 @@ function News(props) {
           <TabPanel className={s.tabpanel}>
             <NewsGrid
               buttonShowMore={true}
-              maxAmountNews={12}
+              // maxAmountNews={12}
               buttonAll={false}
               titlewrapper={false}
             />
@@ -71,4 +73,10 @@ News.defaultProps = {
   tabIndex: 0,
 };
 
-export default News;
+export default withErrorBoundary(News, {
+  fallbackRender: ()=><NoMatch404/>,
+  onError(error, info){
+    console.log(error);
+    console.log(info);
+  }
+});

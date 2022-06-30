@@ -226,7 +226,17 @@
 }
 
 .houseCard__more {
-    color: var(--green-text);
+    position: relative;
+    transition: var(--transition);
+    color: var(--green);
+    pointer-events: all;
+    font-size: 16px;
+    line-height: 21px;
+    cursor: pointer;
+}
+
+.houseCard__more:hover {
+    color: var(--green-hover);
 }
 
 .houseCard__adressWrapper {

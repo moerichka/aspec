@@ -21,7 +21,13 @@
     padding: 27px 30px 27px 29px;
     display: flex;
     flex-direction: column;
+    transition: var(--transition);
 }
+
+.award:hover{
+    transform: scale(1.05);
+}
+
 .logo{
     width: 84px;
     height: 102px;

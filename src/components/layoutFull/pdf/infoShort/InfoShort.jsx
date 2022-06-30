@@ -1,23 +1,20 @@
 import React, { useState } from "react";
-import s from "./info.module.css";
+import s from "./infoShort.module.css";
 import { Link } from "react-router-dom";
-import Button from "../../button/Button";
+import Button from "../../../button/Button";
 
-import { dateConverterToQuarter } from "../../../helpers/dateFun";
-import { separator } from "../../../helpers/stringsFun";
+import { dateConverterToQuarter } from "../../../../helpers/dateFun";
+import { separator } from "../../../../helpers/stringsFun";
 
-function Info(props) {
+function InfoShort(props) {
   const [finishingOn, setFinishingOn] = useState(false);
 
   return (
-    <div className={s.info}>
+    <div className={s.infoShort}>
       <div className={s.topwrapper}>
         <h2 className={s.title}>
           {props?.layout?.name} {props?.layout?.space} м²
         </h2>
-        <div className={s.iconmark}>
-          <span className="icon-mark"></span>
-        </div>
       </div>
       <div className={s.projectname}>Проект {props?.project?.name}</div>
       <div className={s.grid}>
@@ -41,27 +38,6 @@ function Info(props) {
         <span className={s.elemtitle}>Район</span>
         <span className={s.elemvalue}>{props?.layout?.district}</span>
       </div>
-      <div className={s.finishing}>
-        <div
-          className={`${s.toggler} ${finishingOn ? s.togglerOn : ""}`}
-          onClick={() => {
-            setFinishingOn((prev) => !prev);
-          }}
-        >
-          <div className={s.togglerpoint}></div>
-        </div>
-        <span
-          onClick={() => {
-            setFinishingOn((prev) => !prev);
-          }}
-        >
-          Добавить отделку{" "}
-          <span className={s.togglerbold}>
-            <span className={s.disappear}>стоимость</span> +{" "}
-            {props?.layout?.finishingPrice} ₽
-          </span>
-        </span>
-      </div>
       <div className={s.line}></div>
       <div className={s.mortgage}>
         <span className={s.mortgagetitle}>Ипотека</span>
@@ -78,32 +54,31 @@ function Info(props) {
           </div>
         </div>
       </div>
-      <div className={s.price}>
-        {props?.layout?.price
-          ? finishingOn
-            ? separator(props?.layout?.price + props?.layout?.finishingPrice)
-            : separator(props?.layout?.price)
-          : ""}
-        ₽
-      </div>
-      <div className={s.buttons}>
-        <Button
-          content={"Консультация"}
-          bgColor={"transparent"}
-          width={"155px"}
-        />
-        <Button content={"Забронировать"} bgColor={"blue"} width={"155px"} />
-        <Link to={""}>
-          <div className={s.share}>
-            <span className="icon-share"></span>
-          </div>
-        </Link>
-        <div className={s.pdf}>
-          <Link to={`/project/${props?.project?.id}/layout/${props?.layout?.id}/pdf`} target="_blank">Скачать PDF</Link>
+      <div className={s.pricewrapper}>
+        <div className={s.pricetitle}>Стоимость без отделки</div>
+        <div className={s.price}>
+          {props?.layout?.price
+            ? finishingOn
+              ? separator(props?.layout?.price + props?.layout?.finishingPrice)
+              : separator(props?.layout?.price)
+            : ""}
+          ₽
         </div>
+      </div>
+      <div className={s.line}></div>
+      <div className={s.callback}>
+        <span className={s.callbacktitle}>
+          Связаться с менеджером по объекту
+        </span>
+        <span className={s.callbacktel}>+7 (3412) 209-519</span>
+      </div>
+      <div className={s.bottominfo}>
+        Застройщик ООО «АСПЭК-Домстрой» <div>Проектные декларации размещены на сайте
+        <span className={s.green}> наш.дом.рф</span></div>
+        <div>Не является публичной офертой</div>
       </div>
     </div>
   );
 }
 
-export default Info;
+export default InfoShort;

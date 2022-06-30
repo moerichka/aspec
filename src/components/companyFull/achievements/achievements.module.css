@@ -16,6 +16,11 @@
 .achievement {
     display: flex;
     flex-direction: column;
+    transition: var(--transition);
+}
+
+.achievement:hover{
+    transform: scale(1.05);
 }
 
 .img {

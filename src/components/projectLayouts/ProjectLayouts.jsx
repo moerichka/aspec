@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from "react";
 import s from "./projectLayouts.module.css";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 import ProjectLayout from "../projectLayout";
 import Button from "../button";
 
 function ProjectLayouts(props) {
+  const navigate = useNavigate()
   const [windowWidth, setWindowWidth] = useState(window.screen.width);
   
   useEffect(() => {
@@ -34,6 +36,7 @@ function ProjectLayouts(props) {
             bgColor={"blue"}
             width={windowWidth < 900 ? "224px" : "176px"}
             content={"Смотреть все"}
+            onClick={()=>navigate("/estateselection")}
             className={s.button}
           />
         </div>

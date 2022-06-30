@@ -12,15 +12,15 @@ import { Projects, Offices } from "../../data";
 function FilterAndTabs(props) {
   const [tabIndex, setTabIndex] = useState(0);
   const [ProjectsData, setProjectsData] = useState(Projects);
-  const [OfficesData, setOfficesData] = useState(null)
+  const [OfficesData, setOfficesData] = useState(null);
 
-  useEffect(()=>{
-    setProjectsData(Projects)
-  }, [])
+  useEffect(() => {
+    setProjectsData(Projects);
+  }, []);
 
-  useEffect(()=>{
-    setOfficesData(Offices)
-  }, [])
+  useEffect(() => {
+    setOfficesData(Offices);
+  }, []);
 
   const tabs = [
     "Квартиры",
@@ -134,7 +134,7 @@ FilterAndTabs.defaultProps = {
   BGcolor: "white",
   inputbgColor: "gray",
   withShowMore: true,
-  dataRepresentetion: ["","","",""],
+  dataRepresentetion: ["", "", "", ""],
   filterArray: [
     ["districtInput", "priceInput", "dateInput", "flatInput"],
     ["districtInput", "priceInput", "dateInput"],

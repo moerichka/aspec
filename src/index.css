@@ -99,6 +99,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     --dark-gray-text: hsla(0, 0%, 31%, 1);
     --gray-border: hsla(0, 0%, 88%, 0.95);
     --gray-text: hsla(0, 0%, 39%, 1);
+    --gray-pdf: hsla(210, 3%, 75%, 1);
     --black-text: hsla(0, 0%, 0%, 1);
     --black-text-2: hsla(240, 5%, 16%, 1);
     --white: hsla(0, 0%, 100%, 1);

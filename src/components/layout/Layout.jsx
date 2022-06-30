@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import s from "./layout.module.css";
 import "./layout.css";
 
@@ -21,6 +21,7 @@ import {
 } from "../../helpers/stringsFun";
 
 function Layout(props) {
+  const [isFavored, setIsFavored] = useState(props?.room?.favored)
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const pagination = {
@@ -49,12 +50,12 @@ function Layout(props) {
             </div>
             {!props?.favoritestyle && <div className={s.amount}>{getFlatAmount(props?.room?.amount)}</div>}
           </div>
-          {props?.room?.favored ? (
-            <div className={s.topright} data-favorite="true">
+          {isFavored ? (
+            <div className={s.topright} data-favorite="true" onClick={()=>setIsFavored(prev=>!prev)}>
               <span className="icon-mark-fill"></span>
             </div>
           ) : (
-            <div className={s.topright}>
+            <div className={s.topright} onClick={()=>setIsFavored(prev=>!prev)}>
               <span className="icon-mark"></span>
             </div>
           )}

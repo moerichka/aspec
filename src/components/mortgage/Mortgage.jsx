@@ -10,6 +10,8 @@ import banksber from "../../assets/images/banksber.svg";
 import bankraif from "../../assets/images/bankraif.svg";
 import bankuni from "../../assets/images/bankuni.png";
 
+import { separator } from "../../helpers/stringsFun"
+
 function Mortgage(props) {
   const [rangeValuesPrice, setRangeValuesPrice] = useState([]);
   const [rangeValuesContribution, setRangeValuesContribution] = useState([]);
@@ -94,7 +96,7 @@ function Mortgage(props) {
                       type="text"
                       className={s.inputtext}
                       readOnly={true}
-                      value={rangeValuesPrice[0]}
+                      value={separator(rangeValuesPrice[0])}
                     />
                     <CustomRange
                       MIN={minPrice}
@@ -116,7 +118,7 @@ function Mortgage(props) {
                         type="text"
                         className={`${s.inputtext} ${s.percentage}`}
                         readOnly={true}
-                        value={rangeValuesContribution[0]}
+                        value={separator(rangeValuesContribution[0])}
                       />
                     </div>
                     <CustomRange

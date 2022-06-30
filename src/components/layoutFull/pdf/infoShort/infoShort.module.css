@@ -1,0 +1,285 @@
+.infoShort {
+    max-width: 636px;
+    width: 100%;
+    min-width: 376px;
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 51px 49.5px 54px 59px;
+}
+
+.topwrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 38px;
+    line-height: 46px;
+    font-family: Montserrat-Bold;
+    color: var(--blue);
+}
+
+.projectname {
+    margin-top: 9px;
+    font-size: 22px;
+    line-height: 28px;
+}
+
+.iconmark {
+    width: 23px;
+    height: 23px;
+    font-size: 23px;
+    color: var(--gray-icons);
+}
+
+.grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 15px;
+    align-items: center;
+}
+
+.elemtitle {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--black-text-2);
+}
+
+.elemvalue {
+    font-family: Montserrat-SemiBold;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.valuegray {
+    color: var(--light-gray-text);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.line {
+    margin-top: 29px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mortgage {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mortgagetitle {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--black-text-2);
+}
+
+.mortgagevarients {
+    display: flex;
+    flex-direction: row;
+    gap: 46px;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--black-text-2);
+    font-family: Montserrat-Medium;
+}
+
+.mortgagevarient {}
+
+.mortgagegreen {
+    color: var(--green);
+    font-family: Montserrat-SemiBold;
+}
+
+.mortgageunderline {
+    /* text-decoration: underline dashed var(--green) 1px;
+    text-underline-offset: 4px; */
+    padding-bottom: 2px;
+    border-bottom: 1px dashed var(--green);
+}
+
+.pricewrapper {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricetitle {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--black-text-2);
+}
+
+.price {
+    font-size: 22px;
+    line-height: 32px;
+    font-family: Montserrat-Bold;
+}
+
+.callback {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+}
+
+.callbacktel {
+    color: var(--blue);
+    font-family: Montserrat-SemiBold;
+}
+
+.bottominfo {
+    padding-top: 45px;
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--light-gray-text);
+}
+
+.green{
+    color: var(--green);
+}
+
+@media (max-width: 1300px) {
+    .infoShort {
+        padding: 30px 19.5px 38px 37px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .title {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .projectname {
+        margin-top: 2px;
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .grid {
+        margin-top: 14px;
+        row-gap: 10px;
+    }
+
+    .elemtitle {
+        font-size: 15px;
+        line-height: 27px;
+    }
+
+    .elemvalue {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .valuegray {}
+
+    .disappear {
+        display: none;
+    }
+
+    .line {
+        margin-top: 26px;
+    }
+
+    .mortgage {
+        margin-top: 18px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .mortgagetitle {
+        font-size: 15px;
+        line-height: 27px;
+    }
+
+    .mortgagevarients {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .price {
+        margin-top: 29px;
+        font-size: 18px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 450px) {
+    .infoShort {
+        padding: 19px 17px 23px 20px;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .projectname {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .grid {
+        row-gap: 6px;
+    }
+
+    .elemtitle {
+        font-size: 16px;
+        line-height: 27px;
+    }
+
+    .elemvalue {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .togglerbold {}
+
+    .disappear {
+        display: none;
+    }
+
+    .line {
+        margin-top: 21.5px;
+    }
+
+    .mortgage {
+        margin-top: 8px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .mortgagetitle {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .mortgagevarients {
+        flex-direction: column;
+        gap: 8px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .price {
+        margin-top: 16px;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}

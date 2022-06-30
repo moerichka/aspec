@@ -24,7 +24,8 @@
 }
 
 .level:not(.selectedlevel):hover {
-    background-color: var(--white);
+    background-color: var(--green);
+    color: var(--white);
 }
 
 .selectedlevel {

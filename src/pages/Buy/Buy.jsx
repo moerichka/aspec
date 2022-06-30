@@ -1,12 +1,14 @@
 import React, { useState,useEffect } from "react";
 import s from "./buy.module.css";
 import "./buy.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
 import DashNav from "../../components/dashnav";
 import Button from "../../components/button";
 import Footer from "../../components/footer";
+import { NoMatch404 } from "../NoMatch";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -14,6 +16,7 @@ import "swiper/css/scrollbar";
 import { Scrollbar } from "swiper";
 
 function Buy(props) {
+  const navigate = useNavigate()
   const [swiper, setSwiper] = useState(null);
   const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "Способы покупки" }];
 
@@ -36,6 +39,7 @@ function Buy(props) {
           <div className={s.titlewrapper}>
             <h2 className="h2-title">Способы покупки</h2>
             <Button
+              onClick={()=>navigate("/estateselection")}
               bgColor="green"
               width="260px"
               content="Перейти к выбору квартир"
@@ -187,4 +191,10 @@ function Buy(props) {
   );
 }
 
-export default Buy;
+export default withErrorBoundary(Buy, {
+  fallbackRender: ()=><NoMatch404/>,
+  onError(error, info){
+    console.log(error);
+    console.log(info);
+  }
+});

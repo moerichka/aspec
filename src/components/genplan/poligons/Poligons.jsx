@@ -64,7 +64,12 @@ function Poligons(props) {
         }}
       >
         {props?.poligons?.map((polygon, index) => {
-          let { width, height, top, left, clipPath } = polygon?.styles;
+          let width, height, top, left, clipPath = ""
+          width = polygon?.styles?.width;
+          height = polygon?.styles?.height;
+          top = polygon?.styles?.top;
+          left = polygon?.styles?.left;
+          clipPath = polygon?.styles?.clipPath
 
           if (props?.centred) {
             const widthNumber = pxConverter(width);

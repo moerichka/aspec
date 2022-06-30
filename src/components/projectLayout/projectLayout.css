@@ -7,10 +7,29 @@
 
 .projectLayout .swiper-pagination-bullet {
     width: 50px !important;
-    height: 4px !important;
+    height: 15px !important;
+    background-color: transparent;
+    position: relative;
     border-radius: 3px !important;
 }
 
+.projectLayout .swiper-pagination-bullet::after{
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 4px;
+    background-color: var(--gray-icons);
+    z-index: 1;
+    border-radius: 3px ;
+}
+
 .projectLayout .swiper-pagination-bullet-active{
-    background-color: var(--blue) !important;
+    background-color: transparent !important;
+}
+
+.projectLayout .swiper-pagination-bullet-active::after{
+    background-color: var(--blue);
 }

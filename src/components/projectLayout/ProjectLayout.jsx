@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import s from "./projectLayout.module.css";
 import "./projectLayout.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,6 +15,7 @@ import { dateConverterToQuarter } from "../../helpers/dateFun";
 import { getFlatAmount, separator } from "../../helpers/stringsFun";
 
 function ProjectLayout(props) {
+  const [isFavored, setIsFavored] = useState(props?.room?.favored)
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const {projectId} = useParams()
 
@@ -42,9 +43,15 @@ function ProjectLayout(props) {
             </div>
             <div className={s.amount}>{getFlatAmount(props.flat.amount)}</div>
           </div>
-          <div className={s.topright}>
-            <span className="icon-mark"></span>
-          </div>
+          {isFavored ? (
+            <div className={s.topright} data-favorite="true" onClick={()=>setIsFavored(prev=>!prev)}>
+              <span className="icon-mark-fill"></span>
+            </div>
+          ) : (
+            <div className={s.topright} onClick={()=>setIsFavored(prev=>!prev)}>
+              <span className="icon-mark"></span>
+            </div>
+          )}
         </div>
         <div>
           <Swiper

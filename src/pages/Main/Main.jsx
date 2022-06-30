@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./main.module.css";
+import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
 import HelloSlider from "../../components/helloSlider";
@@ -9,7 +10,9 @@ import NewsGrid from "../../components/newsGrid/NewsGrid";
 import QuestionForm from "../../components/questionForm";
 import Footer from "../../components/footer";
 
-export default function Main() {
+import { NoMatch404 } from "../NoMatch";
+
+function Main() {
   const DataRepresentetionArray = [
     "HouseCardGrid",
     "HouseCardGrid",
@@ -39,3 +42,11 @@ export default function Main() {
     </div>
   );
 }
+
+export default withErrorBoundary(Main, {
+  fallbackRender: ()=><NoMatch404/>,
+  onError(error, info){
+    console.log(error);
+    console.log(info);
+  }
+});

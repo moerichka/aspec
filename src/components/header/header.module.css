@@ -192,10 +192,23 @@
     color: var(--gray-icons);
     justify-self: end;
     cursor: pointer;
+    transition: var(--transition);
 }
 
 .marker[data-active="true"] {
     color: var(--green);
+}
+
+.marker[data-active="true"] {
+    color: var(--green);
+}
+
+.marker:hover{
+    color: var(--green);
+}
+
+.marker[data-active="true"]:hover {
+    color: var(--green-hover);
 }
 
 .linkActive {

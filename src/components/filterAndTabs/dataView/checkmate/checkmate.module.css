@@ -90,6 +90,7 @@
     padding: 12px 15px 9px 15px;
     width: 195px;
     overflow: auto;
+    cursor: pointer;
 
     display: flex;
     flex-direction: column;

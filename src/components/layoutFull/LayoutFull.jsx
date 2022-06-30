@@ -25,8 +25,12 @@ function LayoutFull(props) {
   const tabsMiddle = ["Планировка", "На этаже", "Генплан"];
 
   useEffect(() => {
+    props?.tabIndex && setTabIndex(props?.tabIndex) 
+  }, [props?.tabIndex]);
+
+  useEffect(() => {
     props?.project?.levels && setLevelsWithFlat(
-      props?.project?.levels.filter((level) =>
+      props?.project?.levels?.filter((level) =>
         level?.flats?.filter((elem) => elem?.flat === props?.layout?.id)
       )
     );

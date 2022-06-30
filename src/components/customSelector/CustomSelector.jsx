@@ -49,6 +49,7 @@ function CustomSelector(props) {
         fontSize: props?.fontSize,
         fontFamily: props?.fontFamily,
         lineHeight: props?.lineHeight,
+        cursor: "pointer"
       };
     },
     dropdownIndicator: (provided, isFocused) => {
@@ -95,6 +96,7 @@ function CustomSelector(props) {
         fontFamily: props?.optionFontFamily,
         lineHeight: props?.lineHeight,
         padding: props?.optionPadding,
+        cursor: "pointer"
       };
     },
     singleValue:(provided, isFocused) => {
@@ -137,7 +139,7 @@ function CustomSelector(props) {
       // components={{ DropdownIndicator, IndicatorSeparator, Menu }}
       components={{ DropdownIndicator, IndicatorSeparator }}
       styles={customStyles}
-      placeholder="Выберите..."
+      placeholder={props?.placeholder}
       options={props?.options}
       classNamePrefix="custom"
       className={props?.isHeader ? s.headerselecter : s.selecter}
@@ -161,6 +163,7 @@ CustomSelector.propTypes = {
   fontSize: PropTypes.string,
   fontFamily: PropTypes.string,
   optionFontFamily: PropTypes.string,
+  placeholder: PropTypes.string,
   lineHeight: PropTypes.string,
   onlytel: PropTypes.bool,  // телефонный размер экрана
   isSearchable: PropTypes.bool,  
@@ -182,6 +185,7 @@ CustomSelector.defaultProps = {
   color: "unset",
   fontSize: "16px",
   lineHeight: "",
+  placeholder: "Выберите",
   fontFamily: "Neris-Light",
   optionFontFamily: "Neris-Light",
   optionPadding: "8px 12px",
