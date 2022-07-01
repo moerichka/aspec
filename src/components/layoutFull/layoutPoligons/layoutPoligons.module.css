@@ -50,6 +50,10 @@
     background-color: hsla(222, 64%, 37%, 0.4);
 }
 
+.polygonwrapper[data-chosen="true"] .polygon{
+    background-color: hsla(222, 64%, 37%, 0.4);
+}
+
 .polygonwrapper:hover .polygon[data-style="levels"] {
     background-color: hsla(175, 53%, 56%, 0.4);
 }
@@ -68,6 +72,10 @@
 
 .polygonwrapper:hover .polygon[data-style="parking"] {
     background-color: hsla(175, 53%, 56%, 0.4);
+}
+
+.polygonwrapper[data-chosen="true"]:hover .polygon{
+    background-color: hsla(222, 64%, 47%, 0.4);
 }
 
 .number {

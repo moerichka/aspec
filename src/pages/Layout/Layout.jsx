@@ -38,6 +38,10 @@ function Layout(props) {
     );
   }, [project, layoutId]);
 
+  useEffect(() => {
+    
+  }, [project, layoutId]);
+
   const wayArray = [
     {
       title: (

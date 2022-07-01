@@ -14,7 +14,6 @@ function Pannels(props) {
   const [chosenFlat, setChosenFlat] = useState(null)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isTablet, setIsTablet] = useState(window.innerWidth <= 768);
-  console.log("anime");
 
   useEffect(() => {
     window.addEventListener("resize", function () {

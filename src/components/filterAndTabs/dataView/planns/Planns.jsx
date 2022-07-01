@@ -6,6 +6,7 @@ import Button from "../../../../components/button";
 import { flats } from "../../../../data";
 
 function Planns(props) {
+  console.log(flats);
   return (
     <div className={s.planns}>
       <div className={s.contentContainer}>

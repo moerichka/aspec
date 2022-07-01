@@ -1,8 +1,9 @@
 .smallinfo {
     max-width: 295px;
     position: absolute;
-    top: 40%;
-    left: 54%;
+    /* top: 40%;
+    left: 54%; */
+    transform: translateX(100px) translateY(-50px);
     background-color: var(--white);
     border-radius: 5px;
     padding: 39px 80px 41px 41px;

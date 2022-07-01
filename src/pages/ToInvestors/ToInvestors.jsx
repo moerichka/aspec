@@ -95,91 +95,91 @@ function ToInvestors() {
                         <th className={s.tablelinetitle}>
                           Материально-техническое обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                       <tr>
                         <th className={s.tablelinetitle}>
                           Материально-техническое обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                       <tr>
                         <th className={s.tablelinetitle}>
                           Материально-техническое обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                       <tr>
                         <th className={s.tablelinetitle}>
                           Материально-техническое обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                       <tr>
                         <th className={s.tablelinetitle}>
                           Материально-техническое обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                       <tr>
                         <th className={s.tablelinetitle}>
                           Материально-техническое обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                     </tbody>
                   </table>
@@ -212,91 +212,91 @@ function ToInvestors() {
                         <th className={s.tablelinetitle}>
                           Операционное обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                       <tr>
                         <th className={s.tablelinetitle}>
                           Операционное обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                       <tr>
                         <th className={s.tablelinetitle}>
                           Операционное обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                       <tr>
                         <th className={s.tablelinetitle}>
                           Операционное обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                       <tr>
                         <th className={s.tablelinetitle}>
                           Операционное обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                       <tr>
                         <th className={s.tablelinetitle}>
                           Операционное обеспечение
                         </th>
-                        <th className={s.tablevalue}>Показетель 1</th>
-                        <th className={s.tablevalue}>Показетель 2</th>
-                        <th className={s.tablevalue}>Показетель 3</th>
-                        <th className={s.tablevalue}>Показетель 4</th>
-                        <th className={s.tablevalue}>Показетель 5</th>
-                        <th className={s.tablevalue}>Показетель 6</th>
-                        <th className={s.tablevalue}>Показетель 7</th>
-                        <th className={s.tablevalue}>Показетель 8</th>
-                        <th className={s.tablevalue}>Показетель 9</th>
-                        <th className={s.tablevalue}>Показетель 0</th>
+                        <th className={s.tablevalue}>Показатель 1</th>
+                        <th className={s.tablevalue}>Показатель 2</th>
+                        <th className={s.tablevalue}>Показатель 3</th>
+                        <th className={s.tablevalue}>Показатель 4</th>
+                        <th className={s.tablevalue}>Показатель 5</th>
+                        <th className={s.tablevalue}>Показатель 6</th>
+                        <th className={s.tablevalue}>Показатель 7</th>
+                        <th className={s.tablevalue}>Показатель 8</th>
+                        <th className={s.tablevalue}>Показатель 9</th>
+                        <th className={s.tablevalue}>Показатель 0</th>
                       </tr>
                     </tbody>
                   </table>

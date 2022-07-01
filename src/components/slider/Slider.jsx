@@ -25,6 +25,7 @@ function Slider(props) {
       <Swiper
         navigation={props.navigation ? props.navigation : false}
         pagination={pagination}
+        grabCursor={true}
         modules={[Autoplay, Navigation, Pagination]}
         autoplay={{
           delay: 5000,

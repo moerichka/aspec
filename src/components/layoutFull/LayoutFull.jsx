@@ -25,31 +25,34 @@ function LayoutFull(props) {
   const tabsMiddle = ["Планировка", "На этаже", "Генплан"];
 
   useEffect(() => {
-    props?.tabIndex && setTabIndex(props?.tabIndex) 
+    props?.tabIndex && setTabIndex(props?.tabIndex);
   }, [props?.tabIndex]);
 
   useEffect(() => {
-    props?.project?.levels && setLevelsWithFlat(
-      props?.project?.levels?.filter((level) =>
-        level?.flats?.filter((elem) => elem?.flat === props?.layout?.id)
-      )
-    );
+    props?.project?.levels &&
+      setLevelsWithFlat(
+        props?.project?.levels?.filter((level) =>
+          level?.flats?.filter((elem) => elem?.flat === props?.layout?.id)
+        )
+      );
   }, [props?.project, props?.layout]);
 
   useEffect(() => {
-    levelsWithFlat && setLevelFlats(
-      levelsWithFlat[selectedLevel - 1]?.flats?.filter(
-        (level) => level?.flat === props?.layout?.id
-      )
-    );
+    levelsWithFlat &&
+      setLevelFlats(
+        levelsWithFlat[selectedLevel - 1]?.flats?.filter(
+          (level) => level?.flat === props?.layout?.id
+        )
+      );
   }, [levelsWithFlat, selectedLevel, props?.layout]);
 
   useEffect(() => {
-    props?.project?.buildings && setThisBuilding(
-      props?.project?.buildings?.filter(
-        (building) => building?.number === props?.layout?.house
-      )[0]
-    );
+    props?.project?.buildings &&
+      setThisBuilding(
+        props?.project?.buildings?.filter(
+          (building) => building?.number === props?.layout?.house
+        )[0]
+      );
   }, [props?.project, props?.layout]);
 
   useEffect(() => {
@@ -189,6 +192,7 @@ function LayoutFull(props) {
                 <LayoutPoligons
                   layout={props?.project?.larder?.image}
                   polygons={props?.project?.larder?.slots}
+                  infoVisible={infoVisible}
                   styleVarient={"levels"}
                   clickHandler={layoutClickHandler}
                 />
@@ -226,6 +230,7 @@ function LayoutFull(props) {
                 <LayoutPoligons
                   layout={props?.project?.parking?.image}
                   polygons={props?.project?.parking?.slots}
+                  infoVisible={infoVisible}
                   hidenumber={true}
                   styleVarient={"parking"}
                   clickHandler={layoutClickHandler}

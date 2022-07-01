@@ -26,6 +26,7 @@ function LayoutPoligons(props) {
               <div
                 className={s.polygonwrapper}
                 data-style={props?.styleVarient}
+                data-chosen={props?.infoVisible?.number === polygon?.number}
                 style={{ width, height, top, left }}
                 onClick={() => {
                   props?.clickHandler(polygon);
