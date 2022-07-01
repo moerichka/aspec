@@ -96,7 +96,7 @@ const HouseCardGrid = (props) => {
         <div className={s.bottomWrapper}>
           <div className="container">
             <div className={s.cards}>
-              {props.filtredData.map(
+              {props?.filtredData?.map(
                 (card, index) =>
                   index < maxAmountCards && (
                     <Link to={`/project/${card.id}`} key={card.id} >
@@ -108,12 +108,20 @@ const HouseCardGrid = (props) => {
               )}
             </div>
           </div>
-          {props.withShowMore && (
+          {props?.withShowMore && maxAmountCards + 3 <= props?.filtredData?.length && (
             <Button
               bgColor="blue"
               content="Показать еще"
               width="184px"
               onClick={()=>setMaxAmountCards(prev=>prev+3)}
+            ></Button>
+          )}
+          {props?.withLinkMore && (
+            <Button
+              bgColor="blue"
+              content="Показать еще"
+              width="184px"
+              onClick={()=>navigate("/projects")}
             ></Button>
           )}
         </div>

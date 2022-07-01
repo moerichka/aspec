@@ -29,7 +29,7 @@ function Main() {
         <HelloSlider />
       </div>
       <div className={s.filterAndTabs}>
-        <FilterAndTabs title={"Наши проекты"} dataRepresentetion={DataRepresentetionArray}  />
+        <FilterAndTabs title={"Наши проекты"} dataRepresentetion={DataRepresentetionArray} withLinkMore={true} />
       </div>
       <div className={s.benefitsGrid}>
         <BenefitsGrid />

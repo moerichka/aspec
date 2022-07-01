@@ -50,7 +50,7 @@ function NewsGrid(props) {
               </div>
           )}
         </div>
-        {props?.buttonShowMore && (
+        {props?.buttonShowMore && maxAmountNews + 3 <= newsArray?.length &&   (
           <div className={s.buttonShowMoreWrapper}>
             <Button
               content="Показать еще"

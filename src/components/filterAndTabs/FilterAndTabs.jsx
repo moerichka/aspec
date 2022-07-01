@@ -71,7 +71,8 @@ function FilterAndTabs(props) {
               filters={props.filterArray[0]}
               inputbgColor={props.inputbgColor}
               dataRepresentetion={props?.dataRepresentetion[0]}
-              withShowMore={props.withShowMore}
+              withShowMore={props?.withShowMore}
+              withLinkMore={props?.withLinkMore}
             />
           </div>
         </TabPanel>
@@ -85,6 +86,7 @@ function FilterAndTabs(props) {
               inputbgColor={props.inputbgColor}
               dataRepresentetion={props?.dataRepresentetion[1]}
               withShowMore={props.withShowMore}
+              withLinkMore={props?.withLinkMore}
             />
           </div>
         </TabPanel>
@@ -98,6 +100,7 @@ function FilterAndTabs(props) {
               inputbgColor={props.inputbgColor}
               dataRepresentetion={props?.dataRepresentetion[2]}
               withShowMore={props.withShowMore}
+              withLinkMore={props?.withLinkMore}
             />
           </div>
         </TabPanel>
@@ -111,6 +114,7 @@ function FilterAndTabs(props) {
               inputbgColor={props.inputbgColor}
               dataRepresentetion={props?.dataRepresentetion[3]}
               withShowMore={props.withShowMore}
+              withLinkMore={props?.withLinkMore}
             />
           </div>
         </TabPanel>
@@ -133,7 +137,7 @@ FilterAndTabs.defaultProps = {
   title: "Подбор недвижимости",
   BGcolor: "white",
   inputbgColor: "gray",
-  withShowMore: true,
+  withShowMore: false,
   dataRepresentetion: ["", "", "", ""],
   filterArray: [
     ["districtInput", "priceInput", "dateInput", "flatInput"],

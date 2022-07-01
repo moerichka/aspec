@@ -32,7 +32,7 @@ function ProjectAbout(props) {
           creativeEffect={{
             prev: {
               shadow: true,
-              translate: ["-70%", 0, -500],
+              translate: ["-50%", 0, -900],
             },
             next: {
               shadow: true,

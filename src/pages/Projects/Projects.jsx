@@ -43,7 +43,7 @@ function Projects() {
           title={"Все проекты"}
           dataRepresentetion={DataRepresentetionArray}
           filterArray={filterArray}
-          withShowMore={false}
+          withShowMore={true}
           inputbgColor={"white"}
         />
       </div>

@@ -458,6 +458,7 @@ const Filter = (props) => {
           filtredData={filtredData}
           {...propsArray}
           withShowMore={props.withShowMore}
+          withLinkMore={props?.withLinkMore}
         />
       )}
       {props?.dataRepresentetion === "DataView" && (

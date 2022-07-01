@@ -80,10 +80,7 @@ function Project() {
       <div className={s.genplan} ref={genplan}>
         <Genplan project={project} />
       </div>
-      <div
-        className={s.infrastructure}
-        ref={infrastructure}
-      >
+      <div className={s.infrastructure} ref={infrastructure}>
         <Infrastructure project={project} />
       </div>
       <div className={s.projectBenefits} ref={benefits}>

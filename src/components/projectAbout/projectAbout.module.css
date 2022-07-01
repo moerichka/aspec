@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 20px;
-    background-color: inherit;
+    background-color: transparent;
 }
 
 .textAndTitleWrapper {
@@ -12,7 +12,7 @@
     gap: 38px;
     max-width: 532px;
     height: 100%;
-    background-color: inherit;
+    background-color: transparent;
     justify-content: center;
     z-index: 3;
     align-self: center;
@@ -61,17 +61,27 @@
         font-size: 15px;
         line-height: 26px;
     }
+/* 
+    .swiper{
+        max-width: unset;
+    }
 
+    .img {
+        max-width: 700px;
+    } */
 }
 
 @media (max-width: 1090px) {
 
     .swiper {
-        max-width: 610.86px;
+        /* max-width: 610.86px; */
+        max-width: unset;
         width: 100%;
         max-height: 400.16px;
         height: 100%;
     }
+    .img {
+    } 
 }
 
 @media (max-width: 750px) {
@@ -95,7 +105,8 @@
     }
 
     .swiper {
-        max-width: 429.86px;
+        /* max-width: 429.86px; */
+        max-width: unset;
         width: 100%;
         max-height: 320.16px;
         height: 100%;
@@ -104,7 +115,8 @@
 
 @media (max-width: 530px) {
     .swiper {
-        max-width: 300px;
+        /* max-width: 300px; */
+        max-width: unset;
         max-height: 200px;
         height: 100%;
         width: 100%;
@@ -114,7 +126,8 @@
 
 @media (max-width: 400px) {
     .swiper {
-        max-width: 277px;
+        /* max-width: 277px; */
+        max-width: unset;
         max-height: 180px;
         height: 100%;
         width: 100%;
