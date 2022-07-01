@@ -1,3 +1,15 @@
+/* @font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?4n54gb');
+  src:  url('fonts/icomoon.eot?4n54gb#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?4n54gb') format('truetype'),
+    url('fonts/icomoon.woff?4n54gb') format('woff'),
+    url('fonts/icomoon.svg?4n54gb#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+} */
+
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -13,14 +25,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-mark-fill:before {
+  content: "\e924";
+}
+.icon-culture:before {
+  content: "\e901";
+}
+.icon-logo-cult:before {
+  content: "\e930";
+}
 .icon-bank:before {
   content: "\e922";
 }
 .icon-buildigs:before {
   content: "\e923";
-}
-.icon-culture:before {
-  content: "\e924";
 }
 .icon-education:before {
   content: "\e925";
@@ -46,9 +64,6 @@
 .icon-transport:before {
   content: "\e92c";
 }
-.icon-projectArrow:before {
-  content: "\e92d";
-}
 .icon-shop:before {
   content: "\e92e";
 }
@@ -62,58 +77,58 @@
   content: "\e900";
 }
 .icon-burger:before {
-  content: "\e901";
-}
-.icon-cancel:before {
   content: "\e902";
 }
-.icon-checkmate:before {
+.icon-cancel:before {
   content: "\e903";
 }
-.icon-clock:before {
+.icon-checkmate:before {
   content: "\e904";
 }
-.icon-comunication:before {
+.icon-clock:before {
   content: "\e905";
 }
-.icon-copy:before {
+.icon-comunication:before {
   content: "\e906";
 }
-.icon-calender:before {
+.icon-copy:before {
   content: "\e907";
 }
-.icon-diagram:before {
+.icon-calender:before {
   content: "\e908";
 }
-.icon-download:before {
+.icon-diagram:before {
   content: "\e909";
 }
-.icon-facebook:before {
+.icon-download:before {
   content: "\e90a";
 }
-.icon-filter:before {
+.icon-facebook:before {
   content: "\e90b";
 }
-.icon-home:before {
+.icon-filter:before {
   content: "\e90c";
 }
-.icon-schema:before {
+.icon-home:before {
   content: "\e90d";
 }
-.icon-image:before {
+.icon-schema:before {
   content: "\e90e";
 }
-.icon-intagram:before {
+.icon-image:before {
   content: "\e90f";
 }
-.icon-list:before {
+.icon-intagram:before {
   content: "\e910";
 }
-.icon-location:before {
+.icon-list:before {
   content: "\e911";
 }
-.icon-mail:before {
+.icon-location:before {
   content: "\e912";
+}
+.icon-mail:before {
+  content: "\e91b";
 }
 .icon-panels:before {
   content: "\e913";
@@ -141,9 +156,6 @@
 }
 .icon-mark:before {
   content: "\e91a";
-}
-.icon-mark-fill:before {
-  content: "\e91b";
 }
 .icon-viber:before {
   content: "\e91c";
