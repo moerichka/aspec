@@ -10,7 +10,7 @@ import Footer from "../../components/footer/Footer";
 import Scroller from "../../components/scroller"
 import CustomSelector from "../../components/customSelector";
 
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 import backPicture from "../../assets/images/image28.jpg";
 
@@ -580,7 +580,7 @@ function ToInvestors() {
 }
 
 export default withErrorBoundary(ToInvestors, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

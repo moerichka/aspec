@@ -10,7 +10,7 @@ import Footer from "../../components/footer";
 import DashNav from "../../components/dashnav";
 import OneNewsFull from "../../components/oneNewsFull";
 import NewsGrid from "../../components/newsGrid";
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 import { useParams } from "react-router-dom";
 
@@ -56,7 +56,7 @@ function OneNews() {
 }
 
 export default withErrorBoundary(OneNews, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

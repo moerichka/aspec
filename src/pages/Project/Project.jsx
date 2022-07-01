@@ -16,7 +16,7 @@ import ProjectLayouts from "../../components/projectLayouts";
 import PaymentOptions from "../../components/paymentOptions";
 import BuildingProgress from "../../components/buildingProgress";
 import Infrastructure from "../../components/infrastructure/Infrastructure";
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 import { houseCards } from "../../dummyData.js";
 
@@ -71,32 +71,31 @@ function Project() {
       <div className={s.filterAndTabs}>
         <FilterAndTabs title={"Все проекты"} filterArray={filterArray} />
       </div>
-      <div className={s.projectAbout} id="about" ref={about}>
+      <div className={s.projectAbout} ref={about}>
         <ProjectAbout
           text={project?.about?.text}
           images={project?.about?.images}
         />
       </div>
-      <div className={s.genplan} id="genplan" ref={genplan}>
+      <div className={s.genplan} ref={genplan}>
         <Genplan project={project} />
       </div>
       <div
         className={s.infrastructure}
-        id="infrastructure"
         ref={infrastructure}
       >
         <Infrastructure project={project} />
       </div>
-      <div className={s.projectBenefits} id="benefits" ref={benefits}>
+      <div className={s.projectBenefits} ref={benefits}>
         <ProjectBenefits />
       </div>
-      <div className={s.projectLayouts} id="layouts" ref={layouts}>
+      <div className={s.projectLayouts} ref={layouts}>
         <ProjectLayouts project={project} />
       </div>
-      <div className={s.paymentOptions} id="payment" ref={payment}>
+      <div className={s.paymentOptions} ref={payment}>
         <PaymentOptions />
       </div>
-      <div className={s.buildingProgress} id="progress" ref={progress}>
+      <div className={s.buildingProgress} ref={progress}>
         <BuildingProgress project={project} />
       </div>
       <div className={s.questionForm}>
@@ -108,7 +107,7 @@ function Project() {
 }
 
 export default withErrorBoundary(Project, {
-  fallbackRender: () => <NoMatch404 />,
+  fallbackRender: () => <NoMatchPage />,
   onError(error, info) {
     console.log(error);
     console.log(info);

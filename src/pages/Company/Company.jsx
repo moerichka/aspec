@@ -6,7 +6,7 @@ import Header from '../../components/header/Header'
 import Scroller from '../../components/scroller'
 import Footer from '../../components/footer/Footer'
 import CompanyFull from "../../components/companyFull"
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 function Company() {
   return (
@@ -22,7 +22,7 @@ function Company() {
 }
 
 export default withErrorBoundary(Company, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

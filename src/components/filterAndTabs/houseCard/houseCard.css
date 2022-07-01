@@ -237,6 +237,7 @@
 
 .houseCard__more:hover {
     color: var(--green-hover);
+    transform: translateY(-3px);
 }
 
 .houseCard__adressWrapper {

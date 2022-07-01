@@ -8,7 +8,7 @@ import Header from "../../components/header";
 import Scroller from "../../components/scroller";
 import Footer from "../../components/footer";
 import DashNav from "../../components/dashnav";
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 import { useParams } from "react-router-dom";
 
@@ -221,7 +221,7 @@ function OneNews() {
 }
 
 export default withErrorBoundary(OneNews, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

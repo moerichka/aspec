@@ -6,7 +6,7 @@ import { withErrorBoundary } from "react-error-boundary";
 import { FooterShort } from "../../components/footer";
 import Pdf from "../../components/layoutFull/pdf/Pdf";
 
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 import { dateConverterToDMY } from "../../helpers/dateFun";
 
@@ -44,7 +44,7 @@ function LayoutPdf() {
 }
 
 export default withErrorBoundary(LayoutPdf, {
-  fallbackRender: () => <NoMatch404 />,
+  fallbackRender: () => <NoMatchPage />,
   onError(error, info) {
     console.log(error);
     console.log(info);

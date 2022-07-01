@@ -8,7 +8,7 @@ import Header from "../../components/header";
 import DashNav from "../../components/dashnav";
 import Button from "../../components/button";
 import Footer from "../../components/footer";
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -192,7 +192,7 @@ function Buy(props) {
 }
 
 export default withErrorBoundary(Buy, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

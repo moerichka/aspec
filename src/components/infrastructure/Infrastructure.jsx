@@ -16,9 +16,14 @@ import Transport from "../../assets/images/transport.svg";
 import Transportpink from "../../assets/images/transportpink.svg";
 
 function Infrastructure(props) {
-  const [data, setData] = useState(props?.project);
+  const [data, setData] = useState(null);
+  console.log('data: ', data);
   const [windowWidth, setWindowWidth] = useState(window.screen.width);
   const [isLegendActive, setIsLegendActive] = useState(false);
+
+  useEffect(() => {
+    setData(props?.project)
+  }, [props]);
 
   useEffect(() => {
     window.addEventListener("resize", function () {
@@ -60,6 +65,7 @@ function Infrastructure(props) {
         <h2 className="h2-title">Инфраструктура</h2>
       </div>
       <div className={s.mapwrapper}>
+        {console.log(data?.location)}
         <YMaps>
           <Map
             defaultState={{ center: data?.location ? data?.location : [55.75, 37.57], zoom: 18 }}

@@ -51,7 +51,7 @@ export const houseCardMap = (elem)=>{
                 Срок сдачи ${ dateConverterToQuarter(elem.openDate)} г.
               </span>
             </div>
-            <div><span class="houseCard__more" data-projectId="${elem.id}">Подробнее</span></div>
+            <span class="houseCard__more" data-projectId="${elem.id}">Подробнее</span>
           </div>
         </div>
       </div>

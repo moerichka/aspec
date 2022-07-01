@@ -53,5 +53,5 @@ function App() {
 }
 
 export default withErrorBoundary(App, {
-  fallbackRender: ()=><NoMatch404/>
+  fallbackRender: ()=><NoMatchPage/>
 });

@@ -8,7 +8,7 @@ import Dashnav from "../../components/dashnav";
 import Scroller from "../../components/scroller";
 import FilterAndTabs from "../../components/filterAndTabs";
 import Footer from "../../components/footer";
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 function Projects() {
   const filterArray = [
@@ -53,7 +53,7 @@ function Projects() {
 }
 
 export default withErrorBoundary(Projects, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

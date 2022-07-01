@@ -8,7 +8,7 @@ import Scroller from "../../components/scroller";
 import Footer from "../../components/footer/Footer";
 import Dashnav from "../../components/dashnav";
 import FilterAndTabs from "../../components/filterAndTabs";
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 function EstateSelection() {
   const wayArray = [
@@ -60,7 +60,7 @@ function EstateSelection() {
 }
 
 export default withErrorBoundary(EstateSelection, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

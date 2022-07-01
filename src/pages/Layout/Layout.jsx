@@ -15,7 +15,7 @@ import PaymentOptions from "../../components/paymentOptions";
 import BuyOptions from "../../components/buyOptions";
 import Mortgage from "../../components/mortgage";
 
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 import { houseCards } from "../../dummyData.js";
 
@@ -39,7 +39,11 @@ function Layout(props) {
   }, [project, layoutId]);
 
   useEffect(() => {
-    
+    const thisProject = houseCards?.filter((project) => project?.id?.toString() === projectId)[0] 
+    const thisLayout = thisProject?.flats?.filter((flat) => flat?.id?.toString() === layoutId)[0]
+    if(!!thisProject && !!thisLayout){}else{
+      throw new Error("Квартира не найдена")
+    }
   }, [project, layoutId]);
 
   const wayArray = [
@@ -97,7 +101,7 @@ function Layout(props) {
 }
 
 export default withErrorBoundary(Layout, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

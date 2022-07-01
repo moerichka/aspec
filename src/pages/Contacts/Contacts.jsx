@@ -9,7 +9,7 @@ import {withErrorBoundary} from "react-error-boundary"
 import Header from "../../components/header/Header";
 import DashNav from "../../components/dashnav";
 import Footer from "../../components/footer/Footer";
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 import loc from "../../assets/images/contactloc.svg"
 
@@ -111,7 +111,7 @@ function Contacts() {
 }
 
 export default withErrorBoundary(Contacts, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

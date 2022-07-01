@@ -49,7 +49,7 @@ function Checkmate(props) {
                                     <div className={s.flattype}>{flat?.type === "larder" ? "Кладовая" : "Квартира"}</div>
                                     {flat?.type !== "larder" && <div className={s.flatnumber}>№{flat?.flatNumber}</div>}
                                   </div>
-                                  <div className={s.flatprice}>{flat?.status === "available" ? `${separator(flat?.price)} ₽`  : "Забронировано"}</div>
+                                  <div className={s.flatprice}>{flat?.status === "available" ? `${separator(flat?.price)} ₽`  : flat?.status === "booked" ? "Забронировано" : "Продано"}</div>
                                   <div className={s.bottominfo}>
                                     <div className={s.flatspace}>{flat?.space} м²</div>
                                     {flat?.type !== "larder" && <div className={s.flatmeterprice}>{flat?.meterprice} ₽ / м²</div>}

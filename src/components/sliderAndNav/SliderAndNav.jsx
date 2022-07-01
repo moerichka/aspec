@@ -18,8 +18,6 @@ function SliderAndNav(props) {
     { image: sliderPicture3, darkPannel: true },
   ];
 
-  console.log(props?.refs);
-
   return (
     <div className="sliderAndNav">
       <div className={s.topBar}>

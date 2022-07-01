@@ -10,7 +10,7 @@ import NewsGrid from "../../components/newsGrid/NewsGrid";
 import QuestionForm from "../../components/questionForm";
 import Footer from "../../components/footer";
 
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 import Scroller from "../../components/scroller";
 
 function Main() {
@@ -46,7 +46,7 @@ function Main() {
 }
 
 export default withErrorBoundary(Main, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

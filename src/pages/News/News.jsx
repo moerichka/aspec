@@ -11,7 +11,7 @@ import Scroller from "../../components/scroller";
 import Dashnav from "../../components/dashnav";
 import NewsGrid from "../../components/newsGrid";
 import Footer from "../../components/footer";
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 function News(props) {
   const [tabIndex, setTabIndex] = useState(props?.tabIndex);
@@ -76,7 +76,7 @@ News.defaultProps = {
 };
 
 export default withErrorBoundary(News, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);

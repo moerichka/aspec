@@ -15,7 +15,7 @@ import Scroller from "../../components/scroller";
 import Dashnav from "../../components/dashnav";
 import Footer from "../../components/footer";
 import Button from "../../components/button";
-import { NoMatch404 } from "../NoMatch";
+import { NoMatchPage } from "../NoMatch";
 
 import { Tabs, Tab, TabPanel, TabList } from "react-tabs";
 import Layout from "../../components/layout";
@@ -104,7 +104,7 @@ function Favorites(props) {
 }
 
 export default withErrorBoundary(Favorites, {
-  fallbackRender: ()=><NoMatch404/>,
+  fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
     console.log(error);
     console.log(info);
