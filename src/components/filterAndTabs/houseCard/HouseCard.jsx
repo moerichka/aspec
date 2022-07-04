@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import s from "./houseCard.module.css";
 import "./houseCard.css";
+
+import ProgressiveImage from "react-progressive-graceful-image";
 
 import { dateConverterToQuarter } from "../../../helpers/dateFun";
 
@@ -11,18 +13,17 @@ export default function HouseCard(props) {
     return `${price / 1000000} млн`;
   };
 
-  
   const getAmountRoomsString = (amount) => {
     let str = `${amount}`;
     const regExp = /[2-4]$/;
     const regExpForOne = /1$/;
 
     if (regExpForOne.test(str)) {
-      return str += " помещение";
+      return (str += " помещение");
     } else {
       return (str += regExp.test(str) ? " помещения" : " помещений");
     }
-  }
+  };
 
   return (
     <div className={s.houseCard}>
@@ -40,7 +41,28 @@ export default function HouseCard(props) {
               <div className={s.imageNotification}>Новые корпуса</div>
             )}
           </div>
-          <img src={`${PF}${props.image}`} className={s.image} alt="" />
+          {props?.image?.smallimage ? (
+            <ProgressiveImage
+              src={`${PF}${props?.image?.image}`}
+              placeholder={`${PF}${props?.image?.smallimage}`}
+            >
+              {(src, loading) => (
+                <img
+                  style={{
+                    filter: loading ? "blur(10px)" : "blur(0px)",
+                    transition: "0.3s",
+                  }}
+                  src={src}
+                  alt=""
+                  className={s.image}
+                />
+              )}
+            </ProgressiveImage>
+          ) : props?.image?.image ? (
+            <img src={`${PF}${props?.image?.image}`} alt="" className={s.image} />
+          ) : (
+            <img src={`${PF}${props?.image}`} alt="" className={s.image} />
+          )}
         </div>
         <div className={s.infoWrapper}>
           <div className={s.titleBar}>
@@ -63,7 +85,9 @@ export default function HouseCard(props) {
             <ul className={s.flats}>
               {props?.roomsAmount && (
                 <li className={s.flat}>
-                  <span className={s.flatType}>{getAmountRoomsString(props?.roomsAmount)} в продаже</span>
+                  <span className={s.flatType}>
+                    {getAmountRoomsString(props?.roomsAmount)} в продаже
+                  </span>
                   <span className={s.flatPrice}>
                     от {priceConverter(props.minPrice)} ₽
                   </span>

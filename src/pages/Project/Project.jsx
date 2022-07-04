@@ -19,10 +19,12 @@ import Infrastructure from "../../components/infrastructure/Infrastructure";
 import { NoMatchPage } from "../NoMatch";
 
 import { houseCards } from "../../dummyData.js";
+import { Projects } from "../../data.js";
 
 function Project() {
   const navigate = useNavigate();
   const [project, setProject] = useState(null);
+  const [dataProject, setDataProject] = useState(null);
   const { projectId } = useParams();
   const about = useRef();
   const genplan = useRef();
@@ -48,6 +50,12 @@ function Project() {
     );
   }, [projectId]);
 
+  useEffect(() => {
+    setDataProject(
+      Projects.filter((project) => project.id.toString() === projectId)[0]
+    );
+  }, [projectId]);
+
   // useEffect(()=>{
   //   if(!houseCards.filter(project => project.id.toString() === projectId)[0]){
   //     navigate(`/404`);
@@ -66,22 +74,22 @@ function Project() {
       <Header />
       <Scroller />
       <div className={s.sliderAndNav}>
-        <SliderAndNav project={project} refs={refs} />
+        <SliderAndNav project={dataProject} refs={refs} />
       </div>
       <div className={s.filterAndTabs}>
         <FilterAndTabs title={"Все проекты"} filterArray={filterArray} />
       </div>
       <div className={s.projectAbout} ref={about}>
         <ProjectAbout
-          text={project?.about?.text}
-          images={project?.about?.images}
+          text={dataProject?.about?.text}
+          images={dataProject?.about?.images}
         />
       </div>
       <div className={s.genplan} ref={genplan}>
         <Genplan project={project} />
       </div>
       <div className={s.infrastructure} ref={infrastructure}>
-        <Infrastructure project={project} />
+        <Infrastructure project={dataProject} />
       </div>
       <div className={s.projectBenefits} ref={benefits}>
         <ProjectBenefits />

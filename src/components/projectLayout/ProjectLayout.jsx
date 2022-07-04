@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import s from "./projectLayout.module.css";
 import "./projectLayout.css";
-import { Swiper, SwiperSlide } from "swiper/react";
 
+import ProgressiveImage from "react-progressive-graceful-image";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Link, useParams } from "react-router-dom";
 
 // Import Swiper styles
@@ -15,9 +16,9 @@ import { dateConverterToQuarter } from "../../helpers/dateFun";
 import { getFlatAmount, separator } from "../../helpers/stringsFun";
 
 function ProjectLayout(props) {
-  const [isFavored, setIsFavored] = useState(props?.room?.favored)
+  const [isFavored, setIsFavored] = useState(props?.room?.favored);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const {projectId} = useParams()
+  const { projectId } = useParams();
 
   const pagination = {
     clickable: true,
@@ -44,11 +45,18 @@ function ProjectLayout(props) {
             <div className={s.amount}>{getFlatAmount(props.flat.amount)}</div>
           </div>
           {isFavored ? (
-            <div className={s.topright} data-favorite="true" onClick={()=>setIsFavored(prev=>!prev)}>
+            <div
+              className={s.topright}
+              data-favorite="true"
+              onClick={() => setIsFavored((prev) => !prev)}
+            >
               <span className="icon-mark-fill"></span>
             </div>
           ) : (
-            <div className={s.topright} onClick={()=>setIsFavored(prev=>!prev)}>
+            <div
+              className={s.topright}
+              onClick={() => setIsFavored((prev) => !prev)}
+            >
               <span className="icon-mark"></span>
             </div>
           )}
@@ -60,11 +68,38 @@ function ProjectLayout(props) {
             modules={[Pagination]}
             className="mySwiper"
           >
-            {props.flat?.layouts?.map((elem, index) => (
+            {props?.flat?.layouts?.map((elem, index) => (
               <SwiperSlide key={index}>
                 <Link to={`/project/${projectId}/layout/${props.flat.id}`}>
                   <div className={s.imgwrapper}>
-                    <img src={`${PF}${elem}`} alt="" className={s.img} width="1" height="1"/>
+                    {elem.smallimage ? (
+                      <ProgressiveImage
+                      delay={3000}
+                        src={`${PF}${elem?.image}`}
+                        placeholder={`${PF}${elem?.smallimage}`}
+                      >
+                        {(src, loading) => (
+                          <img
+                            style={{
+                              filter: loading ? "blur(10px)" : "blur(0px)",
+                              transition: "0.3s",
+                            }}
+                            src={src}
+                            alt=""
+                            className={s.img}
+                          />
+                        )}
+                      </ProgressiveImage>
+                    ) : elem?.image ? (
+                      <img
+                        src={`${PF}${elem?.image}`}
+                        alt=""
+                        className={s.img}
+                      />
+                    ) : (
+                      <img src={`${PF}${elem}`} alt="" className={s.img} />
+                    )}
+                    {/* <img src={`${PF}${elem}`} alt="" className={s.img} width="1" height="1"/> */}
                   </div>
                 </Link>
               </SwiperSlide>

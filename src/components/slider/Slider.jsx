@@ -36,6 +36,7 @@ function Slider(props) {
         className="slider__swiper"
       >
         {props?.slides?.map((slide, index) => (
+          
           <SwiperSlide key={index} style={style}>
             {slide.darkPannel && <div className="slider__darkPanel"></div>}
             {slide?.smallimage ? (

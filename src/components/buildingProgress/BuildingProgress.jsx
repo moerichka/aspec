@@ -118,10 +118,10 @@ function BuildingProgress(props) {
                 </div>
               </div>
               <div className={s.darkPanel}></div>
-              {/* {elem?.smallimage ? (
+              {elem?.images[0]?.smallimage ? (
                 <ProgressiveImage
-                  src={elem?.image}
-                  placeholder={elem?.smallimage}
+                  src={`${PF}${elem?.images[0]?.image}`}
+                  placeholder={`${PF}${elem?.images[0]?.smallimage}`}
                 >
                   {(src, loading) => (
                     <img
@@ -131,22 +131,19 @@ function BuildingProgress(props) {
                       }}
                       src={src}
                       alt=""
-                      className="slider__slide-picture"
+                      className={s.houseimg}
                     />
                   )}
                 </ProgressiveImage>
-              ) : (
+              ) : elem?.images[0]?.image ? (
                 <img
-                  src={elem?.image}
+                  src={`${PF}${elem?.images[0]?.image}`}
                   alt=""
-                  className="slider__slide-picture"
+                  className={s.houseimg}
                 />
-              )} */}
-              <img
-                src={`${PF}${elem?.images[0]}`}
-                alt=""
-                className={s.houseimg}
-              />
+              ) : (
+                <img src={`${PF}${elem?.images[0]}`} alt="" className={s.houseimg} />
+              )}
             </div>
           ))}
           {/* </div> */}

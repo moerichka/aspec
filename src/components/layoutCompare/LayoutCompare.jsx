@@ -4,6 +4,7 @@ import "./layoutCompare.css";
 
 import Button from "../button";
 
+import ProgressiveImage from "react-progressive-graceful-image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link, useParams } from "react-router-dom";
 
@@ -20,7 +21,7 @@ import {
 import { priceConverterToMln, separator } from "../../helpers/stringsFun";
 
 function LayoutCompare(props) {
-  const [isFavored, setIsFavored] = useState(props?.room?.favored)
+  const [isFavored, setIsFavored] = useState(props?.room?.favored);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -54,11 +55,18 @@ function LayoutCompare(props) {
             </div>
           </div>
           {isFavored ? (
-            <div className={s.topright} data-favorite="true" onClick={()=>setIsFavored(prev=>!prev)}>
+            <div
+              className={s.topright}
+              data-favorite="true"
+              onClick={() => setIsFavored((prev) => !prev)}
+            >
               <span className="icon-mark-fill"></span>
             </div>
           ) : (
-            <div className={s.topright} onClick={()=>setIsFavored(prev=>!prev)}>
+            <div
+              className={s.topright}
+              onClick={() => setIsFavored((prev) => !prev)}
+            >
               <span className="icon-mark"></span>
             </div>
           )}
@@ -76,13 +84,33 @@ function LayoutCompare(props) {
                   to={`/project/${props?.room?.projectId}/layout/${props?.room?.id}`}
                 >
                   <div className={s.imgwrapper}>
-                    <img
-                      src={`${PF}${elem}`}
-                      alt=""
-                      className={s.img}
-                      width="1"
-                      height="1"
-                    />
+                    {elem.smallimage ? (
+                      <ProgressiveImage
+                        delay={3000}
+                        src={`${PF}${elem?.image}`}
+                        placeholder={`${PF}${elem?.smallimage}`}
+                      >
+                        {(src, loading) => (
+                          <img
+                            style={{
+                              filter: loading ? "blur(10px)" : "blur(0px)",
+                              transition: "0.3s",
+                            }}
+                            src={src}
+                            alt=""
+                            className={s.img}
+                          />
+                        )}
+                      </ProgressiveImage>
+                    ) : elem?.image ? (
+                      <img
+                        src={`${PF}${elem?.image}`}
+                        alt=""
+                        className={s.img}
+                      />
+                    ) : (
+                      <img src={`${PF}${elem}`} alt="" className={s.img} />
+                    )}
                   </div>
                 </Link>
               </SwiperSlide>
@@ -100,7 +128,9 @@ function LayoutCompare(props) {
               ) : (
                 <>
                   <span>от </span>
-                  <span className={s.smallpricebold}>{priceConverterToMln(props?.room?.price)} </span>
+                  <span className={s.smallpricebold}>
+                    {priceConverterToMln(props?.room?.price)}{" "}
+                  </span>
                 </>
               )}
               ₽

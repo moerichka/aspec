@@ -1,7 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import s from "./projectAbout.module.css";
 import "./projectAbout.css";
+
+import PropTypes from "prop-types";
+import ProgressiveImage from "react-progressive-graceful-image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -45,7 +47,32 @@ function ProjectAbout(props) {
         >
           {props?.images.map((image, index) => (
             <SwiperSlide key={index}>
-              <img src={`${PF}${image}`} alt="" className={s.img} />
+              {image.smallimage ? (
+                <ProgressiveImage
+                  src={`${PF}${image?.image}`}
+                  placeholder={`${PF}${image?.smallimage}`}
+                >
+                  {(src, loading) => (
+                    <img
+                      style={{
+                        filter: loading ? "blur(10px)" : "blur(0px)",
+                        transition: "0.3s",
+                      }}
+                      src={src}
+                      alt=""
+                      className={s.img}
+                    />
+                  )}
+                </ProgressiveImage>
+              ) : image?.image ? (
+                <img
+                  src={`${PF}${image?.image}`}
+                  alt=""
+                  className={s.img}
+                />
+              ) : (
+                <img src={`${PF}${image}`} alt="" className={s.img} />
+              )}
             </SwiperSlide>
           ))}
         </Swiper>

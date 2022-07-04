@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import s from "./layout.module.css";
 import "./layout.css";
 
 import Button from "../button";
 
+import ProgressiveImage from "react-progressive-graceful-image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link, useParams } from "react-router-dom";
 
@@ -21,7 +22,7 @@ import {
 } from "../../helpers/stringsFun";
 
 function Layout(props) {
-  const [isFavored, setIsFavored] = useState(props?.room?.favored)
+  const [isFavored, setIsFavored] = useState(props?.room?.favored);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const pagination = {
@@ -48,14 +49,25 @@ function Layout(props) {
                 <div className={s.notification}>Новые корпуса</div>
               )}
             </div>
-            {!props?.favoritestyle && <div className={s.amount}>{getFlatAmount(props?.room?.amount)}</div>}
+            {!props?.favoritestyle && (
+              <div className={s.amount}>
+                {getFlatAmount(props?.room?.amount)}
+              </div>
+            )}
           </div>
           {isFavored ? (
-            <div className={s.topright} data-favorite="true" onClick={()=>setIsFavored(prev=>!prev)}>
+            <div
+              className={s.topright}
+              data-favorite="true"
+              onClick={() => setIsFavored((prev) => !prev)}
+            >
               <span className="icon-mark-fill"></span>
             </div>
           ) : (
-            <div className={s.topright} onClick={()=>setIsFavored(prev=>!prev)}>
+            <div
+              className={s.topright}
+              onClick={() => setIsFavored((prev) => !prev)}
+            >
               <span className="icon-mark"></span>
             </div>
           )}
@@ -73,13 +85,33 @@ function Layout(props) {
                   to={`/project/${props?.room?.projectId}/layout/${props?.room?.id}`}
                 >
                   <div className={s.imgwrapper}>
-                    <img
-                      src={`${PF}${elem}`}
-                      alt=""
-                      className={s.img}
-                      width="1"
-                      height="1"
-                    />
+                    {elem.smallimage ? (
+                      <ProgressiveImage
+                        delay={3000}
+                        src={`${PF}${elem?.image}`}
+                        placeholder={`${PF}${elem?.smallimage}`}
+                      >
+                        {(src, loading) => (
+                          <img
+                            style={{
+                              filter: loading ? "blur(10px)" : "blur(0px)",
+                              transition: "0.3s",
+                            }}
+                            src={src}
+                            alt=""
+                            className={s.img}
+                          />
+                        )}
+                      </ProgressiveImage>
+                    ) : elem?.image ? (
+                      <img
+                        src={`${PF}${elem?.image}`}
+                        alt=""
+                        className={s.img}
+                      />
+                    ) : (
+                      <img src={`${PF}${elem}`} alt="" className={s.img} />
+                    )}
                   </div>
                 </Link>
               </SwiperSlide>
@@ -103,18 +135,27 @@ function Layout(props) {
               <div className={s.value}>{props?.room?.house}</div>
             </div>
           </div>
-          {props?.favoritestyle && <div className={s.finishingin}>Отделка Включена</div>}
+          {props?.favoritestyle && (
+            <div className={s.finishingin}>Отделка Включена</div>
+          )}
           <div className={s.datewrapper}>
             {props?.favoritestyle ? (
               <>
                 <span className="icon-location"></span>
                 {dayQuantityObject?.ishappened ? (
                   <div className={s.opendate} data-favoredstyle="true">
-                    Дом сдан <span className={s.greendate}>{getDaysAmount(dayQuantityObject?.days)}</span> назад
+                    Дом сдан{" "}
+                    <span className={s.greendate}>
+                      {getDaysAmount(dayQuantityObject?.days)}
+                    </span>{" "}
+                    назад
                   </div>
                 ) : (
                   <div className={s.opendate} data-favoredstyle="true">
-                    Дом сдан через <span className={s.greendate}>{getDaysAmount(dayQuantityObject?.days)}</span>
+                    Дом сдан через{" "}
+                    <span className={s.greendate}>
+                      {getDaysAmount(dayQuantityObject?.days)}
+                    </span>
                   </div>
                 )}
               </>

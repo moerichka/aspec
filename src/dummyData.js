@@ -88,8 +88,12 @@ export const houseCards = [
     price: 3500000,
     space: 70,
     openDate: "2017-05-15T08:30:00.000+05:00",
-    image: "image13.png",
-    images: ["image13.png", "image13.png", "image13.png"],
+    image: { image: "image13.png", smallimage: "image13small.png" },
+    images: [
+      { image: "image13.png", smallimage: "image13small.png" },
+      { image: "image13.png", smallimage: "image13small.png" },
+      { image: "image13.png", smallimage: "image13small.png" },
+    ],
     buildings: [
       {
         id: 1,
@@ -776,7 +780,11 @@ export const houseCards = [
         id: 1,
         number: "3",
         datePic: "2021-10-03T15:00:00.000+05:00",
-        images: ["image24.png", "image25.png", "image26.png"],
+        images: [
+          { image: "image24.png", smallimage: "image24small.png" },
+          { image: "image25.png", smallimage: "image25small.png" },
+          { image: "image26.png", smallimage: "image26small.png" },
+        ],
         styles: {
           clipPath: `polygon(9px 66px, 27px 47px, 2px 24px, 16px 8px, 45px 29px, 73px 1px, 89px 16px, 25px 82px)`,
           width: "31.5%",
@@ -789,7 +797,11 @@ export const houseCards = [
         id: 2,
         number: "2",
         datePic: "2021-12-03T15:00:00.000+05:00",
-        images: ["image25.png", "image24.png", "image26.png"],
+        images: [
+          { image: "image25.png", smallimage: "image25small.png" },
+          { image: "image24.png", smallimage: "image24small.png" },
+          { image: "image26.png", smallimage: "image26small.png" },
+        ],
         styles: {
           clipPath: `polygon(9px 66px, 27px 47px, 2px 24px, 16px 8px, 45px 29px, 73px 1px, 89px 16px, 25px 82px)`,
           width: "31.5%",
@@ -802,7 +814,11 @@ export const houseCards = [
         id: 3,
         number: "4",
         datePic: "2021-12-03T15:00:00.000+05:00",
-        images: ["image26.png", "image24.png", "image25.png"],
+        images: [
+          { image: "image26.png", smallimage: "image26small.png" },
+          { image: "image24.png", smallimage: "image24small.png" },
+          { image: "image25.png", smallimage: "image25small.png" },
+        ],
       },
     ],
     discount: "10%",
