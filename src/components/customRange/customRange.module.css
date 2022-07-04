@@ -9,6 +9,10 @@
     background-color: var(--bg-gray);
     border-radius: 5px;
     padding: 19px 20px 0 20px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .customRange-white{

@@ -29,7 +29,7 @@ const HouseCardGrid = (props) => {
       const projectId = e?.target?.getAttribute("data-projectId")
       navigate(`/project/${projectId}`)
     });
-  }, [baloonOpen]);
+  }, [baloonOpen, navigate]);
 
   let mapHeight = "760px";
   windowWidth < 1440 && (mapHeight = "600px");

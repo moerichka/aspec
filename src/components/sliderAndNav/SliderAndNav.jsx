@@ -5,18 +5,20 @@ import "./sliderAndNav.css";
 import { Link } from "react-router-dom";
 
 import sliderPicture from "../../assets/images/image27.jpg";
+import sliderPictureSmall from "../../assets/images/image27small.jpg";
 import sliderPicture3 from "../../assets/images/image26.jpg";
+import sliderPicture3Small from "../../assets/images/image26small.jpg";
 import Slider from "../slider";
 
 function SliderAndNav(props) {
   const slidesArray = [
-    { image: sliderPicture, darkPannel: true },
-    { image: sliderPicture3, darkPannel: true },
-    { image: sliderPicture, darkPannel: true },
-    { image: sliderPicture3, darkPannel: true },
-    { image: sliderPicture, darkPannel: true },
-    { image: sliderPicture3, darkPannel: true },
-  ];
+    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
+    {image: sliderPicture3, smallimage: sliderPicture3Small, darkPannel: true},
+    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
+    {image: sliderPicture3, smallimage: sliderPicture3Small, darkPannel: true},
+    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
+    {image: sliderPicture3, smallimage: sliderPicture3Small, darkPannel: true},
+  ]
 
   return (
     <div className="sliderAndNav">

@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import s from "./toInvestors.module.css";
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { Link } from "react-router-dom";
-import {withErrorBoundary} from "react-error-boundary"
+import { withErrorBoundary } from "react-error-boundary";
+import ProgressiveImage from "react-progressive-graceful-image";
 
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import Scroller from "../../components/scroller"
+import Scroller from "../../components/scroller";
 import CustomSelector from "../../components/customSelector";
 
 import { NoMatchPage } from "../NoMatch";
 
 import backPicture from "../../assets/images/image28.jpg";
+import backPictureSmall from "../../assets/images/image28small.jpg";
 
 function ToInvestors() {
   const [tabIndex, setTabIndex] = useState(0);
+  const image1 = { image: backPicture, smallimage: backPictureSmall };
 
   return (
     <div className={s.toInvestors}>
@@ -23,7 +27,12 @@ function ToInvestors() {
       <Scroller />
       <div className={s.helloelement}>
         <div className="container">
-          <div className={s.dashnav}><Link to="/" className="dashnav__link">Главная</Link> / Инвесторам</div>
+          <div className={s.dashnav}>
+            <Link to="/" className="dashnav__link">
+              Главная
+            </Link>{" "}
+            / Инвесторам
+          </div>
           <div className={s.titlewrapper}>
             <h2 className={s.hellotitle}>Инвесторам</h2>
             <h5 className={s.hellodesc}>
@@ -32,7 +41,26 @@ function ToInvestors() {
           </div>
         </div>
         <div className={s.darkpanel}></div>
-        <img src={backPicture} alt="" className={s.helloback} />
+        {image1?.smallimage ? (
+          <ProgressiveImage
+            src={image1?.image}
+            placeholder={image1?.smallimage}
+          >
+            {(src, loading) => (
+              <img
+                style={{
+                  filter: loading ? "blur(10px)" : "blur(0px)",
+                  transition: "0.3s",
+                }}
+                src={src}
+                alt=""
+                className={s.helloback}
+              />
+            )}
+          </ProgressiveImage>
+        ) : (
+          <img src={image1?.image} alt="" className={s.helloback} />
+        )}
       </div>
       <div className={s.content}>
         <Tabs
@@ -330,11 +358,17 @@ function ToInvestors() {
                         <span className={s.filtertitle}>
                           Категория документов
                         </span>
-                        <CustomSelector placeholder={"Любые"} bgColor={"white"}></CustomSelector>
+                        <CustomSelector
+                          placeholder={"Любые"}
+                          bgColor={"white"}
+                        ></CustomSelector>
                       </div>
                       <div className={`${s.filterwrapper} ${s.filterwrapper2}`}>
                         <span className={s.filtertitle}>Год документа</span>
-                        <CustomSelector placeholder={"Любые"} bgColor={"white"}></CustomSelector>
+                        <CustomSelector
+                          placeholder={"Любые"}
+                          bgColor={"white"}
+                        ></CustomSelector>
                       </div>
                     </div>
                     <div className={s.bottomdocuments}>
@@ -454,11 +488,17 @@ function ToInvestors() {
                         <span className={s.filtertitle}>
                           Категория документов
                         </span>
-                        <CustomSelector placeholder={"Любые"} bgColor={"white"}></CustomSelector>
+                        <CustomSelector
+                          placeholder={"Любые"}
+                          bgColor={"white"}
+                        ></CustomSelector>
                       </div>
                       <div className={`${s.filterwrapper} ${s.filterwrapper2}`}>
                         <span className={s.filtertitle}>Год документа</span>
-                        <CustomSelector placeholder={"Любые"} bgColor={"white"}></CustomSelector>
+                        <CustomSelector
+                          placeholder={"Любые"}
+                          bgColor={"white"}
+                        ></CustomSelector>
                       </div>
                     </div>
                     <div className={s.bottomdocuments}>
@@ -580,9 +620,9 @@ function ToInvestors() {
 }
 
 export default withErrorBoundary(ToInvestors, {
-  fallbackRender: ()=><NoMatchPage/>,
-  onError(error, info){
+  fallbackRender: () => <NoMatchPage />,
+  onError(error, info) {
     console.log(error);
     console.log(info);
-  }
+  },
 });

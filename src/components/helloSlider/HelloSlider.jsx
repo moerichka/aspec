@@ -3,7 +3,9 @@ import "./helloSlider.css";
 import { useNavigate } from "react-router-dom"
 
 import sliderPicture from "../../assets/images/image25.jpg";
+import sliderPictureSmall from "../../assets/images/image25small.jpg";
 import sliderPicture2 from "../../assets/images/image12.jpg";
+import sliderPicture2Small from "../../assets/images/image12small.jpg";
 
 import Button from "../button";
 import Slider from "../slider";
@@ -12,12 +14,12 @@ export default function HelloSlider() {
   const navigate = useNavigate()
 
   const slidesArray = [
-    {image: sliderPicture, darkPannel: true},
-    {image: sliderPicture2, darkPannel: true},
-    {image: sliderPicture, darkPannel: true},
-    {image: sliderPicture2, darkPannel: true},
-    {image: sliderPicture, darkPannel: true},
-    {image: sliderPicture2, darkPannel: true},
+    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
+    {image: sliderPicture2, smallimage: sliderPicture2Small, darkPannel: true},
+    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
+    {image: sliderPicture2, smallimage: sliderPicture2Small, darkPannel: true},
+    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
+    {image: sliderPicture2, smallimage: sliderPicture2Small, darkPannel: true},
   ]
 
   return (

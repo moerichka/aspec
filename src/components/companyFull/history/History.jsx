@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import s from "./history.module.css";
 import "./history.css";
+
+import ProgressiveImage from "react-progressive-graceful-image";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import {Autoplay} from "swiper"
+import { Autoplay } from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
 import slidePicture from "../../../assets/images/image33.jpg";
+import slidePictureSmall from "../../../assets/images/image33small.jpg";
 
 function History() {
   const [swiper, setSwiper] = useState(null);
   const [isEnd, setIsEnd] = useState(false);
   const [isBeginning, setIsBeginning] = useState(true);
+
+  const image1 = { image: slidePicture, smallimage: slidePictureSmall };
 
   const slideChangeHandler = (swip) => {
     setIsEnd(swip?.isEnd);
@@ -22,70 +27,70 @@ function History() {
   const dataArray = [
     {
       date: "2017",
-      img: slidePicture,
+      image: image1,
       title: "Строительное направление",
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`,
     },
     {
       date: "2016",
-      img: slidePicture,
+      image: image1,
       title: "Строительное направление",
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`,
     },
     {
       date: "2015",
-      img: slidePicture,
+      image: image1,
       title: "Строительное направление",
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`,
     },
     {
       date: "2014",
-      img: slidePicture,
+      image: image1,
       title: "Строительное направление",
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`,
     },
     {
       date: "2013",
-      img: slidePicture,
+      image: image1,
       title: "Строительное направление",
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`,
     },
     {
       date: "2012",
-      img: slidePicture,
+      image: image1,
       title: "Строительное направление",
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`,
     },
     {
       date: "2011",
-      img: slidePicture,
+      image: image1,
       title: "Строительное направление",
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`,
     },
     {
       date: "2010",
-      img: slidePicture,
+      image: image1,
       title: "Строительное направление",
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`,
     },
     {
       date: "2009",
-      img: slidePicture,
+      image: image1,
       title: "Строительное направление",
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`,
     },
     {
       date: "2008",
-      img: slidePicture,
+      image: image1,
       title: "Строительное направление",
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`,
@@ -131,7 +136,7 @@ function History() {
             autoplay={{
               delay: 3000,
               disableOnInteraction: true,
-              pauseOnMouseEnter: true
+              pauseOnMouseEnter: true,
             }}
             // modules={windowWidth < 756 ? [Scrollbar] : []}
           >
@@ -148,7 +153,30 @@ function History() {
                       </div>
                     </div>
                     <div className={s.content}>
-                      <img src={elem?.img} alt="" className={s.contentimg} />
+                      {elem?.image?.smallimage ? (
+                        <ProgressiveImage
+                          src={elem?.image?.image}
+                          placeholder={elem?.image?.smallimage}
+                        >
+                          {(src, loading) => (
+                            <img
+                              style={{
+                                filter: loading ? "blur(10px)" : "blur(0px)",
+                                transition: "0.3s",
+                              }}
+                              src={src}
+                              alt=""
+                              className={s.contentimg}
+                            />
+                          )}
+                        </ProgressiveImage>
+                      ) : (
+                        <img
+                          src={elem?.image?.image}
+                          alt=""
+                          className={s.contentimg}
+                        />
+                      )}
                       <span className={s.contenttitle}>{elem?.title}</span>
                       <p className={s.contenttext}>{elem?.desc}</p>
                     </div>

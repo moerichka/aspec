@@ -1,0 +1,49 @@
+.cookies{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--blue);
+    opacity: 0;
+    position: fixed;
+    bottom: 5%;
+    left: -1%;
+    z-index: 15;
+    border-radius: 25px;
+    padding: 0 20px;
+    color: var(--white);
+    overflow: hidden;
+    user-select: none;
+    transition: var(--transition);
+}
+
+.cookies[data-isshown="true"]{
+    left: 2%;
+    opacity: 1;
+}
+
+.cookies:hover{
+    background-color: var(--blue-hover);
+}
+
+.text{
+    white-space: nowrap;
+}
+
+.agreement{
+    border: none;
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+    background-color: transparent;
+    text-decoration: underline;
+    color: var(--green);
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.agreement:hover{
+    transform: translateY(-3px);
+    color: var(--green-hover);
+}

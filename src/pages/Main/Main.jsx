@@ -12,8 +12,9 @@ import Footer from "../../components/footer";
 
 import { NoMatchPage } from "../NoMatch";
 import Scroller from "../../components/scroller";
+import Cookies from "../../components/cookies/Cookies";
 
-function Main() {
+function Main(props) {
   const DataRepresentetionArray = [
     "HouseCardGrid",
     "HouseCardGrid",
@@ -25,6 +26,7 @@ function Main() {
     <div className={s.main}>
       <Header />
       <Scroller />
+      <Cookies cookiesAgreed={props?.cookiesAgreed} setCookiesAgreed={props?.setCookiesAgreed}/>
       <div className={s.helloSlider}>
         <HelloSlider />
       </div>

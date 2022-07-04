@@ -28,7 +28,7 @@
     height: 100%;
     background: linear-gradient(91.85deg, #000000 -4.86%, rgba(0, 0, 0, 0) 128.15%);
     opacity: 0.5;
-    z-index: 0;
+    z-index: 1;
 }
 
 .slider .swiper-button-prev {

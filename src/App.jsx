@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/scrollToTop"
 import {withErrorBoundary} from "react-error-boundary"
@@ -20,11 +20,13 @@ import LayoutPdf from "./pages/LayoutPdf";
 import {NoMatchPage, NoMatch404, NoMatch405, NoMatch406} from "./pages/NoMatch"
 
 function App() {
+  const [cookiesAgreed, setCookiesAgreed] = useState(false)
+
   return (
     <Router>
       <ScrollToTop>
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Main cookiesAgreed={cookiesAgreed} setCookiesAgreed={setCookiesAgreed}/>} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/project/:projectId" element={<Project />} />
           <Route path="/project/:projectId/layout/:layoutId" element={<Layout />} />

@@ -3,13 +3,17 @@ import s from "./innerTabs.module.css";
 
 import Poligons from "../poligons";
 
+import ProgressiveImage from "react-progressive-graceful-image";
 import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
 
 import { genplan } from "../../../dummyData";
 
 import projectImage from "../../../assets/images/image24.jpg";
+import projectImageSmall from "../../../assets/images/image24small.jpg";
 import sectionImage from "../../../assets/images/image23.jpg";
+import sectionImageSmall from "../../../assets/images/image23small.jpg";
 import buildingImage from "../../../assets/images/image22.jpg";
+import buildingImageSmall from "../../../assets/images/image22small.jpg";
 import layoutImage from "../../../assets/images/layout1.png";
 import Popup from "../popup/Popup";
 
@@ -21,6 +25,12 @@ function InnerTabs(props) {
   const [chosenLevel, setChosenLevel] = useState(null);
   const [chosenFlat, setChosenFlat] = useState(null);
 
+  const imageProject = { image: projectImage, smallimage: projectImageSmall };
+  const imageSection = { image: sectionImage, smallimage: sectionImageSmall };
+  const imageBuilding = {
+    image: buildingImage,
+    smallimage: buildingImageSmall,
+  };
 
   useEffect(() => {
     document.body.style.overflow = isPopupOpen ? "hidden" : "unset";
@@ -102,11 +112,30 @@ function InnerTabs(props) {
         </TabList>
         <TabPanel className={`${s.tabPanel} ${s.tabpanel1}`}>
           <div className={s.imgwrapper}>
-            <img
-              src={projectImage}
-              alt=""
-              className={`${s.img} ${s.projectImage}`}
-            />
+            {imageProject?.smallimage ? (
+              <ProgressiveImage
+                src={imageProject?.image}
+                placeholder={imageProject?.smallimage}
+              >
+                {(src, loading) => (
+                  <img
+                    style={{
+                      filter: loading ? "blur(10px)" : "blur(0px)",
+                      transition: "0.3s",
+                    }}
+                    src={src}
+                    alt=""
+                    className={`${s.img} ${s.projectImage}`}
+                  />
+                )}
+              </ProgressiveImage>
+            ) : (
+              <img
+                src={imageProject?.image}
+                alt=""
+                className={`${s.img} ${s.projectImage}`}
+              />
+            )}
             <Poligons
               poligons={genplan?.housings}
               infocorpus={true}
@@ -117,11 +146,30 @@ function InnerTabs(props) {
         </TabPanel>
         <TabPanel className={s.tabPanel}>
           <div className={s.imgwrapper}>
-            <img
-              src={sectionImage}
-              alt=""
-              className={`${s.img} ${s.sectionImage}`}
-            />
+            {imageSection?.smallimage ? (
+              <ProgressiveImage
+                src={imageSection?.image}
+                placeholder={imageSection?.smallimage}
+              >
+                {(src, loading) => (
+                  <img
+                    style={{
+                      filter: loading ? "blur(10px)" : "blur(0px)",
+                      transition: "0.3s",
+                    }}
+                    src={src}
+                    alt=""
+                    className={`${s.img} ${s.sectionImage}`}
+                  />
+                )}
+              </ProgressiveImage>
+            ) : (
+              <img
+                src={imageSection?.image}
+                alt=""
+                className={`${s.img} ${s.sectionImage}`}
+              />
+            )}
             <Poligons
               poligons={chosenHousing?.sections}
               onClick={(polygon) => godown(polygon, "section")}
@@ -132,11 +180,30 @@ function InnerTabs(props) {
         </TabPanel>
         <TabPanel className={s.tabPanel}>
           <div className={s.imgwrapper}>
-            <img
-              src={buildingImage}
-              alt=""
-              className={`${s.img} ${s.buildingImage}`}
-            />
+            {imageBuilding?.smallimage ? (
+              <ProgressiveImage
+                src={imageBuilding?.image}
+                placeholder={imageBuilding?.smallimage}
+              >
+                {(src, loading) => (
+                  <img
+                    style={{
+                      filter: loading ? "blur(10px)" : "blur(0px)",
+                      transition: "0.3s",
+                    }}
+                    src={src}
+                    alt=""
+                    className={`${s.img} ${s.buildingImage}`}
+                  />
+                )}
+              </ProgressiveImage>
+            ) : (
+              <img
+                src={imageBuilding?.image}
+                alt=""
+                className={`${s.img} ${s.buildingImage}`}
+              />
+            )}
             <Poligons
               poligons={chosenSection?.levels}
               onClick={(polygon) => godown(polygon, "level")}
@@ -175,7 +242,26 @@ function InnerTabs(props) {
             </div>
             <div className={s.secondpart}>
               <div className={s.layoutimgwrapper}>
-                <img src={layoutImage} alt="" className={s.layoutimg} />
+                {layoutImage?.smallimage ? (
+                  <ProgressiveImage
+                    src={imageProject?.image}
+                    placeholder={imageProject?.smallimage}
+                  >
+                    {(src, loading) => (
+                      <img
+                        style={{
+                          filter: loading ? "blur(10px)" : "blur(0px)",
+                          transition: "0.3s",
+                        }}
+                        src={src}
+                        alt=""
+                        className={s.layoutimg}
+                      />
+                    )}
+                  </ProgressiveImage>
+                ) : (
+                  <img src={layoutImage} alt="" className={s.layoutimg} />
+                )}
                 <Poligons
                   poligons={chosenLevel?.flats}
                   onClick={(polygon) => godown(polygon, "flat")}

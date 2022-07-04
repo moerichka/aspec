@@ -3,6 +3,7 @@ import Select from "react-select";
 import s from "./buildingProgress.module.css";
 import "./buildingProgress.css";
 
+import ProgressiveImage from "react-progressive-graceful-image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
@@ -93,40 +94,64 @@ function BuildingProgress(props) {
         </div>
       </div>
       {/* <div className={s.scrollerwrapper}> */}
-        <Swiper
-          className=""
-          direction={"horizontal"}
-          // spaceBetween={30}
-          slidesPerView={"auto"}
-          freeMode={true}
-          scrollbar={{ dragSize: 100}}
-          mousewheel={true}
-          modules={[FreeMode, Scrollbar, Mousewheel]}
-        >
-          <SwiperSlide>
-            {/* <div className={s.scroller}> */}
-            {buildingsArray?.map((elem) => (
-              <div className={s.housewrapper} key={elem?.id}>
-                <div className={s.amountpics}>{elem?.images?.length} фото</div>
-                <div className={s.housedatewrapper}>
-                  <div className={s.housedate}>
-                    {dateConverterToDayMonth(elem?.datePic)}
-                  </div>
-                  <div className={s.houseyear}>
-                    {dateConverterToYear(elem?.datePic)}
-                  </div>
+      <Swiper
+        className=""
+        direction={"horizontal"}
+        // spaceBetween={30}
+        slidesPerView={"auto"}
+        freeMode={true}
+        scrollbar={{ dragSize: 100 }}
+        mousewheel={true}
+        modules={[FreeMode, Scrollbar, Mousewheel]}
+      >
+        <SwiperSlide>
+          {/* <div className={s.scroller}> */}
+          {buildingsArray?.map((elem) => (
+            <div className={s.housewrapper} key={elem?.id}>
+              <div className={s.amountpics}>{elem?.images?.length} фото</div>
+              <div className={s.housedatewrapper}>
+                <div className={s.housedate}>
+                  {dateConverterToDayMonth(elem?.datePic)}
                 </div>
-                <div className={s.darkPanel}></div>
-                <img
-                  src={`${PF}${elem?.images[0]}`}
-                  alt=""
-                  className={s.houseimg}
-                />
+                <div className={s.houseyear}>
+                  {dateConverterToYear(elem?.datePic)}
+                </div>
               </div>
-            ))}
+              <div className={s.darkPanel}></div>
+              {/* {elem?.smallimage ? (
+                <ProgressiveImage
+                  src={elem?.image}
+                  placeholder={elem?.smallimage}
+                >
+                  {(src, loading) => (
+                    <img
+                      style={{
+                        filter: loading ? "blur(10px)" : "blur(0px)",
+                        transition: "0.3s",
+                      }}
+                      src={src}
+                      alt=""
+                      className="slider__slide-picture"
+                    />
+                  )}
+                </ProgressiveImage>
+              ) : (
+                <img
+                  src={elem?.image}
+                  alt=""
+                  className="slider__slide-picture"
+                />
+              )} */}
+              <img
+                src={`${PF}${elem?.images[0]}`}
+                alt=""
+                className={s.houseimg}
+              />
+            </div>
+          ))}
           {/* </div> */}
-          </SwiperSlide>
-        </Swiper>
+        </SwiperSlide>
+      </Swiper>
       {/* </div> */}
     </div>
   );

@@ -1,6 +1,17 @@
 .headerselecter{
     width: max-content;
     max-width: 135px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.selecter{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .menucomponent{
