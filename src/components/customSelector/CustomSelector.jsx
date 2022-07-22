@@ -115,6 +115,12 @@ function CustomSelector(props) {
         padding: props?.isHeader ? "2px 0" : "2px 8px",
       };
     },
+    menuList: (provided) => {
+      return{
+        ...provided,
+        padding: 0
+      }
+    }
     // menu: (provided) => ({
     //   ...provided,
     //   ":-webkit-scrollbar": {

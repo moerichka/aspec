@@ -7,31 +7,31 @@ export const houseCardMap = (elem)=>{
     <div class="houseCard__container">
       <div class="houseCard__imageWrapper-map">
         <div class="houseCard__imageNotifications">
-          ${elem.discount ? ( `
+          ${elem?.discount ? ( `
             <div class="houseCard__imageNotification houseCard__imageNotification-yellow">
-              Скидка ${elem.discount}
+              Скидка ${elem?.discount}
             </div>`
           ) : ""}
-          ${elem.newShapes ? (`
+          ${elem?.newShapes ? (`
             <div class="houseCard__imageNotification">Новые корпуса</div>
           `) : ""}
         </div>
-        <img src="${PF}${elem.image}" class="houseCard__image-map" alt="" />
+        <img src="${PF}${elem?.image?.image}" class="houseCard__image-map" alt="" />
       </div>
       <div class="houseCard__infoWrapper houseCard__infoWrapper-map">
         <div class="houseCard__titleBar">
-          <h6 class="houseCard__title">${elem.name}</h6>
+          <h6 class="houseCard__title">${elem?.name}</h6>
           <span class="houseCard__price">
             от
             <span class="houseCard__priceBold">
-             ${elem.minPrice/1000000 } млн 
+             ${elem?.minPrice/1000000 } млн 
             </span>
             ₽
           </span>
         </div>
         <div class="houseCard__adressWrapper">
           <span class="houseCard__icon icon-location"></span>
-          <span class="houseCard__adress">${elem.adress}</span>
+          <span class="houseCard__adress">${elem?.adress}</span>
         </div>
       </div>
       <div class=" houseCard__moreInfoWrapper-map">
@@ -39,8 +39,8 @@ export const houseCardMap = (elem)=>{
           <ul class="houseCard__flats">
             ${elem?.flats?.map((flat) => (
               `<li class="houseCard__flat" >
-                <span class="houseCard__flatType">${flat.name} ${flat.name !== "Студия" ? "квартиры" : ""}</span>
-                <span class="houseCard__flatPrice">от ${flat.price/1000000 } млн ₽</span>
+                <span class="houseCard__flatType">${flat?.name} ${flat?.name !== "Студия" ? "квартиры" : ""}</span>
+                <span class="houseCard__flatPrice">от ${flat?.price/1000000 } млн ₽</span>
               </li>`
             )).join('')}
           </ul>
@@ -48,10 +48,10 @@ export const houseCardMap = (elem)=>{
             <div class="houseCard__openDateWrapper">
               <span class="houseCard__icon icon-home"></span>
               <span class="houseCard__openDate">
-                Срок сдачи ${ dateConverterToQuarter(elem.openDate)} г.
+                Срок сдачи ${ dateConverterToQuarter(elem?.openDate)} г.
               </span>
             </div>
-            <span class="houseCard__more" data-projectId="${elem.id}">Подробнее</span>
+            <span class="houseCard__more" data-projectId="${elem?.id}">Подробнее</span>
           </div>
         </div>
       </div>
@@ -61,10 +61,10 @@ export const houseCardMap = (elem)=>{
 
 export const legendMap = (elem) => `
   <div class="infrastructure__mapBallon">
-    <div class="infrastructure__mapBallonTitle">${elem.title}</div>
+    <div class="infrastructure__mapBallonTitle">${elem?.title}</div>
     <div class="infrastructure__mapBallonInfoWrapper">
-    ${elem.infoLeft ? `<div class="infrastructure__mapBallonInfoLeft">${elem.infoLeft}</div>` : ""}
-      ${elem.infoRight ? `<div class="infrastructure__mapBallonInfoRight">${elem.infoRight}</div>` : ""}
+    ${elem?.infoLeft ? `<div class="infrastructure__mapBallonInfoLeft">${elem?.infoLeft}</div>` : ""}
+      ${elem?.infoRight ? `<div class="infrastructure__mapBallonInfoRight">${elem?.infoRight}</div>` : ""}
     </div>
   </div>
 `

@@ -80,7 +80,7 @@
     cursor: pointer;
 }
 
-.toppart:hover .date{
+.toppart:hover .date {
     color: var(--green);
     transform: translateY(-3px);
 }
@@ -130,7 +130,7 @@
     transition: var(--transition);
 }
 
-.toppart:hover .innerpoint{
+.toppart:hover .innerpoint {
     background-color: var(--green);
 }
 
@@ -172,6 +172,12 @@
     font-size: 16px;
     line-height: 21px;
     color: var(--dark-gray-text);
+}
+
+@media (max-width: 1560px) {
+    .arrowwrapper {
+        margin: 0 20px;
+    }
 }
 
 @media (max-width: 1270px) {
@@ -227,12 +233,13 @@
 }
 
 @media (max-width: 660px) {
-    .arrowwrapper{
+    .arrowwrapper {
         backdrop-filter: blur(1px);
         border-radius: 50%;
+        margin: 0 10px;
     }
 
-    .swiperwrapper{
+    .swiperwrapper {
         padding: 0;
     }
 
@@ -240,7 +247,7 @@
         align-items: flex-start;
     }
 
-    .toppart{
+    .toppart {
         margin-left: 40px;
     }
 
@@ -270,7 +277,7 @@
 
 
 @media (max-width: 372px) {
-    
+
 
     .content {
         max-width: 250px;

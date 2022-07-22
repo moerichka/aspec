@@ -58,7 +58,7 @@ function FilterAndTabs(props) {
             </div>
           </div>
         </div>
-        <TabPanel>
+        <TabPanel className={s.tabPanel} data-isShown={tabIndex===0}>
           <div
             className={`${s.wrapper} ${
               props.BGcolor === "gray" ? "filterAndTabs-gray" : ""
@@ -76,7 +76,7 @@ function FilterAndTabs(props) {
             />
           </div>
         </TabPanel>
-        <TabPanel>
+        <TabPanel className={s.tabPanel} data-isShown={tabIndex===1}>
           <div className={s.wrapper}>
             <Filter
               tab={tabs[1]}
@@ -90,7 +90,7 @@ function FilterAndTabs(props) {
             />
           </div>
         </TabPanel>
-        <TabPanel>
+        <TabPanel className={s.tabPanel} data-isShown={tabIndex===2}>
           <div className={s.wrapper}>
             <Filter
               tab={tabs[2]}
@@ -104,7 +104,7 @@ function FilterAndTabs(props) {
             />
           </div>
         </TabPanel>
-        <TabPanel>
+        <TabPanel className={s.tabPanel} data-isShown={tabIndex===3}>
           <div className={s.wrapper}>
             <Filter
               tab={tabs[3]}

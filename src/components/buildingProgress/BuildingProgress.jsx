@@ -100,6 +100,7 @@ function BuildingProgress(props) {
         // spaceBetween={30}
         slidesPerView={"auto"}
         freeMode={true}
+        grabCursor={true}
         scrollbar={{ dragSize: 100 }}
         mousewheel={true}
         modules={[FreeMode, Scrollbar, Mousewheel]}

@@ -10,7 +10,7 @@ import NewsCard from "../newsCard";
 
 function NewsGrid(props) {
   const [newsArray, setNewsArray] = useState(null);
-  const [maxAmountNews, setMaxAmountNews] = useState(3);
+  const [maxAmountNews, setMaxAmountNews] = useState(props?.maxAmountNews);
   const navigate = useNavigate();
 
   useEffect(() => {

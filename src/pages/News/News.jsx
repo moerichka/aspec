@@ -46,7 +46,7 @@ function News(props) {
           <TabPanel className={s.tabpanel}>
             <NewsGrid
               buttonShowMore={true}
-              // maxAmountNews={3}
+              maxAmountNews={6}
               buttonAll={false}
               titlewrapper={false}
             />
@@ -54,7 +54,7 @@ function News(props) {
           <TabPanel className={s.tabpanel}>
             <NewsGrid
               buttonShowMore={true}
-              // maxAmountNews={12}
+              maxAmountNews={6}
               buttonAll={false}
               titlewrapper={false}
             />

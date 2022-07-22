@@ -67,6 +67,16 @@
     border-color: var(--blue-hover);
 }
 
+.tabPanel{
+    opacity: 0;
+    transition: var(--transition2);
+
+}
+
+.tabPanel[data-isShown="true"]{
+    opacity: 1;
+}
+
 .navLine {
     position: absolute;
     width: 100%;

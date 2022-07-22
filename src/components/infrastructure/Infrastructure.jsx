@@ -17,12 +17,21 @@ import Transportpink from "../../assets/images/transportpink.svg";
 
 function Infrastructure(props) {
   const [data, setData] = useState(null);
-  console.log('data: ', data);
   const [windowWidth, setWindowWidth] = useState(window.screen.width);
   const [isLegendActive, setIsLegendActive] = useState(false);
+  const [locations, setLocations] = useState({
+    culture: true,
+    medecine: true,
+    education: true,
+    shop: true,
+    food: true,
+    sport: true,
+    transport: true,
+    kindergarden: true,
+  });
 
   useEffect(() => {
-    setData(props?.project)
+    setData(props?.project);
   }, [props]);
 
   useEffect(() => {
@@ -59,16 +68,22 @@ function Infrastructure(props) {
     }
   };
 
+  const clickHandler = (location) => {
+    setLocations((prev) => ({ ...prev, [location]: !prev[location] }));
+  };
+
   return (
     <div className="infrastructure">
       <div className="container">
         <h2 className="h2-title">Инфраструктура</h2>
       </div>
       <div className={s.mapwrapper}>
-        {console.log(data?.location)}
         <YMaps>
           <Map
-            defaultState={{ center: data?.location ? data?.location : [55.75, 37.57], zoom: 18 }}
+            defaultState={{
+              center: data?.location ? data?.location : [55.75, 37.57],
+              zoom: 18,
+            }}
             width="100vw"
             height={mapHeight}
             instanceRef={(ref) => {
@@ -87,7 +102,7 @@ function Infrastructure(props) {
               />
             )}
             {data?.nearerObjects?.map((obj) => (
-              <Placemark
+              locations[obj?.type] && <Placemark
                 key={obj?.id}
                 modules={["geoObject.addon.balloon"]}
                 defaultGeometry={obj?.location}
@@ -115,21 +130,33 @@ function Infrastructure(props) {
               onClick={() => setIsLegendActive(false)}
             ></span>
           </div>
-          <div className={s.element}>
+          <div
+            className={s.element}
+            onClick={() => clickHandler("culture")}
+            data-isactive={locations?.culture}
+          >
             <div className={s.left}>
               <span className={`icon-culture ${s.logo} ${s.culture}`}></span>
               <div className={s.title}>Культура и отдых</div>
             </div>
             <div className={s.amount}>6</div>
           </div>
-          <div className={s.element}>
+          <div
+            className={s.element}
+            onClick={() => clickHandler("medecine")}
+            data-isactive={locations?.medecine}
+          >
             <div className={s.left}>
               <span className={`icon-medicine ${s.logo} ${s.medicine}`}></span>
               <div className={s.title}>Медицина</div>
             </div>
             <div className={s.amount}>1</div>
           </div>
-          <div className={s.element}>
+          <div
+            className={s.element}
+            onClick={() => clickHandler("education")}
+            data-isactive={locations?.education}
+          >
             <div className={s.left}>
               <span
                 className={`icon-education ${s.logo} ${s.education}`}
@@ -138,28 +165,44 @@ function Infrastructure(props) {
             </div>
             <div className={s.amount}>2</div>
           </div>
-          <div className={s.element}>
+          <div
+            className={s.element}
+            onClick={() => clickHandler("shop")}
+            data-isactive={locations?.shop}
+          >
             <div className={s.left}>
               <span className={`icon-shop ${s.logo} ${s.shop}`}></span>
               <div className={s.title}>Торговля</div>
             </div>
             <div className={s.amount}>2</div>
           </div>
-          <div className={s.element}>
+          <div
+            className={s.element}
+            onClick={() => clickHandler("food")}
+            data-isactive={locations?.food}
+          >
             <div className={s.left}>
               <span className={`icon-food ${s.logo} ${s.food}`}></span>
               <div className={s.title}>Еда</div>
             </div>
             <div className={s.amount}>3</div>
           </div>
-          <div className={s.element}>
+          <div
+            className={s.element}
+            onClick={() => clickHandler("sport")}
+            data-isactive={locations?.sport}
+          >
             <div className={s.left}>
               <span className={`icon-sport ${s.logo} ${s.sport}`}></span>
               <div className={s.title}>Спорт</div>
             </div>
             <div className={s.amount}>1</div>
           </div>
-          <div className={s.element}>
+          <div
+            className={s.element}
+            onClick={() => clickHandler("transport")}
+            data-isactive={locations?.transport}
+          >
             <div className={s.left}>
               <span
                 className={`icon-transport ${s.logo} ${s.transport}`}
@@ -168,7 +211,11 @@ function Infrastructure(props) {
             </div>
             <div className={s.amount}>4</div>
           </div>
-          <div className={s.element}>
+          <div
+            className={s.element}
+            onClick={() => clickHandler("kindergarden")}
+            data-isactive={locations?.kindergarden}
+          >
             <div className={s.left}>
               <span
                 className={`icon-transport ${s.logo} ${s.transportpink}`}

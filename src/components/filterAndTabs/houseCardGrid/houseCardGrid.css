@@ -7,22 +7,40 @@
 
 /* .grid__mapWrapper */
 
-.ymaps-2-1-79-balloon__content{
+.grid .ymaps-2-1-79-balloon{
+    animation: displaying var(--transition) linear;
+}@media (max-width: 300px) {
+    .houseCard__container{
+        min-width: 100%;
+    }
+}
+
+@keyframes displaying {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.grid .ymaps-2-1-79-balloon__content{
     min-height: min-content !important;
+    width: min-content !important;
     padding: 0 !important;
     margin: 0 !important;
 }
 
-.ymaps-2-1-79-balloon__layout{
+.grid .ymaps-2-1-79-balloon__layout{
     position: relative !important;
 }
 
-.ymaps-2-1-79-balloon__close-button{
+.grid .ymaps-2-1-79-balloon__close-button{
     right: 0 !important;
     position: absolute !important;
 }
 
-.ymaps-2-1-79-balloon__content > ymaps{
+.grid .ymaps-2-1-79-balloon__content > ymaps{
     height: min-content !important;
 }
 
@@ -32,5 +50,3 @@
         height: 100%;
     }
 }
-
-

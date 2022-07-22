@@ -12,37 +12,37 @@
 
 @font-face {
     font-family: 'Neris-Light';
-    font-display: swap;
+    font-display: block;
     src: local('Neris-Light'), url("./assets/fonts/Neris-Light.otf") format('opentype');
 }
 
 @font-face {
     font-family: 'Neris-SemiBold';
-    font-display: swap;
+    font-display: block;
     src: local('Neris-SemiBold'), url("./assets/fonts/Neris-SemiBold.otf") format('opentype');
 }
 
 @font-face {
     font-family: 'Montserrat-Regular';
-    font-display: swap;
+    font-display: block;
     src: local('Montserrat-Regular'), url("./assets/fonts/Montserrat-Regular.ttf") format('truetype');
 }
 
 @font-face {
     font-family: 'Montserrat-Medium';
-    font-display: swap;
+    font-display: block;
     src: local('Montserrat-Medium'), url("./assets/fonts/Montserrat-Medium.ttf") format('truetype');
 }
 
 @font-face {
     font-family: 'Montserrat-SemiBold';
-    font-display: swap;
+    font-display: block;
     src: local('Montserrat-SemiBold'), url("./assets/fonts/Montserrat-SemiBold.ttf") format('truetype');
 }
 
 @font-face {
     font-family: 'Montserrat-Bold';
-    font-display: swap;
+    font-display: block;
     src: local('Montserrat-Bold'), url("./assets/fonts/Montserrat-Bold.ttf") format('truetype');
 }
 

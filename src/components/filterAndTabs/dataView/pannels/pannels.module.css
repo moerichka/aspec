@@ -109,11 +109,11 @@
     user-select: none;
 }
 
-.flatwrapper[data-status="booked"] {
+/* .flatwrapper[data-status="booked"] {
     padding: 5px;
-}
+} */
 
-.flatwrapper[data-status="booked"]::after {
+/* .flatwrapper[data-status="booked"]::after {
     position: absolute;
     content: "";
     backdrop-filter: blur(1px);
@@ -122,7 +122,7 @@
     height: 100%;
     left: 0;
     top: 0;
-}
+} */
 
 .flatwrapper[data-status="booked"] .flat {
     background-color: var(--yellow);

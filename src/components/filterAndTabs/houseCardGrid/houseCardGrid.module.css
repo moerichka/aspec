@@ -144,7 +144,7 @@
 
 /* .mapWrapper */
 
-.ymaps-2-1-79-balloon__content{
+/* .ymaps-2-1-79-balloon__content{
     min-height: min-content !important;
     padding: 0 !important;
     margin: 0 !important;
@@ -161,7 +161,7 @@
 
 .ymaps-2-1-79-balloon__content > ymaps{
     height: min-content !important;
-}
+} */
 
 @media (max-width: 1240px) {
     .bottomWrapper {
