@@ -106,6 +106,7 @@ function CustomSelector(props) {
         margin: "0",
         padding: "5px 0",
         fontFamily: "Montserrat-Medium",
+        // fontSize: props?.valueFS ? props?.valueFS : props?.isHeader ? "14px" : "",
         fontSize: props?.isHeader ? "14px" : "",
       };
     },
@@ -176,6 +177,7 @@ CustomSelector.propTypes = {
   fontSize: PropTypes.string,
   fontFamily: PropTypes.string,
   optionFontFamily: PropTypes.string,
+  valueFS: PropTypes.string,
   placeholder: PropTypes.string,
   lineHeight: PropTypes.string,
   onlytel: PropTypes.bool, // телефонный размер экрана
@@ -197,6 +199,7 @@ CustomSelector.defaultProps = {
   bgColor: "gray",
   color: "unset",
   fontSize: "16px",
+  valueFS: "14px",
   lineHeight: "",
   placeholder: "Выберите",
   fontFamily: "Neris-Light",

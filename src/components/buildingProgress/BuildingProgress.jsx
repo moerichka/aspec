@@ -10,6 +10,7 @@ import "swiper/css/scrollbar";
 import "swiper/css/free-mode";
 
 import { FreeMode, Scrollbar, Mousewheel } from "swiper";
+import CustomSelector from "../customSelector";
 
 import { createOptions, getUnique, sortDates } from "../../helpers/arrayFun";
 import {
@@ -65,7 +66,7 @@ function BuildingProgress(props) {
         <div className={s.selectors}>
           <div className={s.selector}>
             <div className={s.selectortitle}>Выберите месяц и год</div>
-            <Select
+            {/* <Select
               placeholder="Выберите..."
               options={dateOptions}
               classNamePrefix="buildingProgress"
@@ -75,6 +76,22 @@ function BuildingProgress(props) {
               onChange={(selected) => {
                 setChosenDate(selected);
               }}
+            /> */}
+            <CustomSelector 
+              options={dateOptions}
+              defaultValue={chosenDate}
+              value={chosenDate}
+              setChosen={setChosenDate}
+              fontSize={"16px"}
+              valueFS={"16px"}
+              bgColor={"white"}
+              fontFamily={"Neris-Light"}
+              isSearchable={false}
+              padding={"18px 0 19px 20px"}
+              indicatorSize={"16px"}
+              optionPadding={"11px 12px"}
+              optionFontFamily={"Montserrat-Regular"}
+              placeholder={"Выберите..."}
             />
           </div>
           <div className={s.selector}>

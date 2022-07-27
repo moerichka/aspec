@@ -44,6 +44,12 @@
     height: min-content !important;
 }
 
+.ymaps-2-1-79-ground-pane{
+    filter: grayscale(90%) hue-rotate(100deg) contrast(100%) !important;
+    -webkit-filter: grayscale(90%) hue-rotate(100deg) contrast(100%) !important;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1) !important;
+  }
+
 @media (max-width: 1230px) {
     .grid__mapWrapper {
         width: 100%;
