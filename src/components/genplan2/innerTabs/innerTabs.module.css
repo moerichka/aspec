@@ -391,7 +391,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .tabs {
         left: 25px;
     }
