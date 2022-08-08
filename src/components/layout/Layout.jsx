@@ -1,12 +1,14 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
-import s from "./layout.module.css";
-import "./layout.css";
+import PropTypes from "prop-types"
 
-import Button from "../button";
+import "./layout.css";
 
 import ProgressiveImage from "react-progressive-graceful-image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Import Swiper styles
 import "swiper/css";
@@ -21,13 +23,15 @@ import {
   getDaysAmount,
 } from "../../helpers/stringsFun";
 
+import s from "./layout.module.css";
+
 function Layout(props) {
   const [isFavored, setIsFavored] = useState(props?.room?.favored);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const pagination = {
     clickable: true,
-    renderBullet: function (index, className) {
+    renderBullet (index, className) {
       return `<span class=${`${className}`}></span>`;
     },
   };
@@ -49,7 +53,7 @@ function Layout(props) {
                 <div className={s.notification}>Новые корпуса</div>
               )}
             </div>
-            {!props?.favoritestyle && (
+            {!props?.favoriteStyle && (
               <div className={s.amount}>
                 {getFlatAmount(props?.room?.amount)}
               </div>
@@ -61,18 +65,18 @@ function Layout(props) {
               data-favorite="true"
               onClick={() => setIsFavored((prev) => !prev)}
             >
-              <span className="icon-mark-fill"></span>
+              <span className="icon-mark-fill" />
             </div>
           ) : (
             <div
               className={s.topright}
               onClick={() => setIsFavored((prev) => !prev)}
             >
-              <span className="icon-mark"></span>
+              <span className="icon-mark" />
             </div>
           )}
         </div>
-        <div className={s.swiperwrapper}>
+        <div className={s.swiperWrapper}>
           <Swiper
             spaceBetween={30}
             pagination={pagination}
@@ -80,16 +84,16 @@ function Layout(props) {
             className="mySwiper"
           >
             {props?.room?.layouts?.map((elem, index) => (
+              // eslint-disable-next-line react/no-array-index-key
               <SwiperSlide key={index}>
                 <Link
                   to={`/project/${props?.room?.projectId}/layout/${props?.room?.id}`}
                 >
                   <div className={s.imgwrapper}>
-                    {elem.smallimage ? (
+                    {elem.imageSmall ? (
                       <ProgressiveImage
-                        delay={3000}
                         src={`${PF}${elem?.image}`}
-                        placeholder={`${PF}${elem?.smallimage}`}
+                        placeholder={`${PF}${elem?.imageSmall}`}
                       >
                         {(src, loading) => (
                           <img
@@ -135,14 +139,14 @@ function Layout(props) {
               <div className={s.value}>{props?.room?.house}</div>
             </div>
           </div>
-          {props?.favoritestyle && (
+          {props?.favoriteStyle && (
             <div className={s.finishingin}>Отделка Включена</div>
           )}
           <div className={s.datewrapper}>
-            {props?.favoritestyle ? (
+            {props?.favoriteStyle ? (
               <>
-                <span className="icon-location"></span>
-                {dayQuantityObject?.ishappened ? (
+                <span className="icon-location" />
+                {dayQuantityObject?.isHappened ? (
                   <div className={s.opendate} data-favoredstyle="true">
                     Дом сдан{" "}
                     <span className={s.greendate}>
@@ -161,7 +165,7 @@ function Layout(props) {
               </>
             ) : (
               <>
-                <span className="icon-home"></span>
+                <span className="icon-home" />
                 <div className={s.opendate}>
                   Срок сдачи {dateConverterToQuarter(props?.room?.openDate)}
                 </div>
@@ -173,5 +177,15 @@ function Layout(props) {
     </div>
   );
 }
+
+Layout.propTypes = {
+  room: {},
+  favoriteStyle: PropTypes.bool
+};
+
+Layout.defaultProps = {
+  room: {},
+  favoriteStyle: false
+};
 
 export default Layout;

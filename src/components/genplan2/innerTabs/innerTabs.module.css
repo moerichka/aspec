@@ -1,0 +1,394 @@
+.innerTabs {
+    width: 100%;
+}
+
+.tabLeader {
+    width: 100%;
+    margin-top: 62px;
+    position: relative;
+}
+
+.tabs {
+    position: absolute;
+    left: 45px;
+    top: 32px;
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    z-index: 2;
+}
+
+.tabs[data-visible="false"] {
+    opacity: 1;
+}
+
+.tab {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+
+    padding: 0 21px;
+    background-color: var(--white-09);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    color: var(--gray-text);
+    transition: var(--transition);
+    cursor: pointer;
+    user-select: none;
+}
+
+.tab[data-invisible="true"] {
+    padding: 0;
+    width: 0;
+    height: 0;
+}
+
+.tab:not(.tabSelected):hover {
+    background-color: var(--white);
+}
+
+.tabSelected {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.tabSelected:hover {
+    background-color: var(--green-hover);
+}
+
+.tabvisible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.tabPanel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabarrow {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transform: rotate(180deg);
+}
+
+.visibleContainer{
+    width: 100%;
+    overflow-x: auto;
+    max-height: 700px;
+    border-radius: 5px;
+}
+
+.imgWrapper {
+    width: max-content;
+    position: relative;
+    
+}
+
+.img {
+    width: max-content;
+    /* height: auto; */
+    height: 700px;
+}
+
+@media (max-width: 1030px) {
+    .img {
+        height: 500px;
+    }
+}
+
+/* @media (max-width: 750px) {
+    .img {
+        height: 340px;
+    }
+} */
+
+@media (max-width: 450px) {
+    .img {
+        height: 485px;
+        width: 100%;
+    }
+}
+
+.layoutwrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    min-height: 700px;
+    background-color: var(--bg-transparent3);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.firstpart {
+    margin-top: 111px;
+    margin-left: 40px;
+}
+
+.layoutcorpus {
+    font-size: 22px;
+    line-height: 32px;
+    font-family: Montserrat-Bold;
+}
+
+.layoutsection {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--gray-text);
+}
+
+.layoutlevels {
+    margin-top: 22px;
+}
+
+.layouttitle {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.layoutlevelstitle {
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    color: var(--light-gray-text);
+}
+
+.levelsgrid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 40px);
+    max-height: 390px;
+    max-width: 140px;
+    gap: 10px;
+    overflow: auto;
+}
+
+.level {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    user-select: none;
+    transition: var(--transition);
+}
+
+.level:not(.selectedlevel):hover {
+    background-color: var(--white);
+}
+
+.selectedlevel {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.selectedlevel:hover {
+    background-color: var(--blue-hover);
+}
+
+.secondpart {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: 114px 112px 36px 124px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.layoutimgWrapper {
+    max-width: 830px;
+    max-height: 507px;
+    position: relative;
+}
+
+.layoutimg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: darken;
+}
+
+.roomsamount {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--light-gray-text);
+}
+
+@media (min-width: 500px) and (max-width: 740px) {
+    .layoutContainer{
+        padding: 0 46px;
+    }
+}
+@media (max-width: 500px) {
+    .layoutContainer{
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .layoutwrapper {
+        min-height: 500px;
+    }
+
+    .tabs {
+        left: 20px;
+        top: 20px;
+    }
+
+    .firstpart {
+        margin-top: 82px;
+        margin-left: 20px;
+    }
+
+    .layoutcorpus {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .layoutsection {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .layoutlevels {
+        margin-top: 13px;
+    }
+
+    .levelsgrid {
+        max-width: 100px;
+        grid-template-columns: repeat(auto-fit, 30px);
+        gap: 5px;
+    }
+
+    .level {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .tab {
+        font-size: 14px;
+        line-height: 32px;
+    }
+}
+
+@media (max-width: 940px) {
+
+    .secondpart {
+        margin: 114px 100px 36px 100px;
+    }
+}
+
+@media (max-width: 830px) {
+
+    .secondpart {
+        margin: 114px 80px 26px 80px;
+    }
+}
+
+@media (max-width: 740px) {
+    .tabs{
+        left: 60px;
+    }
+
+    .layoutwrapper {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .firstpart {
+        margin-right: 20px;
+    }
+
+    .layoutlevels {
+        margin-top: 11px;
+    }
+
+    .levelsgrid {
+        /* max-width: 310px; */
+        max-width: unset;
+    }
+
+    .secondpart {
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .roomsamount {
+        margin-top: 18px;
+        margin-bottom: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tabs {
+        gap: 5px;
+        /* left: 10px; */
+        top: 10px;
+    }
+
+    .tab {
+        font-size: 12px;
+        line-height: 24px;
+        padding: 3px 12.5px;
+    }
+
+    .tabarrow {
+        width: 30px;
+        height: 30px;
+    }
+
+    .firstpart{
+        margin: 59px 10px 0 10px;
+    }
+
+    .layoutcorpus {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .layoutsection {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .roomsamount {
+        font-size: 13px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tabs {
+        left: 25px;
+    }
+}

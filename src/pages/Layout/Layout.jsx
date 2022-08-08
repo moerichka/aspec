@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import s from "./layout.module.css";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import PropTypes from "prop-types"
+
+import { useParams, Link } from "react-router-dom";
 import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
@@ -17,10 +18,11 @@ import Mortgage from "../../components/mortgage";
 
 import { NoMatchPage } from "../NoMatch";
 
-import { houseCards } from "../../dummyData.js";
+import { houseCards } from "../../dummyData";
+
+import s from "./layout.module.css";
 
 function Layout(props) {
-  const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const [layout, setLayout] = useState(null);
   const { projectId } = useParams();
@@ -28,7 +30,7 @@ function Layout(props) {
 
   useEffect(() => {
     setProject(
-      houseCards?.filter((project) => project.id.toString() === projectId)[0]
+      houseCards?.filter((item) => item.id.toString() === projectId)[0]
     );
   }, [projectId]);
 
@@ -39,24 +41,25 @@ function Layout(props) {
   }, [project, layoutId]);
 
   useEffect(() => {
-    const thisProject = houseCards?.filter((project) => project?.id?.toString() === projectId)[0] 
+    const thisProject = houseCards?.filter((item) => item?.id?.toString() === projectId)[0] 
     const thisLayout = thisProject?.flats?.filter((flat) => flat?.id?.toString() === layoutId)[0]
+    // eslint-disable-next-line no-empty
     if(!!thisProject && !!thisLayout){}else{
       throw new Error("Квартира не найдена")
     }
-  }, [project, layoutId]);
+  }, [project, layoutId, projectId]);
 
   const wayArray = [
     {
       title: (
-        <Link to="/" className="dashnav__link">
+        <Link to="/" className="dash-nav__link">
           Главная
         </Link>
       ),
     },
     {
       title: (
-        <Link to="/projects" className="dashnav__link">
+        <Link to="/projects" className="dash-nav__link">
           Все проекты
         </Link>
       ),
@@ -66,7 +69,7 @@ function Layout(props) {
 
   return (
     <div className={s.layout}>
-      <Header withLine={true} BGcolor={"gray"} />
+      <Header withLine BGColor="gray" />
       <Scroller />
       <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
@@ -79,11 +82,11 @@ function Layout(props) {
           title={layout?.about?.title}
           text={layout?.about?.text}
           images={layout?.about?.images}
-          bgWhite={true}
+          bgWhite
         />
       </div>
       <div className={s.projectLayouts}>
-        <ProjectLayouts project={project} title={"Похожие варианты"} />
+        <ProjectLayouts project={project} title="Похожие варианты" />
       </div>
       <div className={s.mortgage}>
         <Mortgage project={project} />
@@ -100,10 +103,20 @@ function Layout(props) {
   );
 }
 
+Layout.propTypes = {
+  tabIndex: PropTypes.number,
+};
+
+Layout.defaultProps = {
+  tabIndex: 0,
+};
+
 export default withErrorBoundary(Layout, {
   fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
   }
 });

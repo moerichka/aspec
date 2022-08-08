@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./noMatch.module.css";
+
 import { Link, useNavigate } from "react-router-dom";
 
 import Header from "../../components/header";
@@ -12,23 +12,25 @@ import error4042 from "../../assets/images/404error2.png";
 import error405 from "../../assets/images/405error.png";
 import error406 from "../../assets/images/406error.png";
 
+import s from "./noMatch.module.css";
+
 function NoMatchPage() {
   const navigate = useNavigate();
   return (
     <div className={s.noMatch}>
-      <Header withLine={true} />
-      <div className={s.errorcontent}>
+      <Header withLine />
+      <div className={s.errorContent}>
         <div className={s.container}>
-          <h2 className={s.nopagetitle}>Ой-ой страница не найдена...</h2>
-          <div className={s.imgnopagewrapper}>
-            <img src={error404} alt="" className={s.imgnopage} />
+          <h2 className={s.noPageTitle}>Ой-ой страница не найдена...</h2>
+          <div className={s.imgNoPageWrapper}>
+            <img src={error404} alt="" className={s.imgNoPage} />
           </div>
-          <div className={s.buttonnopage}>
+          <div className={s.buttonNoPage}>
             <Button
-              onClick={() => navigate("/estateselection")}
-              content={"Показать 4850 предложений"}
-              bgColor="green"
-              width={"266px"}
+              onClick={() => navigate("/estate-selection")}
+              content="Показать 4850 предложений"
+              BGColor="green"
+              width="266px"
             />
           </div>
         </div>
@@ -42,7 +44,7 @@ function NoMatch404() {
   const wayArray = [
     {
       title: (
-        <Link to="/" className="dashnav__link">
+        <Link to="/" className="dash-nav__link">
           Главная
         </Link>
       ),
@@ -52,24 +54,24 @@ function NoMatch404() {
 
   return (
     <div className={s.noMatch}>
-      <Header withLine={true} />
+      <Header withLine />
       <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.content}>
         <div className={s.container404}>
-          <div className={s.desctop}>
-            <h2 className={s.errortitle}>Упс! Это ошибка 404.</h2>
-            <p className={s.errordesc}>
+          <div className={s.descTop}>
+            <h2 className={s.errorTitle}>Упс! Это ошибка 404.</h2>
+            <p className={s.errorDesc}>
               Мы посчитали и убедились, что это на 9 367 меньше, чем планировок
               у “Аспек Домстрой”. Убедитесь в этом сами.
             </p>
             <div className={s.button}>
               <Button
-                onClick={() => navigate("/estateselection")}
-                content={"Показать 4850 предложений"}
-                bgColor="green"
-                width={"266px"}
+                onClick={() => navigate("/estate-selection")}
+                content="Показать 4850 предложений"
+                BGColor="green"
+                width="266px"
               />
             </div>
           </div>
@@ -77,15 +79,15 @@ function NoMatch404() {
             <div className={s.img404wrapper}>
               <img src={error4042} className={s.img404} alt="" />
             </div>
-            <div className={s.separator}></div>
-            <div className={s.rightpart}>
-              <h2 className={s.errortitle}>Cтраница не найдена</h2>
+            <div className={s.separator} />
+            <div className={s.rightPart}>
+              <h2 className={s.errorTitle}>Страница не найдена</h2>
               <div className={s.button}>
                 <Button
-                  onClick={() => navigate("/estateselection")}
-                  content={"Показать 4850 предложений"}
-                  bgColor="green"
-                  width={"266px"}
+                  onClick={() => navigate("/estate-selection")}
+                  content="Показать 4850 предложений"
+                  BGColor="green"
+                  width="266px"
                 />
               </div>
             </div>
@@ -101,7 +103,7 @@ function NoMatch405() {
   const wayArray = [
     {
       title: (
-        <Link to="/" className="dashnav__link">
+        <Link to="/" className="dash-nav__link">
           Главная
         </Link>
       ),
@@ -111,7 +113,7 @@ function NoMatch405() {
 
   return (
     <div className={s.noMatch}>
-      <Header withLine={true} />
+      <Header withLine />
       <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>
@@ -120,18 +122,18 @@ function NoMatch405() {
           <div className={s.img405wrapper}>
             <img src={error405} className={s.img405} alt="" />
           </div>
-          <div className={s.rightpart405}>
-            <h2 className={s.errortitle}>Упс! Это ошибка 404.</h2>
-            <p className={s.errordesc}>
+          <div className={s.rightPart405}>
+            <h2 className={s.errorTitle}>Упс! Это ошибка 404.</h2>
+            <p className={s.errorDesc}>
               Мы посчитали и убедились, что это на 9 367 меньше, чем планировок
               у “Аспек Домстрой”. Убедитесь в этом сами.
             </p>
             <div className={s.button}>
               <Button
-                onClick={() => navigate("/estateselection")}
-                content={"Показать 4850 предложений"}
-                bgColor="green"
-                width={"266px"}
+                onClick={() => navigate("/estate-selection")}
+                content="Показать 4850 предложений"
+                BGColor="green"
+                width="266px"
               />
             </div>
           </div>
@@ -146,7 +148,7 @@ function NoMatch406() {
   const wayArray = [
     {
       title: (
-        <Link to="/" className="dashnav__link">
+        <Link to="/" className="dash-nav__link">
           Главная
         </Link>
       ),
@@ -156,7 +158,7 @@ function NoMatch406() {
 
   return (
     <div className={s.noMatch}>
-      <Header withLine={true} />
+      <Header withLine />
       <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>
@@ -165,18 +167,18 @@ function NoMatch406() {
           <div className={s.img406wrapper}>
             <img src={error406} className={s.img405} alt="" />
           </div>
-          <div className={s.rightpart405}>
-            <h2 className={s.errortitle}>Упс! Это ошибка 404.</h2>
-            <p className={s.errordesc}>
+          <div className={s.rightPart405}>
+            <h2 className={s.errorTitle}>Упс! Это ошибка 404.</h2>
+            <p className={s.errorDesc}>
               Мы посчитали и убедились, что это на 9 367 меньше, чем планировок
               у “Аспек Домстрой”. Убедитесь в этом сами.
             </p>
             <div className={s.button}>
               <Button
-                onClick={() => navigate("/estateselection")}
-                content={"Показать 4850 предложений"}
-                bgColor="green"
-                width={"266px"}
+                onClick={() => navigate("/estate-selection")}
+                content="Показать 4850 предложений"
+                BGColor="green"
+                width="266px"
               />
             </div>
           </div>

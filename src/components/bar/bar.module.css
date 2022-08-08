@@ -1,0 +1,35 @@
+.bar {
+    width: 100vw;
+    max-width: 100%;
+    height: 7px;
+    max-height: 100%;
+    position: relative;
+}
+
+.gradientBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 72%;
+    height: 100%;
+    background-color: rgb(55, 181, 171);
+    background: linear-gradient(90deg, rgba(55, 181, 171, 1) 6%, rgba(52, 177, 170, 1) 35%, rgba(36, 67, 125, 1) 100%);
+    z-index: 2;
+    clip-path: polygon(0% 0%, 0% 100%, 99.5% 100%, 100% 0%);
+}
+
+.yellowBar{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 35%;
+    height: 100%;
+    background-color: #FFCF1F;
+    z-index: 1;
+}
+
+@media (max-width: 1240px) {
+    .bar{
+        height: 5px;
+    }
+}

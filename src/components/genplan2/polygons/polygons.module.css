@@ -1,0 +1,294 @@
+.wholeGround{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.wholeGroundOutside{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+.polygonWrapper {
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.polygon {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: var(--transition);
+    cursor: pointer;
+    background-color: hsla(175, 53%, 46%, 0.4);
+    pointer-events: all;
+    z-index: 1;
+}
+
+.polygonWrapper[data-centred="true"] {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.infowrapper {
+    position: absolute;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 5;
+    left: 60%;
+}
+
+.infowrapper[data-top="okay"] {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.infowrapper[data-top="toLow"] {
+    top: 90%;
+    transform: translateY(-100%);
+}
+
+.infowrapper[data-top="toHigh"][data-left="toRight"] {
+    top: 10%;
+    left: -100%;
+    transform: translateY(0%);
+}
+
+.infowrapper[data-top="toLow"][data-left="toRight"] {
+    top: 90%;
+    left: -100%;
+    transform: translateY(-100%);
+}
+
+.infowrapper[data-top="toHigh"][data-left="okay"] {
+    top: 10%;
+    transform: translateY(0%);
+}
+
+.infowrapper[data-top="toLow"][data-left="okay"] {
+    top: 90%;
+    transform: translateY(-100%);
+}
+
+@media (min-width: 1031px) {
+
+    .polygonWrapper:hover {
+        z-index: 5;
+        transition: var(--transition);
+    }
+
+    .polygon:hover {
+        background-color: hsla(222, 64%, 27%, 0.4);
+    }
+
+    .polygonWrapper:hover .infowrapper {
+        opacity: 1;
+        left: 105%;
+    }
+
+    .polygonWrapper:hover .infowrapper[data-left="toRight"] {
+        left: 0;
+        transform: translateX(-110%) translateY(-50%);
+    }
+
+    .polygonWrapper:hover .infowrapper[data-top="toHigh"][data-left="toRight"] {
+        top: 10%;
+        left: 0;
+        transform: translateX(-110%) translateY(0%);
+    }
+
+    .polygonWrapper:hover .infowrapper[data-top="toLow"][data-left="toRight"] {
+        top: 90%;
+        left: 0;
+        transform: translateX(-110%) translateY(-100%);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1030px) {
+    .polygonWrapper:hover {
+        z-index: 1;
+        transition: var(--transition);
+    }
+
+    .polygon:hover {
+        background-color: hsla(222, 64%, 27%, 0.4);
+    }
+
+    .polygonWrapper:hover .infowrapper {
+        opacity: 1;
+        left: 10%;
+        transform: translateX(60%) translateY(-100%);
+    }
+
+    .polygonWrapper:hover .infowrapper[data-left="toRight"] {
+        left: 10%;
+        transform: translateX(-60%) translateY(-50%);
+    }
+
+    .polygonWrapper:hover .infowrapper[data-top="toHigh"][data-left="toRight"] {
+        top: 10%;
+        left: 10%;
+        transform: translateX(-60%) translateY(0%);
+    }
+
+    .polygonWrapper:hover .infowrapper[data-top="toLow"][data-left="toRight"] {
+        top: 90%;
+        left: 10%;
+        transform: translateX(-60%) translateY(-100%);
+    }
+}
+
+.number {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    line-height: 24px;
+    font-family: Montserrat-SemiBold;
+    color: var(--black-text);
+    background-color: var(--white);
+    padding: 3px 10px;
+    min-width: fit-content;
+    max-width: max-content;
+    border-radius: 5px;
+    transition: var(--transition);
+    user-select: none;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.flatnumber {
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 14px;
+    line-height: 17px;
+    padding: 6.5px 11.5px;
+    top: 40%;
+    left: 50%;
+}
+
+.outsideinfo {
+    position: absolute;
+}
+
+@media (min-width: 769px) {
+    .outsideinfo {
+        display: none;
+    }
+
+    .polygonWrapper:hover .number {
+        background-color: var(--blue);
+        color: var(--white);
+    }
+
+    .polygonWrapper:hover .flatnumber {
+        background-color: var(--green);
+        color: var(--white);
+    }
+
+}
+
+@media (max-width: 950px) {
+    .number {
+        font-size: 10px;
+        line-height: 18px;
+        padding: 0px 6px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .infowrapper {
+        top: 10%;
+    }
+
+    .infowrapper:hover {
+        top: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .outsideinfo {
+        position: absolute;
+        display: block;
+        opacity: 0;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: var(--transition);
+        pointer-events: none;
+        border-radius: 5px;
+    }
+
+    .outsideinfovisible{
+        opacity: 1;
+        pointer-events: all;
+        z-index: 5;
+    }
+
+    .infowrapper{
+        display: none;
+    }
+
+    .polygonWrapper[data-current="true"] {
+        z-index: 1;
+    }
+
+    .polygonWrapper[data-current="true"] .polygon {
+        background-color: hsla(222, 64%, 27%, 0.4);
+    }
+
+    .infowrappervisible {
+        opacity: 1;
+        left: 105%;
+    }
+
+    .polygonWrapper[data-current="true"] .infowrapper {
+        pointer-events: all;
+    }
+
+    .infowrappervisible .infowrapper[data-left="toRight"] {
+        left: 0;
+        transform: translateX(-110%) translateY(-50%);
+    }
+
+    .infowrappervisible .infowrapper[data-top="toHigh"][data-left="toRight"] {
+        top: 10%;
+        left: 0;
+        transform: translateX(-110%) translateY(0%);
+    }
+
+    .infowrappervisible .infowrapper[data-top="toLow"][data-left="toRight"] {
+        top: 90%;
+        left: 0;
+        transform: translateX(-110%) translateY(-100%);
+    }
+
+
+    .polygonWrapper[data-current="true"] .number {
+        background-color: var(--blue);
+        color: var(--white);
+    }
+
+    .polygonWrapper[data-current="true"] .flatnumber {
+        background-color: var(--green);
+        color: var(--white);
+    }
+
+}
+
+@media (max-width:450px) {
+    .outsideinfo{
+        border: 1px solid var(--green);
+    }
+}

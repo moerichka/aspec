@@ -30,7 +30,7 @@
     object-fit: cover;
 }
 
-.contentwrapper {
+.contentWrapper {
     padding: 23px 40px 0 40px;
     display: flex;
     flex-direction: column;
@@ -55,7 +55,7 @@
 }
 
 @media (max-width: 1200px) {
-    .contentwrapper{
+    .contentWrapper{
         padding: 14px 22px 0 22px;
         gap: 8px;
     }

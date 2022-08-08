@@ -1,12 +1,13 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from "react";
-import s from "./layoutCompare.module.css";
-import "./layoutCompare.css";
 
-import Button from "../button";
+import "./layoutCompare.css";
 
 import ProgressiveImage from "react-progressive-graceful-image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Import Swiper styles
 import "swiper/css";
@@ -20,20 +21,24 @@ import {
 } from "../../helpers/dateFun";
 import { priceConverterToMln, separator } from "../../helpers/stringsFun";
 
+import Button from "../button";
+
+import s from "./layoutCompare.module.css";
+
 function LayoutCompare(props) {
   const [isFavored, setIsFavored] = useState(props?.room?.favored);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   useEffect(() => {
-    window.addEventListener("resize", function () {
+    window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
   }, []);
 
   const pagination = {
     clickable: true,
-    renderBullet: function (index, className) {
+    renderBullet (index, className) {
       return `<span class=${`${className}`}></span>`;
     },
   };
@@ -60,18 +65,18 @@ function LayoutCompare(props) {
               data-favorite="true"
               onClick={() => setIsFavored((prev) => !prev)}
             >
-              <span className="icon-mark-fill"></span>
+              <span className="icon-mark-fill" />
             </div>
           ) : (
             <div
               className={s.topright}
               onClick={() => setIsFavored((prev) => !prev)}
             >
-              <span className="icon-mark"></span>
+              <span className="icon-mark" />
             </div>
           )}
         </div>
-        <div className={s.swiperwrapper}>
+        <div className={s.swiperWrapper}>
           <Swiper
             spaceBetween={30}
             pagination={pagination}
@@ -79,16 +84,16 @@ function LayoutCompare(props) {
             className="mySwiper"
           >
             {props?.room?.layouts?.map((elem, index) => (
+              // eslint-disable-next-line react/no-array-index-key
               <SwiperSlide key={index}>
                 <Link
                   to={`/project/${props?.room?.projectId}/layout/${props?.room?.id}`}
                 >
                   <div className={s.imgwrapper}>
-                    {elem.smallimage ? (
+                    {elem.imageSmall ? (
                       <ProgressiveImage
-                        delay={3000}
                         src={`${PF}${elem?.image}`}
-                        placeholder={`${PF}${elem?.smallimage}`}
+                        placeholder={`${PF}${elem?.imageSmall}`}
                       >
                         {(src, loading) => (
                           <img
@@ -140,7 +145,7 @@ function LayoutCompare(props) {
             <div className={s.compareElemnt}>
               <div className={s.compareTitle}>Название объекта</div>
               <div className={s.compareValue}>
-                {props?.room?.porjectType} {props?.room?.project}
+                {props?.room?.projectType} {props?.room?.project}
               </div>
               <div className={s.compareLine} />
             </div>
@@ -189,7 +194,7 @@ function LayoutCompare(props) {
             <div className={s.compareElemnt}>
               <div className={s.compareTitle}>Этаж</div>
               <div className={s.compareValue}>{props?.room?.level}</div>
-              <div className={s.compareLine}></div>
+              <div className={s.compareLine} />
             </div>
             <div className={s.compareElemnt}>
               <div className={s.compareTitle}>Срок сдачи</div>
@@ -198,22 +203,22 @@ function LayoutCompare(props) {
                   ? dateConverterToQuarter(props?.room?.openDate)
                   : dateConverterToMY(props?.room?.openDate)}
               </div>
-              <div className={s.compareLine}></div>
+              <div className={s.compareLine} />
             </div>
           </div>
           {windowWidth >= 1140 && (
             <div className={s.button}>
-              <Button content={"Забронировать"} bgColor="blue" />
+              <Button content="Забронировать" BGColor="blue" />
             </div>
           )}
           {windowWidth >= 440 && windowWidth < 1140 && (
             <div className={s.button}>
-              <Button content={"Забронировать"} bgColor="green" />
+              <Button content="Забронировать" BGColor="green" />
             </div>
           )}
           {windowWidth < 440 && (
             <div className={s.button}>
-              <Button content={"Забронировать"} bgColor="green" width="155px" />
+              <Button content="Забронировать" BGColor="green" width="155px" />
             </div>
           )}
         </div>
@@ -221,5 +226,13 @@ function LayoutCompare(props) {
     </div>
   );
 }
+
+LayoutCompare.propTypes = {
+  room: {},
+};
+
+LayoutCompare.defaultProps = {
+  room: {},
+};
 
 export default LayoutCompare;

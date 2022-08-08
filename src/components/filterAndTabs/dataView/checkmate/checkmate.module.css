@@ -175,14 +175,14 @@
     font-family: Montserrat-Medium;
 }
 
-.flatmeterprice {
+.flatmeterPrice {
     padding-left: 12px;
     font-size: 13px;
     line-height: 24px;
     font-family: Montserrat-Regular;
 }
 
-.flatinfo[data-status="sold"] .flatmeterprice, .flatinfo[data-status="booked"] .flatmeterprice {
+.flatinfo[data-status="sold"] .flatmeterPrice, .flatinfo[data-status="booked"] .flatmeterPrice {
     display: none;
 }
 
@@ -256,7 +256,7 @@
         line-height: 13px;
     }
 
-    .flatmeterprice {
+    .flatmeterPrice {
         padding-left: 10px;
         font-size: 11px;
         line-height: 13px;

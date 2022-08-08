@@ -1,0 +1,14 @@
+.selector {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 100%;
+}
+
+.dropboxleft {
+    min-width: 370px;
+}
+
+.dropboxright {
+    min-width: 220px;
+}

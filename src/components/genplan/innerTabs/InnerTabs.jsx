@@ -1,10 +1,12 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useEffect } from "react";
-import s from "./innerTabs.module.css";
-
-import Poligons from "../poligons";
+import PropTypes from "prop-types";
 
 import ProgressiveImage from "react-progressive-graceful-image";
 import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
+
+import Poligons from "../poligons";
 
 import { genplan } from "../../../dummyData";
 
@@ -17,19 +19,22 @@ import buildingImageSmall from "../../../assets/images/image22small.jpg";
 import layoutImage from "../../../assets/images/layout1.png";
 import Popup from "../popup/Popup";
 
+import s from "./innerTabs.module.css";
+
 function InnerTabs(props) {
   const [tabIndex, setTabIndex] = useState(0);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [chosenHousing, setChosenHousing] = useState(null);
   const [chosenSection, setChosenSection] = useState(null);
   const [chosenLevel, setChosenLevel] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [chosenFlat, setChosenFlat] = useState(null);
 
-  const imageProject = { image: projectImage, smallimage: projectImageSmall };
-  const imageSection = { image: sectionImage, smallimage: sectionImageSmall };
+  const imageProject = { image: projectImage, imageSmall: projectImageSmall };
+  const imageSection = { image: sectionImage, imageSmall: sectionImageSmall };
   const imageBuilding = {
     image: buildingImage,
-    smallimage: buildingImageSmall,
+    imageSmall: buildingImageSmall,
   };
 
   useEffect(() => {
@@ -57,7 +62,7 @@ function InnerTabs(props) {
     }
   };
 
-  const goback = () => {
+  const goBack = () => {
     setTabIndex(3);
     setIsPopupOpen(false);
   };
@@ -69,7 +74,7 @@ function InnerTabs(props) {
   return (
     <div className={s.innerTabs}>
       <Tabs
-        className={s.tableader}
+        className={s.tabLeader}
         selectedIndex={tabIndex}
         onSelect={(index) => setTabIndex(index)}
       >
@@ -81,19 +86,19 @@ function InnerTabs(props) {
             className={`${s.tab} ${s.tabarrow} ${
               tabIndex >= 1 ? s.tabvisible : ""
             }`}
-            selectedClassName={s.tabselected}
+            selectedClassName={s.tabSelected}
           >
-            <span className="icon-projectArrow"></span>
+            <span className="icon-projectArrow" />
           </Tab>
           <Tab
             className={`${s.tab} ${tabIndex >= 1 ? s.tabvisible : ""}`}
-            selectedClassName={s.tabselected}
+            selectedClassName={s.tabSelected}
           >
             Корпус {chosenHousing?.number}
           </Tab>
           <Tab
             className={`${s.tab} ${tabIndex >= 2 ? s.tabvisible : ""}`}
-            selectedClassName={s.tabselected}
+            selectedClassName={s.tabSelected}
           >
             Секция {chosenSection?.number}
           </Tab>
@@ -101,21 +106,21 @@ function InnerTabs(props) {
             // className={`${s.tab} ${tabIndex >= 3 ? s.tabvisible : ""}`}
             className={s.tab}
             data-invisible="true"
-            selectedClassName={s.tabselected}
-          ></Tab>
+            selectedClassName={s.tabSelected}
+           />
           <Tab
             // className={`${s.tab} ${tabIndex >= 4 ? s.tabvisible : ""}`}
             className={s.tab}
             data-invisible="true"
-            selectedClassName={s.tabselected}
-          ></Tab>
+            selectedClassName={s.tabSelected}
+           />
         </TabList>
         <TabPanel className={`${s.tabPanel} ${s.tabpanel1}`}>
           <div className={s.imgwrapper}>
-            {imageProject?.smallimage ? (
+            {imageProject?.imageSmall ? (
               <ProgressiveImage
                 src={imageProject?.image}
-                placeholder={imageProject?.smallimage}
+                placeholder={imageProject?.imageSmall}
               >
                 {(src, loading) => (
                   <img
@@ -138,18 +143,18 @@ function InnerTabs(props) {
             )}
             <Poligons
               poligons={genplan?.housings}
-              infocorpus={true}
+              infocorpus
               onClick={(polygon) => godown(polygon, "housing")}
-              centred={true}
+              centred
             />
           </div>
         </TabPanel>
         <TabPanel className={s.tabPanel}>
           <div className={s.imgwrapper}>
-            {imageSection?.smallimage ? (
+            {imageSection?.imageSmall ? (
               <ProgressiveImage
                 src={imageSection?.image}
-                placeholder={imageSection?.smallimage}
+                placeholder={imageSection?.imageSmall}
               >
                 {(src, loading) => (
                   <img
@@ -173,17 +178,17 @@ function InnerTabs(props) {
             <Poligons
               poligons={chosenHousing?.sections}
               onClick={(polygon) => godown(polygon, "section")}
-              infosection={true}
-              centred={true}
+              infosection
+              centred
             />
           </div>
         </TabPanel>
         <TabPanel className={s.tabPanel}>
           <div className={s.imgwrapper}>
-            {imageBuilding?.smallimage ? (
+            {imageBuilding?.imageSmall ? (
               <ProgressiveImage
                 src={imageBuilding?.image}
-                placeholder={imageBuilding?.smallimage}
+                placeholder={imageBuilding?.imageSmall}
               >
                 {(src, loading) => (
                   <img
@@ -207,8 +212,8 @@ function InnerTabs(props) {
             <Poligons
               poligons={chosenSection?.levels}
               onClick={(polygon) => godown(polygon, "level")}
-              infolevel={true}
-              centred={true}
+              infolevel
+              centred
             />
           </div>
         </TabPanel>
@@ -226,13 +231,13 @@ function InnerTabs(props) {
               <div className={s.layoutlevels}>
                 <span className={s.layoutlevelstitle}>Этаж</span>
                 <div className={s.levelsgrid}>
-                  {levels?.map((level, index) => (
+                  {levels?.map((level) => (
                     <div
                       className={`${s.level} ${
                         level === chosenLevel?.level ? s.selectedlevel : ""
                       }`}
                       onClick={() => props?.setChosenLevel(level)}
-                      key={index}
+                      key={level}
                     >
                       {level}
                     </div>
@@ -242,10 +247,10 @@ function InnerTabs(props) {
             </div>
             <div className={s.secondpart}>
               <div className={s.layoutimgwrapper}>
-                {layoutImage?.smallimage ? (
+                {layoutImage?.imageSmall ? (
                   <ProgressiveImage
                     src={imageProject?.image}
-                    placeholder={imageProject?.smallimage}
+                    placeholder={imageProject?.imageSmall}
                   >
                     {(src, loading) => (
                       <img
@@ -265,8 +270,8 @@ function InnerTabs(props) {
                 <Poligons
                   poligons={chosenLevel?.flats}
                   onClick={(polygon) => godown(polygon, "flat")}
-                  flatlevel={true}
-                  oneClick={true}
+                  flatlevel
+                  oneClick
                 />
               </div>
               <span className={s.roomsamount}>1 квартира в продаже</span>
@@ -274,11 +279,19 @@ function InnerTabs(props) {
           </div>
         </TabPanel>
         <TabPanel className={s.tabPanel}>
-          <Popup goback={goback} />
+          <Popup goBack={goBack} />
         </TabPanel>
       </Tabs>
     </div>
   );
 }
+
+InnerTabs.propTypes = {
+  setChosenLevel: PropTypes.func,
+};
+
+InnerTabs.defaultProps = {
+  setChosenLevel: () => {},
+};
 
 export default InnerTabs;

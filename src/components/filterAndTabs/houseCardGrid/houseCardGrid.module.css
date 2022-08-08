@@ -124,7 +124,7 @@
     animation: displaying var(--transition2) forwards;
 }
 
-.card[data-isopen="true"]{
+.card[data-is-open="true"]{
     opacity: 1;
 }
 

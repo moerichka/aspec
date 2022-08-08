@@ -1,0 +1,47 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:import/recommended",
+    "airbnb",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jsx-a11y/tabindex-no-positive": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always-and-inside-groups"
+      }
+    ],
+    "no-restricted-exports": "off",
+    "import/no-unresolved": "off",
+    "react/destructuring-assignment": "off",
+    "no-unused-vars": "warn"
+  }
+}

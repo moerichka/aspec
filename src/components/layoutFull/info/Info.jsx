@@ -1,14 +1,25 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
-import s from "./info.module.css";
+import PropTypes from "prop-types";
+
 import { Link } from "react-router-dom";
+
 import Button from "../../button/Button";
+import Share from "../../share/Share";
 
 import { dateConverterToQuarter } from "../../../helpers/dateFun";
 import { separator } from "../../../helpers/stringsFun";
 
+import QuestionForm from "../../questionForm";
+
+import s from "./info.module.css";
+
 function Info(props) {
   const [isFavored, setIsFavored] = useState(false);
-  const [finishingOn, setFinishingOn] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (
     <div className={s.info}>
@@ -22,14 +33,14 @@ function Info(props) {
             data-favorite="true"
             onClick={() => setIsFavored((prev) => !prev)}
           >
-            <span className="icon-mark-fill"></span>
+            <span className="icon-mark-fill" />
           </div>
         ) : (
           <div
             className={s.iconmark}
             onClick={() => setIsFavored((prev) => !prev)}
           >
-            <span className="icon-mark"></span>
+            <span className="icon-mark" />
           </div>
         )}
       </div>
@@ -54,29 +65,10 @@ function Info(props) {
         <span className={s.elemvalue}>{props?.layout?.street}</span>
         <span className={s.elemtitle}>Район</span>
         <span className={s.elemvalue}>{props?.layout?.district}</span>
+        <span className={s.elemtitle}>Отделка</span>
+        <span className={s.elemvalue}>+ {props?.layout?.finishingPrice} ₽</span>
       </div>
-      <div className={s.finishing}>
-        <div
-          className={`${s.toggler} ${finishingOn ? s.togglerOn : ""}`}
-          onClick={() => {
-            setFinishingOn((prev) => !prev);
-          }}
-        >
-          <div className={s.togglerpoint}></div>
-        </div>
-        <span
-          onClick={() => {
-            setFinishingOn((prev) => !prev);
-          }}
-        >
-          Добавить отделку{" "}
-          <span className={s.togglerbold}>
-            <span className={s.disappear}>стоимость</span> +{" "}
-            {props?.layout?.finishingPrice} ₽
-          </span>
-        </span>
-      </div>
-      <div className={s.line}></div>
+      <div className={s.line} />
       <div className={s.mortgage}>
         <span className={s.mortgagetitle}>Ипотека</span>
         <div className={s.mortgagevarients}>
@@ -93,25 +85,15 @@ function Info(props) {
         </div>
       </div>
       <div className={s.price}>
-        {props?.layout?.price
-          ? finishingOn
-            ? separator(props?.layout?.price + props?.layout?.finishingPrice)
-            : separator(props?.layout?.price)
-          : ""}
+        {separator(props?.layout?.price)}
         ₽
       </div>
       <div className={s.buttons}>
-        <Button
-          content={"Консультация"}
-          bgColor={"transparent"}
-          width={"155px"}
-        />
-        <Button content={"Забронировать"} bgColor={"blue"} width={"155px"} />
-        <Link to={""}>
-          <div className={s.share}>
-            <span className="icon-share"></span>
-          </div>
-        </Link>
+        <Button content="Консультация" BGColor="transparent" width="155px" onClick={()=> setIsPopupOpen(true) }/>
+        <Button content="Забронировать" BGColor="blue" width="155px" />
+        <div className={s.share}>
+          <Share />
+        </div>
         <div className={s.pdf}>
           <Link
             to={`/project/${props?.project?.id}/layout/${props?.layout?.id}/pdf`}
@@ -121,8 +103,28 @@ function Info(props) {
           </Link>
         </div>
       </div>
+      <div className={s.questionFormWrapper} data-is-open={isPopupOpen}>
+        <div className={s.questionForm}>
+          <QuestionForm isPopup closeClick={setIsPopupOpen}/> 
+        </div>
+        <div className={s.background} onClick={()=>setIsPopupOpen(false)}/>
+      </div>
     </div>
   );
 }
+
+Info.propTypes = {
+  project: PropTypes.object,
+  layout: PropTypes.object,
+  selectedLevel: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  amountOfLevels: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};
+
+Info.defaultProps = {
+  project: {},
+  layout: {},
+  selectedLevel: 0,
+  amountOfLevels: 1,
+};
 
 export default Info;

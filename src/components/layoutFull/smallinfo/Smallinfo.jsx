@@ -1,18 +1,21 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
-import s from "./smallinfo.module.css";
+import PropTypes from "prop-types";
 
 import Button from "../../button/Button";
 
+import s from "./smallinfo.module.css";
+
 function Smallinfo(props) {
-  let width, height, top, left, clipPath = ""
-  width = props?.infoVisible?.styles?.width;
-  height = props?.infoVisible?.styles?.height;
-  top = props?.infoVisible?.styles?.top;
-  left = props?.infoVisible?.styles?.left;
-  clipPath = props?.infoVisible?.styles?.clipPath
-  //, transform: `translateX(50px)`
+  // const width = props?.infoVisible?.styles?.width;
+  // const height = props?.infoVisible?.styles?.height;
+  const top = props?.infoVisible?.styles?.top;
+  const left = props?.infoVisible?.styles?.left;
+  // const clipPath = props?.infoVisible?.styles?.clipPath;
+
   return (
-    <div className={s.smallinfo} style={{top, left}}> 
+    <div className={s.smallinfo} style={{ top, left }}>
       <div>
         <h6 className={s.smallinfotitle}>
           {props?.title} №{props?.infoVisible?.number}
@@ -21,7 +24,7 @@ function Smallinfo(props) {
           <span>Цена</span>
           <span className={s.smallinfobold}>{props?.infoVisible?.price} ₽</span>
         </div>
-        <Button bgColor="green" content="Забронировать" width="174" />
+        <Button BGColor="green" content="Забронировать" width="174" />
       </div>
       <div
         className={s.iconclose}
@@ -29,10 +32,22 @@ function Smallinfo(props) {
           props.setInfoVisible(false);
         }}
       >
-        <span className="icon-cancel"></span>
+        <span className="icon-cancel" />
       </div>
     </div>
   );
 }
+
+Smallinfo.propTypes = {
+  infoVisible: {},
+  title: PropTypes.string,
+  setInfoVisible: PropTypes.func,
+};
+
+Smallinfo.defaultProps = {
+  infoVisible: {},
+  title: "",
+  setInfoVisible: () => {},
+};
 
 export default Smallinfo;

@@ -1,13 +1,14 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState } from "react";
-import s from "./infoShort.module.css";
-import { Link } from "react-router-dom";
-import Button from "../../../button/Button";
+import PropTypes from "prop-types";
 
 import { dateConverterToQuarter } from "../../../../helpers/dateFun";
 import { separator } from "../../../../helpers/stringsFun";
 
+import s from "./infoShort.module.css";
+
 function InfoShort(props) {
-  const [finishingOn, setFinishingOn] = useState(false);
+  const [finishingOn] = useState(false);
 
   return (
     <div className={s.infoShort}>
@@ -38,7 +39,7 @@ function InfoShort(props) {
         <span className={s.elemtitle}>Район</span>
         <span className={s.elemvalue}>{props?.layout?.district}</span>
       </div>
-      <div className={s.line}></div>
+      <div className={s.line} />
       <div className={s.mortgage}>
         <span className={s.mortgagetitle}>Ипотека</span>
         <div className={s.mortgagevarients}>
@@ -58,14 +59,14 @@ function InfoShort(props) {
         <div className={s.pricetitle}>Стоимость без отделки</div>
         <div className={s.price}>
           {props?.layout?.price
-            ? finishingOn
-              ? separator(props?.layout?.price + props?.layout?.finishingPrice)
+            ? finishingOn && props?.layout?.finishingPrice
+              ? separator(props.layout.price + props.layout.finishingPrice)
               : separator(props?.layout?.price)
             : ""}
           ₽
         </div>
       </div>
-      <div className={s.line}></div>
+      <div className={s.line} />
       <div className={s.callback}>
         <span className={s.callbacktitle}>
           Связаться с менеджером по объекту
@@ -80,5 +81,19 @@ function InfoShort(props) {
     </div>
   );
 }
+
+InfoShort.propTypes = {
+  project: {},
+  layout: {},
+  selectedLevel: PropTypes.number,
+  amountOfLevels: PropTypes.number,
+};
+
+InfoShort.defaultProps = {
+  project: {},
+  layout: {},
+  selectedLevel: 0,
+  amountOfLevels: 1
+};
 
 export default InfoShort;

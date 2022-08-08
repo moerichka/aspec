@@ -39,48 +39,48 @@
     }
 }
 
-.mainpart {
+.mainPart {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.textcontainer {
+.textContainer {
     max-width: 950px;
 }
 
-.maincontent {
+.mainContent {
     padding-top: 9px;
 }
 
-.mainsection {
+.mainSection {
     margin-top: 38px;
 }
 
-.maintitle {
+.mainTitle {
     font-size: 22px;
     line-height: 32px;
     font-family: Montserrat-Bold;
 }
 
-.paragraphwrapper {
+.paragraphWrapper {
     display: flex;
     flex-direction: column;
     gap: 22px;
     padding: 22px 0;
 }
 
-.mainparagraph {
+.mainParagraph {
     font-size: 16px;
     line-height: 28px;
     color: var(--dark-gray-text);
 }
 
-.mainparagraph[data-justpar="true"] {
+.mainParagraph[data-aloneParagraph="true"] {
     padding: 22px 0 2px 0;
 }
 
-.mainol {
+.mainOl {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -88,19 +88,19 @@
     padding: 2px 0;
 }
 
-.mainul {
+.mainUl {
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 2px 0;
 }
 
-.mainul .mainelem {
+.mainUl .mainElem {
     list-style-type: disc;
     list-style-position: inside;
 }
 
-.mainelem {
+.mainElem {
     font-size: 16px;
     line-height: 28px;
     font-family: Neris-SemiBold;
@@ -108,64 +108,64 @@
 
 
 @media (max-width: 1200px) {
-    .maincontent {
+    .mainContent {
         padding-top: 0;
         margin-top: -10px;
     }
 
-    .textcontainer {
+    .textContainer {
         max-width: 765px;
     }
 
-    .maintitle {
+    .mainTitle {
         font-size: 18px;
         line-height: 24px;
     }
 
-    .paragraphwrapper {
+    .paragraphWrapper {
         gap: 20px;
         padding: 20px 0;
     }
 
-    .paragraphwrapper[data-padding="more"] {
+    .paragraphWrapper[data-padding="more"] {
         gap: 22px;
         padding: 22px 0;
     }
 
-    .mainparagraph {
+    .mainParagraph {
         font-size: 15px;
         line-height: 26px;
     }
 
-    .mainparagraph[data-justpar="true"] {
+    .mainParagraph[data-aloneparagraph="true"] {
         padding: 30px 0 2px 0;
     }
 
-    .mainol {
+    .mainOl {
         padding: 10px 0;
     }
 
-    .mainul {
+    .mainUl {
         padding: 10px 0;
     }
 
-    .mainelem {
+    .mainElem {
         font-size: 15px;
         line-height: 26px;
     }
 }
 
 @media (max-width: 680px) {
-    .maincontent {
+    .mainContent {
         margin-top: -18px;
     }
 
-    .maintitle {
+    .mainTitle {
         font-size: 16px;
         line-height: 24px;
     }
 
-    .paragraphwrapper {
+    .paragraphWrapper {
         gap: 20px;
         padding: 20px 0;
     }

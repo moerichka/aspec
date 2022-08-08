@@ -1,0 +1,49 @@
+.togglerWrapper {
+    margin-top: 29px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 17px;
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--black-text-2);
+    cursor: pointer;
+}
+
+.toggler {
+    position: relative;
+    max-width: 36px;
+    width: 100%;
+    height: 22.5px;
+    background-color: var(--gray-icons);
+    border-radius: 30px;
+    padding: 0 3.5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.togglerOn {
+    background-color: var(--green);
+}
+
+.togglerpoint {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: hsla(0, 0%, 92%, 1);
+    width: 15.75px;
+    height: 15.75px;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.togglerOn .togglerpoint {
+    transform: translateY(-50%) translateX(14.5px);
+}
+
+.togglerbold {
+    font-family: Montserrat-SemiBold;
+    font-size: 16px;
+    line-height: 24px;
+    color: black;
+}

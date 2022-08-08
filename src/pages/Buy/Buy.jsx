@@ -1,36 +1,47 @@
-import React, { useState,useEffect } from "react";
-import s from "./buy.module.css";
-import "./buy.css"
-import { Link, useNavigate } from "react-router-dom";
-import {withErrorBoundary} from "react-error-boundary"
+import React, { useState, useEffect } from "react";
 
-import Header from "../../components/header";
-import DashNav from "../../components/dashnav";
-import Button from "../../components/button";
-import Footer from "../../components/footer";
-import { NoMatchPage } from "../NoMatch";
+import { Link, useNavigate } from "react-router-dom";
+import { withErrorBoundary } from "react-error-boundary";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import { Scrollbar } from "swiper";
 
-function Buy(props) {
-  const navigate = useNavigate()
-  const [swiper, setSwiper] = useState(null);
-  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "Способы покупки" }];
+import DashNav from "../../components/dashnav";
+import Button from "../../components/button";
+import Footer from "../../components/footer";
+import Header from "../../components/header";
+import { NoMatchPage } from "../NoMatch";
 
+import s from "./buy.module.css";
+import "./buy.css";
+
+function Buy() {
+  const navigate = useNavigate();
+  const [, setSwiper] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.screen.width);
 
   useEffect(() => {
-    window.addEventListener("resize", function () {
+    window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
   }, []);
 
+  const wayArray = [
+    {
+      title: (
+        <Link to="/" className="dash-nav__link">
+          Главная
+        </Link>
+      ),
+    },
+    { title: "Способы покупки" },
+  ];
+
   return (
-    <div className={"buy"}>
-      <Header withLine={true} />
+    <div className="buy">
+      <Header withLine />
       <div className={s.dashNav}>
         <DashNav wayArray={wayArray} />
       </div>
@@ -39,26 +50,26 @@ function Buy(props) {
           <div className={s.titlewrapper}>
             <h2 className="h2-title">Способы покупки</h2>
             <Button
-              onClick={()=>navigate("/estateselection")}
-              bgColor="green"
+              onClick={() => navigate("/estate-selection")}
+              BGColor="green"
               width="260px"
               content="Перейти к выбору квартир"
-            ></Button>
+            />
           </div>
           <div className={s.grid}>
             <div className={`${s.card} ${s.card1}`}>
-              <span className={`icon-bank ${s.icon}`}></span>
+              <span className={`icon-bank ${s.icon}`} />
               <h6 className={s.smalltitle}>Ипотека</h6>
               <p className={s.text}>
                 Для того что бы получить скидку достаточно выбрать свободную
-                квартиру в строящихся домах компании "АСПЭК-Домстрой" и показать
-                персональному менеджеру свидетельство о регистрации права
-                собственности на существующую квартиру. А все хлопоты по
+                квартиру в строящихся домах компании &quot;АСПЭК-Домстрой&quot;
+                и показать персональному менеджеру свидетельство о регистрации
+                права собственности на существующую квартиру. А все хлопоты по
                 реализации вторичного жилья мы возьмем на себя.
               </p>
             </div>
             <div className={`${s.card} ${s.card2}`}>
-              <span className={`icon-housePersantage ${s.icon}`}></span>
+              <span className={`icon-housePersantage ${s.icon}`} />
               <h6 className={s.smalltitle}>Рассрочка</h6>
               <p className={s.text}>
                 Рассрочка – отличный способ получить Вашу новую квартиру без
@@ -66,7 +77,7 @@ function Buy(props) {
               </p>
             </div>
             <div className={`${s.card} ${s.card3}`}>
-              <span className={`icon-housePersantage ${s.icon}`}></span>
+              <span className={`icon-housePersantage ${s.icon}`} />
               <h6 className={s.smalltitle}>Обмен</h6>
               <p className={s.text}>
                 Сервис службы обмена квартир полезен покупателям, которые
@@ -75,51 +86,56 @@ function Buy(props) {
               </p>
             </div>
             <div className={`${s.card} ${s.card4}`}>
-              <span className={`icon-handshake ${s.icon}`}></span>
+              <span className={`icon-handshake ${s.icon}`} />
               <h6 className={s.smalltitle}>Свои люди</h6>
               <p className={s.text}>
                 Для того что бы получить скидку достаточно выбрать свободную
-                квартиру в строящихся домах компании "АСПЭК-Домстрой" и показать
-                персональному менеджеру свидетельство о регистрации права
-                собственности на существующую квартиру. А все хлопоты по
+                квартиру в строящихся домах компании &quot;АСПЭК-Домстрой&quot;
+                и показать персональному менеджеру свидетельство о регистрации
+                права собственности на существующую квартиру. А все хлопоты по
                 реализации вторичного жилья мы возьмем на себя.
               </p>
             </div>
             <div className={`${s.card} ${s.card5}`}>
-              <span className={`icon-bank ${s.icon}`}></span>
+              <span className={`icon-bank ${s.icon}`} />
               <h6 className={s.smalltitle}>Ипотека</h6>
               <p className={s.text}>
                 Для того что бы получить скидку достаточно выбрать свободную
-                квартиру в строящихся домах компании "АСПЭК-Домстрой" и показать
-                персональному менеджеру свидетельство о регистрации права
-                собственности на существующую квартиру. А все хлопоты по
+                квартиру в строящихся домах компании &quot;АСПЭК-Домстрой&quot;
+                и показать персональному менеджеру свидетельство о регистрации
+                права собственности на существующую квартиру. А все хлопоты по
                 реализации вторичного жилья мы возьмем на себя.
               </p>
             </div>
           </div>
-          <div className={s.swiperwrapper}>
+          <div className={s.swiperWrapper}>
             <Swiper
               // slidesPerView={ window.innerWidth / 320 < 1 ? 1 : window.innerWidth / 320}//2
-              slidesPerView={ windowWidth / 320 < 1 ? 1 : windowWidth / 320}
+              slidesPerView={windowWidth / 320 < 1 ? 1 : windowWidth / 320}
               spaceBetween={14}
-              centeredSlides={true}
+              centeredSlides
               className={s.swiper}
               onSwiper={(swip) => setSwiper(swip)}
-              direction={"horizontal"}
-              scrollbar={{ dragSize: 100, horizontalClass: s.swiperscroll, dragClass: s.swiperdrug, draggable: true }}
+              direction="horizontal"
+              scrollbar={{
+                dragSize: 100,
+                // horizontalClass: s.swiperscroll,
+                dragClass: s.swiperdrug,
+                draggable: true,
+              }}
               modules={[Scrollbar]}
             >
               <SwiperSlide>
                 {({ isActive }) => (
                   <div className={s.card} data-state={isActive}>
-                    <span className={`icon-bank ${s.icon}`}></span>
+                    <span className={`icon-bank ${s.icon}`} />
                     <h6 className={s.smalltitle}>Ипотека</h6>
                     <p className={s.text}>
                       Для того что бы получить скидку достаточно выбрать
                       свободную квартиру в строящихся домах компании
-                      "АСПЭК-Домстрой" и показать персональному менеджеру
-                      свидетельство о регистрации права собственности на
-                      существующую квартиру. А все хлопоты по реализации
+                      &quot;АСПЭК-Домстрой&quot; и показать персональному
+                      менеджеру свидетельство о регистрации права собственности
+                      на существующую квартиру. А все хлопоты по реализации
                       вторичного жилья мы возьмем на себя.
                     </p>
                   </div>
@@ -127,8 +143,8 @@ function Buy(props) {
               </SwiperSlide>
               <SwiperSlide>
                 {({ isActive }) => (
-                  <div className={s.card } data-state={isActive}>
-                    <span className={`icon-housePersantage ${s.icon}`}></span>
+                  <div className={s.card} data-state={isActive}>
+                    <span className={`icon-housePersantage ${s.icon}`} />
                     <h6 className={s.smalltitle}>Рассрочка</h6>
                     <p className={s.text}>
                       Рассрочка – отличный способ получить Вашу новую квартиру
@@ -139,8 +155,8 @@ function Buy(props) {
               </SwiperSlide>
               <SwiperSlide>
                 {({ isActive }) => (
-                  <div className={s.card } data-state={isActive}>
-                    <span className={`icon-housePersantage ${s.icon}`}></span>
+                  <div className={s.card} data-state={isActive}>
+                    <span className={`icon-housePersantage ${s.icon}`} />
                     <h6 className={s.smalltitle}>Обмен</h6>
                     <p className={s.text}>
                       Сервис службы обмена квартир полезен покупателям, которые
@@ -152,15 +168,15 @@ function Buy(props) {
               </SwiperSlide>
               <SwiperSlide>
                 {({ isActive }) => (
-                  <div className={s.card } data-state={isActive}>
-                    <span className={`icon-handshake ${s.icon}`}></span>
+                  <div className={s.card} data-state={isActive}>
+                    <span className={`icon-handshake ${s.icon}`} />
                     <h6 className={s.smalltitle}>Свои люди</h6>
                     <p className={s.text}>
                       Для того что бы получить скидку достаточно выбрать
                       свободную квартиру в строящихся домах компании
-                      "АСПЭК-Домстрой" и показать персональному менеджеру
-                      свидетельство о регистрации права собственности на
-                      существующую квартиру. А все хлопоты по реализации
+                      &quot;АСПЭК-Домстрой&quot; и показать персональному
+                      менеджеру свидетельство о регистрации права собственности
+                      на существующую квартиру. А все хлопоты по реализации
                       вторичного жилья мы возьмем на себя.
                     </p>
                   </div>
@@ -168,15 +184,15 @@ function Buy(props) {
               </SwiperSlide>
               <SwiperSlide>
                 {({ isActive }) => (
-                  <div className={s.card } data-state={isActive}>
-                    <span className={`icon-bank ${s.icon}`}></span>
+                  <div className={s.card} data-state={isActive}>
+                    <span className={`icon-bank ${s.icon}`} />
                     <h6 className={s.smalltitle}>Ипотека</h6>
                     <p className={s.text}>
                       Для того что бы получить скидку достаточно выбрать
                       свободную квартиру в строящихся домах компании
-                      "АСПЭК-Домстрой" и показать персональному менеджеру
-                      свидетельство о регистрации права собственности на
-                      существующую квартиру. А все хлопоты по реализации
+                      &quot;АСПЭК-Домстрой&quot; и показать персональному
+                      менеджеру свидетельство о регистрации права собственности
+                      на существующую квартиру. А все хлопоты по реализации
                       вторичного жилья мы возьмем на себя.
                     </p>
                   </div>
@@ -192,9 +208,11 @@ function Buy(props) {
 }
 
 export default withErrorBoundary(Buy, {
-  fallbackRender: ()=><NoMatchPage/>,
-  onError(error, info){
-    console.log(error);
+  fallbackRender: () => <NoMatchPage />,
+  onError(error, info) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
-  }
+  },
 });

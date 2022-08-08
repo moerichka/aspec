@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import "./slider.css";
 
 import ProgressiveImage from "react-progressive-graceful-image";
@@ -11,22 +13,22 @@ import "swiper/css/pagination";
 function Slider(props) {
   const pagination = {
     clickable: true,
-    renderBullet: function (index, className) {
+    renderBullet(index, className) {
       return `<span class="${className}"></span>`;
     },
   };
 
   const style = {
-    maxHeight: props.maxHeight ? props.maxHeight : "",
-    minHeight: props.minHeight ? props.minHeight : "",
+    maxHeight: props?.maxHeight ? props?.maxHeight : "",
+    minHeight: props?.minHeight ? props?.minHeight : "",
   };
 
   return (
     <div className="slider" style={style}>
       <Swiper
-        navigation={props.navigation ? props.navigation : false}
+        navigation={props?.navigation ? props?.navigation : false}
         pagination={pagination}
-        grabCursor={true}
+        grabCursor
         modules={[Autoplay, Navigation, Pagination]}
         autoplay={{
           delay: 5000,
@@ -35,14 +37,13 @@ function Slider(props) {
         }}
         className="slider__swiper"
       >
-        {props?.slides?.map((slide, index) => (
-          
-          <SwiperSlide key={index} style={style}>
-            {slide.darkPannel && <div className="slider__darkPanel"></div>}
-            {slide?.smallimage ? (
+        {props?.slides?.map((slide) => (
+          <SwiperSlide key={slide?.id} style={style}>
+            {slide?.darkPannel && <div className="slider__darkPanel" />}
+            {slide?.imageSmall ? (
               <ProgressiveImage
                 src={slide?.image}
-                placeholder={slide?.smallimage}
+                placeholder={slide?.imageSmall}
               >
                 {(src, loading) => (
                   <img
@@ -69,5 +70,32 @@ function Slider(props) {
     </div>
   );
 }
+
+Slider.propTypes = {
+  slides: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      darkPannel: PropTypes.bool,
+      image: PropTypes.oneOfType([
+        PropTypes.shape({
+          image: PropTypes.string,
+          imageSmall: PropTypes.string,
+        }),
+        PropTypes.string,
+      ]),
+      imageSmall: PropTypes.string
+    })
+  ),
+  navigation: PropTypes.bool,
+  maxHeight: PropTypes.string,
+  minHeight: PropTypes.string,
+};
+
+Slider.defaultProps = {
+  slides: [],
+  navigation: false,
+  maxHeight: "",
+  minHeight: "",
+};
 
 export default Slider;

@@ -50,7 +50,7 @@
     -ms-user-select: none;
 }
 
-.navMenu[data-isOpen="true"] {
+.navMenu[data-is-open="true"] {
     transform: translateY(0);
 }
 
@@ -104,13 +104,6 @@
     margin-top: 78px;
 }
 
-
-.topBar {
-    width: 100vw;
-    object-fit: fill;
-    height: 7px;
-}
-
 .container {
     display: grid;
     grid-template-columns: 196px minmax(auto, 1fr) minmax(auto, 180px) min-content 50px;
@@ -151,7 +144,7 @@
     font-family: Montserrat-Medium;
     font-size: 14px;
     justify-content: space-between;
-    
+
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -212,7 +205,7 @@
     color: var(--green);
 }
 
-.marker:hover{
+.marker:hover {
     color: var(--green);
 }
 
@@ -271,10 +264,6 @@
 
     .navList {
         display: none;
-    }
-
-    .topBar {
-        height: 5px;
     }
 }
 

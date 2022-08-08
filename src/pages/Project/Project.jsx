@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import s from "./project.module.css";
-import { useParams, useNavigate } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
 import { withErrorBoundary } from "react-error-boundary";
 
 import Footer from "../../components/footer";
@@ -10,7 +10,8 @@ import QuestionForm from "../../components/questionForm";
 import FilterAndTabs from "../../components/filterAndTabs";
 import SliderAndNav from "../../components/sliderAndNav";
 import ProjectAbout from "../../components/projectAbout";
-import Genplan from "../../components/genplan";
+// import Genplan from "../../components/genplan";
+import Genplan2 from "../../components/genplan2";
 import ProjectBenefits from "../../components/projectBenefits";
 import ProjectLayouts from "../../components/projectLayouts";
 import PaymentOptions from "../../components/paymentOptions";
@@ -18,11 +19,12 @@ import BuildingProgress from "../../components/buildingProgress";
 import Infrastructure from "../../components/infrastructure/Infrastructure";
 import { NoMatchPage } from "../NoMatch";
 
-import { houseCards } from "../../dummyData.js";
-import { Projects } from "../../data.js";
+import { houseCards } from "../../dummyData";
+import { Projects } from "../../data";
+
+import s from "./project.module.css";
 
 function Project() {
-  const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const [dataProject, setDataProject] = useState(null);
   const { projectId } = useParams();
@@ -46,13 +48,13 @@ function Project() {
 
   useEffect(() => {
     setProject(
-      houseCards.filter((project) => project.id.toString() === projectId)[0]
+      houseCards.filter((item) => item.id.toString() === projectId)[0]
     );
   }, [projectId]);
 
   useEffect(() => {
     setDataProject(
-      Projects.filter((project) => project.id.toString() === projectId)[0]
+      Projects.filter((item) => item.id.toString() === projectId)[0]
     );
   }, [projectId]);
 
@@ -77,7 +79,7 @@ function Project() {
         <SliderAndNav project={dataProject} refs={refs} />
       </div>
       <div className={s.filterAndTabs}>
-        <FilterAndTabs title={"Все проекты"} filterArray={filterArray} />
+        <FilterAndTabs title="Все проекты" filterArray={filterArray} />
       </div>
       <div className={s.projectAbout} ref={about}>
         <ProjectAbout
@@ -86,7 +88,8 @@ function Project() {
         />
       </div>
       <div className={s.genplan} ref={genplan}>
-        <Genplan project={project} />
+        {/* <Genplan project={project} /> */}
+        <Genplan2 project={project} />
       </div>
       <div className={s.infrastructure} ref={infrastructure}>
         <Infrastructure project={dataProject} />
@@ -114,7 +117,9 @@ function Project() {
 export default withErrorBoundary(Project, {
   fallbackRender: () => <NoMatchPage />,
   onError(error, info) {
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
   },
 });

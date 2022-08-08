@@ -1,9 +1,12 @@
+/* eslint-disable react/forbid-prop-types */
 import React from "react";
-import s from "./customRange.module.css";
-import PropsTypes from "prop-types"
+import PropTypes from "prop-types"
+
 import { Range, getTrackBackground } from "react-range";
 
 import { separator } from "../../helpers/stringsFun"
+
+import s from "./customRange.module.css";
 
 function CustomRange(propsCustom) {
   const { STEP, MIN, MAX, rangeValues: values } = propsCustom;
@@ -13,7 +16,7 @@ function CustomRange(propsCustom) {
     <div
       className={`${s.wrapper} ${
         propsCustom.isWhite ? "customRange-white" : ""
-      }`} data-color={propsCustom?.bgColor}
+      }`} data-color={propsCustom?.BGColor}
     >
       <div className={s.info}>
         <div className={s.from}>
@@ -35,18 +38,18 @@ function CustomRange(propsCustom) {
         min={MIN}
         max={MAX}
         // onChange={values => propsCustom.onChange(values)}
-        onChange={(values) => propsCustom.onChange(values)}
+        onChange={(thisValues) => propsCustom.onChange(thisValues)}
         renderTrack={({ props, children }) => (
           <div
             style={{
-              ...props.style,
+              ...props?.style,
               height: "1px",
               display: "flex",
               width: "100%",
             }}
           >
             <div
-              ref={props.ref}
+              ref={props?.ref}
               style={{
                 height: "2px",
                 width: "100%",
@@ -72,9 +75,10 @@ function CustomRange(propsCustom) {
         )}
         renderThumb={({ props, isDragged }) => (
           <div
+            // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
             style={{
-              ...props.style,
+              ...props?.style,
               height: "24px",
               width: "24px",
               borderRadius: "50%",
@@ -101,8 +105,17 @@ function CustomRange(propsCustom) {
   );
 }
 
+CustomRange.propTypes = {
+  withText: PropTypes.bool,
+  style: PropTypes.any,
+  ref: PropTypes.any,
+};
+
 CustomRange.defaultProps = {
-  withText: true
-}
+  withText: true,
+  style: {},
+  ref: {},
+};
+
 
 export default CustomRange;

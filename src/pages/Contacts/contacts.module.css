@@ -63,16 +63,16 @@
     user-select: none;
 }
 
-.tab:not(.tabselected):hover {
+.tab:not(.tabSelected):hover {
     background-color: var(--white);
 }
 
-.tabselected {
+.tabSelected {
     background-color: var(--green);
     color: var(--white);
 }
 
-.tabselected:hover {
+.tabSelected:hover {
     background-color: var(--green-hover);
 }
 
@@ -90,13 +90,13 @@
     color: var(--white);
 }
 
-.smalltitle {
+.smallTitle {
     font-size: 22px;
     line-height: 32px;
     font-family: Montserrat-Bold;
 }
 
-.infolist {
+.infoList {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -109,12 +109,12 @@
     gap: 2px;
 }
 
-.elemtitle {
+.elemTitle {
     font-size: 16px;
     line-height: 21px;
 }
 
-.elemvalue {
+.elemValue {
     font-family: Montserrat-SemiBold;
     font-size: 16px;
     line-height: 24px;
@@ -139,17 +139,17 @@
         margin: 30px 0 49px 0;
     }
 
-    .smalltitle {
+    .smallTitle {
         font-size: 18px;
         line-height: 24px;
     }
 
-    .elemtitle {
+    .elemTitle {
         font-size: 16px;
         line-height: 21px;
     }
 
-    .elemvalue {
+    .elemValue {
         font-size: 14px;
         line-height: 17px;
     }
@@ -174,17 +174,17 @@
         padding: 5px 15px;
     }
 
-    .smalltitle {
+    .smallTitle {
         font-size: 16px;
         line-height: 24px;
     }
 
-    .elemtitle {
+    .elemTitle {
         font-size: 16px;
         line-height: 21px;
     }
 
-    .elemvalue {
+    .elemValue {
         font-size: 14px;
         line-height: 17px;
     }

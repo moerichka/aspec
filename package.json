@@ -13,6 +13,7 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^18.0.0",
     "react-error-boundary": "^3.1.4",
+    "react-indiana-drag-scroll": "^2.2.0",
     "react-input-mask": "^2.0.4",
     "react-progressive-graceful-image": "^0.6.14",
     "react-range": "^1.8.12",
@@ -23,19 +24,17 @@
     "react-tabs": "^5.1.0",
     "react-yandex-maps": "^4.6.0",
     "swiper": "^8.1.4",
-    "web-vitals": "^2.1.0"
+    "web-vitals": "^2.1.0",
+    "yet-another-react-lightbox": "^1.13.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lintStrict": "eslint -c .eslintrc.json --ext .js,.jsx .",
+    "lint:fix": "yarn run lint -- --fix"
   },
   "browserslist": {
     "production": [
@@ -48,5 +47,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-react": "7.30.1",
+    "eslint-plugin-react-hooks": "4.3.0",
+    "prettier": "2.7.1"
   }
 }

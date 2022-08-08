@@ -1,5 +1,4 @@
 import React from "react";
-import s from "./info.module.css";
 
 import { useNavigate } from "react-router-dom";
 import ProgressiveImage from "react-progressive-graceful-image";
@@ -12,17 +11,19 @@ import image3Full from "../../../assets/images/image36.jpg";
 import image3Small from "../../../assets/images/image36small.jpg";
 import image4Full from "../../../assets/images/image34.jpg";
 import image4Small from "../../../assets/images/image34small.jpg";
-import image5 from "../../../assets/images/Elem1.png";
 
 import Button from "../../button";
+import Bar from "../../bar"
+
+import s from "./info.module.css";
 
 function Info() {
   const navigate = useNavigate();
 
-  const image1 = { image: image1Full, smallimage: image1Small };
-  const image2 = { image: image2Full, smallimage: image2Small };
-  const image3 = { image: image3Full, smallimage: image3Small };
-  const image4 = { image: image4Full, smallimage: image4Small };
+  const image1 = { image: image1Full, imageSmall: image1Small };
+  const image2 = { image: image2Full, imageSmall: image2Small };
+  const image3 = { image: image3Full, imageSmall: image3Small };
+  const image4 = { image: image4Full, imageSmall: image4Small };
 
   return (
     <div className={s.info}>
@@ -58,13 +59,15 @@ function Info() {
                     Республики.
                   </p>
                 </div>
-                <img src={image5} alt="" className={s.middleimg} />
+                <div className={s.middleimg}>
+                  <Bar />
+                </div>
               </div>
               <div className={s.bottomelement}>
-                {image1?.smallimage ? (
+                {image1?.imageSmall ? (
                   <ProgressiveImage
                     src={image1?.image}
-                    placeholder={image1?.smallimage}
+                    placeholder={image1?.imageSmall}
                   >
                     {(src, loading) => (
                       <img
@@ -114,13 +117,15 @@ function Info() {
                     Республики.
                   </p>
                 </div>
-                <img src={image5} alt="" className={s.middleimg} />
+                <div className={s.middleimg}>
+                  <Bar />
+                </div>
               </div>
               <div className={s.bottomelement}>
-                {image2?.smallimage ? (
+                {image2?.imageSmall ? (
                   <ProgressiveImage
                     src={image2?.image}
-                    placeholder={image2?.smallimage}
+                    placeholder={image2?.imageSmall}
                   >
                     {(src, loading) => (
                       <img
@@ -170,13 +175,15 @@ function Info() {
                     Республики.
                   </p>
                 </div>
-                <img src={image5} alt="" className={s.middleimg} />
+                <div className={s.middleimg}>
+                  <Bar />
+                </div>
               </div>
               <div className={s.bottomelement}>
-                {image3?.smallimage ? (
+                {image3?.imageSmall ? (
                   <ProgressiveImage
                     src={image3?.image}
-                    placeholder={image3?.smallimage}
+                    placeholder={image3?.imageSmall}
                   >
                     {(src, loading) => (
                       <img
@@ -226,13 +233,15 @@ function Info() {
                     Республики.
                   </p>
                 </div>
-                <img src={image5} alt="" className={s.middleimg} />
+                <div className={s.middleimg}>
+                  <Bar />
+                </div>
               </div>
               <div className={s.bottomelement}>
-                {image4?.smallimage ? (
+                {image4?.imageSmall ? (
                   <ProgressiveImage
                     src={image4?.image}
-                    placeholder={image4?.smallimage}
+                    placeholder={image4?.imageSmall}
                   >
                     {(src, loading) => (
                       <img
@@ -255,10 +264,10 @@ function Info() {
         </div>
         <div className={s.buttonwrapper}>
           <Button
-            onClick={() => navigate("/estateselection")}
+            onClick={() => navigate("/estate-selection")}
             content="Перейти к проектам"
             width="260px"
-            bgColor="green"
+            BGColor="green"
           />
         </div>
       </div>

@@ -15,37 +15,37 @@
 @font-face {
     font-family: 'Neris-Light';
     font-display: block;
-    src: local('Neris-Light'), url("./assets/fonts/Neris-Light.otf") format('opentype');
+    src: local('Neris-Light'), url("./assets/fonts/Neris-Light.woff2") format('woff2');
 }
 
 @font-face {
     font-family: 'Neris-SemiBold';
     font-display: block;
-    src: local('Neris-SemiBold'), url("./assets/fonts/Neris-SemiBold.otf") format('opentype');
+    src: local('Neris-SemiBold'), url("./assets/fonts/Neris-SemiBold.woff2") format('woff2');
 }
 
 @font-face {
     font-family: 'Montserrat-Regular';
     font-display: block;
-    src: local('Montserrat-Regular'), url("./assets/fonts/Montserrat-Regular.ttf") format('truetype');
+    src: local('Montserrat-Regular'), url("./assets/fonts/Montserrat-Regular.woff2") format('woff2');
 }
 
 @font-face {
     font-family: 'Montserrat-Medium';
     font-display: block;
-    src: local('Montserrat-Medium'), url("./assets/fonts/Montserrat-Medium.ttf") format('truetype');
+    src: local('Montserrat-Medium'), url("./assets/fonts/Montserrat-Medium.woff2") format('woff2');
 }
 
 @font-face {
     font-family: 'Montserrat-SemiBold';
     font-display: block;
-    src: local('Montserrat-SemiBold'), url("./assets/fonts/Montserrat-SemiBold.ttf") format('truetype');
+    src: local('Montserrat-SemiBold'), url("./assets/fonts/Montserrat-SemiBold.woff2") format('woff2');
 }
 
 @font-face {
     font-family: 'Montserrat-Bold';
     font-display: block;
-    src: local('Montserrat-Bold'), url("./assets/fonts/Montserrat-Bold.ttf") format('truetype');
+    src: local('Montserrat-Bold'), url("./assets/fonts/Montserrat-Bold.woff2") format('woff2');
 }
 
 /* ---nullification--- */
@@ -97,7 +97,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     --light-gray-text: hsla(0, 0%, 66%, 1);
     --darker-gray-text: hsla(0, 0%, 51%, 1);
     --gray-icons: hsla(0, 0%, 74%, 1);
-    --gray-progressbar: hsla(0, 0%, 91%, 1);
+    --gray-progress-bar: hsla(0, 0%, 91%, 1);
     --dark-gray-text: hsla(0, 0%, 31%, 1);
     --gray-border: hsla(0, 0%, 88%, 0.95);
     --gray-text: hsla(0, 0%, 39%, 1);
@@ -124,7 +124,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     --food: hsla(176, 63%, 61%, 1);
     --sport: hsla(210, 78%, 69%, 1);
     --transport: hsla(47, 99%, 67%, 1);
-    --transportpink: hsla(320, 100%, 91%, 1);
+    --transport-pink: hsla(320, 100%, 91%, 1);
 
 
     /* Транизишены */
@@ -165,11 +165,11 @@ img {
     cursor: pointer;
 }
 
-.dashnav__link{
+.dash-nav__link{
     transition: var(--transition);
 }
 
-.dashnav__link:hover{
+.dash-nav__link:hover{
     color: var(--green-hover);
 }
 
@@ -204,6 +204,10 @@ img {
     max-width: 1537px;
     width: 100%;
 }
+
+/* .yarl__slide > .yarl__slide_image{
+    width: 90%;
+} */
 
 @media (max-width: 1024px) {
     .titleWrapper {

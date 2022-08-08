@@ -1,6 +1,8 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
-import s from "./sliderAndNav.module.css";
-import "./sliderAndNav.css";
+import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 
@@ -10,26 +12,29 @@ import sliderPicture3 from "../../assets/images/image26.jpg";
 import sliderPicture3Small from "../../assets/images/image26small.jpg";
 import Slider from "../slider";
 
+import s from "./sliderAndNav.module.css";
+import "./sliderAndNav.css";
+
 function SliderAndNav(props) {
   const slidesArray = [
-    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
-    {image: sliderPicture3, smallimage: sliderPicture3Small, darkPannel: true},
-    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
-    {image: sliderPicture3, smallimage: sliderPicture3Small, darkPannel: true},
-    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
-    {image: sliderPicture3, smallimage: sliderPicture3Small, darkPannel: true},
+    {id: 0,image: sliderPicture, imageSmall: sliderPictureSmall, darkPannel: true},
+    {id: 1,image: sliderPicture3, imageSmall: sliderPicture3Small, darkPannel: true},
+    {id: 2,image: sliderPicture, imageSmall: sliderPictureSmall, darkPannel: true},
+    {id: 3,image: sliderPicture3, imageSmall: sliderPicture3Small, darkPannel: true},
+    {id: 4,image: sliderPicture, imageSmall: sliderPictureSmall, darkPannel: true},
+    {id: 5,image: sliderPicture3, imageSmall: sliderPicture3Small, darkPannel: true},
   ]
 
   return (
     <div className="sliderAndNav">
       <div className={s.topBar}>
-        <Slider slides={slidesArray} maxHeight={"25vw"} minHeight={"400px"} />
+        <Slider slides={slidesArray} maxHeight="25vw" minHeight="400px" />
         <p className={s.desc}>
-          <Link to="/" className="dashnav__link">
+          <Link to="/" className="dash-nav__link">
             Главная
           </Link>{" "}
           /{" "}
-          <Link to="/projects" className="dashnav__link">
+          <Link to="/projects" className="dash-nav__link">
             Проекты
           </Link>{" "}
           / {props?.project?.type} {props?.project?.name}
@@ -108,5 +113,15 @@ function SliderAndNav(props) {
     </div>
   );
 }
+
+SliderAndNav.propTypes = {
+  refs: PropTypes.object,
+  project: PropTypes.object
+};
+
+SliderAndNav.defaultProps = {
+  refs: {},
+  project: {}
+};
 
 export default SliderAndNav;

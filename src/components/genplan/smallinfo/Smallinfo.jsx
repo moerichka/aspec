@@ -1,8 +1,11 @@
+/* eslint-disable react/forbid-prop-types */
 import React from "react";
-import s from "./smallinfo.module.css";
+import PropTypes from "prop-types";
 
 import { dateConverterToDMY } from "../../../helpers/dateFun";
 import { priceConverterToMln } from "../../../helpers/stringsFun";
+
+import s from "./smallinfo.module.css";
 
 function Infocorpus(props) {
   return (
@@ -14,22 +17,25 @@ function Infocorpus(props) {
       <span className={s.roomsavailable}>
         {props?.data?.flatsAmount} квартир в продаже
       </span>
-      <span className={s.ready}>Готов на {props?.data?.ready * 100}%</span>
+      <span className={s.ready}>Готов на {props.data.ready * 100}%</span>
       <div className={s.progressbar}>
         <div
           className={s.progress}
-          style={{ width: `${props?.data?.ready * 100}%` }}
-        ></div>
+          style={{ width: `${props.data.ready * 100}%` }}
+        />
       </div>
       <div className={s.flats}>
-        {props?.data?.flats?.map((flat, index) => (
+        {props?.data?.flats?.map((flat,index) => (
+          // eslint-disable-next-line react/no-array-index-key
           <div className={s.flat} key={index}>
             {flat?.name === "студия" ? (
               <span className={s.flattitle}>{flat?.name}</span>
             ) : (
               <span className={s.flattitle}>{flat?.name} квартиры</span>
             )}
-            <span className={s.flatprice}>{priceConverterToMln(flat?.price)}</span>
+            <span className={s.flatprice}>
+              {priceConverterToMln(flat?.price)}
+            </span>
           </div>
         ))}
       </div>
@@ -47,14 +53,16 @@ function InfoSection(props) {
         {props?.data?.flatsAmount} квартир в продаже
       </span>
       <div className={s.flats}>
-        {props?.data?.flats?.map((flat, index) => (
-          <div className={s.flat} key={index}>
+        {props?.data?.flats?.map((flat) => (
+          <div className={s.flat} key={flat?.id}>
             {flat?.name === "студия" ? (
               <span className={s.flattitle}>{flat?.name}</span>
             ) : (
               <span className={s.flattitle}>{flat?.name} квартиры</span>
             )}
-            <span className={s.flatprice}>{priceConverterToMln(flat?.price)}</span>
+            <span className={s.flatprice}>
+              {priceConverterToMln(flat?.price)}
+            </span>
           </div>
         ))}
       </div>
@@ -64,7 +72,9 @@ function InfoSection(props) {
 function Infolevel(props) {
   return (
     <div className={`${s.smallinfo} ${s.infolevel}`}>
-      <span className={s.title}>Секция {props?.data?.section} / этаж {props?.data?.level}</span>
+      <span className={s.title}>
+        Секция {props?.data?.section} / этаж {props?.data?.level}
+      </span>
       <div className={s.flatsamount}>
         {props?.data?.oneRoomAmount && (
           <div className={s.flatnumberwrapper}>
@@ -88,5 +98,26 @@ function Infolevel(props) {
     </div>
   );
 }
+Infocorpus.propTypes = {
+  data: PropTypes.object,
+};
+
+Infocorpus.defaultProps = {
+  data: {},
+};
+InfoSection.propTypes = {
+  data: PropTypes.object,
+};
+
+InfoSection.defaultProps = {
+  data: {},
+};
+Infolevel.propTypes = {
+  data: PropTypes.object,
+};
+
+Infolevel.defaultProps = {
+  data: {},
+};
 
 export { Infocorpus, InfoSection, Infolevel };

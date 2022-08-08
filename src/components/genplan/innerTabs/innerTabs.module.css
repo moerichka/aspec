@@ -2,7 +2,7 @@
     width: 100%;
 }
 
-.tableader {
+.tabLeader {
     width: 100%;
     margin-top: 62px;
     position: relative;
@@ -50,16 +50,16 @@
     height: 0;
 }
 
-.tab:not(.tabselected):hover {
+.tab:not(.tabSelected):hover {
     background-color: var(--white);
 }
 
-.tabselected {
+.tabSelected {
     background-color: var(--green);
     color: var(--white);
 }
 
-.tabselected:hover {
+.tabSelected:hover {
     background-color: var(--green-hover);
 }
 

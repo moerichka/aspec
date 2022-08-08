@@ -1,6 +1,9 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
-import s from "./projectLayout.module.css";
-import "./projectLayout.css";
+import PropTypes from "prop-types";
 
 import ProgressiveImage from "react-progressive-graceful-image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,6 +18,9 @@ import { Pagination } from "swiper";
 import { dateConverterToQuarter } from "../../helpers/dateFun";
 import { getFlatAmount, separator } from "../../helpers/stringsFun";
 
+import s from "./projectLayout.module.css";
+import "./projectLayout.css";
+
 function ProjectLayout(props) {
   const [isFavored, setIsFavored] = useState(props?.room?.favored);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -22,7 +28,7 @@ function ProjectLayout(props) {
 
   const pagination = {
     clickable: true,
-    renderBullet: function (index, className) {
+    renderBullet(index, className) {
       return `<span class=${`${className}`}></span>`;
     },
   };
@@ -50,14 +56,14 @@ function ProjectLayout(props) {
               data-favorite="true"
               onClick={() => setIsFavored((prev) => !prev)}
             >
-              <span className="icon-mark-fill"></span>
+              <span className="icon-mark-fill" />
             </div>
           ) : (
             <div
               className={s.topright}
               onClick={() => setIsFavored((prev) => !prev)}
             >
-              <span className="icon-mark"></span>
+              <span className="icon-mark" />
             </div>
           )}
         </div>
@@ -69,14 +75,14 @@ function ProjectLayout(props) {
             className="mySwiper"
           >
             {props?.flat?.layouts?.map((elem, index) => (
+              // eslint-disable-next-line react/no-array-index-key
               <SwiperSlide key={index}>
                 <Link to={`/project/${projectId}/layout/${props.flat.id}`}>
                   <div className={s.imgwrapper}>
-                    {elem.smallimage ? (
+                    {elem.imageSmall ? (
                       <ProgressiveImage
-                      delay={3000}
                         src={`${PF}${elem?.image}`}
-                        placeholder={`${PF}${elem?.smallimage}`}
+                        placeholder={`${PF}${elem?.imageSmall}`}
                       >
                         {(src, loading) => (
                           <img
@@ -124,7 +130,7 @@ function ProjectLayout(props) {
             </div>
           </div>
           <div className={s.datewrapper}>
-            <span className="icon-home"></span>
+            <span className="icon-home" />
             <div className={s.opendate}>
               Срок сдачи {dateConverterToQuarter(props.thisProject.openDate)}
             </div>
@@ -134,5 +140,17 @@ function ProjectLayout(props) {
     </div>
   );
 }
+
+ProjectLayout.propTypes = {
+  room: PropTypes.object,
+  thisProject: PropTypes.object,
+  flat: PropTypes.object
+};
+
+ProjectLayout.defaultProps = {
+  room: {},
+  thisProject: {},
+  flat: {}
+};
 
 export default ProjectLayout;

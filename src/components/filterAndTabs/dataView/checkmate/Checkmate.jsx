@@ -1,8 +1,10 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react'
-import s from "./checkmate.module.css"
-import "./checkmate.css"
+// import PropTypes from "prop-types";
 
-import { separator } from "../../../../helpers/stringsFun";
+import "./checkmate.css"
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,29 +12,32 @@ import "swiper/css/scrollbar";
 import "swiper/css/free-mode";
 import { FreeMode, Scrollbar } from "swiper";
 
-import {useNavigate} from "react-router-dom"
+import {Link} from "react-router-dom"
+
+import { separator } from "../../../../helpers/stringsFun";
+
+import s from "./checkmate.module.css"
 
 function Checkmate(props) {
-  const navigate = useNavigate()
 
   return (
     <div className={`${s.checkmate} checkmate`}>
       <div className={s.container}>
         <Swiper
         className="swiper3"
-        direction={"horizontal"}
-        grabCursor={true}
-        slidesPerView={"auto"}
-        freeMode={true}
-        scrollbar={ true}
+        direction="horizontal"
+        grabCursor
+        slidesPerView="auto"
+        freeMode
+        scrollbar
         modules={[FreeMode, Scrollbar]}
         >
           <SwiperSlide>
             <div className={s.biggrid}>
               {props?.data?.map((project, projectIndex) => (
                 projectIndex < 3 && <div className={s.projectline}>
-                  {project?.buildings?.map((building, buildingIndex) => (
-                    <div className={s.buildingblock} key={buildingIndex}>
+                  {project?.buildings?.map((building) => (
+                    <div className={s.buildingblock} key={building?.id}>
                       <div className={s.buildingcenter}>
                         <div className={s.levelcolumn}>
                           {building?.levels?.map((level) => (
@@ -43,7 +48,7 @@ function Checkmate(props) {
                           {building?.levels?.map((level) => (
                             <div className={s.levelrow}>
                               {level?.flats?.map((flat) => (
-                                <div className={s.flatinfo} data-status={flat?.status} onClick={()=>navigate(`/project/${project?.id}/layout/${flat?.id}`)}>
+                                <Link to={`/project/${project?.id}/layout/${flat?.id}`} className={s.flatinfo} data-status={flat?.status}>
                                   <div className={s.topinfo}>
                                     <div className={s.flatrooms}>{flat?.rooms}</div>
                                     <div className={s.flattype}>{flat?.type === "larder" ? "Кладовая" : "Квартира"}</div>
@@ -52,9 +57,9 @@ function Checkmate(props) {
                                   <div className={s.flatprice}>{flat?.status === "available" ? `${separator(flat?.price)} ₽`  : flat?.status === "booked" ? "Забронировано" : "Продано"}</div>
                                   <div className={s.bottominfo}>
                                     <div className={s.flatspace}>{flat?.space} м²</div>
-                                    {flat?.type !== "larder" && <div className={s.flatmeterprice}>{flat?.meterprice} ₽ / м²</div>}
+                                    {flat?.type !== "larder" && <div className={s.flatmeterPrice}>{flat?.meterPrice} ₽ / м²</div>}
                                   </div>
-                                </div>
+                                </Link>
                               ))}
                             </div>
                           ))}
@@ -71,5 +76,13 @@ function Checkmate(props) {
     </div>
   )
 }
+
+Checkmate.propTypes = {
+  data: []
+};
+
+Checkmate.defaultProps = {
+  data: []
+};
 
 export default Checkmate

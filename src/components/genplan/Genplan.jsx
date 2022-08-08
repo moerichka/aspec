@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+
+import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
+
 import s from "./genplan.module.css";
 
 import InnerTabs from "./innerTabs/InnerTabs";
 
-import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
 
 function GenPlan() {
   const [tabIndex, setTabIndex] = useState(0);
@@ -11,7 +13,7 @@ function GenPlan() {
   return (
     <div className={s.genplan}>
       <Tabs
-        className={s.tableader}
+        className={s.tabLeader}
         selectedIndex={tabIndex}
         onSelect={(index) => setTabIndex(index)}
       >
@@ -21,16 +23,16 @@ function GenPlan() {
           </div>
           <TabList className={s.tabs}>
             <div className={s.tabswrapper}>
-              <Tab className={s.tab} selectedClassName={s.tabselected}>
+              <Tab className={s.tab} selectedClassName={s.tabSelected}>
                 Квартиры
               </Tab>
-              <Tab className={s.tab} selectedClassName={s.tabselected}>
+              <Tab className={s.tab} selectedClassName={s.tabSelected}>
                 Кладовые
               </Tab>
-              <Tab className={s.tab} selectedClassName={s.tabselected}>
+              <Tab className={s.tab} selectedClassName={s.tabSelected}>
                 Паркинг
               </Tab>
-              <Tab className={s.tab} selectedClassName={s.tabselected}>
+              <Tab className={s.tab} selectedClassName={s.tabSelected}>
                 Комерческая недвижимость
               </Tab>
             </div>

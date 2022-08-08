@@ -1,28 +1,30 @@
 import React from "react";
-import s from "./oneNewsFull.module.css";
-import "./oneNews.css";
+import PropTypes from "prop-types"
 
 import ProgressiveImage from "react-progressive-graceful-image";
 
-import verticalBar from "../../assets/images/Elem2.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/scrollbar";
+import "swiper/css/free-mode";
+import { FreeMode, Scrollbar, Mousewheel } from "swiper";
+
 import contentPic from "../../assets/images/buildingNews2.png";
 import contentPicSmall from "../../assets/images/buildingNews2small.png";
 import contentPicSlide1 from "../../assets/images/buildingNewsSlide1.png";
 import contentPicSlide1Small from "../../assets/images/buildingNewsSlide1small.png";
 
 import IconCircle from "../iconCircle/IconCircle";
+import verticalBar from "../../assets/images/Elem2.png";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/scrollbar";
-import "swiper/css/free-mode";
-
-import { FreeMode, Scrollbar, Mousewheel } from "swiper";
+import s from "./oneNewsFull.module.css";
+import "./oneNews.css";
 
 function OneNewsFull(props) {
-  const image1 = { image: contentPic, smallimage: contentPicSmall };
-  const image2 = { image: contentPicSlide1, smallimage: contentPicSlide1Small };
-  const sliderarray = [image2, image1, image2];
+  const image1 = { id: 0,image: contentPic, imageSmall: contentPicSmall };
+  const image2 = { id: 1,image: contentPicSlide1, imageSmall: contentPicSlide1Small };
+  const image3 = { id: 2,image: contentPicSlide1, imageSmall: contentPicSlide1Small };
+  const sliderarray = [image2, image1, image3];
 
   return (
     <div className="oneNews">
@@ -34,7 +36,7 @@ function OneNewsFull(props) {
               {props?.oneNews?.title}
             </h2>
             <div className={s.titleicon}>
-              <IconCircle icon={"share"} />
+              <IconCircle icon="share" />
             </div>
           </div>
         </div>
@@ -113,10 +115,10 @@ function OneNewsFull(props) {
             </p>
           </div>
           <div className={s.mainimgwrapper}>
-            {image1?.smallimage ? (
+            {image1?.imageSmall ? (
               <ProgressiveImage
                 src={image1?.image}
-                placeholder={image1?.smallimage}
+                placeholder={image1?.imageSmall}
               >
                 {(src, loading) => (
                   <img
@@ -202,30 +204,30 @@ function OneNewsFull(props) {
             </div>
           </div>
         </div>
-        <div className={s.swiperwrapper}>
+        <div className={s.swiperWrapper}>
           <Swiper
             className={s.swiper}
-            direction={"horizontal"}
+            direction="horizontal"
             spaceBetween={50}
             slidesPerView={1.5}
-            grabCursor={true}
-            freeMode={true}
-            allowTouchMove={true}
+            grabCursor
+            freeMode
+            allowTouchMove
             scrollbar={{
               horizontalClass: s.swiperscroll,
               dragClass: s.swiperdrug,
               draggable: true,
             }}
-            mousewheel={true}
+            mousewheel
             modules={[FreeMode, Scrollbar, Mousewheel]}
           >
             {sliderarray?.map((slide) => (
-              <SwiperSlide>
+              <SwiperSlide key={slide?.id}>
                 <div className={s.swiperslide}>
-                  {slide?.smallimage ? (
+                  {slide?.imageSmall ? (
                     <ProgressiveImage
                       src={slide?.image}
-                      placeholder={slide?.smallimage}
+                      placeholder={slide?.imageSmall}
                     >
                       {(src, loading) => (
                         <img
@@ -323,5 +325,14 @@ function OneNewsFull(props) {
     </div>
   );
 }
+
+OneNewsFull.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  oneNews: PropTypes.object,
+};
+
+OneNewsFull.defaultProps = {
+  oneNews: {},
+};
 
 export default OneNewsFull;

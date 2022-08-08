@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
-import s from "./mortgage.module.css";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types"
 
 import CustomRange from "../customRange/CustomRange";
 import Button from "../button/Button";
@@ -11,6 +12,8 @@ import bankraif from "../../assets/images/bankraif.svg";
 import bankuni from "../../assets/images/bankuni.png";
 
 import { separator } from "../../helpers/stringsFun"
+
+import s from "./mortgage.module.css";
 
 function Mortgage(props) {
   const [rangeValuesPrice, setRangeValuesPrice] = useState([]);
@@ -38,6 +41,7 @@ function Mortgage(props) {
 
   const bankinfo = [
     {
+      id: 0,
       logo: banksber,
       title: "ПАО “Сбербанк”",
       percentage: "1.85",
@@ -45,6 +49,7 @@ function Mortgage(props) {
       bottomContent: "Ставка до сдачи дома, ипотека от 3 млн",
     },
     {
+      id: 1,
       logo: bankopen,
       title: "Банк “Открытие”",
       percentage: "5.80",
@@ -52,6 +57,7 @@ function Mortgage(props) {
       bottomContent: "Ставка до сдачи дома, ипотека от 3 млн",
     },
     {
+      id: 2,
       logo: bankuni,
       title: "АО “ЮниКредит Банк”",
       percentage: "5.99",
@@ -59,6 +65,7 @@ function Mortgage(props) {
       bottomContent: "Ставка до сдачи дома, ипотека от 3 млн",
     },
     {
+      id: 3,
       logo: bankraif,
       title: "Банк “Райффайзен”",
       percentage: "5.80",
@@ -66,6 +73,7 @@ function Mortgage(props) {
       bottomContent: "Ставка до сдачи дома, ипотека от 3 млн",
     },
     {
+      id: 4,
       logo: banksber,
       title: "ПАО “Сбербанк”",
       percentage: "1.85",
@@ -73,6 +81,7 @@ function Mortgage(props) {
       bottomContent: "Ставка до сдачи дома, ипотека от 3 млн",
     },
     {
+      id: 5,
       logo: bankopen,
       title: "Банк “Открытие”",
       percentage: "5.80",
@@ -95,17 +104,17 @@ function Mortgage(props) {
                     <input
                       type="text"
                       className={s.inputtext}
-                      readOnly={true}
-                      value={separator(rangeValuesPrice[0])}
+                      readOnly
+                      value={separator(rangeValuesPrice[0]) ?? 0}
                     />
                     <CustomRange
                       MIN={minPrice}
                       MAX={maxPrice}
-                      oneThumb={true}
+                      oneThumb
                       STEP={10000}
                       rangeValues={rangeValuesPrice}
                       onChange={setRangeValuesPrice}
-                      isWhite={true}
+                      isWhite
                       withText={false}
                     />
                   </div>
@@ -117,18 +126,18 @@ function Mortgage(props) {
                       <input
                         type="text"
                         className={`${s.inputtext} ${s.percentage}`}
-                        readOnly={true}
-                        value={separator(rangeValuesContribution[0])}
+                        readOnly
+                        value={separator(rangeValuesContribution[0]) ?? 0}
                       />
                     </div>
                     <CustomRange
                       MIN={minPrice}
                       MAX={maxPrice}
-                      oneThumb={true}
+                      oneThumb
                       STEP={10000}
                       rangeValues={rangeValuesContribution}
                       onChange={setRangeValuesContribution}
-                      isWhite={true}
+                      isWhite
                       withText={false}
                     />
                   </div>
@@ -139,17 +148,17 @@ function Mortgage(props) {
                     <input
                       type="text"
                       className={s.inputtext}
-                      readOnly={true}
-                      value={rangeValuesTerm[0]}
+                      readOnly
+                      value={rangeValuesTerm[0] ?? 0}
                     />
                     <CustomRange
                       MIN={minTerm}
                       MAX={maxTerm}
-                      oneThumb={true}
+                      oneThumb
                       STEP={1}
                       rangeValues={rangeValuesTerm}
                       onChange={setRangeValuesTerm}
-                      isWhite={true}
+                      isWhite
                       withText={false}
                     />
                   </div>
@@ -199,15 +208,15 @@ function Mortgage(props) {
                   </div>
                 </div>
                 <Button
-                  content={"Заказать консультацию"}
-                  bgColor={"blue"}
-                  width={244}
+                  content="Заказать консультацию"
+                  BGColor="blue"
+                  width="244px"
                 />
               </div>
               <div className={s.bankswrapper}>
                 <div className={s.banks}>
-                  {bankinfo?.map((bank, index) => (
-                    <div className={s.bankcard} key={index}>
+                  {bankinfo?.map((bank) => (
+                    <div className={s.bankcard} key={bank.id}>
                       <div className={s.top}>
                         <img src={bank?.logo} alt="" className={s.logo} />
                         <h6 className={s.title}>{bank?.title}</h6>
@@ -242,5 +251,14 @@ function Mortgage(props) {
     </div>
   );
 }
+
+Mortgage.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  project: PropTypes.object,
+};
+
+Mortgage.defaultProps = {
+  project: {},
+};
 
 export default Mortgage;

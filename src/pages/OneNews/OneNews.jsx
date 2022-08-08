@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import s from "./oneNews.module.css";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+
+import { Link, useParams } from "react-router-dom";
 import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
@@ -12,12 +11,12 @@ import OneNewsFull from "../../components/oneNewsFull";
 import NewsGrid from "../../components/newsGrid";
 import { NoMatchPage } from "../NoMatch";
 
-import { useParams } from "react-router-dom";
 
-import { newsCards } from "../../dummyData.js";
+import { newsCards } from "../../dummyData";
+
+import s from "./oneNews.module.css";
 
 function OneNews() {
-  const navigate = useNavigate();
   const [oneNews, setOneNews] = useState(null);
   const { newsId } = useParams();
 
@@ -32,8 +31,8 @@ function OneNews() {
   // });
 
   const wayArray = [
-    { title: <Link to="/" className="dashnav__link">Главная</Link> },
-    { title: <Link to="/newsandstocks/news" className="dashnav__link">Акции и новости</Link> },
+    { title: <Link to="/" className="dash-nav__link">Главная</Link> },
+    { title: <Link to="/new-sand-stocks/news" className="dash-nav__link">Акции и новости</Link> },
     { title: `${oneNews?.title}` },
   ];
 
@@ -48,7 +47,7 @@ function OneNews() {
         <OneNewsFull oneNews={oneNews} />
       </div>
       <div className={s.newsGrid}>
-        <NewsGrid title={"Читайте также"} />
+        <NewsGrid title="Читайте также" />
       </div>
       <Footer />
     </div>
@@ -58,7 +57,9 @@ function OneNews() {
 export default withErrorBoundary(OneNews, {
   fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
   }
 });

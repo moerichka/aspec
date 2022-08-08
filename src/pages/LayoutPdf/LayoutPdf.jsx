@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import s from "./layoutPdf.module.css";
+
 import { useParams } from "react-router-dom";
 import { withErrorBoundary } from "react-error-boundary";
 
-import { FooterShort } from "../../components/footer";
+import FooterShort from "../../components/footer/footerShort/FooterShort";
 import Pdf from "../../components/layoutFull/pdf/Pdf";
 
 import { NoMatchPage } from "../NoMatch";
 
 import { dateConverterToDMY } from "../../helpers/dateFun";
 
-import { houseCards } from "../../dummyData.js";
+import { houseCards } from "../../dummyData";
+
+import s from "./layoutPdf.module.css";
 
 function LayoutPdf() {
   const [project, setProject] = useState(null);
@@ -20,7 +22,7 @@ function LayoutPdf() {
 
   useEffect(() => {
     setProject(
-      houseCards?.filter((project) => project.id.toString() === projectId)[0]
+      houseCards?.filter((item) => item.id.toString() === projectId)[0]
     );
   }, [projectId]);
 
@@ -46,7 +48,9 @@ function LayoutPdf() {
 export default withErrorBoundary(LayoutPdf, {
   fallbackRender: () => <NoMatchPage />,
   onError(error, info) {
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
   },
 });

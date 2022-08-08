@@ -1,5 +1,6 @@
 import React from "react";
-import s from "./main.module.css";
+import PropTypes from "prop-types";
+
 import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
@@ -14,13 +15,23 @@ import { NoMatchPage } from "../NoMatch";
 import Scroller from "../../components/scroller";
 import Cookies from "../../components/cookies/Cookies";
 
+import s from "./main.module.css";
+
 function Main(props) {
-  const DataRepresentetionArray = [
+  const DataRepresentationArray = [
     "HouseCardGrid",
     "HouseCardGrid",
     "HouseCardGrid",
     "HouseCardGrid",
   ];
+
+  const filterArray = [
+    ["districtInput", "priceInput", "dateInput", "flatInput"],
+    ["districtInput", "priceInput", "dateInput"],
+    ["districtInput", "priceInput", "dateInput"],
+    ["districtInput", "spaceInput", "priceInput", "dateInput"],
+  ];
+
   
   return (
     <div className={s.main}>
@@ -31,13 +42,13 @@ function Main(props) {
         <HelloSlider />
       </div>
       <div className={s.filterAndTabs}>
-        <FilterAndTabs title={"Наши проекты"} dataRepresentetion={DataRepresentetionArray} withLinkMore={true} />
+        <FilterAndTabs title="Наши проекты" filterArray={filterArray} dataRepresentation={DataRepresentationArray} withLinkMore isMain/>
       </div>
       <div className={s.benefitsGrid}>
         <BenefitsGrid />
       </div>
       <div className={s.newsGrid}>
-        <NewsGrid buttonAll={true} desc={true} maxAmountNews={3} titlewrapper={true}/>
+        <NewsGrid buttonAll desc maxAmountNews={3} titleWrapper/>
       </div>
       <div className={s.questionForm}>
         <QuestionForm />
@@ -47,10 +58,22 @@ function Main(props) {
   );
 }
 
+Main.propTypes = {
+  cookiesAgreed: PropTypes.bool,
+  setCookiesAgreed: PropTypes.func,
+};
+
+Main.defaultProps = {
+  cookiesAgreed: "true",
+  setCookiesAgreed: () => {},
+};
+
 export default withErrorBoundary(Main, {
   fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
   }
 });

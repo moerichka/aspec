@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
-import s from "./history.module.css";
+
 import "./history.css";
 
 import ProgressiveImage from "react-progressive-graceful-image";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 
 import "swiper/css";
@@ -12,12 +14,14 @@ import "swiper/css/navigation";
 import slidePicture from "../../../assets/images/image33.jpg";
 import slidePictureSmall from "../../../assets/images/image33small.jpg";
 
+import s from "./history.module.css";
+
 function History() {
   const [swiper, setSwiper] = useState(null);
   const [isEnd, setIsEnd] = useState(false);
   const [isBeginning, setIsBeginning] = useState(true);
 
-  const image1 = { image: slidePicture, smallimage: slidePictureSmall };
+  const image1 = { image: slidePicture, imageSmall: slidePictureSmall };
 
   const slideChangeHandler = (swip) => {
     setIsEnd(swip?.isEnd);
@@ -106,7 +110,7 @@ function History() {
         </div>
       </div>
       <div className={s.container}>
-        <div className={s.swiperwrapper}>
+        <div className={s.swiperWrapper}>
           <div className={`${s.arrowwrapper} ${s.arrowwrapperleft}`}>
             <span
               className={`icon-projectArrow ${s.arrow} ${s.arrowleft} ${
@@ -123,13 +127,13 @@ function History() {
           </div>
           <Swiper
             id="swiper"
-            slidesPerView={"auto"}
+            slidesPerView="auto"
             spaceBetween={5}
-            centeredSlides={true}
+            centeredSlides
             className={s.swiper}
-            grabCursor={true}
-            allowTouchMove={true}
-            slideToClickedSlide={true}
+            grabCursor
+            allowTouchMove
+            slideToClickedSlide
             onSwiper={(swip) => setSwiper(swip)}
             onSlideChange={(swip) => slideChangeHandler(swip)}
             modules={[Autoplay]}
@@ -140,8 +144,8 @@ function History() {
             }}
             // modules={windowWidth < 756 ? [Scrollbar] : []}
           >
-            {dataArray?.map((elem, index) => (
-              <SwiperSlide key={index}>
+            {dataArray?.map((elem) => (
+              <SwiperSlide key={elem.date}>
                 {({ isActive }) => (
                   <div
                     className={`${s.slide} ${isActive ? s.slideactive : ""}`}
@@ -149,14 +153,14 @@ function History() {
                     <div className={s.toppart}>
                       <span className={s.date}>{elem.date}</span>
                       <div className={s.point}>
-                        <div className={s.innerpoint}></div>
+                        <div className={s.innerpoint} />
                       </div>
                     </div>
                     <div className={s.content}>
-                      {elem?.image?.smallimage ? (
+                      {elem?.image?.imageSmall ? (
                         <ProgressiveImage
                           src={elem?.image?.image}
-                          placeholder={elem?.image?.smallimage}
+                          placeholder={elem?.image?.imageSmall}
                         >
                           {(src, loading) => (
                             <img

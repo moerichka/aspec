@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
-import s from "./paymentOptions.module.css";
-import "./paymentOptions.css";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useState } from "react";
 
+
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+
+import s from "./paymentOptions.module.css";
+import "./paymentOptions.css";
 // import "swiper/css/scrollbar";
 
 // import { Scrollbar } from "swiper";
@@ -27,7 +31,7 @@ function PaymentOptions() {
           <h2 className="h2-title">Способы покупки</h2>
           <p className={s.desc}>
             Для того что бы получить скидку достаточно выбрать свободную
-            квартиру в строящихся домах компании "АСПЭК-Домстрой" и показать
+            квартиру в строящихся домах компании &quot;АСПЭК-Домстрой&quot; и показать
             персональному менеджеру свидетельство о регистрации{" "}
           </p>
           <div className={s.navigation}>
@@ -36,13 +40,13 @@ function PaymentOptions() {
                 isBeginning ? s.end : ""
               }`}
               onClick={() => swiper?.slidePrev()}
-            ></span>
+             />
             <span
               className={`icon-projectArrow ${s.arrow} ${
                 isEnd ? s.end : ""
               }`}
               onClick={() => swiper?.slideNext()}
-            ></span>
+             />
           </div>
         </div>
         <div className={s.rightPart}>
@@ -50,10 +54,10 @@ function PaymentOptions() {
             id="swiper"
             slidesPerView={3}
             spaceBetween={5}
-            centeredSlides={true}
+            centeredSlides
             className="mySwiper"
-            grabCursor={true}
-            allowTouchMove={true}
+            grabCursor
+            allowTouchMove
             onSwiper={(swip) => setSwiper(swip)}
             onSlideChange={(swip)=> slideChangeHandler(swip)}
             // scrollbar={windowWidth < 756 ? {draggable: true} : false}
@@ -66,13 +70,13 @@ function PaymentOptions() {
                     className={`icon-bank ${s.icon} ${
                       isActive ? s.active : ""
                     }`}
-                  ></span>
+                   />
                   <h6 className={`${s.smalltitle} ${isActive ? s.active : ""}`}>
                     Ипотека
                   </h6>
                   <p className={`${s.text} ${isActive ? s.active : ""}`}>
                     Для того что бы получить скидку достаточно выбрать свободную
-                    квартиру в строящихся домах компании "АСПЭК-Домстрой" и
+                    квартиру в строящихся домах компании &quot;АСПЭК-Домстрой&quot; и
                     показать персональному менеджеру свидетельство о регистрации
                     права собственности на существующую квартиру. А все хлопоты
                     по реализации вторичного жилья мы возьмем на себя.
@@ -87,13 +91,13 @@ function PaymentOptions() {
                     className={`icon-handshake ${s.icon} ${
                       isActive ? s.active : ""
                     }`}
-                  ></span>
+                   />
                   <h6 className={`${s.smalltitle} ${isActive ? s.active : ""}`}>
                     Свои люди
                   </h6>
                   <p className={`${s.text} ${isActive ? s.active : ""}`}>
                     Для того что бы получить скидку достаточно выбрать свободную
-                    квартиру в строящихся домах компании "АСПЭК-Домстрой" и
+                    квартиру в строящихся домах компании &quot;АСПЭК-Домстрой&quot; и
                     показать персональному менеджеру свидетельство о регистрации
                     права собственности на существующую квартиру. А все хлопоты
                     по реализации вторичного жилья мы возьмем на себя.
@@ -108,7 +112,7 @@ function PaymentOptions() {
                     className={`icon-housePersantage ${s.icon} ${
                       isActive ? s.active : ""
                     }`}
-                  ></span>
+                   />
                   <h6 className={`${s.smalltitle} ${isActive ? s.active : ""}`}>
                     Рассрочка
                   </h6>

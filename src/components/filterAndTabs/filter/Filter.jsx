@@ -1,12 +1,15 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from "react";
-// import "./filter.css";
-import s from "./filter.module.css";
+
 import "react-tabs/style/react-tabs.css";
 import PropTypes from "prop-types";
-import Select from "react-select";
 import { DateTime } from "luxon";
 
-import CustomRange from "../../customRange";
+import { Link } from "react-router-dom";
+
 import CustomSelector from "../../customSelector";
 import Button from "../../button";
 import HouseCardGrid from "../houseCardGrid";
@@ -14,11 +17,13 @@ import DataView from "../dataView";
 
 import { createOptions, getUnique, sortDates } from "../../../helpers/arrayFun";
 import { dateConverterToQuarter } from "../../../helpers/dateFun";
-import { flats, larders, parkings } from "../../../data";
-import { Link } from "react-router-dom";
+import { flats } from "../../../data";
+import CustomRange from "../../customRange";
 
-const Filter = (props) => {
-  const [filtredData, setFiltredData] = useState(props.data);
+import s from "./filter.module.css";
+
+function Filter(props) {
+  const [filteredData, setFilteredData] = useState(props.data);
   const [isPanel, setIsPanel] = useState(true);
   const [isFilterShown, setIsFilterShown] = useState(false);
   const [isFilterActive, setIsFilterActive] = useState(false);
@@ -34,11 +39,11 @@ const Filter = (props) => {
 
   const datesArray = getUnique(props.data, "openDate"); // получение уникальных дат
 
-  const datesArrayCoverted = datesArray.map((elem) =>
+  const datesArrayConverted = datesArray.map((elem) =>
     dateConverterToQuarter(elem)
   ); // формирование названий дат с кварталами
 
-  let dateOptions = createOptions(datesArrayCoverted, false, true, datesArray); // создание опцеий для комбобокса по датам
+  let dateOptions = createOptions(datesArrayConverted, false, true, datesArray); // создание опцеий для комбобокса по датам
 
   dateOptions = sortDates(dateOptions);
 
@@ -63,6 +68,8 @@ const Filter = (props) => {
     maxSpace = Math.max(...getUnique(flats, "space"));
   }
 
+  let filteredArray = [...props.data];
+
   useEffect(() => {
     setRangeValuesPrice([minPrice, maxPrice]);
   }, [minPrice, maxPrice]);
@@ -72,111 +79,25 @@ const Filter = (props) => {
   }, [minSpace, maxSpace]);
 
   useEffect(() => {
-    setFiltredData(props.data);
+    setFilteredData(props.data);
   }, [props.data]);
 
   useEffect(() => {
-    setFiltredData(filteredArray);
+    setFilteredData(filteredArray);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [buildedStatus, isFilterActive, filterCounter]);
 
   useEffect(() => {
     document.body.style.overflow = isFilterShown ? "hidden" : "unset";
   }, [isFilterShown]);
 
-  let filteredArray = [...props.data];
-
-  buildedStatus &&
-    (filteredArray = filteredArray.filter((elem) => {
+  if (buildedStatus)
+    filteredArray = filteredArray.filter((elem) => {
       const now = DateTime.now().toMillis();
       const openDate = DateTime.fromISO(elem.openDate).toMillis();
       const result = now > openDate;
       return buildedStatus === 1 ? !result : result;
-    }));
-  if (isFilterActive) {
-    // easyFilter
-    // PRICE
-    rangeValuesPrice &&
-      props?.easyFilter &&
-      (filteredArray = filteredArray?.filter(
-        (elem) =>
-          elem?.minPrice >= rangeValuesPrice[0] &&
-          elem?.minPrice <= rangeValuesPrice[1]
-      ));
-      // console.log('PRICE: ', filteredArray);
-    // SPACE
-    rangeValuesSpace &&
-      props?.easyFilter &&
-      (filteredArray = filteredArray?.filter(
-        (elem) =>
-          elem?.space >= rangeValuesSpace[0] &&
-          elem?.space <= rangeValuesSpace[1]
-      ));
-    // /easyFilter
-    // PRICE
-    // rangeValuesPrice &&
-    //   !props?.easyFilter &&
-    //   (filteredArray = filteredArray?.filter((project) =>
-    //     project?.buildings?.filter((building) =>
-    //       building?.levels?.filter((level) =>
-    //         level?.flats?.filter(
-    //           (flat) =>
-    //             flat?.price >= rangeValuesPrice[0] &&
-    //             flat?.price <= rangeValuesPrice[1]
-    //         )
-    //       )
-    //     )
-    //   ));
-      // console.log('SPACE: ', filteredArray);
-    // SPACE
-    // rangeValuesSpace &&
-    //   !props?.easyFilter &&
-    //   (filteredArray = filteredArray?.filter(
-    //     (elem) =>
-    //       elem?.space >= rangeValuesSpace[0] &&
-    //       elem?.space <= rangeValuesSpace[1]
-    //   ));
-    // DISTRICT
-    chosenDistrict &&
-      (filteredArray = filteredArray?.filter(
-        (elem) => elem.district === chosenDistrict.value
-      ));
-      // console.log('DISTRICT: ', filteredArray);
-    // HOUSE
-    chosenHouse &&
-      (filteredArray = filteredArray?.filter((elem) =>
-        elem.buildings?.filter(
-          (house) => house?.number === chosenDistrict.value
-        )
-      ));
-      // console.log('HOUSE: ', filteredArray);
-    // PROJECT
-    chosenProject &&
-      (filteredArray = filteredArray?.filter(
-        (elem) => elem.name === chosenProject.value
-      ));
-      // console.log('PROJECT: ', filteredArray);
-    // DATE
-    chosenDate &&
-      (filteredArray = filteredArray?.filter(
-        (elem) => elem.openDate === chosenDate.value
-      ));
-      // console.log('DATE: ', filteredArray);
-    // ROOMS
-    chosenFlat &&
-      props?.filters?.includes("flatInput") &&
-      (filteredArray = filteredArray?.filter((elem) => {
-        let result = [];
-        chosenFlat.forEach((number) =>
-          elem.flats.forEach((flat) => {
-            number === 3
-              ? result.push(flat?.type >= number ? true : false)
-              : result.push(flat?.type === number ? true : false);
-          })
-        );
-        return result.includes(true);
-      }));
-  }
-  // console.log('ROOMS: ', filteredArray);
+    });
 
   const buildedStatusToggler = (number) => {
     setBuildedStatus((prev) => (prev === number ? 0 : number));
@@ -222,7 +143,12 @@ const Filter = (props) => {
             }`}
           >
             <div className={s.popupTopWrapper}>
-              <div className={s.popupState}><Link to="/" className="dashnav__link">Главная</Link> / {props.tab}</div>
+              <div className={s.popupState}>
+                <Link to="/" className="dash-nav__link">
+                  Главная
+                </Link>{" "}
+                / {props?.tab}
+              </div>
               <div className={s.popupTitleWrapper}>
                 <h6 className={s.popupTitle}>Фильтры</h6>
                 <div
@@ -230,60 +156,51 @@ const Filter = (props) => {
                   onClick={() => setIsFilterShown(false)}
                 >
                   Закрыть
-                  <span className={`${s.popupCloseIcon} icon-cancel`}></span>
+                  <span className={`${s.popupCloseIcon} icon-cancel`} />
                 </div>
               </div>
             </div>
             <div className={s.inputs}>
-              {props?.filters?.map((filter, index) => (
-                <>
+              {props?.filters?.map((filter) => (
+                <React.Fragment key={`${props?.tab}-${filter}`}>
                   {filter === "districtInput" && (
-                    <div
-                      className={`${s.inputWrapper} ${s.inputDistrict}`}
-                      key={index}
-                    >
+                    <div className={`${s.inputWrapper} ${s.inputDistrict}`}>
                       <label htmlFor={s.inputLabel}>Район</label>
                       <CustomSelector
                         options={districtOptions}
                         defaultValue={chosenDistrict}
                         value={chosenDistrict}
                         setChosen={setChosenDistrict}
-                        bgColor={props.inputbgColor}
-                        fontSize={"18px"}
-                        fontFamily={"Montserrat-Medium"}
-                        padding={"13px 0 13px 19px"}
-                        optionPadding={"11px 12px"}
-                        optionFontFamily={"Montserrat-Regular"}
-                        placeholder={"Все"}
+                        BGColor={props?.inputBGColor}
+                        fontSize="18px"
+                        fontFamily="Montserrat-Medium"
+                        padding="13px 0 13px 19px"
+                        optionPadding="11px 12px"
+                        optionFontFamily="Montserrat-Regular"
+                        placeholder="Все"
                       />
                     </div>
                   )}
                   {filter === "projectInput" && (
-                    <div
-                      className={`${s.inputWrapper} ${s.inputProject}`}
-                      key={index}
-                    >
+                    <div className={`${s.inputWrapper} ${s.inputProject}`}>
                       <label htmlFor={s.inputLabel}>Проект</label>
                       <CustomSelector
                         options={projectOptions}
                         defaultValue={chosenProject}
                         value={chosenProject}
                         setChosen={setChosenProject}
-                        bgColor={props.inputbgColor}
-                        fontSize={"18px"}
-                        fontFamily={"Montserrat-Medium"}
-                        padding={"13px 0 13px 19px"}
-                        optionPadding={"11px 12px"}
-                        optionFontFamily={"Montserrat-Regular"}
-                        placeholder={"Все"}
+                        BGColor={props.inputBGColor}
+                        fontSize="18px"
+                        fontFamily="Montserrat-Medium"
+                        padding="13px 0 13px 19px"
+                        optionPadding="11px 12px"
+                        optionFontFamily="Montserrat-Regular"
+                        placeholder="Все"
                       />
                     </div>
                   )}
                   {filter === "spaceInput" && (
-                    <div
-                      className={`${s.inputWrapper} ${s.inputSpace}`}
-                      key={index}
-                    >
+                    <div className={`${s.inputWrapper} ${s.inputSpace}`}>
                       <label htmlFor={s.inputLabel}>Площадь, м²</label>
                       <CustomRange
                         MIN={minSpace}
@@ -291,15 +208,12 @@ const Filter = (props) => {
                         STEP={1}
                         rangeValues={rangeValuesSpace}
                         onChange={setRangeValuesSpace}
-                        bgColor={props?.inputbgColor}
+                        BGColor={props?.inputBGColor}
                       />
                     </div>
                   )}
                   {filter === "priceInput" && (
-                    <div
-                      className={`${s.inputWrapper} ${s.inputPrice}`}
-                      key={index}
-                    >
+                    <div className={`${s.inputWrapper} ${s.inputPrice}`}>
                       <label htmlFor={s.inputLabel}>Стоимость, ₽</label>
                       <CustomRange
                         MIN={minPrice}
@@ -307,56 +221,48 @@ const Filter = (props) => {
                         STEP={10000}
                         rangeValues={rangeValuesPrice}
                         onChange={setRangeValuesPrice}
-                        bgColor={props?.inputbgColor}
+                        BGColor={props?.inputBGColor}
                       />
                     </div>
                   )}
                   {filter === "dateInput" && (
-                    <div
-                      className={`${s.inputWrapper} ${s.inputDate}`}
-                      key={index}
-                    >
+                    <div className={`${s.inputWrapper} ${s.inputDate}`}>
                       <label htmlFor={s.inputLabel}>Срок сдачи</label>
                       <CustomSelector
                         options={dateOptions}
                         defaultValue={chosenDate}
                         value={chosenDate}
                         setChosen={setChosenDate}
-                        bgColor={props.inputbgColor}
-                        fontSize={"18px"}
-                        fontFamily={"Montserrat-Medium"}
-                        padding={"13px 0 13px 19px"}
-                        optionPadding={"11px 12px"}
-                        optionFontFamily={"Montserrat-Regular"}
+                        BGColor={props.inputBGColor}
+                        fontSize="18px"
+                        fontFamily="Montserrat-Medium"
+                        padding="13px 0 13px 19px"
+                        optionPadding="11px 12px"
+                        optionFontFamily="Montserrat-Regular"
                       />
                     </div>
                   )}
                   {filter === "houseInput" && (
-                    <div
-                      className={`${s.inputWrapper} ${s.inputHouse}`}
-                      key={index}
-                    >
+                    <div className={`${s.inputWrapper} ${s.inputHouse}`}>
                       <label htmlFor={s.inputLabel}>Дом</label>
                       <CustomSelector
                         options={houseOptions}
                         defaultValue={chosenHouse}
                         value={chosenHouse}
                         setChosen={setChosenHouse}
-                        bgColor={props.inputbgColor}
-                        fontSize={"18px"}
-                        fontFamily={"Montserrat-Medium"}
-                        padding={"13px 0 13px 19px"}
-                        optionPadding={"11px 12px"}
-                        optionFontFamily={"Montserrat-Regular"}
-                        placeholder={"Все"}
+                        BGColor={props.inputBGColor}
+                        fontSize="18px"
+                        fontFamily="Montserrat-Medium"
+                        padding="13px 0 13px 19px"
+                        optionPadding="11px 12px"
+                        optionFontFamily="Montserrat-Regular"
+                        placeholder="Все"
+                        isSearchable={false}
                       />
                     </div>
                   )}
                   {filter === "flatInput" && (
-                    <div
-                      className={`${s.inputWrapper} ${s.inputRooms}`}
-                      key={index}
-                    >
+                    <div className={`${s.inputWrapper} ${s.inputRooms}`}>
                       <label htmlFor={s.inputLabel}>Количество комнат</label>
                       <div className={s.flatTypeWrapper}>
                         <div
@@ -402,26 +308,26 @@ const Filter = (props) => {
                       </div>
                     </div>
                   )}
-                </>
+                </React.Fragment>
               ))}
-            </div>
-
-            <div className={s.butWrapper}>
-              {isFilterActive && (
+              <div className={s.butWrapper}>
                 <div
                   className={s.cancelBut}
                   onClick={() => filterToggler(false)}
+                  data-is-visible={isFilterActive}
                 >
                   Сбросить
-                  <span className={`${s.cancelIcon} icon-cancel`}></span>
+                  <span className={`${s.cancelIcon} icon-cancel`} />
                 </div>
-              )}
-              <Button
-                bgColor="blue"
-                content="Применить"
-                width="200px"
-                onClick={() => filterToggler(true)}
-              />
+                <div className={s.butWrapperButton}>
+                  <Button
+                    BGColor="blue"
+                    content="Применить"
+                    width="200px"
+                    onClick={() => filterToggler(true)}
+                  />
+                </div>
+              </div>
             </div>
 
             <div className={s.butWrapperMobile}>
@@ -434,8 +340,8 @@ const Filter = (props) => {
                 </div>
               )}
               <Button
-                bgColor="green"
-                content={`Показать ${filtredData?.length} планировок`}
+                BGColor="green"
+                content={`Показать ${filteredData?.length} планировок`}
                 width="335px"
                 onClick={() => filterToggler(true)}
               />
@@ -444,43 +350,74 @@ const Filter = (props) => {
         </div>
         <div className={s.buttonWrapper}>
           <button
+            type="button"
             className={s.button}
             onClick={() => {
               setIsFilterShown((prev) => !prev);
             }}
           >
-            <span className="icon-filter"></span> Фильтр
+            <span className="icon-filter" /> Фильтр
           </button>
         </div>
+        {!props?.isMain && <div className="container">
+          <div className={s.quantity}>
+            Найдено {filteredData?.length} квартир
+          </div>
+        </div>}
       </div>
-      {props?.dataRepresentetion === "HouseCardGrid" && (
+      {props?.dataRepresentation === "HouseCardGrid" && (
         <HouseCardGrid
-          filtredData={filtredData}
+          isMain={props?.isMain}
+          filteredData={filteredData}
           {...propsArray}
-          withShowMore={props.withShowMore}
+          withShowMore={props?.withShowMore}
           withLinkMore={props?.withLinkMore}
         />
       )}
-      {props?.dataRepresentetion === "DataView" && (
-        <DataView filtredData={filtredData} {...propsArray} />
+      {props?.dataRepresentation === "DataView" && (
+        <DataView filteredData={filteredData} {...propsArray} />
       )}
     </>
   );
-};
+}
 
 Filter.propTypes = {
-  data: PropTypes.array,
+  // eslint-disable-next-line react/forbid-prop-types
+  data: PropTypes.arrayOf(PropTypes.object),
   tab: PropTypes.string,
   districtInput: PropTypes.bool,
   spaceInput: PropTypes.bool,
   houseInput: PropTypes.bool,
   priceInput: PropTypes.bool,
   dateInput: PropTypes.bool,
+  isMain: PropTypes.bool,
   flatInput: PropTypes.bool,
   withGrid: PropTypes.bool,
   withShowMore: PropTypes.bool,
+  easyFilter: PropTypes.bool,
+  filters: PropTypes.arrayOf(PropTypes.string),
+  inputBGColor: PropTypes.string,
+  dataRepresentation: PropTypes.string,
+  withLinkMore: PropTypes.bool,
 };
 
-Filter.defaultProps = {};
+Filter.defaultProps = {
+  data: [],
+  tab: "",
+  districtInput: false,
+  spaceInput: false,
+  houseInput: false,
+  priceInput: false,
+  dateInput: false,
+  flatInput: false,
+  isMain: false,
+  withGrid: false,
+  withShowMore: false,
+  easyFilter: false,
+  filters: [],
+  inputBGColor: "gray",
+  dataRepresentation: "",
+  withLinkMore: false,
+};
 
 export default Filter;

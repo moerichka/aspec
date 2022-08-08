@@ -10,6 +10,12 @@
     padding: 0 48px;
 }
 
+.containerPopup{
+    width: 100%;
+    max-width: 624px;
+    padding: 0 48px;
+}
+
 .wrapper {
     position: relative;
     background-color: var(--blue);
@@ -20,6 +26,37 @@
     flex-direction: column;
     gap: 40px;
     color: var(--white);
+}
+
+.wrapperPopup{
+    position: relative;
+    background-color: var(--blue);
+    width: 100%;
+    border-radius: 5px;
+    padding: 55px 65px 62px 65px;
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+}
+
+.closePopup{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    color: var(--gray-icons);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.closePopup:hover{
+    color: var(--green);
+    transform: rotate(90deg);
 }
 
 .titleWrapper {
@@ -35,10 +72,22 @@
     font-family: Montserrat-Bold;
 }
 
+.titlePopup {
+    font-size: 22px;
+    line-height: 32px;
+    font-family: Montserrat-Bold;
+}
+
 .desc {
     font-family: Montserrat-Regular;
     font-size: 16px;
     line-height: 28px;
+}
+
+.descPopup {
+    font-family: Montserrat-Regular;
+    font-size: 14px;
+    line-height: 17px;
 }
 
 .form {
@@ -57,6 +106,11 @@
     align-items: center;
 }
 
+.inputsWrapperPopup {
+    display: flex;
+    flex-direction: column;
+}
+
 .input {
     background-color: transparent;
     border-bottom: 1px solid var(--white);
@@ -70,15 +124,67 @@
     color: var(--white);
 }
 
+.inputPopup{
+    background-color: transparent;
+    border-bottom: 1px solid var(--white);
+    padding-left: 14px;
+    padding-bottom: 12px;
+    max-width: 260px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    color: var(--white);
+    margin-top: 30px;
+}
+
 .input::-webkit-input-placeholder {
     color: var(--white);
+    opacity: 1;
 }
 
 .input::-moz-placeholder {
     color: var(--white);
+    opacity: 1;
+}
+
+.inputPopup {
+    background-color: transparent;
+    border-bottom: 1px solid var(--white);
+    padding-left: 14px;
+    padding-bottom: 12px;
+    max-width: 300px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: Montserrat-Medium;
+    color: var(--white);
+}
+
+.inputPopup::-webkit-input-placeholder {
+    color: var(--white);
+    opacity: 1;
+}
+
+.inputPopup::-moz-placeholder {
+    color: var(--white);
+    opacity: 1;
+}
+
+.buttonPopup{
+    margin-top: 42px;
 }
 
 .cbWrapper {
+    grid-column: 2 span;
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+    line-height: 15px;
+    color: var(--white);
+}
+
+.cbWrapperPopup{
+    margin-top: 28px;
     grid-column: 2 span;
     font-family: Montserrat-Regular;
     font-size: 12px;

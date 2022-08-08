@@ -216,7 +216,7 @@
     white-space: nowrap;
 }
 
-.flatmeterprice {
+.flatmeterPrice {
     padding-left: 12px;
     font-size: 13px;
     line-height: 24px;
@@ -356,25 +356,25 @@
         line-height: 24px;
     }
 
-    .flatmeterprice {
+    .flatmeterPrice {
         padding-left: 16px;
         font-size: 14px;
         line-height: 24px;
     }
 }
 
-.flatwrapper[data-currnet="true"]{
+.flatwrapper[data-current="true"]{
     border-color: var(--green);
 }
 
-.flatinfo[data-currnet="true"]{
+.flatinfo[data-current="true"]{
     display: flex;
     flex-direction: column;
 }
 
-.flatwrapper[data-status="booked"][data-currnet="true"] {
+.flatwrapper[data-status="booked"][data-current="true"] {
     border-color: var(--yellow);
 }
-.flatwrapper[data-status="sold"][data-currnet="true"] {
+.flatwrapper[data-status="sold"][data-current="true"] {
     border-color: var(--blue-transparent);
 }

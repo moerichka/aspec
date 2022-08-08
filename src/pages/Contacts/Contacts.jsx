@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import s from "./contacts.module.css";
-import { YMaps, Map, Placemark, Button } from "react-yandex-maps";
+import React, { useState } from "react";
+
+
+import { YMaps, Map, Placemark } from "react-yandex-maps";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { Link } from "react-router-dom";
@@ -13,18 +14,20 @@ import { NoMatchPage } from "../NoMatch";
 
 import loc from "../../assets/images/contactloc.svg"
 
+import s from "./contacts.module.css";
+
 function Contacts() {
   const [tabIndex, setTabIndex] = useState(0);
 
   const tabs = ["Офис 1", "Офис 2", "Офис 3", "Офис 4"];
 
-  const wayArray = [{ title:  <Link to="/" className="dashnav__link">Главная</Link>  }, { title: "Контакты" }];
+  const wayArray = [{ title:  <Link to="/" className="dash-nav__link">Главная</Link>  }, { title: "Контакты" }];
 
-  let mapHeight = "100%";
+  const mapHeight = "100%";
 
   return (
     <div className={s.contacts}>
-      <Header withLine={true} />
+      <Header withLine />
       <div className={s.dashNav}>
         <DashNav wayArray={wayArray} />
       </div>
@@ -32,44 +35,44 @@ function Contacts() {
         <div className="container">
           <h2 className="h2-title">Контакты</h2>
           <Tabs
-            className={s.tableader}
+            className={s.tabLeader}
             selectedIndex={tabIndex}
             onSelect={(index) => setTabIndex(index)}
           >
             <TabList className={s.tabs}>
-              {tabs?.map((tab, index) => (
+              {tabs?.map((tab) => (
                 <Tab
                   className={s.tab}
-                  selectedClassName={s.tabselected}
-                  key={index}
+                  selectedClassName={s.tabSelected}
+                  key={tab}
                 >
                   {tab}
                 </Tab>
               ))}
             </TabList>
-            {tabs?.map((tab) => (
+            {tabs?.map(() => (
               <TabPanel>
                 <div className={s.contact}>
                   <div className={s.info}>
-                    <h6 className={s.smalltitle}>Офис продаж и обслуживания</h6>
-                    <div className={s.infolist}>
+                    <h6 className={s.smallTitle}>Офис продаж и обслуживания</h6>
+                    <div className={s.infoList}>
                       <div className={s.elem}>
-                        <div className={s.elemtitle}>Телефон</div>
-                        <div className={s.elemvalue}>(3412) 209-535</div>
+                        <div className={s.elemTitle}>Телефон</div>
+                        <div className={s.elemValue}>(3412) 209-535</div>
                       </div>
                       <div className={s.elem}>
-                        <div className={s.elemtitle}>Факс</div>
-                        <div className={s.elemvalue}>(3412) 912-324</div>
+                        <div className={s.elemTitle}>Факс</div>
+                        <div className={s.elemValue}>(3412) 912-324</div>
                       </div>
                       <div className={s.elem}>
-                        <div className={s.elemtitle}>Адрес</div>
-                        <div className={s.elemvalue}>
+                        <div className={s.elemTitle}>Адрес</div>
+                        <div className={s.elemValue}>
                           г. Ижевск, ул.Пушкинская, 268 (этаж 1, кабинет 20)
                         </div>
                       </div>
                       <div className={s.elem}>
-                        <div className={s.elemtitle}>Email</div>
-                        <div className={s.elemvalue}>domstroy@aspec.ru</div>
+                        <div className={s.elemTitle}>Email</div>
+                        <div className={s.elemValue}>domstroy@aspec.ru</div>
                       </div>
                     </div>
                   </div>
@@ -82,9 +85,8 @@ function Contacts() {
                         }}
                         width="100%"
                         height={mapHeight}
-                        instanceRef={(ref) => {
-                          ref && ref.behaviors.disable("scrollZoom");
-                        }}
+                        instanceRef={(ref) => (
+                          ref && ref.behaviors.disable("scrollZoom"))}
                         controls={[]}
                       >
                         <Placemark
@@ -113,7 +115,9 @@ function Contacts() {
 export default withErrorBoundary(Contacts, {
   fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
   }
 });

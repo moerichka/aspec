@@ -1,10 +1,13 @@
 import React from "react";
-import s from "./footer.module.css";
+
 import { Link } from "react-router-dom";
 
+import Bar from "../bar"
+
 import logo from "../../assets/images/logo.svg";
-import headerBar from "../../assets/images/Elem1.png";
 import logoCULT from "../../assets/images/logo-cult.svg";
+
+import s from "./footer.module.css";
 
 export default function Footer() {
   return (
@@ -17,7 +20,7 @@ export default function Footer() {
           <div className={s.topContainer}>
             <div className={s.infoWrapper}>
               <div className={s.infoTitle}>
-                <span className={`${s.infoIcon} icon-location`}></span>
+                <span className={`${s.infoIcon} icon-location`} />
                 <span>Адрес офиса продаж</span>
               </div>
               <div className={s.infoDescWrapper}>
@@ -33,7 +36,7 @@ export default function Footer() {
             </div>
             <div className={s.infoWrapper}>
               <div className={s.infoTitle}>
-                <span className={`${s.infoIcon} icon-clock`}></span>
+                <span className={`${s.infoIcon} icon-clock`} />
                 <span>Режим работы</span>
               </div>
               <span className={s.infoDesc}>
@@ -50,13 +53,13 @@ export default function Footer() {
           </div>
           <div className={s.contactUsWrapper}>
             <a href="https://vk.com/" target="__blank">
-              <span className={`${s.sn} icon-vkontacte`}></span>
+              <span className={`${s.sn} icon-vkontacte`} />
             </a>
             <a href="https://www.youtube.com/" target="__blank">
-              <span className={`${s.sn} icon-youtube`}></span>
+              <span className={`${s.sn} icon-youtube`} />
             </a>
             <a href="https://web.telegram.org/" target="__blank">
-              <span className={`${s.sn} icon-telegramm`}></span>
+              <span className={`${s.sn} icon-telegramm`} />
             </a>
           </div>
           <div className={s.tel}>+7 (3412) 209-519</div>
@@ -67,7 +70,7 @@ export default function Footer() {
                 <Link to="/company">
                   <li className={s.listItem}>Официальные сведения</li>
                 </Link>
-                <Link to="/toinvestors">
+                <Link to="/to-investors">
                   <li className={s.listItem}>Инвесторам</li>
                 </Link>
                 <Link to="/contacts">
@@ -81,7 +84,7 @@ export default function Footer() {
                 <Link to="/">
                   <li className={s.listItem}>Квартиры</li>
                 </Link>
-                <Link to="/estateselection">
+                <Link to="/estate-selection">
                   <li className={s.listItem}>Коммерческая недвижимость</li>
                 </Link>
               </ul>
@@ -89,7 +92,7 @@ export default function Footer() {
             <div className={s.menuColumn}>
               <h5 className={s.menuColumnTitle}>Подбор недвижимости</h5>
               <ul className={s.list}>
-                <Link to="/estateselection">
+                <Link to="/estate-selection">
                   <li className={s.listItem}>Подбор недвижимости</li>
                 </Link>
                 <Link to="/">
@@ -100,10 +103,10 @@ export default function Footer() {
             <div className={s.menuColumn}>
               <h5 className={s.menuColumnTitle}>Новости и акции</h5>
               <ul className={s.list}>
-                <Link to="/newsandstocks/news">
+                <Link to="/new-sand-stocks/news">
                   <li className={s.listItem}>Новости</li>
                 </Link>
-                <Link to="/newsandstocks/stocks">
+                <Link to="/new-sand-stocks/stocks">
                   <li className={s.listItem}>Акции</li>
                 </Link>
               </ul>
@@ -111,7 +114,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <img src={headerBar} alt="" className={s.bar} />
+      <Bar />
       <div className={s.container}>
         <div className={s.downBar}>
           <div className={s.rightsWrapper}>

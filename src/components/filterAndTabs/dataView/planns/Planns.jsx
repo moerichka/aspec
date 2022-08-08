@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
-import s from "./planns.module.css";
+import React from "react";
 
-import Layout from "../../../../components/layout";
-import Button from "../../../../components/button";
+import Layout from "../../../layout";
+import Button from "../../../button";
 import { flats } from "../../../../data";
 
-function Planns(props) {
-  console.log(flats);
+import s from "./planns.module.css";
+
+function Planns() {
   return (
     <div className={s.planns}>
       <div className={s.contentContainer}>
         <div className={s.grid}>
           {flats?.map((element) => (
-            <Layout room={element} key={element?.id}></Layout>
+            <Layout room={element} key={element?.id} />
           ))}
         </div>
         <div className={s.button}>
           <Button
             content="Смотреть все квартиры"
-            bgColor="blue"
+            BGColor="blue"
             width="245px"
           />
         </div>

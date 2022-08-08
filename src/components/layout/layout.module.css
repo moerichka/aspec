@@ -68,7 +68,7 @@
     color: var(--green-hover);
 }
 
-.swiperwrapper {
+.swiperWrapper {
     overflow: auto;
 }
 

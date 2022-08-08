@@ -1,11 +1,12 @@
 import React from "react";
-import s from "./benefitsGrid.module.css";
 
 import benefitBig from "../../assets/images/benefitBig.png";
 import benefitCats from "../../assets/images/benefitCats.png";
 import benefitFamily from "../../assets/images/benefitFamily.png";
 import benefitHouse from "../../assets/images/benefitHouse.png";
 import benefitTree from "../../assets/images/benefitTree.png";
+
+import s from "./benefitsGrid.module.css";
 
 export default function BenefitsGrid() {
   return (
@@ -36,7 +37,7 @@ export default function BenefitsGrid() {
               className={s.itemImageBig}
               alt=""
             />
-            <div className={s.itemDarkPanel}></div>
+            <div className={s.itemDarkPanel} />
             <div className={s.contentWrapper}>
               <h6 className={`${s.itemTitle} ${s.itemTitleCovered}`}>Дизайнерская отделка</h6>
               <p className={`${s.benefit} ${s.benefitCovered}`}>

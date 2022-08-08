@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./helloSlider.css";
 import { useNavigate } from "react-router-dom"
 
@@ -14,17 +14,17 @@ export default function HelloSlider() {
   const navigate = useNavigate()
 
   const slidesArray = [
-    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
-    {image: sliderPicture2, smallimage: sliderPicture2Small, darkPannel: true},
-    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
-    {image: sliderPicture2, smallimage: sliderPicture2Small, darkPannel: true},
-    {image: sliderPicture, smallimage: sliderPictureSmall, darkPannel: true},
-    {image: sliderPicture2, smallimage: sliderPicture2Small, darkPannel: true},
+    {id: 0,image: sliderPicture, imageSmall: sliderPictureSmall, darkPannel: true},
+    {id: 1,image: sliderPicture2, imageSmall: sliderPicture2Small, darkPannel: true},
+    {id: 2,image: sliderPicture, imageSmall: sliderPictureSmall, darkPannel: true},
+    {id: 3,image: sliderPicture2, imageSmall: sliderPicture2Small, darkPannel: true},
+    {id: 4,image: sliderPicture, imageSmall: sliderPictureSmall, darkPannel: true},
+    {id: 5,image: sliderPicture2, imageSmall: sliderPicture2Small, darkPannel: true},
   ]
 
   return (
     <div className="helloSlider">
-      <Slider slides={slidesArray} navigation={true}/>
+      <Slider slides={slidesArray} navigation/>
       <div className="helloSlider__contentWrapper">
         <div className="helloSlider__content">
           <div className="helloSlider__titleWrapper">
@@ -35,7 +35,7 @@ export default function HelloSlider() {
           </div>
           <Button
             content="Подробнее"
-            bgColor="green"
+            BGColor="green"
             fz="14px"
             width="184px"
             height="61px"

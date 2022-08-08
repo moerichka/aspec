@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
-import s from "./pdf.module.css";
+/* eslint-disable react/require-default-props */
+import React, { useState } from "react";
+
 
 import Compass from "../compass/Compass";
-import LevelsGrid from "../levelsGrid/LevelsGrid";
+// import LevelsGrid from "../levelsGrid/LevelsGrid";
 
-import InfoShort from "./infoShort";
 import LayoutPoligons from "../layoutPoligons/LayoutPoligons";
 
+import InfoShort from "./infoShort";
+import s from "./pdf.module.css";
+
 function LayoutFull(props) {
-  const [selectedLevel, setSelectedLevel] = useState(1);
+  const [selectedLevel, ] = useState(1);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const amountOfLevels = 7;
@@ -35,7 +38,7 @@ function LayoutFull(props) {
             <LayoutPoligons
               layout={props?.project?.levels[selectedLevel]?.image}
               polygons={[props?.project?.levels[selectedLevel]?.flats[0]]}
-              styleVarient={"levels"}
+              styleVarient="levels"
             />
           </div>
         </div>
@@ -49,5 +52,13 @@ function LayoutFull(props) {
     </div>
   );
 }
+
+LayoutFull.propTypes = {
+  project: {},
+  layout: {},
+};
+
+LayoutFull.defaultProps = {
+};
 
 export default LayoutFull;

@@ -62,7 +62,7 @@
     color: var(--green);
 }
 
-.swiperwrapper {
+.swiperWrapper {
     overflow: auto;
     padding: 0 40px 0 56px;
 }
@@ -302,7 +302,7 @@
         padding: 0 35px;
     }
 
-    .swiperwrapper {
+    .swiperWrapper {
         padding: 0 35px;
     }
 
@@ -350,7 +350,7 @@
         padding: 0 20px;
     }
 
-    .swiperwrapper {
+    .swiperWrapper {
         padding: 0 20px;
     }
 
@@ -421,7 +421,7 @@
         padding: 0 10 0 20px;
     }
 
-    .swiperwrapper {
+    .swiperWrapper {
         padding: 0 10 0 20px;
     }
 
@@ -450,7 +450,7 @@
         padding: 0 20px;
     }
 
-    .swiperwrapper {
+    .swiperWrapper {
         padding: 0 20px;
     }
 

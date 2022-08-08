@@ -81,18 +81,18 @@ export const houseCards = [
   {
     id: 1,
     name: "Forest",
-    adress: "Ижевск, ул. Союзная",
+    address: "Ижевск, ул. Союзная",
     type: "ЖК",
     district: "Ульяновский",
     location: [55.684758, 37.738521],
     price: 3500000,
     space: 70,
     openDate: "2017-05-15T08:30:00.000+05:00",
-    image: { image: "image13.png", smallimage: "image13small.png" },
+    image: { image: "image13.png", imageSmall: "image13small.png" },
     images: [
-      { image: "image13.png", smallimage: "image13small.png" },
-      { image: "image13.png", smallimage: "image13small.png" },
-      { image: "image13.png", smallimage: "image13small.png" },
+      { image: "image13.png", imageSmall: "image13small.png" },
+      { image: "image13.png", imageSmall: "image13small.png" },
+      { image: "image13.png", imageSmall: "image13small.png" },
     ],
     buildings: [
       {
@@ -146,7 +146,7 @@ export const houseCards = [
   {
     id: 2,
     name: "Forest",
-    adress: "Ижевск, ул. Союзная",
+    address: "Ижевск, ул. Союзная",
     type: "ЖК",
     location: [55.833436, 37.715175],
     district: "Ульяновский",
@@ -187,7 +187,7 @@ export const houseCards = [
   {
     id: 3,
     name: "Плюс один",
-    adress: "Ижевск, ул. Союзная",
+    address: "Ижевск, ул. Союзная",
     type: "ЖК",
     location: [55.687086, 37.529789],
     district: "Ульяновский",
@@ -237,7 +237,7 @@ export const houseCards = [
   {
     id: 4,
     name: "Васнецово",
-    adress: "Ижевск, ул. Танкограда",
+    address: "Ижевск, ул. Танкограда",
     type: "ЖК",
     levels: [
       {
@@ -621,7 +621,7 @@ export const houseCards = [
       {
         id: 2,
         location: [55.782192, 37.611524],
-        type: "medecine",
+        type: "medicine",
         title: "поликлиника",
         infoLeft: "Лотос",
       },
@@ -664,7 +664,7 @@ export const houseCards = [
       {
         id: 8,
         location: [55.7823, 37.611934],
-        type: "kindergarden",
+        type: "kindergarten",
         title: "Детский сад",
         infoLeft: "400 мест",
         infoRight: "Сдан",
@@ -676,7 +676,7 @@ export const houseCards = [
     openDate: "2021-10-03T15:00:00.000+05:00",
     image: "image27.jpg",
     images: ["image27.jpg", "image26.jpg", "image27.jpg"],
-    genlayout: "svg1.svg",
+    genLayout: "svg1.svg",
     parking: {
       image: "image28.png",
       slots: [
@@ -780,11 +780,9 @@ export const houseCards = [
         id: 1,
         number: "3",
         datePic: "2021-10-03T15:00:00.000+05:00",
-        images: [
-          { image: "image24.png", smallimage: "image24small.png" },
-          { image: "image25.png", smallimage: "image25small.png" },
-          { image: "image26.png", smallimage: "image26small.png" },
-        ],
+        images: ["image26.jpg", "image24.png", "image25.png", "image26.png"],
+        video: "https://www.youtube.com/embed/_spuxXnul0U",
+        stream: "https://www.youtube.com/embed/oqV1K1ky7rw",
         styles: {
           clipPath: `polygon(9px 66px, 27px 47px, 2px 24px, 16px 8px, 45px 29px, 73px 1px, 89px 16px, 25px 82px)`,
           width: "31.5%",
@@ -797,11 +795,7 @@ export const houseCards = [
         id: 2,
         number: "2",
         datePic: "2021-12-03T15:00:00.000+05:00",
-        images: [
-          { image: "image25.png", smallimage: "image25small.png" },
-          { image: "image24.png", smallimage: "image24small.png" },
-          { image: "image26.png", smallimage: "image26small.png" },
-        ],
+        images: ["image25.png", "image24.png", "image26.png", "image26.png"],
         styles: {
           clipPath: `polygon(9px 66px, 27px 47px, 2px 24px, 16px 8px, 45px 29px, 73px 1px, 89px 16px, 25px 82px)`,
           width: "31.5%",
@@ -814,11 +808,13 @@ export const houseCards = [
         id: 3,
         number: "4",
         datePic: "2021-12-03T15:00:00.000+05:00",
-        images: [
-          { image: "image26.png", smallimage: "image26small.png" },
-          { image: "image24.png", smallimage: "image24small.png" },
-          { image: "image25.png", smallimage: "image25small.png" },
-        ],
+        images: ["image26.png", "image24.png", "image25.png"],
+      },
+      {
+        id: 4,
+        number: "4",
+        datePic: "2021-12-03T15:00:00.000+05:00",
+        images: ["image26.png", "image24.png", "image25.png"],
       },
     ],
     discount: "10%",
@@ -849,8 +845,14 @@ export const houseCards = [
           images: ["image28.jpg", "image29.jpg", "image28.jpg"],
         },
         options: [
-          { title: "Кладовку", image: "image31.jpg" },
-          { title: "Парковку", image: "image30.jpg" },
+          {
+            title: "Кладовку",
+            image: { image: "image31.jpg", imageSmall: "image31small.jpg" },
+          },
+          {
+            title: "Парковку",
+            image: { image: "image30.jpg", imageSmall: "image30small.jpg" },
+          },
         ],
       },
       {
@@ -974,7 +976,7 @@ export const houseCards = [
   {
     id: 5,
     name: "ARTNOVA",
-    adress: "Ижевск, ул. Великая",
+    address: "Ижевск, ул. Великая",
     type: "ЖК",
     location: [55.642063, 37.656123],
     district: "Стоический",
@@ -1014,7 +1016,7 @@ export const houseCards = [
   {
     id: 6,
     name: "Плюс один",
-    adress: "Ижевск, ул. Великая",
+    address: "Ижевск, ул. Великая",
     type: "ЖК",
     location: [55.826479, 37.487208],
     district: "Стоический",
@@ -1053,10 +1055,10 @@ export const houseCards = [
   },
 ];
 
-export const citys = ["Москва", "Челябинск", "Саратов", "Екатеринбург"];
+export const cities = ["Москва", "Челябинск", "Саратов", "Екатеринбург"];
 
 export const genplan = {
-  // projectimg: projectImage,
+  // projectImg: projectImage,
   housings: [
     {
       number: 3.2,
@@ -1519,7 +1521,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: false,
@@ -1546,7 +1548,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1576,7 +1578,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1606,7 +1608,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1635,7 +1637,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1666,7 +1668,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1697,7 +1699,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1724,7 +1726,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1755,7 +1757,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1786,7 +1788,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1817,7 +1819,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1848,7 +1850,7 @@ export const favorites = [
     flatNumber: 12,
     project: "Васнецово",
     projectId: 4,
-    porjectType: "ЖК",
+    projectType: "ЖК",
     rooms: 1,
     favored: true,
     finishingIn: true,
@@ -1881,7 +1883,7 @@ export const Organisation = {
   logoHeader: "image23.png", // лого в header
   logoFooter: "image23.png", // лого в footer
   privacyPolicy: "some text", // в тз написано, что текстовая страница
-  termsConditiona: "some text", // аналогично
+  termsConditions: "some text", // аналогично
   copyRight: "© 2022. Все права защищены", // в футере копирайт
   addresses: [
     // массив адресов офисов
@@ -1891,7 +1893,7 @@ export const Organisation = {
       isMain: true, // Основной офис или нет
       isShownContact: true, // показывать или нет на странице контактов
       tel: "(3412) 209-535", // телефон
-      facs: "(3412) 912-324", // факс? Это штука еще работает?
+      fax: "(3412) 912-324", // факс? Это штука еще работает?
       address: "г. Ижевск, ул.Пушкинская, 268 (этаж 1, кабинет 20)", // сам адресс
       email: "domstroy@aspec.ru", // почта
       location: [55.790182, 37.711634], // локация, в тз, разделен на широту и долготу
@@ -1903,7 +1905,7 @@ export const Organisation = {
       id: 0, // идентификатор
       workDays: [], // рабочие дни, не знаю в каком формате лучше отобразить
       workTime: [], // рабочее время, может быть стоит совместить с прошлым полем и сделать массивом объектов
-      // например день: пн, времzОт: iso..., времяДо: iso... (во проекте не встречался с графиком работы)
+      // например день: пн, время От: iso..., времяДо: iso... (во проекте не встречался с графиком работы)
     },
   ],
   email: [
@@ -1937,7 +1939,7 @@ export const Menu = {
       isShown: true, // показана?
       name: "Подбор недвижимости", // текст ссылки
       image: "", // не понял
-      url: "/estateselection", // ссылка
+      url: "/estate-selection", // ссылка
       target: "_blank", // _blank _self _parent _top
     },
   ],
@@ -1948,7 +1950,7 @@ export const Menu = {
       isShown: true, // показана?
       name: "Подбор недвижимости", // текст ссылки
       image: "", // не понял
-      url: "/estateselection", // ссылка
+      url: "/estate-selection", // ссылка
       target: "_blank", // _blank _self _parent _top
     },
   ],
@@ -1967,7 +1969,7 @@ export const Mortgage = {
       name: "ПАО “Сбербанк”", // название банка
       logo: "icon-sber", // нужно обсудить так как лого сейчас хранятся в виде шрифтов
       info: "Ставка до сдачи дома, ипотека от 3 млн", // информация в карточке
-      minLoan: 3000000, // минимальная суммая кредита
+      minLoan: 3000000, // минимальная сумма кредита
       initialFee: "20%", // первоначальный взнос % 1 - 100
       interestRate: "1.85%", // процентная ставка
       monthlyFee: 33900, // ежемесячный платеж
@@ -1977,8 +1979,8 @@ export const Mortgage = {
 
 export const Company = {
   name: "О компании", // Заголовок страницы
-  background: { image: "", smallimage: "" }, // изображение на заднике
-  // текст после приветсвия страницы
+  background: { image: "", imageSmall: "" }, // изображение на заднике
+  // текст после приветствующей страницы
   mainTitle:
     "АСПЭК-Домстрой – девелоперская компания, специализирующаяся на строительстве жилых кварталов и микрорайонов города Ижевска.",
   paragraphs: [
@@ -2003,7 +2005,7 @@ export const Company = {
     },
   ],
   awards: [
-    // масств достижений
+    // массив достижений
     {
       id: 0, // идентификатор
       name: "Финалист «Urban Awards»", // заголовок достижения
@@ -2018,7 +2020,7 @@ export const Company = {
       id: 0, // идентификатор
       result: "> 1000", // показатель
       text: "Сотрудников по всей России", // текст показателя
-      image: { image: "", smallimage: "" }, // сопутствующее изображения
+      image: { image: "", imageSmall: "" }, // сопутствующее изображения
     },
   ],
   history: [
@@ -2026,7 +2028,7 @@ export const Company = {
     {
       id: 0, // идентификатор
       date: 2017, // год
-      image: { image: "", smallimage: "" }, // картинка
+      image: { image: "", imageSmall: "" }, // картинка
       title: "Строительное направление", // событие
       desc: `Начинается работа по подготовке к строительству земельного участка в Первомайском районе 
     на ул. Бабушкина`, // описание события
@@ -2041,7 +2043,7 @@ export const Company = {
       shortTitle: "Строительное направление", // короткий титульник мини блока
       shortText:
         "АСПЭК-Домстрой – девелоперская компания специализирующаяся на строительстве жилых кварталов и микрорайонов города Ижевска. Компания начала свою деятельность 16 лет назад и стала за это время одной из самых известных и активно развивающихся девелоперских фирм на рынке Удмуртской Республики.", // текст мини блока
-      image: { image: "", smallimage: "" }, // картинка
+      image: { image: "", imageSmall: "" }, // картинка
     },
   ],
 };
@@ -2052,14 +2054,14 @@ export const PaymentOptions = [
     id: 0, // идентификатор
     name: "Ипотека", // название способа
     text: `Для того что бы получить скидку достаточно выбрать свободную квартиру в строящихся домах компании "АСПЭК-Домстрой" и показать персональному менеджеру свидетельство о регистрации права собственности на существующую квартиру. А все хлопоты по реализации вторичного жилья мы возьмем на себя.`, // описание
-    logo: "morgage.svg", // логотип
+    logo: "mortgage.svg", // логотип
   },
 ];
 
 export const ToInvestors = {
   title: "Инвесторам", // Заголовок в начале страницы Инвесторам
   descriptions: "Старт продаж дома № 3, жилого комплекса «Плюс один»", // дополнительный текст под заголовком
-  background: { image: "", smallimage: "" }, // изображение на фоне
+  background: { image: "", imageSmall: "" }, // изображение на фоне
   tabs: [
     // страница делится на табы, в тз сказано на Основные показатели и Раскрытие информации, но сделал в виде массива, вдруг захотят что-то еще добавить, можем обсудить
     {
@@ -2110,7 +2112,7 @@ export const Publish = {
   title: "Лес начинается с тебя новые экологичные проекты для комфортной жизни", // заголовок публикации
   desc: "Лес начинается с тебя новые экологичные проекты для комфортной жизни", // краткое описание
   elements: [
-    // массив элементов страницы, распологающийся по порядку
+    // массив элементов страницы, располагающийся по порядку
     {
       id: 0, // идентификатор
       type: "text", // тип элемента "text"- просто параграф, "ul"- нумерованный список, "ol"- список, "card"- белая карточка с текстом, "scroller"- скроллер изображений, "title"- внутренний заголовок, "table"- таблица, "image"- изображение
@@ -2128,7 +2130,7 @@ export const Publish = {
     {
       id: 2,
       type: "image",
-      image: { image: "", smallimage: "" }, // прогрессивное изображение
+      image: { image: "", imageSmall: "" }, // прогрессивное изображение
     },
     {
       id: 3,
@@ -2139,22 +2141,24 @@ export const Publish = {
     {
       id: 4,
       type: "scroller",
-      images: [ // массив изображений для скореллера
-        { image: "", smallimage: "" },
-        { image: "", smallimage: "" },
-        { image: "", smallimage: "" },
+      images: [
+        // массив изображений для скореллера
+        { image: "", imageSmall: "" },
+        { image: "", imageSmall: "" },
+        { image: "", imageSmall: "" },
       ],
     },
     {
       id: 5,
-      type: "table", 
+      type: "table",
       columnsTitles: ["Характеристики", "Описание"], // заголовки столбцов
       rows: ["стиль", "крутой"], // контент строк
     },
     {
       id: 6,
       type: "card",
-      content: // текст карточки, желательно, чтобы был примерно такого объема
+      // текст карточки, желательно, чтобы был примерно такого объема
+      content:
         "Установление размеров взносов в компенсационный фонд Ассоциации, порядка его формирования, определение способов размещения средств компенсационного фонда Ассоциации.",
     },
   ],

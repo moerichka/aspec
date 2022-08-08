@@ -1,22 +1,28 @@
 import React from "react";
-import s from "./helloElement.module.css";
 
 import ProgressiveImage from "react-progressive-graceful-image";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import backPicture from "../../../assets/images/image29.jpg";
 import backPictureSmall from "../../../assets/images/image29small.jpg";
 
+import s from "./helloElement.module.css";
+
 function HelloElement() {
-  const image1 = {image: backPicture, smallimage: backPictureSmall}
+  const image1 = { image: backPicture, imageSmall: backPictureSmall };
   return (
-    <div className={s.helloelement}>
-      <div className={s.dashnav}><Link className="dashnav__link" to="/">Главная</Link> / Компания</div>
-      <div className={s.container}>
-        <h2 className={s.hellotitle}>О компании</h2>
+    <div className={s.helloElement}>
+      <div className={s.dashnav}>
+        <Link className="dash-nav__link" to="/">
+          Главная
+        </Link>{" "}
+        / Компания
       </div>
-      {image1?.smallimage ? (
-        <ProgressiveImage src={image1?.image} placeholder={image1?.smallimage}>
+      <div className={s.container}>
+        <h2 className={s.helloTitle}>О компании</h2>
+      </div>
+      {image1?.imageSmall ? (
+        <ProgressiveImage src={image1?.image} placeholder={image1?.imageSmall}>
           {(src, loading) => (
             <img
               style={{
@@ -25,12 +31,12 @@ function HelloElement() {
               }}
               src={src}
               alt=""
-              className={s.helloback}
+              className={s.helloBack}
             />
           )}
         </ProgressiveImage>
       ) : (
-        <img src={image1?.image} alt="" className={s.helloback} />
+        <img src={image1?.image} alt="" className={s.helloBack} />
       )}
     </div>
   );

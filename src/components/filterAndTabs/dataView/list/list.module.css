@@ -85,8 +85,9 @@
     transition: var(--transition);
 }
 
-.tablevalue:hover {
+.tableRow:hover > .tablevalue {
     background-color: var(--light-blue-card-bg);
+    cursor: pointer;
 }
 
 .sortindicator {

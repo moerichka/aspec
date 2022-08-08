@@ -1,5 +1,5 @@
 import React from 'react'
-import s from "./company.module.css"
+
 import {withErrorBoundary} from "react-error-boundary"
 
 import Header from '../../components/header/Header'
@@ -7,6 +7,8 @@ import Scroller from '../../components/scroller'
 import Footer from '../../components/footer/Footer'
 import CompanyFull from "../../components/companyFull"
 import { NoMatchPage } from "../NoMatch";
+
+import s from "./company.module.css"
 
 function Company() {
   return (
@@ -24,7 +26,9 @@ function Company() {
 export default withErrorBoundary(Company, {
   fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
   }
 });

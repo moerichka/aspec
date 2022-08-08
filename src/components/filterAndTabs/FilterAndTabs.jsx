@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import s from "./filterAndTabs.module.css";
+
 import PropTypes from "prop-types";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
-import Filter from "./filter";
+import { Projects, Offices } from "../../data";
+
+import s from "./filterAndTabs.module.css";
 
 // import { houseCards } from "../../dummyData";
-import { Projects, Offices } from "../../data";
+import Filter from "./filter";
 
 function FilterAndTabs(props) {
   const [tabIndex, setTabIndex] = useState(0);
@@ -30,91 +32,96 @@ function FilterAndTabs(props) {
   ];
 
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <div
           className={`${s.filterAndTabs} ${
-            props.BGcolor === "gray" ? "filterAndTabs-gray" : ""
+            props.BGColor === "gray" ? "filterAndTabs-gray" : ""
           }`}
         >
           <div className={`${s.container} container-light`}>
             <h3 className={`${s.title} h2-title`}>{props.title}</h3>
             <div className={s.navWrapper}>
               <TabList className={s.nav}>
-                <Tab className={s.tab} selectedClassName={s.tabselected}>
+                <Tab className={s.tab} selectedClassName={s.tabSelected}>
                   <span className={s.tabtitle}>{tabs[0]}</span>
                 </Tab>
-                <Tab className={s.tab} selectedClassName={s.tabselected}>
+                <Tab className={s.tab} selectedClassName={s.tabSelected}>
                   <span className={s.tabtitle}>{tabs[1]}</span>
                 </Tab>
-                <Tab className={s.tab} selectedClassName={s.tabselected}>
+                <Tab className={s.tab} selectedClassName={s.tabSelected}>
                   <span className={s.tabtitle}>{tabs[2]}</span>
                 </Tab>
-                <Tab className={s.tab} selectedClassName={s.tabselected}>
+                <Tab className={s.tab} selectedClassName={s.tabSelected}>
                   <span className={s.tabtitle}>{tabs[3]}</span>
                 </Tab>
-                <div className={s.navLine}></div>
+                <div className={s.navLine} />
               </TabList>
             </div>
           </div>
         </div>
-        <TabPanel className={s.tabPanel} data-isShown={tabIndex===0}>
+        <TabPanel className={s.tabPanel} data-is-shown={tabIndex === 0}>
           <div
             className={`${s.wrapper} ${
-              props.BGcolor === "gray" ? "filterAndTabs-gray" : ""
+              props.BGColor === "gray" ? "filterAndTabs-gray" : ""
             }`}
           >
             <Filter
               tab={tabs[0]}
               data={ProjectsData}
-              easyFilter={true}
-              filters={props.filterArray[0]}
-              inputbgColor={props.inputbgColor}
-              dataRepresentetion={props?.dataRepresentetion[0]}
+              easyFilter
+              filters={props?.filterArray[0]}
+              inputBGColor={props?.inputBGColor}
+              dataRepresentation={props?.dataRepresentation[0]}
               withShowMore={props?.withShowMore}
               withLinkMore={props?.withLinkMore}
+              isMain={props?.isMain}
             />
           </div>
         </TabPanel>
-        <TabPanel className={s.tabPanel} data-isShown={tabIndex===1}>
+        <TabPanel className={s.tabPanel} data-is-shown={tabIndex === 1}>
           <div className={s.wrapper}>
             <Filter
               tab={tabs[1]}
               data={ProjectsData}
-              easyFilter={true}
+              easyFilter
               filters={props.filterArray[1]}
-              inputbgColor={props.inputbgColor}
-              dataRepresentetion={props?.dataRepresentetion[1]}
+              inputBGColor={props.inputBGColor}
+              dataRepresentation={props?.dataRepresentation[1]}
               withShowMore={props.withShowMore}
               withLinkMore={props?.withLinkMore}
+              isMain={props?.isMain}
             />
           </div>
         </TabPanel>
-        <TabPanel className={s.tabPanel} data-isShown={tabIndex===2}>
+        <TabPanel className={s.tabPanel} data-is-shown={tabIndex === 2}>
           <div className={s.wrapper}>
             <Filter
               tab={tabs[2]}
               data={ProjectsData}
-              easyFilter={true}
+              easyFilter
               filters={props.filterArray[2]}
-              inputbgColor={props.inputbgColor}
-              dataRepresentetion={props?.dataRepresentetion[2]}
+              inputBGColor={props.inputBGColor}
+              dataRepresentation={props?.dataRepresentation[2]}
               withShowMore={props.withShowMore}
               withLinkMore={props?.withLinkMore}
+              isMain={props?.isMain}
             />
           </div>
         </TabPanel>
-        <TabPanel className={s.tabPanel} data-isShown={tabIndex===3}>
+        <TabPanel className={s.tabPanel} data-is-shown={tabIndex === 3}>
           <div className={s.wrapper}>
             <Filter
               tab={tabs[3]}
               data={OfficesData}
-              easyFilter={true}
+              easyFilter
               filters={props.filterArray[3]}
-              inputbgColor={props.inputbgColor}
-              dataRepresentetion={props?.dataRepresentetion[3]}
+              inputBGColor={props.inputBGColor}
+              dataRepresentation={props?.dataRepresentation[3]}
               withShowMore={props.withShowMore}
               withLinkMore={props?.withLinkMore}
+              isMain={props?.isMain}
             />
           </div>
         </TabPanel>
@@ -125,20 +132,23 @@ function FilterAndTabs(props) {
 
 FilterAndTabs.propTypes = {
   title: PropTypes.string,
-  withGrid: PropTypes.bool,
-  inputbgColor: PropTypes.string,
+  inputBGColor: PropTypes.string,
   withShowMore: PropTypes.bool,
-  BGcolor: PropTypes.string,
-  filterArray: PropTypes.array,
-  dataRepresentetion: PropTypes.array,
+  isMain: PropTypes.bool,
+  BGColor: PropTypes.string,
+  withLinkMore: PropTypes.bool,
+  dataRepresentation: PropTypes.arrayOf(PropTypes.string),
+  filterArray: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
 };
 
 FilterAndTabs.defaultProps = {
   title: "Подбор недвижимости",
-  BGcolor: "white",
-  inputbgColor: "gray",
+  BGColor: "white",
+  inputBGColor: "gray",
   withShowMore: false,
-  dataRepresentetion: ["", "", "", ""],
+  isMain: false,
+  withLinkMore: false,
+  dataRepresentation: ["", "", "", ""],
   filterArray: [
     ["districtInput", "priceInput", "dateInput", "flatInput"],
     ["districtInput", "priceInput", "dateInput"],

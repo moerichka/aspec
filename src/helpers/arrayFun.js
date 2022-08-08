@@ -1,10 +1,9 @@
 import { DateTime } from "luxon";
 
-export const getUnique = (array, property) => {
-  return array
+export const getUnique = (array, property) =>
+  array
     ?.map((elem) => (property ? elem[property] : elem))
     ?.filter((elem, index, arr) => arr?.indexOf(elem) === index);
-};
 
 export const createOptions = (
   array,
@@ -19,18 +18,16 @@ export const createOptions = (
   }));
 };
 
-export const sortDates = (array) => {
-  return array?.sort((a, b) => {
+export const sortDates = (array) => array?.sort((a, b) => {
     if (
       DateTime.fromISO(a.value).toMillis() <
       DateTime.fromISO(b.value).toMillis()
     )
       return -1;
-    else if (
+    if (
       DateTime.fromISO(a.value).toMillis() >
       DateTime.fromISO(b.value).toMillis()
     )
       return 1;
-    else return 0;
-  });
-}; // сортировка дат
+    return 0;
+  }); // сортировка дат

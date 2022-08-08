@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, {useState} from "react";
-import s from "./country.module.css";
 
 import countryPicture from "../../../assets/images/country.svg";
 import regionPicture1 from "../../../assets/images/region1.svg";
+
+import s from "./country.module.css";
 
 function Country() {
     const [isPoint, setIsPoint] = useState(3);
@@ -37,17 +40,17 @@ function Country() {
         <img src={countryPicture} alt="" className={s.countryimg} />
         <div className={`${s.countrypoint} ${s.countrypoint1}`}>
           <div className={s.pointcircles}>
-            <div className={s.pointcircle1}></div>
-            <div className={s.pointcircle2}></div>
-            <div className={s.pointcircle3}></div>
+            <div className={s.pointcircle1} />
+            <div className={s.pointcircle2} />
+            <div className={s.pointcircle3} />
           </div>
           <div className={s.pointtitle}>Ижевск</div>
         </div>
         <div className={`${s.countrypoint} ${s.countrypoint2}`}>
           <div className={s.pointcircles}>
-            <div className={s.pointcircle1}></div>
-            <div className={s.pointcircle2}></div>
-            <div className={s.pointcircle3}></div>
+            <div className={s.pointcircle1} />
+            <div className={s.pointcircle2} />
+            <div className={s.pointcircle3} />
           </div>
           <div className={s.pointtitle}>Альметьевск</div>
         </div>
@@ -58,9 +61,9 @@ function Country() {
           onClick={() => (isPoint === 3 ? setIsPoint(false) : setIsPoint(3))}
         >
           <div className={s.pointcircles}>
-            <div className={s.pointcircle1}></div>
-            <div className={s.pointcircle2}></div>
-            <div className={s.pointcircle3}></div>
+            <div className={s.pointcircle1} />
+            <div className={s.pointcircle2} />
+            <div className={s.pointcircle3} />
           </div>
           <div className={s.pointtitle}>Тюмень</div>
         </div>

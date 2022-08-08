@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./projects.module.css";
+
 import { Link } from "react-router-dom";
 import {withErrorBoundary} from "react-error-boundary"
 
@@ -10,6 +10,8 @@ import FilterAndTabs from "../../components/filterAndTabs";
 import Footer from "../../components/footer";
 import { NoMatchPage } from "../NoMatch";
 
+import s from "./projects.module.css";
+
 function Projects() {
   const filterArray = [
     ["districtInput", "spaceInput", "priceInput", "dateInput", "flatInput"],
@@ -18,7 +20,7 @@ function Projects() {
     ["districtInput", "spaceInput", "priceInput", "dateInput"],
   ];
 
-  const DataRepresentetionArray = [
+  const DataRepresentationArray = [
     "HouseCardGrid",
     "HouseCardGrid",
     "HouseCardGrid",
@@ -27,24 +29,24 @@ function Projects() {
 
 
   const wayArray = [
-    { title: <Link to="/" className="dashnav__link">Главная</Link>, gray: true },
+    { title: <Link to="/" className="dash-nav__link">Главная</Link>, gray: true },
     { title: "Все проекты", gray: true },
   ];
 
   return (
     <div className={s.projects}>
-      <Header BGcolor={"gray"} withLine={true} />
+      <Header BGColor="gray" withLine />
       <Scroller />
       <div className={s.dashNav}>
-        <Dashnav wayArray={wayArray}></Dashnav>
+        <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.filterAndTabs}>
         <FilterAndTabs
-          title={"Все проекты"}
-          dataRepresentetion={DataRepresentetionArray}
+          title="Все проекты"
+          dataRepresentation={DataRepresentationArray}
           filterArray={filterArray}
-          withShowMore={true}
-          inputbgColor={"white"}
+          withShowMore
+          inputBGColor="white"
         />
       </div>
       <Footer />
@@ -55,7 +57,9 @@ function Projects() {
 export default withErrorBoundary(Projects, {
   fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
   }
 });

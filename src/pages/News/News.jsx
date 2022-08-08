@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import s from "./news.module.css";
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom";
 import {withErrorBoundary} from "react-error-boundary"
@@ -13,20 +12,22 @@ import NewsGrid from "../../components/newsGrid";
 import Footer from "../../components/footer";
 import { NoMatchPage } from "../NoMatch";
 
+import s from "./news.module.css";
+
 function News(props) {
   const [tabIndex, setTabIndex] = useState(props?.tabIndex);
-  const wayArray = [{ title: <Link to="/" className="dashnav__link">Главная</Link> }, { title: "Акции и новости" }];
+  const wayArray = [{ title: <Link to="/" className="dash-nav__link">Главная</Link> }, { title: "Акции и новости" }];
 
   return (
     <div className={s.news}>
-      <Header withLine={true} />
+      <Header withLine />
       <Scroller />
       <div className={s.dashNav}>
         <Dashnav wayArray={wayArray} />
       </div>
       <div className={s.Newsgrid}>
         <Tabs
-          className={s.tableader}
+          className={s.tabLeader}
           selectedIndex={tabIndex}
           onSelect={(index) => setTabIndex(index)}
         >
@@ -34,10 +35,10 @@ function News(props) {
             <div className={s.topwrapper}>
               <h2 className={`${s.toptitle} h2-title`}>{tabIndex === 1 ? "Новости" : "Акции"}</h2>
               <TabList className={s.tabs}>
-                <Tab className={s.tab} selectedClassName={s.tabselected}>
+                <Tab className={s.tab} selectedClassName={s.tabSelected}>
                   Акции
                 </Tab>
-                <Tab className={s.tab} selectedClassName={s.tabselected}>
+                <Tab className={s.tab} selectedClassName={s.tabSelected}>
                   Новости
                 </Tab>
               </TabList>
@@ -45,18 +46,18 @@ function News(props) {
           </div>
           <TabPanel className={s.tabpanel}>
             <NewsGrid
-              buttonShowMore={true}
+              buttonShowMore
               maxAmountNews={6}
               buttonAll={false}
-              titlewrapper={false}
+              titleWrapper={false}
             />
           </TabPanel>
           <TabPanel className={s.tabpanel}>
             <NewsGrid
-              buttonShowMore={true}
+              buttonShowMore
               maxAmountNews={6}
               buttonAll={false}
-              titlewrapper={false}
+              titleWrapper={false}
             />
           </TabPanel>
         </Tabs>
@@ -78,7 +79,9 @@ News.defaultProps = {
 export default withErrorBoundary(News, {
   fallbackRender: ()=><NoMatchPage/>,
   onError(error, info){
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
   }
 });

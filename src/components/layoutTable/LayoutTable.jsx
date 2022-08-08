@@ -1,11 +1,10 @@
-import React from "react";
-import s from "./layoutTable.module.css";
-import "./layoutTable.css";
+// Запасная компонента, еще не использовал
 
-import Button from "../button";
+import React from "react";
+// import PropTypes from "prop-types";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Import Swiper styles
 import "swiper/css";
@@ -15,23 +14,24 @@ import { Pagination } from "swiper";
 
 import { dateConverterToQuarter } from "../../helpers/dateFun";
 import { getFlatAmount, separator } from "../../helpers/stringsFun";
+import Button from "../button";
+
+import s from "./layoutTable.module.css";
+import "./layoutTable.css";
 
 function LayoutTable(props) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const pagination = {
     clickable: true,
-    renderBullet: function (index, className) {
+    renderBullet (index, className) {
       return `<span class=${`${className}`}></span>`;
     },
   };
 
-  console.log(props?.rooms);
-
   return (
     <table className={s.table}>
-      {props?.rooms?.map((favorit, index) => {
-        return (
+      {props?.rooms?.map((favorit) => (
           <div className="layoutTable">
             <div className={s.container}>
               <div className={s.topwrapper}>
@@ -52,23 +52,23 @@ function LayoutTable(props) {
                 </div>
                 {favorit?.favored ? (
                   <div className={s.topright} data-favorite="true">
-                    <span className="icon-mark-fill"></span>
+                    <span className="icon-mark-fill" />
                   </div>
                 ) : (
                   <div className={s.topright}>
-                    <span className="icon-mark"></span>
+                    <span className="icon-mark" />
                   </div>
                 )}
               </div>
-              <div className={s.swiperwrapper}>
+              <div className={s.swiperWrapper}>
                 <Swiper
                   spaceBetween={30}
                   pagination={pagination}
                   modules={[Pagination]}
                   className="mySwiper"
                 >
-                  {favorit?.layouts?.map((elem, index) => (
-                    <SwiperSlide key={index}>
+                  {favorit?.layouts?.map((elem) => (
+                    <SwiperSlide key={elem?.id}>
                       <Link
                         to={`/project/${favorit?.projectId}/layout/${favorit?.id}`}
                       >
@@ -98,7 +98,7 @@ function LayoutTable(props) {
                     <div className={s.compareElemnt}>
                       <div className={s.compareTitle}>Название объекта</div>
                       <div className={s.compareValue}>
-                        {favorit?.porjectType} {favorit?.project}
+                        {favorit?.projectType} {favorit?.project}
                       </div>
                       <div className={s.compareLine} />
                     </div>
@@ -143,25 +143,34 @@ function LayoutTable(props) {
                     <div className={s.compareElemnt}>
                       <div className={s.compareTitle}>Этаж</div>
                       <div className={s.compareValue}>{favorit?.level}</div>
-                      <div className={s.compareLine}></div>
+                      <div className={s.compareLine} />
                     </div>
                     <div className={s.compareElemnt}>
                       <div className={s.compareTitle}>Срок сдачи</div>
                       <div className={s.compareValue}>
                         {dateConverterToQuarter(favorit?.openDate)}
                       </div>
-                      <div className={s.compareLine}></div>
+                      <div className={s.compareLine} />
                     </div>
                   </div>
-                  <Button content={"Забронировать"} bgColor="blue" />
+                  <Button content="Забронировать" BGColor="blue" />
                 </div>
               </div>
             </div>
           </div>
-        );
-      })}
+        ))}
     </table>
   );
 }
+
+LayoutTable.propTypes = {
+  rooms: [],
+  room: {},
+};
+
+LayoutTable.defaultProps = {
+  rooms: [],
+  room: {},
+};
 
 export default LayoutTable;

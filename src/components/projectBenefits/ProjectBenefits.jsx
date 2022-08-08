@@ -1,5 +1,4 @@
 import React from "react";
-import s from "./projectBenefits.module.css";
 
 import ProgressiveImage from "react-progressive-graceful-image";
 
@@ -12,11 +11,13 @@ import imgMoreHouseSmall from "../../assets/images/projectBenMoreHousesmall.png"
 import imgYard from "../../assets/images/projectBenYard.png";
 import imgYardSmall from "../../assets/images/projectBenYardsmall.png";
 
+import s from "./projectBenefits.module.css";
+
 function ProjectBenefits() {
-  const imageChild = { image: imgChild, smallimage: imgChildSmall };
-  const imageHouse = { image: imgHouse, smallimage: imgHouseSmall };
-  const imageMoreHouse = { image: imgMoreHouse, smallimage: imgMoreHouseSmall };
-  const imageYard = { image: imgYard, smallimage: imgYardSmall };
+  const imageChild = { image: imgChild, imageSmall: imgChildSmall };
+  const imageHouse = { image: imgHouse, imageSmall: imgHouseSmall };
+  const imageMoreHouse = { image: imgMoreHouse, imageSmall: imgMoreHouseSmall };
+  const imageYard = { image: imgYard, imageSmall: imgYardSmall };
 
   return (
     <div className={s.benefits}>
@@ -25,7 +26,7 @@ function ProjectBenefits() {
         <div className={s.grid}>
           <div className={`${s.item} ${s.item1}`}>
             <div className={s.itemFrontWrapper}>
-              <span className={`icon-map ${s.icon}`}></span>
+              <span className={`icon-map ${s.icon}`} />
               <h6 className={s.itemTitle}>Инфраструктура</h6>
             </div>
           </div>
@@ -35,10 +36,10 @@ function ProjectBenefits() {
             </div>
             <div className={s.itemImgWrapper}>
               <div className={s.itemDarkPanel} />
-              {imageHouse?.smallimage ? (
+              {imageHouse?.imageSmall ? (
                 <ProgressiveImage
                   src={imageHouse?.image}
-                  placeholder={imageHouse?.smallimage}
+                  placeholder={imageHouse?.imageSmall}
                 >
                   {(src, loading) => (
                     <img
@@ -63,10 +64,10 @@ function ProjectBenefits() {
             </div>
             <div className={s.itemImgWrapper}>
               <div className={s.itemDarkPanel} />
-              {imageChild?.smallimage ? (
+              {imageChild?.imageSmall ? (
                 <ProgressiveImage
                   src={imageChild?.image}
-                  placeholder={imageChild?.smallimage}
+                  placeholder={imageChild?.imageSmall}
                 >
                   {(src, loading) => (
                     <img
@@ -91,10 +92,10 @@ function ProjectBenefits() {
             </div>
             <div className={s.itemImgWrapper}>
               <div className={s.itemDarkPanel} />
-              {imageMoreHouse?.smallimage ? (
+              {imageMoreHouse?.imageSmall ? (
                 <ProgressiveImage
                   src={imageMoreHouse?.image}
-                  placeholder={imageMoreHouse?.smallimage}
+                  placeholder={imageMoreHouse?.imageSmall}
                 >
                   {(src, loading) => (
                     <img
@@ -115,7 +116,7 @@ function ProjectBenefits() {
           </div>
           <div className={`${s.item} ${s.item5}`}>
             <div className={s.itemFrontWrapper}>
-              <span className={`icon-buildigs ${s.icon}`}></span>
+              <span className={`icon-buildigs ${s.icon}`} />
               <h6 className={s.itemTitle}>Концепция</h6>
             </div>
           </div>
@@ -125,10 +126,10 @@ function ProjectBenefits() {
             </div>
             <div className={s.itemImgWrapper}>
               <div className={s.itemDarkPanel} />
-              {imageYard?.smallimage ? (
+              {imageYard?.imageSmall ? (
                 <ProgressiveImage
                   src={imageYard?.image}
-                  placeholder={imageYard?.smallimage}
+                  placeholder={imageYard?.imageSmall}
                 >
                   {(src, loading) => (
                     <img
@@ -149,7 +150,7 @@ function ProjectBenefits() {
           </div>
           <div className={`${s.item} ${s.item7}`}>
             <div className={s.itemFrontWrapper}>
-              <span className={`icon-planning ${s.icon}`}></span>
+              <span className={`icon-planning ${s.icon}`} />
               <h6 className={s.itemTitle}>Полезное пространство</h6>
             </div>
           </div>

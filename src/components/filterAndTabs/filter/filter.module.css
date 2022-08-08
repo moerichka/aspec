@@ -171,11 +171,20 @@
 }
 
 .butWrapper {
+    flex-grow: 5;
+    justify-self: end;
+    align-self: flex-end;
+    justify-content: flex-end;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 20px;
     padding-right: 3px;
+}
+
+.butWrapperButton {
+    max-width: 200px;
+    width: 100%;
 }
 
 .cancelBut {
@@ -188,6 +197,12 @@
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none;
+    transition: var(--transition);
+    opacity: 0;
+}
+
+.cancelBut[data-is-visible="true"] {
+    opacity: 1;
 }
 
 .butWrapperMobile {
@@ -224,7 +239,19 @@
     line-height: 17px;
 }
 
+.quantity {
+    margin-top: 58px;
+    color: var(--blue);
+    font-size: 14px;
+    line-height: 17px;
+    font-family: Montserrat-Bold;
+}
+
 @media (max-width: 1230px) {
+    .quantity {
+        margin-top: 31px;
+    }
+
     .inputContainer {
         row-gap: 29px;
     }
@@ -284,11 +311,13 @@
     }
 }
 
-@media (max-width: 840px) {
-    .inputContainer {}
-}
-
 @media (max-width: 810px) {
+    .quantity {
+        margin-top: 27px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
     .button {
         display: flex;
     }

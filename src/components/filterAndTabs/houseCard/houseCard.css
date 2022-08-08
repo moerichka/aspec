@@ -131,7 +131,7 @@
     font-family: Montserrat-SemiBold;
 }
 
-.houseCard__adress {
+.houseCard__address {
     font-family: Neris-Light;
     font-size: 16px;
     line-height: 21px;
@@ -238,7 +238,7 @@
     transform: translateY(-3px);
 }
 
-.houseCard__adressWrapper {
+.houseCard__addressWrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -297,7 +297,7 @@
         line-height: 17px;
     }
 
-    .houseCard__adress {
+    .houseCard__address {
         font-size: 16px;
         line-height: 21px;
     }
@@ -343,7 +343,7 @@
         line-height: 17px;
     }
 
-    .houseCard__adress {
+    .houseCard__address {
         font-size: 14px;
         line-height: 19px;
     }

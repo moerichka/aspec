@@ -1,19 +1,24 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useEffect } from "react";
-import s from "./infrastructure.module.css";
+import PropTypes from "prop-types"
+
 import "./infrastructure.css";
-import { YMaps, Map, Placemark, Button } from "react-yandex-maps";
-import { Link } from "react-router-dom";
+import { YMaps, Map, Placemark } from "react-yandex-maps";
+
 import { legendMap } from "../../helpers/htmlElementMap";
 
 import House from "../../assets/images/loc.svg";
-import Medecine from "../../assets/images/medecine.svg";
+import medicine from "../../assets/images/medicine.svg";
 import Culture from "../../assets/images/culture.svg";
 import Sport from "../../assets/images/sport.svg";
 import Shop from "../../assets/images/shop.svg";
 import Education from "../../assets/images/education.svg";
 import Food from "../../assets/images/food.svg";
 import Transport from "../../assets/images/transport.svg";
-import Transportpink from "../../assets/images/transportpink.svg";
+import TransportPink from "../../assets/images/transportPink.svg";
+
+import s from "./infrastructure.module.css";
 
 function Infrastructure(props) {
   const [data, setData] = useState(null);
@@ -21,13 +26,13 @@ function Infrastructure(props) {
   const [isLegendActive, setIsLegendActive] = useState(false);
   const [locations, setLocations] = useState({
     culture: true,
-    medecine: true,
+    medicine: true,
     education: true,
     shop: true,
     food: true,
     sport: true,
     transport: true,
-    kindergarden: true,
+    kindergarten: true,
   });
 
   useEffect(() => {
@@ -35,21 +40,26 @@ function Infrastructure(props) {
   }, [props]);
 
   useEffect(() => {
-    window.addEventListener("resize", function () {
+    window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
   }, []);
 
   let mapHeight = "853px";
-  windowWidth < 1440 && (mapHeight = "600px");
-  windowWidth < 800 && (mapHeight = "370px");
+
+  if(windowWidth < 1440){
+    mapHeight = "600px"
+  }
+  else if (windowWidth < 800){
+    mapHeight = "370px"
+  }
 
   const getImage = (type) => {
     switch (type) {
       case "culture":
         return Culture;
-      case "medecine":
-        return Medecine;
+      case "medicine":
+        return medicine;
       case "education":
         return Education;
       case "shop":
@@ -60,8 +70,8 @@ function Infrastructure(props) {
         return Sport;
       case "transport":
         return Transport;
-      case "kindergarden":
-        return Transportpink;
+      case "kindergarten":
+        return TransportPink;
 
       default:
         return House;
@@ -86,9 +96,7 @@ function Infrastructure(props) {
             }}
             width="100vw"
             height={mapHeight}
-            instanceRef={(ref) => {
-              ref && ref.behaviors.disable("scrollZoom");
-            }}
+            instanceRef={(ref) => ref && ref.behaviors.disable("scrollZoom")}
             controls={[]}
           >
             {data?.location && (
@@ -101,21 +109,24 @@ function Infrastructure(props) {
                 }}
               />
             )}
-            {data?.nearerObjects?.map((obj) => (
-              locations[obj?.type] && <Placemark
-                key={obj?.id}
-                modules={["geoObject.addon.balloon"]}
-                defaultGeometry={obj?.location}
-                properties={{
-                  balloonContentBody: legendMap(obj),
-                }}
-                options={{
-                  iconLayout: "default#image",
-                  iconImageHref: getImage(obj?.type),
-                  iconCaption: `${obj?.title}`,
-                }}
-              />
-            ))}
+            {data?.nearerObjects?.map(
+              (obj) =>
+                locations[obj?.type] && (
+                  <Placemark
+                    key={obj?.id}
+                    modules={["geoObject.addon.balloon"]}
+                    defaultGeometry={obj?.location}
+                    properties={{
+                      balloonContentBody: legendMap(obj),
+                    }}
+                    options={{
+                      iconLayout: "default#image",
+                      iconImageHref: getImage(obj?.type),
+                      iconCaption: `${obj?.title}`,
+                    }}
+                  />
+                )
+            )}
           </Map>
         </YMaps>
         <div
@@ -128,7 +139,7 @@ function Infrastructure(props) {
             <span
               className="icon-cancel"
               onClick={() => setIsLegendActive(false)}
-            ></span>
+            />
           </div>
           <div
             className={s.element}
@@ -136,18 +147,18 @@ function Infrastructure(props) {
             data-isactive={locations?.culture}
           >
             <div className={s.left}>
-              <span className={`icon-culture ${s.logo} ${s.culture}`}></span>
+              <span className={`icon-culture ${s.logo} ${s.culture}`} />
               <div className={s.title}>Культура и отдых</div>
             </div>
             <div className={s.amount}>6</div>
           </div>
           <div
             className={s.element}
-            onClick={() => clickHandler("medecine")}
-            data-isactive={locations?.medecine}
+            onClick={() => clickHandler("medicine")}
+            data-isactive={locations?.medicine}
           >
             <div className={s.left}>
-              <span className={`icon-medicine ${s.logo} ${s.medicine}`}></span>
+              <span className={`icon-medicine ${s.logo} ${s.medicine}`} />
               <div className={s.title}>Медицина</div>
             </div>
             <div className={s.amount}>1</div>
@@ -160,7 +171,7 @@ function Infrastructure(props) {
             <div className={s.left}>
               <span
                 className={`icon-education ${s.logo} ${s.education}`}
-              ></span>
+               />
               <div className={s.title}>Образование</div>
             </div>
             <div className={s.amount}>2</div>
@@ -171,7 +182,7 @@ function Infrastructure(props) {
             data-isactive={locations?.shop}
           >
             <div className={s.left}>
-              <span className={`icon-shop ${s.logo} ${s.shop}`}></span>
+              <span className={`icon-shop ${s.logo} ${s.shop}`} />
               <div className={s.title}>Торговля</div>
             </div>
             <div className={s.amount}>2</div>
@@ -182,7 +193,7 @@ function Infrastructure(props) {
             data-isactive={locations?.food}
           >
             <div className={s.left}>
-              <span className={`icon-food ${s.logo} ${s.food}`}></span>
+              <span className={`icon-food ${s.logo} ${s.food}`} />
               <div className={s.title}>Еда</div>
             </div>
             <div className={s.amount}>3</div>
@@ -193,7 +204,7 @@ function Infrastructure(props) {
             data-isactive={locations?.sport}
           >
             <div className={s.left}>
-              <span className={`icon-sport ${s.logo} ${s.sport}`}></span>
+              <span className={`icon-sport ${s.logo} ${s.sport}`} />
               <div className={s.title}>Спорт</div>
             </div>
             <div className={s.amount}>1</div>
@@ -206,20 +217,20 @@ function Infrastructure(props) {
             <div className={s.left}>
               <span
                 className={`icon-transport ${s.logo} ${s.transport}`}
-              ></span>
+               />
               <div className={s.title}>Транспорт</div>
             </div>
             <div className={s.amount}>4</div>
           </div>
           <div
             className={s.element}
-            onClick={() => clickHandler("kindergarden")}
-            data-isactive={locations?.kindergarden}
+            onClick={() => clickHandler("kindergarten")}
+            data-isactive={locations?.kindergarten}
           >
             <div className={s.left}>
               <span
-                className={`icon-transport ${s.logo} ${s.transportpink}`}
-              ></span>
+                className={`icon-transport ${s.logo} ${s.transportPink}`}
+               />
               <div className={s.title}>Детский сад</div>
             </div>
             <div className={s.amount}>2</div>
@@ -229,11 +240,20 @@ function Infrastructure(props) {
           className={s.legendtoggler}
           onClick={() => setIsLegendActive(true)}
         >
-          <span className="icon-burger"></span>Выбрать категорию
+          <span className="icon-burger" />Выбрать категорию
         </div>
       </div>
     </div>
   );
 }
+
+Infrastructure.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  project: PropTypes.object,
+};
+
+Infrastructure.defaultProps = {
+  project: {},
+};
 
 export default Infrastructure;

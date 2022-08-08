@@ -1,8 +1,11 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/require-default-props */
 import React, { useState, useEffect } from "react";
-import s from "./layoutFull.module.css";
 import PropTypes from "prop-types";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+
+import s from "./layoutFull.module.css";
 
 import Compass from "./compass/Compass";
 import LevelsGrid from "./levelsGrid/LevelsGrid";
@@ -17,7 +20,7 @@ function LayoutFull(props) {
 
   const [selectedLevel, setSelectedLevel] = useState(1);
   const [levelsWithFlat, setLevelsWithFlat] = useState(null);
-  const [levelFlats, setLevelFlats] = useState(null);
+  const [, setLevelFlats] = useState(null);
   const [thisBuilding, setThisBuilding] = useState(null);
 
   const [infoVisible, setInfoVisible] = useState(false);
@@ -25,10 +28,12 @@ function LayoutFull(props) {
   const tabsMiddle = ["Планировка", "На этаже", "Генплан"];
 
   useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
     props?.tabIndex && setTabIndex(props?.tabIndex);
   }, [props?.tabIndex]);
 
   useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
     props?.project?.levels &&
       setLevelsWithFlat(
         props?.project?.levels?.filter((level) =>
@@ -38,6 +43,7 @@ function LayoutFull(props) {
   }, [props?.project, props?.layout]);
 
   useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
     levelsWithFlat &&
       setLevelFlats(
         levelsWithFlat[selectedLevel - 1]?.flats?.filter(
@@ -47,6 +53,7 @@ function LayoutFull(props) {
   }, [levelsWithFlat, selectedLevel, props?.layout]);
 
   useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
     props?.project?.buildings &&
       setThisBuilding(
         props?.project?.buildings?.filter(
@@ -60,6 +67,7 @@ function LayoutFull(props) {
   }, [tabIndex]);
 
   const layoutClickHandler = (number) => {
+    // eslint-disable-next-line no-unused-expressions
     infoVisible === number ? setInfoVisible(false) : setInfoVisible(number);
   };
 
@@ -69,19 +77,19 @@ function LayoutFull(props) {
     <div className={s.layoutFull}>
       {/* <div className="container"> */}
       <Tabs
-        className={s.tableader}
+        className={s.tabLeader}
         selectedIndex={tabIndex}
         onSelect={(index) => setTabIndex(index)}
       >
         <TabList className={s.tabs}>
           <div className={s.tabwrapper}>
-            <Tab className={s.tab} selectedClassName={s.tabselected}>
+            <Tab className={s.tab} selectedClassName={s.tabSelected}>
               {tabs[0]}
             </Tab>
-            <Tab className={s.tab} selectedClassName={s.tabselected}>
+            <Tab className={s.tab} selectedClassName={s.tabSelected}>
               {tabs[1]}
             </Tab>
-            <Tab className={s.tab} selectedClassName={s.tabselected}>
+            <Tab className={s.tab} selectedClassName={s.tabSelected}>
               {tabs[2]}
             </Tab>
           </div>
@@ -122,7 +130,7 @@ function LayoutFull(props) {
                         polygons={[
                           props?.project?.levels[selectedLevel]?.flats[0],
                         ]}
-                        styleVarient={"levels1"}
+                        styleVarient="levels1"
                       />
                     </div>
                   </TabPanel>
@@ -130,28 +138,28 @@ function LayoutFull(props) {
                   <TabPanel>
                     <div className={s.genplanlayout}>
                       <LayoutPoligons
-                        layout={props?.project?.genlayout}
+                        layout={props?.project?.genLayout}
                         polygons={[thisBuilding]}
-                        styleVarient={"genplan"}
+                        styleVarient="genplan"
                       />
                     </div>
                   </TabPanel>
                   <TabList className={s.tabsmiddle}>
                     <Tab
                       className={s.tabmiddle}
-                      selectedClassName={s.tabselectedmiddle}
+                      selectedClassName={s.tabSelectedmiddle}
                     >
                       {tabsMiddle[0]}
                     </Tab>
                     <Tab
                       className={s.tabmiddle}
-                      selectedClassName={s.tabselectedmiddle}
+                      selectedClassName={s.tabSelectedmiddle}
                     >
                       {tabsMiddle[1]}
                     </Tab>
                     <Tab
                       className={s.tabmiddle}
-                      selectedClassName={s.tabselectedmiddle}
+                      selectedClassName={s.tabSelectedmiddle}
                     >
                       {tabsMiddle[2]}
                     </Tab>
@@ -193,7 +201,7 @@ function LayoutFull(props) {
                   layout={props?.project?.larder?.image}
                   polygons={props?.project?.larder?.slots}
                   infoVisible={infoVisible}
-                  styleVarient={"levels"}
+                  styleVarient="levels"
                   clickHandler={layoutClickHandler}
                 />
                 {infoVisible?.number && (
@@ -231,8 +239,8 @@ function LayoutFull(props) {
                   layout={props?.project?.parking?.image}
                   polygons={props?.project?.parking?.slots}
                   infoVisible={infoVisible}
-                  hidenumber={true}
-                  styleVarient={"parking"}
+                  hidenumber
+                  styleVarient="parking"
                   clickHandler={layoutClickHandler}
                 />
                 {infoVisible?.number && (
@@ -251,5 +259,15 @@ function LayoutFull(props) {
     </div>
   );
 }
+
+LayoutFull.propTypes = {
+  project: PropTypes.object,
+  layout: PropTypes.object,
+  tabIndex: PropTypes.number,
+};
+
+LayoutFull.defaultProps = {
+  tabIndex: 0,
+};
 
 export default LayoutFull;

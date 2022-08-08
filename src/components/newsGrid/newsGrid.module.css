@@ -41,6 +41,8 @@
 }
 
 .newscard {
+    max-width: 459px;
+    width: 100%;
     animation: displaying var(--transition2) forwards;
 }
 

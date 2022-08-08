@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import s from "./oneNewsText.module.css";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+
+import { Link, useParams} from "react-router-dom";
 import {withErrorBoundary} from "react-error-boundary"
 
 import Header from "../../components/header";
@@ -10,12 +9,11 @@ import Footer from "../../components/footer";
 import DashNav from "../../components/dashnav";
 import { NoMatchPage } from "../NoMatch";
 
-import { useParams } from "react-router-dom";
+import { newsCards } from "../../dummyData";
 
-import { newsCards } from "../../dummyData.js";
+import s from "./oneNewsText.module.css";
 
 function OneNews() {
-  const navigate = useNavigate();
   const [oneNews, setOneNews] = useState(null);
   const { newsId } = useParams();
 
@@ -30,8 +28,8 @@ function OneNews() {
   // });
 
   const wayArray = [
-    { title: <Link to="/" className="dashnav__link">Главная</Link> },
-    { title: <Link to="/newsandstocks/news" className="dashnav__link">Акции и новости</Link> },
+    { title: <Link to="/" className="dash-nav__link">Главная</Link> },
+    { title: <Link to="/new-sand-stocks/news" className="dash-nav__link">Акции и новости</Link> },
     { title: `${oneNews?.title}` },
   ];
 
@@ -43,15 +41,15 @@ function OneNews() {
         <DashNav wayArray={wayArray} />
       </div>
       <div className={s.oneNewsFull}>
-        <div className={s.mainpart}>
+        <div className={s.mainPart}>
           <div className="container">
-            <div className={s.textcontainer}>
+            <div className={s.textContainer}>
               <h2 className={`h2-title ${s.h2title}`}>{oneNews?.title}</h2>
-              <div className={s.maincontent}>
-                <div className={s.mainsection}>
-                  <h5 className={s.maintitle}>{oneNews?.title}</h5>
-                  <div className={s.paragraphwrapper}>
-                    <p className={s.mainparagraph}>
+              <div className={s.mainContent}>
+                <div className={s.mainSection}>
+                  <h5 className={s.mainTitle}>{oneNews?.title}</h5>
+                  <div className={s.paragraphWrapper}>
+                    <p className={s.mainParagraph}>
                       Кто подписан на нас в instagram, знает что мы активно
                       ведем работу по разработке стратегии компании. Некоторые
                       моменты описанные в ней будут для нас в новинку, так как
@@ -59,7 +57,7 @@ function OneNews() {
                       В частности, наше участие в различных социальных проектах,
                       или так называемая социальная ответственность.
                     </p>
-                    <p className={s.mainparagraph}>
+                    <p className={s.mainParagraph}>
                       Общая концепция компании «АСПЭК» всегда учитывала
                       потребности и интересы общества, так появился Храм
                       Иверской иконы Божией Матери, ежегодные субботники, в том
@@ -73,39 +71,39 @@ function OneNews() {
                       себе позволить рассказать о них, к примеру, в день когда
                       получаем соответствующую награду.
                     </p>
-                    <p className={s.mainparagraph}>
+                    <p className={s.mainParagraph}>
                       Сегодня, мы стали не просто финалистами, а победителями
                       региональной бизнес-премии «Твердые знаки 2021» в
                       номинации «Социальная ответственность».
                     </p>
                   </div>
-                  <ol className={s.mainol}>
-                    <li className={s.mainelem}>
+                  <ol className={s.mainOl}>
+                    <li className={s.mainElem}>
                       Утверждение устава Ассоциации, внесение в него изменений;
                     </li>
-                    <li className={s.mainelem}>
+                    <li className={s.mainElem}>
                       Избрание тайным голосованием членов постоянно действующего
                       коллегиального органа управления Ассоциации - Совета
                       Ассоциации, досрочное прекращение полномочий Совета
                       Ассоциации или досрочное прекращение полномочий отдельных
                       его членов;
                     </li>
-                    <li className={s.mainelem}>
+                    <li className={s.mainElem}>
                       Избрание тайным голосованием Председателя Совета
                       Ассоциации, досрочное прекращение его полномочий;
                     </li>
-                    <li className={s.mainelem}>
+                    <li className={s.mainElem}>
                       Установление размеров вступительного и регулярных членских
                       взносов, порядка их уплаты;
                     </li>
-                    <li className={s.mainelem}>
+                    <li className={s.mainElem}>
                       Установление размеров взносов в компенсационный фонд
                       Ассоциации, порядка его формирования, определение способов
                       размещения средств компенсационного фонда Ассоциации;
                     </li>
-                    <li className={s.mainelem}>Утверждение документов.</li>
+                    <li className={s.mainElem}>Утверждение документов.</li>
                   </ol>
-                  <p className={s.mainparagraph} data-justpar="true">
+                  <p className={s.mainParagraph} data-aloneparagraph="true">
                     Общая концепция компании «АСПЭК» всегда учитывала
                     потребности и интересы общества, так появился Храм Иверской
                     иконы Божией Матери, ежегодные субботники, в том числе с
@@ -119,13 +117,13 @@ function OneNews() {
                     к примеру, в день когда получаем соответствующую награду.
                   </p>
                 </div>
-                <div className={s.mainsection}>
-                  <h5 className={s.maintitle}>
+                <div className={s.mainSection}>
+                  <h5 className={s.mainTitle}>
                     Лес начинается с тебя новые экологичные проекты для
                     комфортной жизни
                   </h5>
-                  <div className={s.paragraphwrapper} data-padding="more">
-                    <p className={s.mainparagraph}>
+                  <div className={s.paragraphWrapper} data-padding="more">
+                    <p className={s.mainParagraph}>
                       Кто подписан на нас в instagram, знает что мы активно
                       ведем работу по разработке стратегии компании. Некоторые
                       моменты описанные в ней будут для нас в новинку, так как
@@ -133,7 +131,7 @@ function OneNews() {
                       В частности, наше участие в различных социальных проектах,
                       или так называемая социальная ответственность.
                     </p>
-                    <p className={s.mainparagraph}>
+                    <p className={s.mainParagraph}>
                       Общая концепция компании «АСПЭК» всегда учитывала
                       потребности и интересы общества, так появился Храм
                       Иверской иконы Божией Матери, ежегодные субботники, в том
@@ -147,46 +145,46 @@ function OneNews() {
                       себе позволить рассказать о них, к примеру, в день когда
                       получаем соответствующую награду.
                     </p>
-                    <p className={s.mainparagraph}>
+                    <p className={s.mainParagraph}>
                       Сегодня, мы стали не просто финалистами, а победителями
                       региональной бизнес-премии «Твердые знаки 2021» в
                       номинации «Социальная ответственность».
                     </p>
                   </div>
-                  <ul className={s.mainul}>
-                    <li className={s.mainelem}>
+                  <ul className={s.mainUl}>
+                    <li className={s.mainElem}>
                       Утверждение устава Ассоциации, внесение в него изменений;
                     </li>
-                    <li className={s.mainelem}>
+                    <li className={s.mainElem}>
                       Избрание тайным голосованием членов постоянно действующего
                       коллегиального органа управления Ассоциации - Совета
                       Ассоциации, досрочное прекращение полномочий Совета
                       Ассоциации или досрочное прекращение полномочий отдельных
                       его членов;
                     </li>
-                    <li className={s.mainelem}>
+                    <li className={s.mainElem}>
                       Избрание тайным голосованием Председателя Совета
                       Ассоциации, досрочное прекращение его полномочий;
                     </li>
-                    <li className={s.mainelem}>
+                    <li className={s.mainElem}>
                       Установление размеров вступительного и регулярных членских
                       взносов, порядка их уплаты;
                     </li>
-                    <li className={s.mainelem}>
+                    <li className={s.mainElem}>
                       Установление размеров взносов в компенсационный фонд
                       Ассоциации, порядка его формирования, определение способов
                       размещения средств компенсационного фонда Ассоциации;
                     </li>
-                    <li className={s.mainelem}>Утверждение документов.</li>
+                    <li className={s.mainElem}>Утверждение документов.</li>
                   </ul>
                 </div>
-                <div className={s.mainsection}>
-                  <h5 className={s.maintitle}>
+                <div className={s.mainSection}>
+                  <h5 className={s.mainTitle}>
                     Лес начинается с тебя новые экологичные проекты для
                     комфортной жизни
                   </h5>
-                  <div className={s.paragraphwrapper} data-padding="more">
-                    <p className={s.mainparagraph}>
+                  <div className={s.paragraphWrapper} data-padding="more">
+                    <p className={s.mainParagraph}>
                       Кто подписан на нас в instagram, знает что мы активно
                       ведем работу по разработке стратегии компании. Некоторые
                       моменты описанные в ней будут для нас в новинку, так как
@@ -194,7 +192,7 @@ function OneNews() {
                       В частности, наше участие в различных социальных проектах,
                       или так называемая социальная ответственность.
                     </p>
-                    <p className={s.mainparagraph}>
+                    <p className={s.mainParagraph}>
                       Общая концепция компании «АСПЭК» всегда учитывала
                       потребности и интересы общества, так появился Храм
                       Иверской иконы Божией Матери, ежегодные субботники, в том
@@ -222,8 +220,10 @@ function OneNews() {
 
 export default withErrorBoundary(OneNews, {
   fallbackRender: ()=><NoMatchPage/>,
-  onError(error, info){
-    console.log(error);
+  onError(error, info) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-console
     console.log(info);
-  }
+  },
 });

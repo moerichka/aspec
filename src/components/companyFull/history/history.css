@@ -13,6 +13,7 @@
     left: -500px;
 } */
 .history .swiper-slide{
+    transition: var(--transition);
     width: 15%;
 }
 .history .swiper-slide-active{

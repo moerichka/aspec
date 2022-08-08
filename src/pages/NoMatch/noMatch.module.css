@@ -59,18 +59,18 @@
     padding: 0 40px;
 }
 
-.rightpart405 {
+.rightPart405 {
     max-width: 378px;
 }
 
-.errortitle {
+.errorTitle {
     font-size: 22px;
     line-height: 32px;
     color: var(--blue);
     font-family: Montserrat-Bold;
 }
 
-.errordesc {
+.errorDesc {
     margin-top: 8px;
     color: var(--dark-gray-text);
     font-size: 16px;
@@ -91,8 +91,6 @@
     max-height: 256px;
 }
 
-.img406wrapper {}
-
 .img405 {
     max-width: 100%;
     object-fit: contain;
@@ -103,7 +101,7 @@
         padding: 80px 0 86px 0;
     }
 
-    .desctop {
+    .descTop {
         display: none;
     }
 
@@ -128,12 +126,12 @@
         min-width: 1px;
     }
 
-    .rightpart {
+    .rightPart {
         min-width: 260px;
         max-width: 260px;
     }
 
-    .errortitle {
+    .errorTitle {
         font-size: 20px;
         line-height: 24px;
     }
@@ -145,16 +143,16 @@
 }
 
 @media (max-width: 700px) {
-    .rightpart {
+    .rightPart {
         max-width: 300px;
         padding: 0 20px;
     }
 
-    .rightpart405 {
+    .rightPart405 {
         width: 300px;
     }
 
-    .errortitle {
+    .errorTitle {
         font-size: 16px;
         line-height: 24px;
         font-family: Montserrat-SemiBold;
@@ -185,7 +183,7 @@
         align-items: center;
     }
 
-    .rightpart405 {
+    .rightPart405 {
         min-width: unset;
         width: 100%;
     }
@@ -201,7 +199,7 @@
         gap: 22px;
     }
 
-    .rightpart {
+    .rightPart {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -215,7 +213,7 @@
 
 /* nopage */
 
-.errorcontent {
+.errorContent {
     margin-top: 98px;
     padding: 104px 0 134px 0;
     display: flex;
@@ -229,7 +227,7 @@
     max-height: 660px;
 }
 
-.nopagetitle {
+.noPageTitle {
     font-size: 20px;
     line-height: 24px;
     color: var(--blue);
@@ -240,7 +238,7 @@
     left: 50%;
 }
 
-.buttonnopage {
+.buttonNoPage {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
@@ -249,25 +247,25 @@
     width: 100%;
 }
 
-.imgnopagewrapper {
+.imgNoPageWrapper {
     width: 100%;
     height: 100%;
 }
 
-.imgnopage {
+.imgNoPage {
     width: 100%;
     object-fit: contain;
 }
 
 @media (max-width: 1240px) {
-    .errorcontent{
+    .errorContent{
         margin-top: 80px;
         padding: 89px 0 47px 0;
     }
 }
 
 @media (max-width: 745px) {
-    .errorcontent {
+    .errorContent {
         margin-top: 64px;
         padding: 59px 0 119px 0;
     }
@@ -279,7 +277,7 @@
         justify-items: center;
     }
 
-    .nopagetitle {
+    .noPageTitle {
         grid-row-start: 1;
         position: relative;
         top: unset;
@@ -288,7 +286,7 @@
         padding: 0 20px;
     }
 
-    .buttonnopage {
+    .buttonNoPage {
         margin-top: 30px;
         grid-row-start: 2;
         position: relative;
@@ -297,10 +295,10 @@
         bottom: unset;
         padding: 0 20px;
     }
-    .imgnopagewrapper {
+    .imgNoPageWrapper {
         margin-top: 46px;
         grid-row-start: 3;
     }
 }
 
-/* / nopage */
+/* / noPage */

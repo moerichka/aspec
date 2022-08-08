@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ScrollToTop from "./components/scrollToTop"
 import {withErrorBoundary} from "react-error-boundary"
 
+import ScrollToTop from "./components/scrollToTop"
 import Main from "./pages/Main";
 import Project from "./pages/Project";
 import Projects from "./pages/Projects";
@@ -33,13 +33,13 @@ function App() {
           <Route path="/project/:projectId/layout/:layoutId/larder" element={<Layout tabIndex={1}/>} />
           <Route path="/project/:projectId/layout/:layoutId/parking" element={<Layout tabIndex={2}/>} />
           <Route path="/project/:projectId/layout/:layoutId/pdf" element={<LayoutPdf />} />
-          <Route path="/newsandstocks/news" element={<News tabIndex={1}/>} />
-          <Route path="/newsandstocks/stocks" element={<News tabIndex={0}/>} />
+          <Route path="/new-sand-stocks/news" element={<News tabIndex={1}/>} />
+          <Route path="/new-sand-stocks/stocks" element={<News tabIndex={0}/>} />
           <Route path="/news/:newsId" element={<OneNews />} />
           <Route path="/buy" element={<Buy />} />
           <Route path="/contacts" element={<Contacts />} />
-          <Route path="/toinvestors" element={<ToInvestors />} />
-          <Route path="/estateselection" element={<EstateSelection />} />
+          <Route path="/to-investors" element={<ToInvestors />} />
+          <Route path="/estate-selection" element={<EstateSelection />} />
           <Route path="/company" element={<Company />} />
           <Route path="/news/:newsId/text" element={<OneNewsText />} />
           <Route path="/favorites" element={<Favorites />} />

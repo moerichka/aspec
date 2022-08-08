@@ -1,12 +1,14 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from "react";
-import Button from "../button/Button";
-import s from "./newsGrid.module.css";
-
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
+import Button from "../button/Button";
+
 import { newsCards } from "../../dummyData";
 import NewsCard from "../newsCard";
+
+import s from "./newsGrid.module.css";
 
 function NewsGrid(props) {
   const [newsArray, setNewsArray] = useState(null);
@@ -20,7 +22,7 @@ function NewsGrid(props) {
   return (
     <div className={s.newsGrid}>
       <div className={`container ${s.container}`}>
-        {props?.titlewrapper && (
+        {props?.titleWrapper && (
           <div className={`titleWrapper ${s.titleWrapper}`}>
             <h2 className={`h2-title ${s.title}`}>{props?.title}</h2>
             {props?.desc && (
@@ -35,9 +37,9 @@ function NewsGrid(props) {
             <Button
               content="Все новости"
               width="183px"
-              bgColor="blue"
+              BGColor="blue"
               onClick={() => {
-                navigate(`/newsandstocks/news`);
+                navigate(`/new-sand-stocks/news`);
               }}
             />
           </div>
@@ -45,18 +47,22 @@ function NewsGrid(props) {
         <div className={s.grid}>
           {newsArray?.map(
             (news, index) =>
-              index < maxAmountNews && <div className={s.newscard}>
-                <NewsCard key={news.id} {...news} />
-              </div>
+              index < maxAmountNews && (
+                <div className={s.newscard} key={news?.id}>
+                  <NewsCard {...news} />
+                </div>
+              )
           )}
         </div>
-        {props?.buttonShowMore && maxAmountNews + 3 <= newsArray?.length &&   (
+        {props?.buttonShowMore && maxAmountNews + 3 <= newsArray?.length && (
           <div className={s.buttonShowMoreWrapper}>
             <Button
               content="Показать еще"
               width="184px"
-              bgColor="blue"
-              onClick={() => {setMaxAmountNews(prev => prev+3)}}
+              BGColor="blue"
+              onClick={() => {
+                setMaxAmountNews((prev) => prev + 3);
+              }}
             />
           </div>
         )}
@@ -71,6 +77,7 @@ NewsGrid.propTypes = {
   buttonShowMore: PropTypes.bool,
   buttonAll: PropTypes.bool,
   maxAmountNews: PropTypes.number,
+  titleWrapper: PropTypes.bool,
 };
 
 NewsGrid.defaultProps = {
@@ -79,6 +86,7 @@ NewsGrid.defaultProps = {
   buttonShowMore: false,
   buttonAll: true,
   maxAmountNews: 3,
+  titleWrapper: false,
 };
 
 export default NewsGrid;

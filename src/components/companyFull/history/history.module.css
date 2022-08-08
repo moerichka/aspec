@@ -51,7 +51,7 @@
     transform: rotate(180deg);
 }
 
-.swiperwrapper {
+.swiperWrapper {
     max-width: 1537px;
     width: 100%;
     padding: 0 46px;
@@ -239,7 +239,7 @@
         margin: 0 10px;
     }
 
-    .swiperwrapper {
+    .swiperWrapper {
         padding: 0;
     }
 

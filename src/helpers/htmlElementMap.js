@@ -2,8 +2,7 @@ import { dateConverterToQuarter } from "./dateFun";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
-export const houseCardMap = (elem)=>{
-    return `<div class="houseCard-map">
+export const houseCardMap = (elem)=>`<div class="houseCard-map">
     <div class="houseCard__container">
       <div class="houseCard__imageWrapper-map">
         <div class="houseCard__imageNotifications">
@@ -24,14 +23,14 @@ export const houseCardMap = (elem)=>{
           <span class="houseCard__price">
             от
             <span class="houseCard__priceBold">
-             ${elem?.minPrice/1000000 } млн 
+             ${elem.minPrice ? elem.minPrice / 1000000 : "Не указано"} млн 
             </span>
             ₽
           </span>
         </div>
-        <div class="houseCard__adressWrapper">
+        <div class="houseCard__addressWrapper">
           <span class="houseCard__icon icon-location"></span>
-          <span class="houseCard__adress">${elem?.adress}</span>
+          <span class="houseCard__address">${elem?.address}</span>
         </div>
       </div>
       <div class=" houseCard__moreInfoWrapper-map">
@@ -40,7 +39,7 @@ export const houseCardMap = (elem)=>{
             ${elem?.flats?.map((flat) => (
               `<li class="houseCard__flat" >
                 <span class="houseCard__flatType">${flat?.name} ${flat?.name !== "Студия" ? "квартиры" : ""}</span>
-                <span class="houseCard__flatPrice">от ${flat?.price/1000000 } млн ₽</span>
+                <span class="houseCard__flatPrice">от ${flat.price ? flat.price / 1000000 : "Не указано" } млн ₽</span>
               </li>`
             )).join('')}
           </ul>
@@ -56,8 +55,7 @@ export const houseCardMap = (elem)=>{
         </div>
       </div>
     </div>
-  </div>`
-} //href="/project/${elem.id}" 
+  </div>` // href="/project/${elem.id}" 
 
 export const legendMap = (elem) => `
   <div class="infrastructure__mapBallon">

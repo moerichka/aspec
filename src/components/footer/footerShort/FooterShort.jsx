@@ -1,15 +1,18 @@
 import React from "react";
-import s from "./footerShort.module.css";
+
 import { Link } from "react-router-dom";
 
 import logo from "../../../assets/images/logo.svg";
-import headerBar from "../../../assets/images/Elem1.png";
 import logoCULT from "../../../assets/images/logo-cult.svg";
 
-export function FooterShort() {
+import Bar from "../../bar";
+
+import s from "./footerShort.module.css";
+
+function FooterShort() {
   return (
     <footer className={s.footer}>
-      <img src={headerBar} alt="" className={s.bar} />
+      <Bar />
       <div className={s.container}>
         <div className={s.top}>
           <Link to="/" className={s.logoWrapper}>
@@ -18,7 +21,7 @@ export function FooterShort() {
           <div className={s.topContainer}>
             <div className={s.infoWrapper}>
               <div className={s.infoTitle}>
-                <span className={`${s.infoIcon} icon-location`}></span>
+                <span className={`${s.infoIcon} icon-location`} />
                 <span>Адрес офиса продаж</span>
               </div>
               <div className={s.infoDescWrapper}>
@@ -29,7 +32,7 @@ export function FooterShort() {
             </div>
             <div className={s.infoWrapper}>
               <div className={s.infoTitle}>
-                <span className={`${s.infoIcon} icon-clock`}></span>
+                <span className={`${s.infoIcon} icon-clock`} />
                 <span>Режим работы</span>
               </div>
               <span className={s.infoDesc}>
@@ -79,3 +82,5 @@ export function FooterShort() {
     </footer>
   );
 }
+
+export default FooterShort

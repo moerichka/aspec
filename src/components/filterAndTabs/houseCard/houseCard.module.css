@@ -113,7 +113,7 @@
     font-family: Montserrat-SemiBold;
 }
 
-.adress {
+.address {
     font-family: Neris-Light;
     font-size: 16px;
     line-height: 21px;
@@ -203,7 +203,7 @@
     color: var(--green-hover);
 }
 
-.adressWrapper {
+.addressWrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -248,7 +248,7 @@
         line-height: 17px;
     }
 
-    .adress {
+    .address {
         font-size: 16px;
         line-height: 21px;
     }
@@ -272,7 +272,7 @@
         line-height: 17px;
     }
 
-    .adress {
+    .address {
         font-size: 14px;
         line-height: 19px;
     }
