@@ -124,6 +124,10 @@
     }
 }
 
+.layoutContainer{
+    width: 100%;
+}
+
 .layoutwrapper {
     width: 100%;
     position: relative;
